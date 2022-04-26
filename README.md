@@ -4,6 +4,8 @@
 
 <!---[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)-->
 
+--- TO BE UPDATED ---
+
 The TEASER+ extension is developed by members of the "Institute of Energy Efficiency and Sustainable Building (e3D), RWTH Aachen University" using Python 3.5+.
 This extension is based on the "Tool for Energy Analysis and Simulation for Efficient Retrofit (TEASER)" and can be used to import and export CiyGML data sets with or without Energy ADE version 1.0.
 The TEASER+ extension aims to help the simulation scientists to facilitate energy performance simulations using CityGML models.
