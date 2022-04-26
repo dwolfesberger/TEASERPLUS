@@ -1,0 +1,3680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.logic.buildingobjects.building API documentation</title>
+<meta name="description" content="This module includes the Building class" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.logic.buildingobjects.building</code></h1>
+</header>
+<section id="section-intro">
+<p>This module includes the Building class</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># created June 2015
+# by TEASER4 Development Team
+
+&#34;&#34;&#34;This module includes the Building class
+&#34;&#34;&#34;
+import inspect
+import random
+import uuid
+import re
+import warnings
+from teaser.logic.buildingobjects.calculation.aixlib import AixLib
+from teaser.logic.buildingobjects.calculation.ibpsa import IBPSA
+from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+
+from teaser.logic.buildingobjects.buildingsystems.buildingahu import BuildingAHU
+
+
+class Building(object):
+    &#34;&#34;&#34;Building Class
+
+    This class is used to manage information and parameter calculation for
+    Buildings. It is the base class for all archetype buildings and holds a
+    list containing all ThermalZones instances. In addition it can hold an
+    optional attribute for CentralAHU instance, that is e.g. needed for
+    AixLib Simulation models.
+
+    Parameters
+    ----------
+
+    parent: Project()
+        The parent class of this object, the Project the Building belongs to.
+        Allows for better control of hierarchical structures. If not None it
+        adds this Building instance to Project.buildings.
+        (default: None)
+    name : str
+        Individual name (default: None)
+    year_of_construction : int
+        Year of first construction (default: None)
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the footprint
+        of a building (default: None)
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated and
+        assigned to attribute central_ahu. This instance holds information for
+        central Air Handling units. Default is False.
+    internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+
+    Attributes
+    ----------
+    central_ahu : instance of BuildingAHU
+        Teaser Instance of BuildingAHU if a central AHU is embedded into the
+        building (currently mostly needed for AixLib simulation).
+    number_of_floors : int
+        number of floors above ground (default: None)
+    height_of_floors : float [m]
+        Average height of the floors (default: None)
+    internal_id : float
+        Random id for the distinction between different buildings.
+    year_of_retrofit : int
+        Year of last retrofit.
+    type_of_building : string
+        Type of a Building (e.g. Building (unspecified), Office etc.).
+    building_id : None
+        ID of building, can be set by the user to keep track of a building
+        even outside of TEASER, e.g. in a simulation or in post-processing.
+        This is not the same as internal_id, as internal_id is e.g. not
+        exported to Modelica models!
+    street_name : string
+        Name of the street the building is located at. (optional)
+    city : string
+        Name of the city the building is located at. (optional)
+    longitude : float [degree]
+        Longitude of building location.
+    latitude : float [degree]
+        Latitude of building location.
+    thermal_zones : list
+        List with instances of ThermalZone(), that are located in this building.
+    outer_area : dict [degree: m2]
+        Dictionary with orientation as key and sum of outer wall areas of
+        that direction as value.
+    window_area : dict [degree: m2]
+        Dictionary with orientation as key and sum of window areas of
+        that direction as value.
+    bldg_height : float [m]
+        Total building height.
+    volume : float [m3]
+        Total volume of all thermal zones.
+    sum_heat_load : float [W]
+        Total heating load of all thermal zones.
+    sum_cooling_load : float [W]
+        Total heating load of all thermal zones. (currently not supported)
+    number_of_elements_calc : int
+        Number of elements that are used for thermal zone calculation in this
+        building.
+        1: OneElement
+        2: TwoElement
+        3: ThreeElement
+        4: FourElement
+    merge_windows_calc : boolean
+        True for merging the windows into the outer wall&#39;s RC-combination,
+        False for separate resistance for window, default is False. (Only
+        supported for IBPSA)
+    used_library_calc : str
+        &#39;AixLib&#39; for https://github.com/RWTH-EBC/AixLib
+        &#39;IBPSA&#39; for https://github.com/ibpsa/modelica
+    library_attr : Annex() or AixLib() instance
+        Classes with specific functions and attributes for building models in
+        IBPSA and AixLib. Python classes can be found in calculation package.
+    lca_data : En15804LcaData
+        enviromental indicators of the building. The data referencing to
+        one building
+    additional_lca_data : En15804LcaData
+        additional environmental indicators to the indicators from the 
+        buildingelements (e.g.central heating system)
+    _estimate_elec_demand : float [MJ]
+        estimate annual electric demand of the building (without heating)
+    simulated_heat_load : list
+        heat load simulated for this building. Value is used to calculated the
+        enviromental indicators for heating
+
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        parent=None,
+        name=None,
+        year_of_construction=None,
+        net_leased_area=None,
+        with_ahu=False,
+        internal_gains_mode=1,
+    ):
+        &#34;&#34;&#34;Constructor of Building Class
+        &#34;&#34;&#34;
+
+        self.parent = parent
+        self.name = name
+        self.year_of_construction = year_of_construction
+        self.net_leased_area = net_leased_area
+        self._with_ahu = with_ahu
+
+        if with_ahu is True:
+            self.central_ahu = BuildingAHU(self)
+        else:
+            self._central_ahu = None
+
+        self.internal_gains_mode = internal_gains_mode
+        self.number_of_floors = None
+        self.height_of_floors = None
+        self.internal_id = uuid.uuid1()
+        self._year_of_retrofit = None
+        self.type_of_building = type(self).__name__
+        self.building_id = None
+        self.street_name = &#34;&#34;
+        self.city = &#34;&#34;
+        self.longitude = 6.05
+        self.latitude = 50.79
+
+        self.gml_surfaces = []
+        self._thermal_zones = []
+        self._outer_area = {}
+        self._window_area = {}
+
+        self.bldg_height = None
+        self.volume = 0
+        self.sum_heat_load = 0
+        self.sum_cooling_load = 0
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+        
+        self._lca_data = None
+        self._additional_lca_data = None
+        
+        self._estimate_elec_demand = None
+        self._simulated_heat_load = None
+
+        self.library_attr = None
+
+    def set_height_gml(self):
+        &#34;&#34;&#34;Calculates the height of a building from CityGML data
+
+        With given gml surfaces, this function computes the height of a
+        building of LoD 1 and LoD 2 buildings from CityGML data. All
+        z-coordinates are evaluated and the minimum z-value is subtracted
+        by the maximal value.
+
+        &#34;&#34;&#34;
+        if self.bldg_height is not None:
+            pass
+        else:
+            max_help = 0
+            min_help = 9999
+            for surface in self.gml_surfaces:
+                z_value = surface.gml_surface[2::3]
+                max_help = max(max_help, max(z_value))
+                min_help = min(min_help, min(z_value))
+            self.bldg_height = max_help - min_help
+
+    def get_footprint_gml(self, merge_building_part=False):
+        &#34;&#34;&#34;Gets the footprint surface of a building from CityGML data
+
+        with given gml surfaces, this function computes and returns the
+        footprint area of a building from LoD 0 to LoD2 from CityGML data.
+        This is done by either analysing the ground floor or the flat roof.
+
+        Returns
+        ----------
+        surface area : float
+            footprint area of a gml building
+
+        &#34;&#34;&#34;
+        surface_max_help = []
+        for surface in self.gml_surfaces:
+            # print(surface.surface_area, surface.surface_orientation, surface.surface_tilt)
+            if surface.surface_orientation == -2 or surface.surface_orientation == -1 and surface.surface_tilt == \
+                    0.0:
+                surface_max_help.append(surface.surface_area)
+        if merge_building_part is False:
+            max_area = max(surface_max_help)
+        else:
+            max_area = sum(surface_max_help)
+        return max_area
+
+    def set_gml_attributes(self, height_of_floor=3.5, merge_building_part=False):
+        &#34;&#34;&#34;Sets building attributes from CityGML data
+
+        Computes the net_leased_area depending on the footprint area,
+        the number and the height of floors. If the number of floors is
+        specified before it will use this value, if not it will compute the
+        number of floors based on the gml building height and the average
+        height of the floors. If the number of floors is zero it&#39;ll be set to
+        one. If the net leased area is below 50.0 sqm it&#39;ll be set to 50.0.
+
+        Parameters
+        ----------
+        height_of_floor : float
+            average height of each floor of the building, the default value
+            is 3.5 and is absolutely random.
+        &#34;&#34;&#34;
+
+        if self.bldg_height is None:
+            raise AttributeError(&#34;Building height needs to be defined for gml&#34;)
+
+        if self.height_of_floors is None and self.number_of_floors is None:
+            self.height_of_floors = height_of_floor
+        elif self.height_of_floors is None and self.number_of_floors is not \
+                None:
+            self.height_of_floors = self.bldg_height / self.number_of_floors
+        else:
+            pass
+
+        if self.number_of_floors is not None:
+            self.net_leased_area = self.get_footprint_gml() * \
+                                   self.number_of_floors
+            return
+
+        else:
+            self.number_of_floors = int(round((self.bldg_height /
+                                               self.height_of_floors)))
+            if self.number_of_floors == 0:
+                self.number_of_floors = 1
+            if merge_building_part is False:
+                self.net_leased_area = self.get_footprint_gml() * \
+                                       self.number_of_floors
+            else:
+                self.net_leased_area = self.get_footprint_gml(merge_building_part=True) * \
+                                       self.number_of_floors
+
+            if self.net_leased_area &lt; 50.0:
+                raise Exception(&#39;The calculated net leased area is under 50m²&#39;)
+                # self.net_leased_area = 50.0
+
+    def set_outer_wall_area(self, new_area, orientation, tilt=None):
+        &#34;&#34;&#34;Outer area wall setter
+
+        sets the outer wall area of all walls of one direction and weights
+        them according to zone size. This function covers OuterWalls,
+        Rooftops, GroundFloors.
+
+        Parameters
+        ----------
+        tilt: float
+            inclination of the obtained walls
+        new_area : float
+            new_area of all outer walls of one orientation
+        orientation : float
+            orientation of the obtained walls
+        &#34;&#34;&#34;
+
+        for zone in self.thermal_zones:
+            if tilt is not None:
+                for wall in zone.outer_walls:
+                    if wall.orientation == orientation and wall.tilt == tilt:
+                        wall.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.outer_walls
+                        )
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == wall.orientation:
+                        #         wall.area -= win.area
+                for roof in zone.rooftops:
+                    if roof.orientation == orientation and roof.tilt == tilt:
+                        roof.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.rooftops)
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == wall.orientation:
+                        #         wall.area -= win.area
+
+                for ground in zone.ground_floors:
+                    if ground.orientation == orientation  and new_area &gt; 50:
+                        if new_area &lt; 1:
+                            raise Exception(&#39;ground&#39;)
+                        else:
+                            ground.area = ((new_area / self.net_leased_area) * zone.area)
+
+                for door in zone.doors:
+                    if door.orientation == orientation:
+                        door.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.doors
+                        )
+            else:
+                for zone in self.thermal_zones:
+                    for wall in zone.outer_walls:
+                        if wall.orientation == orientation:
+                            wall.area = ((new_area / self.net_leased_area) * zone.area)
+                            # Addition for LoD3 and LoD4
+                            # for win in zone.windows:
+                            #     if win.area is not None and win.orientation == wall.orientation:
+                            #         wall.area -= win.area
+                    for roof in zone.rooftops:
+                        if roof.orientation == orientation:
+                            roof.area = ((new_area / self.net_leased_area) * zone.area)
+                            # Addition for LoD3 and LoD4
+                            # for win in zone.windows:
+                            #     if win.area is not None and win.orientation == roof.orientation and win.tilt == roof.tilt:
+                            #         roof.area -= win.area
+                            #         print(roof.area, &#34;roof-window&#34;)
+                    for ground in zone.ground_floors:
+                        if ground.orientation == orientation and new_area &gt; 50:
+                            if new_area &lt; 1:
+                                raise Exception(&#39;ground&#39;)
+                            else:
+                                ground.area = ((new_area / self.net_leased_area) * zone.area)
+                    for door in zone.doors:
+                        if door.orientation == orientation:
+                            door.area = (
+                                    ((new_area / self.net_leased_area) * zone.area) /
+                                    sum(count.orientation == orientation for count in
+                                        zone.doors))
+
+    def set_window_area(self, new_area, orientation):
+        &#34;&#34;&#34;Window area setter
+
+        sets the window area of all windows of one direction and weights
+        them according to zone size
+
+        Parameters
+        ----------
+        new_area : float
+            new_area of all window of one orientation
+        orientation : float
+            orientation of the obtained windows
+        &#34;&#34;&#34;
+
+        for zone in self.thermal_zones:
+            for win in zone.windows:
+                if win.orientation == orientation:
+                    win.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                        count.orientation == orientation for count in zone.windows
+                    )
+
+    def get_outer_wall_area(self, orientation):
+        &#34;&#34;&#34;Get aggregated wall area of one orientation
+
+        Returns the area of all outer walls of one direction. This function
+        covers OuterWalls, GroundFloors and Rooftops.
+
+        Parameters
+        ----------
+        orientation : float
+            orientation of the obtained wall
+        Returns
+        ----------
+        sum_area : float
+            area of all walls of one direction
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.outer_walls:
+                if wall_count.orientation == orientation and wall_count.area is not None:
+                    sum_area += wall_count.area
+            for roof_count in zone_count.rooftops:
+                if roof_count.orientation == orientation and roof_count.area is not None:
+                    sum_area += roof_count.area
+            for ground_count in zone_count.ground_floors:
+                if (
+                    ground_count.orientation == orientation
+                    and ground_count.area is not None
+                ):
+                    sum_area += ground_count.area
+        return sum_area
+
+    def get_window_area(self, orientation):
+        &#34;&#34;&#34;Get aggregated window area of one orientation
+
+        returns the area of all windows of one direction
+
+        Parameters
+        ----------
+        orientation : float
+            orientation of the obtained windows
+        Returns
+        ----------
+        sum_area : float
+            area of all windows of one direction
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for win_count in zone_count.windows:
+                if win_count.orientation == orientation and win_count.area is not None:
+                    sum_area += win_count.area
+        return sum_area
+
+    def get_inner_wall_area(self):
+        &#34;&#34;&#34;Get aggregated inner wall area
+
+        Returns the area of all inner walls. This function covers InnerWalls,
+        Ceilings and Floors.
+
+        Returns
+        ----------
+        sum_area : float
+            area of all inner walls
+
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.inner_walls:
+                sum_area += wall_count.area
+            for floor in zone_count.floors:
+                sum_area += floor.area
+            for ceiling in zone_count.ceilings:
+                sum_area += ceiling.area
+        return sum_area
+
+    def fill_outer_area_dict(self):
+        &#34;&#34;&#34;Fills the attribute outer_area
+
+        Fills the dictionary outer_area with the sum of outer wall area
+        corresponding to the orientations of the building. This function
+        covers OuterWalls, GroundFloors and Rooftops.
+
+        &#34;&#34;&#34;
+        self.outer_area = {}
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.outer_walls:
+                self.outer_area[wall_count.orientation] = None
+            for roof in zone_count.rooftops:
+                self.outer_area[roof.orientation] = None
+            for ground in zone_count.ground_floors:
+                self.outer_area[ground.orientation] = None
+        for key in self.outer_area:
+            self.outer_area[key] = self.get_outer_wall_area(key)
+
+    def fill_window_area_dict(self):
+        &#34;&#34;&#34;Fills the attribute
+
+        Fills the dictionary window_area with the sum of window area
+        corresponding to the orientations of the building.
+
+        &#34;&#34;&#34;
+        self.window_area = {}
+        for zone_count in self.thermal_zones:
+            for win_count in zone_count.windows:
+                self.window_area[win_count.orientation] = None
+
+        for key in self.window_area:
+            self.window_area[key] = self.get_window_area(key)
+
+    def calc_building_parameter(
+        self, number_of_elements=2, merge_windows=False, used_library=&#34;AixLib&#34;
+    ):
+        &#34;&#34;&#34;calc all building parameters
+
+        This functions calculates the parameters of all zones in a building
+        sums norm heat load of all zones
+        sums volume of all zones
+
+        Parameters
+        ----------
+        number_of_elements : int
+            defines the number of elements, that area aggregated, between 1
+            and 4, default is 2
+        merge_windows : bool
+            True for merging the windows into the outer walls, False for
+            separate resistance for window, default is False
+        used_library : str
+            used library (AixLib and IBPSA are supported)
+        &#34;&#34;&#34;
+
+        self._number_of_elements_calc = number_of_elements
+        self._merge_windows_calc = merge_windows
+        self._used_library_calc = used_library
+
+        for zone in self.thermal_zones:
+            zone.calc_zone_parameters(
+                number_of_elements=number_of_elements,
+                merge_windows=merge_windows,
+                t_bt=5,
+            )
+            self.sum_heat_load += zone.model_attr.heat_load
+
+        if self.used_library_calc == self.library_attr.__class__.__name__:
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr.calc_auxiliary_attr()
+            else:
+                pass
+        elif self.library_attr is None:
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr = AixLib(parent=self)
+                self.library_attr.calc_auxiliary_attr()
+            elif self.used_library_calc == &#34;IBPSA&#34;:
+                self.library_attr = IBPSA(parent=self)
+        else:
+            warnings.warn(
+                &#34;You set conflicting options for the used library &#34;
+                &#34;in Building or Project class and &#34;
+                &#34;calculation function of building. Your library &#34;
+                &#34;attributes are set to default using the library &#34;
+                &#34;you indicated in the function call, which is: &#34;
+                + self.used_library_calc
+            )
+
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr = AixLib(parent=self)
+                self.library_attr.calc_auxiliary_attr()
+            elif self.used_library_calc == &#34;IBPSA&#34;:
+                self.library_attr = IBPSA(parent=self)
+
+    def retrofit_building(
+        self,
+        year_of_retrofit=None,
+        type_of_retrofit=None,
+        window_type=None,
+        material=None,
+    ):
+        &#34;&#34;&#34;Retrofits all zones in the building
+
+        Function call for each zone.
+
+        After retrofit, all parameters are calculated directly.
+
+        Parameters
+        ----------
+        year_of_retrofit : float
+            Year of last retrofit.
+        type_of_retrofit : str
+            The classification of retrofit, if the archetype building
+            approach of TABULA is used.
+        window_type : str
+            Default: EnEv 2014
+        material : str
+            Default: EPS035
+        &#34;&#34;&#34;
+
+        #  Set self.sum_heat_load to zero to prevent summing up of old and new
+        #  design heat load calculation values (see #518)
+        self.sum_heat_load = 0
+
+        if year_of_retrofit is not None:
+            self.year_of_retrofit = year_of_retrofit
+
+        for zone in self.thermal_zones:
+            zone.retrofit_zone(type_of_retrofit, window_type, material)
+
+        self.calc_building_parameter(
+            number_of_elements=self.number_of_elements_calc,
+            merge_windows=self.merge_windows_calc,
+            used_library=self.used_library_calc,
+        )
+
+    def rotate_building(self, angle):
+        &#34;&#34;&#34;Rotates the building to a given angle
+
+        This function covers OuterWall, Rooftop (if not flat roof) and Windows.
+
+        Parameters
+        ----------
+
+        angle: float
+            rotation of the building clockwise, between 0 and 360 degrees
+        &#34;&#34;&#34;
+
+        for zone_count in self.thermal_zones:
+            new_angle = None
+            for wall_count in zone_count.outer_walls:
+                new_angle = wall_count.orientation + angle
+                if new_angle &gt; 360.0:
+                    wall_count.orientation = new_angle - 360.0
+                else:
+                    wall_count.orientation = new_angle
+            for roof_count in zone_count.rooftops:
+                if roof_count.orientation != -1:
+                    new_angle = roof_count.orientation + angle
+                    if new_angle &gt; 360.0:
+                        roof_count.orientation = new_angle - 360.0
+                    else:
+                        roof_count.orientation = new_angle
+                else:
+                    pass
+            for win_count in zone_count.windows:
+                new_angle = win_count.orientation + angle
+                if new_angle &gt; 360.0:
+                    win_count.orientation = new_angle - 360.0
+                else:
+                    win_count.orientation = new_angle
+
+    def add_zone(self, thermal_zone):
+        &#34;&#34;&#34;Adds a thermal zone to the corresponding list
+
+        This function adds a ThermalZone instance to the the thermal_zones list
+
+        Parameters
+        ----------
+        thermal_zone : ThermalZone()
+            ThermalZone() instance of TEASER
+        &#34;&#34;&#34;
+
+        ass_error_1 = &#34;Zone has to be an instance of ThermalZone()&#34;
+
+        assert type(thermal_zone).__name__ == &#34;ThermalZone&#34;, ass_error_1
+
+        self._thermal_zones.append(thermal_zone)
+
+    @property
+    def parent(self):
+        return self.__parent
+
+    @parent.setter
+    def parent(self, value):
+
+        if value is not None:
+
+            ass_error_1 = &#34;Parent has to be an instance of Project()&#34;
+
+            assert type(value).__name__ == &#34;Project&#34;, ass_error_1
+
+            self.__parent = value
+
+            if inspect.isclass(Building):
+                if self in self.__parent.buildings:
+                    pass
+                else:
+                    self.__parent.buildings.append(self)
+
+        else:
+
+            self.__parent = None
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+            self.__name = regex.sub(&#34;&#34;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+                self.__name = regex.sub(&#34;&#34;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+        if self.__name[0].isdigit():
+            self.__name = &#34;B&#34; + self.__name
+
+    @property
+    def year_of_construction(self):
+        return self.__year_of_construction
+
+    @year_of_construction.setter
+    def year_of_construction(self, value):
+
+        if isinstance(value, int) or value is None:
+
+            self.__year_of_construction = value
+        else:
+            try:
+                value = int(value)
+                self.__year_of_construction = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert year of construction to int&#34;)
+
+    @property
+    def number_of_floors(self):
+        return self.__number_of_floors
+
+    @number_of_floors.setter
+    def number_of_floors(self, value):
+
+        if isinstance(value, int) or value is None:
+
+            self.__number_of_floors = value
+        else:
+            try:
+                value = int(value)
+                self.__number_of_floors = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert number of floors to int&#34;)
+
+    @property
+    def height_of_floors(self):
+        return self.__height_of_floors
+
+    @height_of_floors.setter
+    def height_of_floors(self, value):
+
+        if isinstance(value, float) or value is None:
+
+            self.__height_of_floors = value
+        else:
+            try:
+                value = float(value)
+                self.__height_of_floors = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert height of floors to float&#34;)
+
+    @property
+    def net_leased_area(self):
+        return self.__net_leased_area
+
+    @net_leased_area.setter
+    def net_leased_area(self, value):
+
+        if isinstance(value, float):
+            self.__net_leased_area = value
+        elif value is None:
+            self.__net_leased_area = value
+        else:
+            try:
+                value = float(value)
+                self.__net_leased_area = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert net leased area to float&#34;)
+
+    @property
+    def thermal_zones(self):
+        return self._thermal_zones
+
+    @thermal_zones.setter
+    def thermal_zones(self, value):
+
+        if value is None:
+            self._thermal_zones = []
+
+    @property
+    def outer_area(self):
+        return self._outer_area
+
+    @outer_area.setter
+    def outer_area(self, value):
+        self._outer_area = value
+
+    @property
+    def window_area(self):
+        return self._window_area
+
+    @window_area.setter
+    def window_area(self, value):
+        self._window_area = value
+
+    @property
+    def year_of_retrofit(self):
+        return self._year_of_retrofit
+
+    @year_of_retrofit.setter
+    def year_of_retrofit(self, value):
+        if self.year_of_construction is not None:
+            self._year_of_retrofit = value
+        else:
+            raise ValueError(&#34;Specify year of construction first&#34;)
+
+    @property
+    def with_ahu(self):
+        return self._with_ahu
+
+    @with_ahu.setter
+    def with_ahu(self, value):
+
+        if value is True and self.central_ahu is None:
+            self.central_ahu = BuildingAHU(self)
+            self._with_ahu = True
+        elif value is False and self.central_ahu:
+            self.central_ahu = None
+            self._with_ahu = False
+
+    @property
+    def central_ahu(self):
+        return self._central_ahu
+
+    @central_ahu.setter
+    def central_ahu(self, value):
+
+        if value is None:
+            self._central_ahu = value
+        else:
+
+            ass_error_1 = &#34;central AHU has to be an instance of BuildingAHU()&#34;
+
+            assert type(value).__name__ == &#34;BuildingAHU&#34;, ass_error_1
+
+            self._central_ahu = value
+
+    @property
+    def number_of_elements_calc(self):
+
+        return self._number_of_elements_calc
+
+    @number_of_elements_calc.setter
+    def number_of_elements_calc(self, value):
+
+        ass_error_1 = &#34;calculation_method has to be 1,2,3 or 4&#34;
+
+        assert value != [1, 2, 3, 4], ass_error_1
+
+        if self.parent is None and value is None:
+            self._number_of_elements_calc = 2
+        elif self.parent is not None and value is None:
+            self._number_of_elements_calc = self.parent.number_of_elements_calc
+        elif value is not None:
+            self._number_of_elements_calc = value
+
+    @property
+    def merge_windows_calc(self):
+
+        return self._merge_windows_calc
+
+    @merge_windows_calc.setter
+    def merge_windows_calc(self, value):
+
+        ass_error_1 = &#34;merge windows needs to be True or False&#34;
+
+        assert value != [True, False], ass_error_1
+
+        if self.parent is None and value is None:
+            self._merge_windows_calc = 2
+        elif self.parent is not None and value is None:
+            self._merge_windows_calc = self.parent.merge_windows_calc
+        elif value is not None:
+            self._merge_windows_calc = value
+
+    @property
+    def used_library_calc(self):
+
+        return self._used_library_calc
+
+    @used_library_calc.setter
+    def used_library_calc(self, value):
+
+        ass_error_1 = &#34;used library needs to be AixLib or IBPSA&#34;
+
+        assert value != [&#34;AixLib&#34;, &#34;IBPSA&#34;], ass_error_1
+
+        if self.parent is None and value is None:
+            self._used_library_calc = &#34;AixLib&#34;
+        elif self.parent is not None and value is None:
+            self._used_library_calc = self.parent.used_library_calc
+        elif value is not None:
+            self._used_library_calc = value
+
+        if self.used_library_calc == &#34;AixLib&#34;:
+            self.library_attr = AixLib(parent=self)
+        elif self.used_library_calc == &#34;IBPSA&#34;:
+            self.library_attr = IBPSA(parent=self)
+            
+    @property
+    def lca_data(self):
+        return self._lca_data
+
+    @lca_data.setter
+    def lca_data(self, value):
+        self._lca_data = value
+    
+    @property
+    def additional_lca_data(self):
+        return self._additional_lca_data
+    
+    @additional_lca_data.setter
+    def additional_lca_data(self, value):
+        self._additional_lca_data = value
+        
+    @property
+    def simulated_heat_load(self):
+        return self._simulated_heat_load
+    
+    @simulated_heat_load.setter
+    def simulated_heat_load(self, value):
+        self._simulated_heat_load = value
+        
+        
+    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+        &#34;&#34;&#34;calculates the environmental indicators of the building. Without
+        environmental indicators from heating and electric demand
+        
+        Parameters
+        ----------
+        use_b4 : bool, optional
+            if true environmental indicators of replaced buildingelements are 
+            added to stage B4. Otherwise they are added seperatly to the other stages
+        period_lca_scenario : int, optional
+            period of use taken into account for LCA. Default is the project 
+            period (period_lca_scenario in project class)
+        &#34;&#34;&#34;
+        lca_data = En15804LcaData()
+        
+        if use_b4 is None:
+            try:
+                use_b4 = self.parent.parent.parent.use_b4
+            except:
+                use_b4 = False
+        
+        if period_lca_scenario == None:
+            try:
+                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+            except:
+                print(&#34;Please enter a period for the LCA-scenario!&#34;)
+        
+        for thermal_zone in self.thermal_zones:
+            
+            try:
+                thermal_zone.calc_lca_data(use_b4, period_lca_scenario)
+                lca_data = lca_data + thermal_zone.lca_data
+            except:
+                print(&#34;Error while adding lca-data from thermal zone&#34;)
+                
+        if self.additional_lca_data is not None:
+            if self.additional_lca_data.ref_flow_unit == &#34;pcs&#34;:
+                scalar = self.additional_lca_data.ref_flow_value
+                lca_data = lca_data + self.additional_lca_data * scalar
+            
+        self.lca_data = lca_data
+        
+    def est_elec_demand(self):
+        &#34;&#34;&#34;roughly estimates the electricity demand of the building due to it´s
+        size, without electricity used for heating (e.g. for heat pumps)
+        
+        &#34;&#34;&#34;
+        
+        q_el_ges_a = None
+        d_a = 365 #days in a year
+        q_el_b = 63 #Wh/(m^2 d) DIN 18599-10
+        a_ngf = self.net_leased_area
+        h_B = 8 #hours lighting per day estimate from DIN 18599-10
+        q_el_B = 10 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
+        q_el_wp = 0 #electrical energy for heat pump allready considered in heatload
+        
+        q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
+        
+        q_el_ges_a = q_el_ges_a * 3.6 #conversion kWh -&gt; MJ       
+        
+        self._estimate_elec_demand = q_el_ges_a
+    
+    def add_lca_data_elec(self, lca_data):
+        &#34;&#34;&#34;Calculates enviromental indicators resulting form electric 
+        energy consumption
+
+        Parameters
+        ----------
+        lca_data : En15804LcaData
+            LCA-Dataset representing the used power generation mix
+
+        &#34;&#34;&#34;
+        
+        if self._estimate_elec_demand is None:
+            self.est_elec_demand()
+        
+        if lca_data.ref_flow_unit != &#34;MJ&#34;:
+            try:
+                lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+            except:
+                print(&#34;Unit of the reference flow has to be MJ!&#34;)
+        
+        lca_data = lca_data * self._estimate_elec_demand
+        
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+    
+    def _calc_simulated_annual_heat_energy(self):
+        &#34;&#34;&#34;calculates the annual heating energy from the simulated heatload
+
+        Returns
+        -------
+        result : Float
+            annual heating energy.
+
+        &#34;&#34;&#34;
+        if self.simulated_heat_load is not None:
+            previous_ts = None
+            
+            result = 0
+            
+            for data_tp in self.simulated_heat_load:
+                if previous_ts is not None:
+                    result = result + data_tp[1] * (data_tp[0] - previous_ts)
+                previous_ts = data_tp[0]
+            
+            result = result * 0.000001
+            
+            return result
+                
+                
+    
+    def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
+        &#34;&#34;&#34;Calculates enviromental indicators resulting form heating
+
+        Parameters
+        ----------
+        efficiency : float
+            overall efficiency of the heating-system.
+        annual_heat_load : float [MJ]
+            heat load of the building over a year.
+        lca_data : En15804LcaData
+            LCA-Dataset representing the used energy carrier.
+
+        &#34;&#34;&#34;
+        if annual_heat_energy is None:
+            annual_heat_energy = self._calc_simulated_annual_heat_energy()
+        
+        if lca_data.ref_flow_unit != &#34;MJ&#34;:
+            try:
+                lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+            except:
+                print(&#34;Unit of the reference flow has to be MJ!&#34;)
+        lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
+        lca_data.unit = &#34;pcs&#34;
+                
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+        
+    def add_lca_data_template(self, lca_data_id, amount):
+        &#34;&#34;&#34;This function loads environmental indicators from the JSON,
+        multiplies it with an amount and add it to the building LCA-Data
+
+        Parameters
+        ----------
+        lca_data_id : uuid
+            uuid of the Dataset to be loaded.
+        amount : float
+            factor.
+        &#34;&#34;&#34;
+        lca_data = En15804LcaData()
+        
+        lca_data.load_lca_data_template(lca_data_id, data_class = self.parent.data)
+        
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data * amount
+        else:
+            self.lca_data = lca_data * amount
+        
+    def print_be_information(self):
+        &#34;&#34;&#34;prints area of all buildingelements
+        &#34;&#34;&#34;
+        outer_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        doors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        rooftops = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        ground_floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        windows = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        inner_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        ceilings = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        
+        for tz in self.thermal_zones:
+            for ow in tz.outer_walls:
+                outer_walls[&#34;area&#34;] = outer_walls[&#34;area&#34;] + ow.area
+            for do in tz.doors:
+                doors[&#34;area&#34;] = doors[&#34;area&#34;] + ow.area
+            for rt in tz.rooftops:
+                rooftops[&#34;area&#34;] = rooftops[&#34;area&#34;] + rt.area
+            for gf in tz.ground_floors:
+                ground_floors[&#34;area&#34;] = ground_floors[&#34;area&#34;] + gf.area
+            for wn in tz.windows:
+                windows[&#34;area&#34;] = windows[&#34;area&#34;] + wn.area
+            for iw in tz.inner_walls:
+                inner_walls[&#34;area&#34;] = inner_walls[&#34;area&#34;] + iw.area
+            for fl in tz.floors:
+                floors[&#34;area&#34;] = floors[&#34;area&#34;] + fl.area
+            for ce in tz.ceilings:
+                ceilings[&#34;area&#34;] = ceilings[&#34;area&#34;] + ce.area
+                
+                
+        print(&#34;outer walls area: {}&#34;.format(outer_walls[&#34;area&#34;]))
+        print(&#34;doors area: {}&#34;.format(doors[&#34;area&#34;]))
+        print(&#34;rooftops area: {}&#34;.format(rooftops[&#34;area&#34;]))
+        print(&#34;ground_floors area: {}&#34;.format(ground_floors[&#34;area&#34;]))
+        print(&#34;windows area: {}&#34;.format(windows[&#34;area&#34;]))
+        print(&#34;inner_walls area: {}&#34;.format(inner_walls[&#34;area&#34;]))
+        print(&#34;floors area: {}&#34;.format(floors[&#34;area&#34;]))
+        print(&#34;ceilings area: {}&#34;.format(ceilings[&#34;area&#34;]))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.logic.buildingobjects.building.Building"><code class="flex name class">
+<span>class <span class="ident">Building</span></span>
+<span>(</span><span>parent=None, name=None, year_of_construction=None, net_leased_area=None, with_ahu=False, internal_gains_mode=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Building Class</p>
+<p>This class is used to manage information and parameter calculation for
+Buildings. It is the base class for all archetype buildings and holds a
+list containing all ThermalZones instances. In addition it can hold an
+optional attribute for CentralAHU instance, that is e.g. needed for
+AixLib Simulation models.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>Project()</code></dt>
+<dd>The parent class of this object, the Project the Building belongs to.
+Allows for better control of hierarchical structures. If not None it
+adds this Building instance to Project.buildings.
+(default: None)</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Individual name (default: None)</dd>
+<dt><strong><code>year_of_construction</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of first construction (default: None)</dd>
+<dt><strong><code>net_leased_area</code></strong> :&ensp;<code>float [m2]</code></dt>
+<dd>Total net leased area of building. This is area is NOT the footprint
+of a building (default: None)</dd>
+<dt><strong><code>with_ahu</code></strong> :&ensp;<code>Boolean</code></dt>
+<dd>If set to True, an empty instance of BuildingAHU is instantiated and
+assigned to attribute central_ahu. This instance holds information for
+central Air Handling units. Default is False.</dd>
+<dt><strong><code>internal_gains_mode</code></strong> :&ensp;<code>int [1, 2, 3]</code></dt>
+<dd>mode for the internal gains calculation done in AixLib:
+1: Temperature and activity degree dependent heat flux calculation for persons. The
+calculation is based on
+SIA 2024 (default)
+2: Temperature and activity degree independent heat flux calculation for persons, the max.
+heatflowrate is prescribed by the parameter
+fixed_heat_flow_rate_persons.
+3: Temperature and activity degree dependent calculation with
+consideration of moisture and co2. The moisture calculation is
+based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+Engineering ToolBox (2004) and regards only persons.</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>central_ahu</code></strong> :&ensp;<code>instance</code> of <code>BuildingAHU</code></dt>
+<dd>Teaser Instance of BuildingAHU if a central AHU is embedded into the
+building (currently mostly needed for AixLib simulation).</dd>
+<dt><strong><code>number_of_floors</code></strong> :&ensp;<code>int</code></dt>
+<dd>number of floors above ground (default: None)</dd>
+<dt><strong><code>height_of_floors</code></strong> :&ensp;<code>float [m]</code></dt>
+<dd>Average height of the floors (default: None)</dd>
+<dt><strong><code>internal_id</code></strong> :&ensp;<code>float</code></dt>
+<dd>Random id for the distinction between different buildings.</dd>
+<dt><strong><code>year_of_retrofit</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of last retrofit.</dd>
+<dt><strong><code>type_of_building</code></strong> :&ensp;<code>string</code></dt>
+<dd>Type of a Building (e.g. Building (unspecified), Office etc.).</dd>
+<dt><strong><code>building_id</code></strong> :&ensp;<code>None</code></dt>
+<dd>ID of building, can be set by the user to keep track of a building
+even outside of TEASER, e.g. in a simulation or in post-processing.
+This is not the same as internal_id, as internal_id is e.g. not
+exported to Modelica models!</dd>
+<dt><strong><code>street_name</code></strong> :&ensp;<code>string</code></dt>
+<dd>Name of the street the building is located at. (optional)</dd>
+<dt><strong><code>city</code></strong> :&ensp;<code>string</code></dt>
+<dd>Name of the city the building is located at. (optional)</dd>
+<dt><strong><code>longitude</code></strong> :&ensp;<code>float [degree]</code></dt>
+<dd>Longitude of building location.</dd>
+<dt><strong><code>latitude</code></strong> :&ensp;<code>float [degree]</code></dt>
+<dd>Latitude of building location.</dd>
+<dt><strong><code>thermal_zones</code></strong> :&ensp;<code>list</code></dt>
+<dd>List with instances of ThermalZone(), that are located in this building.</dd>
+<dt><strong><code>outer_area</code></strong> :&ensp;<code>dict [degree: m2]</code></dt>
+<dd>Dictionary with orientation as key and sum of outer wall areas of
+that direction as value.</dd>
+<dt><strong><code>window_area</code></strong> :&ensp;<code>dict [degree: m2]</code></dt>
+<dd>Dictionary with orientation as key and sum of window areas of
+that direction as value.</dd>
+<dt><strong><code>bldg_height</code></strong> :&ensp;<code>float [m]</code></dt>
+<dd>Total building height.</dd>
+<dt><strong><code>volume</code></strong> :&ensp;<code>float [m3]</code></dt>
+<dd>Total volume of all thermal zones.</dd>
+<dt><strong><code>sum_heat_load</code></strong> :&ensp;<code>float [W]</code></dt>
+<dd>Total heating load of all thermal zones.</dd>
+<dt><strong><code>sum_cooling_load</code></strong> :&ensp;<code>float [W]</code></dt>
+<dd>Total heating load of all thermal zones. (currently not supported)</dd>
+<dt><strong><code>number_of_elements_calc</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of elements that are used for thermal zone calculation in this
+building.
+1: OneElement
+2: TwoElement
+3: ThreeElement
+4: FourElement</dd>
+<dt><strong><code>merge_windows_calc</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>True for merging the windows into the outer wall's RC-combination,
+False for separate resistance for window, default is False. (Only
+supported for IBPSA)</dd>
+<dt><strong><code>used_library_calc</code></strong> :&ensp;<code>str</code></dt>
+<dd>'AixLib' for <a href="https://github.com/RWTH-EBC/AixLib">https://github.com/RWTH-EBC/AixLib</a>
+'IBPSA' for <a href="https://github.com/ibpsa/modelica">https://github.com/ibpsa/modelica</a></dd>
+<dt><strong><code>library_attr</code></strong> :&ensp;<code>Annex()</code> or <code>AixLib() instance</code></dt>
+<dd>Classes with specific functions and attributes for building models in
+IBPSA and AixLib. Python classes can be found in calculation package.</dd>
+<dt><strong><code>lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>enviromental indicators of the building. The data referencing to
+one building</dd>
+<dt><strong><code>additional_lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>additional environmental indicators to the indicators from the
+buildingelements (e.g.central heating system)</dd>
+<dt><strong><code>_estimate_elec_demand</code></strong> :&ensp;<code>float [MJ]</code></dt>
+<dd>estimate annual electric demand of the building (without heating)</dd>
+<dt><strong><code>simulated_heat_load</code></strong> :&ensp;<code>list</code></dt>
+<dd>heat load simulated for this building. Value is used to calculated the
+enviromental indicators for heating</dd>
+</dl>
+<p>Constructor of Building Class</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Building(object):
+    &#34;&#34;&#34;Building Class
+
+    This class is used to manage information and parameter calculation for
+    Buildings. It is the base class for all archetype buildings and holds a
+    list containing all ThermalZones instances. In addition it can hold an
+    optional attribute for CentralAHU instance, that is e.g. needed for
+    AixLib Simulation models.
+
+    Parameters
+    ----------
+
+    parent: Project()
+        The parent class of this object, the Project the Building belongs to.
+        Allows for better control of hierarchical structures. If not None it
+        adds this Building instance to Project.buildings.
+        (default: None)
+    name : str
+        Individual name (default: None)
+    year_of_construction : int
+        Year of first construction (default: None)
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the footprint
+        of a building (default: None)
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated and
+        assigned to attribute central_ahu. This instance holds information for
+        central Air Handling units. Default is False.
+    internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+
+    Attributes
+    ----------
+    central_ahu : instance of BuildingAHU
+        Teaser Instance of BuildingAHU if a central AHU is embedded into the
+        building (currently mostly needed for AixLib simulation).
+    number_of_floors : int
+        number of floors above ground (default: None)
+    height_of_floors : float [m]
+        Average height of the floors (default: None)
+    internal_id : float
+        Random id for the distinction between different buildings.
+    year_of_retrofit : int
+        Year of last retrofit.
+    type_of_building : string
+        Type of a Building (e.g. Building (unspecified), Office etc.).
+    building_id : None
+        ID of building, can be set by the user to keep track of a building
+        even outside of TEASER, e.g. in a simulation or in post-processing.
+        This is not the same as internal_id, as internal_id is e.g. not
+        exported to Modelica models!
+    street_name : string
+        Name of the street the building is located at. (optional)
+    city : string
+        Name of the city the building is located at. (optional)
+    longitude : float [degree]
+        Longitude of building location.
+    latitude : float [degree]
+        Latitude of building location.
+    thermal_zones : list
+        List with instances of ThermalZone(), that are located in this building.
+    outer_area : dict [degree: m2]
+        Dictionary with orientation as key and sum of outer wall areas of
+        that direction as value.
+    window_area : dict [degree: m2]
+        Dictionary with orientation as key and sum of window areas of
+        that direction as value.
+    bldg_height : float [m]
+        Total building height.
+    volume : float [m3]
+        Total volume of all thermal zones.
+    sum_heat_load : float [W]
+        Total heating load of all thermal zones.
+    sum_cooling_load : float [W]
+        Total heating load of all thermal zones. (currently not supported)
+    number_of_elements_calc : int
+        Number of elements that are used for thermal zone calculation in this
+        building.
+        1: OneElement
+        2: TwoElement
+        3: ThreeElement
+        4: FourElement
+    merge_windows_calc : boolean
+        True for merging the windows into the outer wall&#39;s RC-combination,
+        False for separate resistance for window, default is False. (Only
+        supported for IBPSA)
+    used_library_calc : str
+        &#39;AixLib&#39; for https://github.com/RWTH-EBC/AixLib
+        &#39;IBPSA&#39; for https://github.com/ibpsa/modelica
+    library_attr : Annex() or AixLib() instance
+        Classes with specific functions and attributes for building models in
+        IBPSA and AixLib. Python classes can be found in calculation package.
+    lca_data : En15804LcaData
+        enviromental indicators of the building. The data referencing to
+        one building
+    additional_lca_data : En15804LcaData
+        additional environmental indicators to the indicators from the 
+        buildingelements (e.g.central heating system)
+    _estimate_elec_demand : float [MJ]
+        estimate annual electric demand of the building (without heating)
+    simulated_heat_load : list
+        heat load simulated for this building. Value is used to calculated the
+        enviromental indicators for heating
+
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        parent=None,
+        name=None,
+        year_of_construction=None,
+        net_leased_area=None,
+        with_ahu=False,
+        internal_gains_mode=1,
+    ):
+        &#34;&#34;&#34;Constructor of Building Class
+        &#34;&#34;&#34;
+
+        self.parent = parent
+        self.name = name
+        self.year_of_construction = year_of_construction
+        self.net_leased_area = net_leased_area
+        self._with_ahu = with_ahu
+
+        if with_ahu is True:
+            self.central_ahu = BuildingAHU(self)
+        else:
+            self._central_ahu = None
+
+        self.internal_gains_mode = internal_gains_mode
+        self.number_of_floors = None
+        self.height_of_floors = None
+        self.internal_id = uuid.uuid1()
+        self._year_of_retrofit = None
+        self.type_of_building = type(self).__name__
+        self.building_id = None
+        self.street_name = &#34;&#34;
+        self.city = &#34;&#34;
+        self.longitude = 6.05
+        self.latitude = 50.79
+
+        self.gml_surfaces = []
+        self._thermal_zones = []
+        self._outer_area = {}
+        self._window_area = {}
+
+        self.bldg_height = None
+        self.volume = 0
+        self.sum_heat_load = 0
+        self.sum_cooling_load = 0
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+        
+        self._lca_data = None
+        self._additional_lca_data = None
+        
+        self._estimate_elec_demand = None
+        self._simulated_heat_load = None
+
+        self.library_attr = None
+
+    def set_height_gml(self):
+        &#34;&#34;&#34;Calculates the height of a building from CityGML data
+
+        With given gml surfaces, this function computes the height of a
+        building of LoD 1 and LoD 2 buildings from CityGML data. All
+        z-coordinates are evaluated and the minimum z-value is subtracted
+        by the maximal value.
+
+        &#34;&#34;&#34;
+        if self.bldg_height is not None:
+            pass
+        else:
+            max_help = 0
+            min_help = 9999
+            for surface in self.gml_surfaces:
+                z_value = surface.gml_surface[2::3]
+                max_help = max(max_help, max(z_value))
+                min_help = min(min_help, min(z_value))
+            self.bldg_height = max_help - min_help
+
+    def get_footprint_gml(self, merge_building_part=False):
+        &#34;&#34;&#34;Gets the footprint surface of a building from CityGML data
+
+        with given gml surfaces, this function computes and returns the
+        footprint area of a building from LoD 0 to LoD2 from CityGML data.
+        This is done by either analysing the ground floor or the flat roof.
+
+        Returns
+        ----------
+        surface area : float
+            footprint area of a gml building
+
+        &#34;&#34;&#34;
+        surface_max_help = []
+        for surface in self.gml_surfaces:
+            # print(surface.surface_area, surface.surface_orientation, surface.surface_tilt)
+            if surface.surface_orientation == -2 or surface.surface_orientation == -1 and surface.surface_tilt == \
+                    0.0:
+                surface_max_help.append(surface.surface_area)
+        if merge_building_part is False:
+            max_area = max(surface_max_help)
+        else:
+            max_area = sum(surface_max_help)
+        return max_area
+
+    def set_gml_attributes(self, height_of_floor=3.5, merge_building_part=False):
+        &#34;&#34;&#34;Sets building attributes from CityGML data
+
+        Computes the net_leased_area depending on the footprint area,
+        the number and the height of floors. If the number of floors is
+        specified before it will use this value, if not it will compute the
+        number of floors based on the gml building height and the average
+        height of the floors. If the number of floors is zero it&#39;ll be set to
+        one. If the net leased area is below 50.0 sqm it&#39;ll be set to 50.0.
+
+        Parameters
+        ----------
+        height_of_floor : float
+            average height of each floor of the building, the default value
+            is 3.5 and is absolutely random.
+        &#34;&#34;&#34;
+
+        if self.bldg_height is None:
+            raise AttributeError(&#34;Building height needs to be defined for gml&#34;)
+
+        if self.height_of_floors is None and self.number_of_floors is None:
+            self.height_of_floors = height_of_floor
+        elif self.height_of_floors is None and self.number_of_floors is not \
+                None:
+            self.height_of_floors = self.bldg_height / self.number_of_floors
+        else:
+            pass
+
+        if self.number_of_floors is not None:
+            self.net_leased_area = self.get_footprint_gml() * \
+                                   self.number_of_floors
+            return
+
+        else:
+            self.number_of_floors = int(round((self.bldg_height /
+                                               self.height_of_floors)))
+            if self.number_of_floors == 0:
+                self.number_of_floors = 1
+            if merge_building_part is False:
+                self.net_leased_area = self.get_footprint_gml() * \
+                                       self.number_of_floors
+            else:
+                self.net_leased_area = self.get_footprint_gml(merge_building_part=True) * \
+                                       self.number_of_floors
+
+            if self.net_leased_area &lt; 50.0:
+                raise Exception(&#39;The calculated net leased area is under 50m²&#39;)
+                # self.net_leased_area = 50.0
+
+    def set_outer_wall_area(self, new_area, orientation, tilt=None):
+        &#34;&#34;&#34;Outer area wall setter
+
+        sets the outer wall area of all walls of one direction and weights
+        them according to zone size. This function covers OuterWalls,
+        Rooftops, GroundFloors.
+
+        Parameters
+        ----------
+        tilt: float
+            inclination of the obtained walls
+        new_area : float
+            new_area of all outer walls of one orientation
+        orientation : float
+            orientation of the obtained walls
+        &#34;&#34;&#34;
+
+        for zone in self.thermal_zones:
+            if tilt is not None:
+                for wall in zone.outer_walls:
+                    if wall.orientation == orientation and wall.tilt == tilt:
+                        wall.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.outer_walls
+                        )
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == wall.orientation:
+                        #         wall.area -= win.area
+                for roof in zone.rooftops:
+                    if roof.orientation == orientation and roof.tilt == tilt:
+                        roof.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.rooftops)
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == wall.orientation:
+                        #         wall.area -= win.area
+
+                for ground in zone.ground_floors:
+                    if ground.orientation == orientation  and new_area &gt; 50:
+                        if new_area &lt; 1:
+                            raise Exception(&#39;ground&#39;)
+                        else:
+                            ground.area = ((new_area / self.net_leased_area) * zone.area)
+
+                for door in zone.doors:
+                    if door.orientation == orientation:
+                        door.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                            count.orientation == orientation for count in zone.doors
+                        )
+            else:
+                for zone in self.thermal_zones:
+                    for wall in zone.outer_walls:
+                        if wall.orientation == orientation:
+                            wall.area = ((new_area / self.net_leased_area) * zone.area)
+                            # Addition for LoD3 and LoD4
+                            # for win in zone.windows:
+                            #     if win.area is not None and win.orientation == wall.orientation:
+                            #         wall.area -= win.area
+                    for roof in zone.rooftops:
+                        if roof.orientation == orientation:
+                            roof.area = ((new_area / self.net_leased_area) * zone.area)
+                            # Addition for LoD3 and LoD4
+                            # for win in zone.windows:
+                            #     if win.area is not None and win.orientation == roof.orientation and win.tilt == roof.tilt:
+                            #         roof.area -= win.area
+                            #         print(roof.area, &#34;roof-window&#34;)
+                    for ground in zone.ground_floors:
+                        if ground.orientation == orientation and new_area &gt; 50:
+                            if new_area &lt; 1:
+                                raise Exception(&#39;ground&#39;)
+                            else:
+                                ground.area = ((new_area / self.net_leased_area) * zone.area)
+                    for door in zone.doors:
+                        if door.orientation == orientation:
+                            door.area = (
+                                    ((new_area / self.net_leased_area) * zone.area) /
+                                    sum(count.orientation == orientation for count in
+                                        zone.doors))
+
+    def set_window_area(self, new_area, orientation):
+        &#34;&#34;&#34;Window area setter
+
+        sets the window area of all windows of one direction and weights
+        them according to zone size
+
+        Parameters
+        ----------
+        new_area : float
+            new_area of all window of one orientation
+        orientation : float
+            orientation of the obtained windows
+        &#34;&#34;&#34;
+
+        for zone in self.thermal_zones:
+            for win in zone.windows:
+                if win.orientation == orientation:
+                    win.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                        count.orientation == orientation for count in zone.windows
+                    )
+
+    def get_outer_wall_area(self, orientation):
+        &#34;&#34;&#34;Get aggregated wall area of one orientation
+
+        Returns the area of all outer walls of one direction. This function
+        covers OuterWalls, GroundFloors and Rooftops.
+
+        Parameters
+        ----------
+        orientation : float
+            orientation of the obtained wall
+        Returns
+        ----------
+        sum_area : float
+            area of all walls of one direction
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.outer_walls:
+                if wall_count.orientation == orientation and wall_count.area is not None:
+                    sum_area += wall_count.area
+            for roof_count in zone_count.rooftops:
+                if roof_count.orientation == orientation and roof_count.area is not None:
+                    sum_area += roof_count.area
+            for ground_count in zone_count.ground_floors:
+                if (
+                    ground_count.orientation == orientation
+                    and ground_count.area is not None
+                ):
+                    sum_area += ground_count.area
+        return sum_area
+
+    def get_window_area(self, orientation):
+        &#34;&#34;&#34;Get aggregated window area of one orientation
+
+        returns the area of all windows of one direction
+
+        Parameters
+        ----------
+        orientation : float
+            orientation of the obtained windows
+        Returns
+        ----------
+        sum_area : float
+            area of all windows of one direction
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for win_count in zone_count.windows:
+                if win_count.orientation == orientation and win_count.area is not None:
+                    sum_area += win_count.area
+        return sum_area
+
+    def get_inner_wall_area(self):
+        &#34;&#34;&#34;Get aggregated inner wall area
+
+        Returns the area of all inner walls. This function covers InnerWalls,
+        Ceilings and Floors.
+
+        Returns
+        ----------
+        sum_area : float
+            area of all inner walls
+
+        &#34;&#34;&#34;
+
+        sum_area = 0.0
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.inner_walls:
+                sum_area += wall_count.area
+            for floor in zone_count.floors:
+                sum_area += floor.area
+            for ceiling in zone_count.ceilings:
+                sum_area += ceiling.area
+        return sum_area
+
+    def fill_outer_area_dict(self):
+        &#34;&#34;&#34;Fills the attribute outer_area
+
+        Fills the dictionary outer_area with the sum of outer wall area
+        corresponding to the orientations of the building. This function
+        covers OuterWalls, GroundFloors and Rooftops.
+
+        &#34;&#34;&#34;
+        self.outer_area = {}
+        for zone_count in self.thermal_zones:
+            for wall_count in zone_count.outer_walls:
+                self.outer_area[wall_count.orientation] = None
+            for roof in zone_count.rooftops:
+                self.outer_area[roof.orientation] = None
+            for ground in zone_count.ground_floors:
+                self.outer_area[ground.orientation] = None
+        for key in self.outer_area:
+            self.outer_area[key] = self.get_outer_wall_area(key)
+
+    def fill_window_area_dict(self):
+        &#34;&#34;&#34;Fills the attribute
+
+        Fills the dictionary window_area with the sum of window area
+        corresponding to the orientations of the building.
+
+        &#34;&#34;&#34;
+        self.window_area = {}
+        for zone_count in self.thermal_zones:
+            for win_count in zone_count.windows:
+                self.window_area[win_count.orientation] = None
+
+        for key in self.window_area:
+            self.window_area[key] = self.get_window_area(key)
+
+    def calc_building_parameter(
+        self, number_of_elements=2, merge_windows=False, used_library=&#34;AixLib&#34;
+    ):
+        &#34;&#34;&#34;calc all building parameters
+
+        This functions calculates the parameters of all zones in a building
+        sums norm heat load of all zones
+        sums volume of all zones
+
+        Parameters
+        ----------
+        number_of_elements : int
+            defines the number of elements, that area aggregated, between 1
+            and 4, default is 2
+        merge_windows : bool
+            True for merging the windows into the outer walls, False for
+            separate resistance for window, default is False
+        used_library : str
+            used library (AixLib and IBPSA are supported)
+        &#34;&#34;&#34;
+
+        self._number_of_elements_calc = number_of_elements
+        self._merge_windows_calc = merge_windows
+        self._used_library_calc = used_library
+
+        for zone in self.thermal_zones:
+            zone.calc_zone_parameters(
+                number_of_elements=number_of_elements,
+                merge_windows=merge_windows,
+                t_bt=5,
+            )
+            self.sum_heat_load += zone.model_attr.heat_load
+
+        if self.used_library_calc == self.library_attr.__class__.__name__:
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr.calc_auxiliary_attr()
+            else:
+                pass
+        elif self.library_attr is None:
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr = AixLib(parent=self)
+                self.library_attr.calc_auxiliary_attr()
+            elif self.used_library_calc == &#34;IBPSA&#34;:
+                self.library_attr = IBPSA(parent=self)
+        else:
+            warnings.warn(
+                &#34;You set conflicting options for the used library &#34;
+                &#34;in Building or Project class and &#34;
+                &#34;calculation function of building. Your library &#34;
+                &#34;attributes are set to default using the library &#34;
+                &#34;you indicated in the function call, which is: &#34;
+                + self.used_library_calc
+            )
+
+            if self.used_library_calc == &#34;AixLib&#34;:
+                self.library_attr = AixLib(parent=self)
+                self.library_attr.calc_auxiliary_attr()
+            elif self.used_library_calc == &#34;IBPSA&#34;:
+                self.library_attr = IBPSA(parent=self)
+
+    def retrofit_building(
+        self,
+        year_of_retrofit=None,
+        type_of_retrofit=None,
+        window_type=None,
+        material=None,
+    ):
+        &#34;&#34;&#34;Retrofits all zones in the building
+
+        Function call for each zone.
+
+        After retrofit, all parameters are calculated directly.
+
+        Parameters
+        ----------
+        year_of_retrofit : float
+            Year of last retrofit.
+        type_of_retrofit : str
+            The classification of retrofit, if the archetype building
+            approach of TABULA is used.
+        window_type : str
+            Default: EnEv 2014
+        material : str
+            Default: EPS035
+        &#34;&#34;&#34;
+
+        #  Set self.sum_heat_load to zero to prevent summing up of old and new
+        #  design heat load calculation values (see #518)
+        self.sum_heat_load = 0
+
+        if year_of_retrofit is not None:
+            self.year_of_retrofit = year_of_retrofit
+
+        for zone in self.thermal_zones:
+            zone.retrofit_zone(type_of_retrofit, window_type, material)
+
+        self.calc_building_parameter(
+            number_of_elements=self.number_of_elements_calc,
+            merge_windows=self.merge_windows_calc,
+            used_library=self.used_library_calc,
+        )
+
+    def rotate_building(self, angle):
+        &#34;&#34;&#34;Rotates the building to a given angle
+
+        This function covers OuterWall, Rooftop (if not flat roof) and Windows.
+
+        Parameters
+        ----------
+
+        angle: float
+            rotation of the building clockwise, between 0 and 360 degrees
+        &#34;&#34;&#34;
+
+        for zone_count in self.thermal_zones:
+            new_angle = None
+            for wall_count in zone_count.outer_walls:
+                new_angle = wall_count.orientation + angle
+                if new_angle &gt; 360.0:
+                    wall_count.orientation = new_angle - 360.0
+                else:
+                    wall_count.orientation = new_angle
+            for roof_count in zone_count.rooftops:
+                if roof_count.orientation != -1:
+                    new_angle = roof_count.orientation + angle
+                    if new_angle &gt; 360.0:
+                        roof_count.orientation = new_angle - 360.0
+                    else:
+                        roof_count.orientation = new_angle
+                else:
+                    pass
+            for win_count in zone_count.windows:
+                new_angle = win_count.orientation + angle
+                if new_angle &gt; 360.0:
+                    win_count.orientation = new_angle - 360.0
+                else:
+                    win_count.orientation = new_angle
+
+    def add_zone(self, thermal_zone):
+        &#34;&#34;&#34;Adds a thermal zone to the corresponding list
+
+        This function adds a ThermalZone instance to the the thermal_zones list
+
+        Parameters
+        ----------
+        thermal_zone : ThermalZone()
+            ThermalZone() instance of TEASER
+        &#34;&#34;&#34;
+
+        ass_error_1 = &#34;Zone has to be an instance of ThermalZone()&#34;
+
+        assert type(thermal_zone).__name__ == &#34;ThermalZone&#34;, ass_error_1
+
+        self._thermal_zones.append(thermal_zone)
+
+    @property
+    def parent(self):
+        return self.__parent
+
+    @parent.setter
+    def parent(self, value):
+
+        if value is not None:
+
+            ass_error_1 = &#34;Parent has to be an instance of Project()&#34;
+
+            assert type(value).__name__ == &#34;Project&#34;, ass_error_1
+
+            self.__parent = value
+
+            if inspect.isclass(Building):
+                if self in self.__parent.buildings:
+                    pass
+                else:
+                    self.__parent.buildings.append(self)
+
+        else:
+
+            self.__parent = None
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+            self.__name = regex.sub(&#34;&#34;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+                self.__name = regex.sub(&#34;&#34;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+        if self.__name[0].isdigit():
+            self.__name = &#34;B&#34; + self.__name
+
+    @property
+    def year_of_construction(self):
+        return self.__year_of_construction
+
+    @year_of_construction.setter
+    def year_of_construction(self, value):
+
+        if isinstance(value, int) or value is None:
+
+            self.__year_of_construction = value
+        else:
+            try:
+                value = int(value)
+                self.__year_of_construction = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert year of construction to int&#34;)
+
+    @property
+    def number_of_floors(self):
+        return self.__number_of_floors
+
+    @number_of_floors.setter
+    def number_of_floors(self, value):
+
+        if isinstance(value, int) or value is None:
+
+            self.__number_of_floors = value
+        else:
+            try:
+                value = int(value)
+                self.__number_of_floors = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert number of floors to int&#34;)
+
+    @property
+    def height_of_floors(self):
+        return self.__height_of_floors
+
+    @height_of_floors.setter
+    def height_of_floors(self, value):
+
+        if isinstance(value, float) or value is None:
+
+            self.__height_of_floors = value
+        else:
+            try:
+                value = float(value)
+                self.__height_of_floors = value
+
+            except:
+                raise ValueError(&#34;Can&#39;t convert height of floors to float&#34;)
+
+    @property
+    def net_leased_area(self):
+        return self.__net_leased_area
+
+    @net_leased_area.setter
+    def net_leased_area(self, value):
+
+        if isinstance(value, float):
+            self.__net_leased_area = value
+        elif value is None:
+            self.__net_leased_area = value
+        else:
+            try:
+                value = float(value)
+                self.__net_leased_area = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert net leased area to float&#34;)
+
+    @property
+    def thermal_zones(self):
+        return self._thermal_zones
+
+    @thermal_zones.setter
+    def thermal_zones(self, value):
+
+        if value is None:
+            self._thermal_zones = []
+
+    @property
+    def outer_area(self):
+        return self._outer_area
+
+    @outer_area.setter
+    def outer_area(self, value):
+        self._outer_area = value
+
+    @property
+    def window_area(self):
+        return self._window_area
+
+    @window_area.setter
+    def window_area(self, value):
+        self._window_area = value
+
+    @property
+    def year_of_retrofit(self):
+        return self._year_of_retrofit
+
+    @year_of_retrofit.setter
+    def year_of_retrofit(self, value):
+        if self.year_of_construction is not None:
+            self._year_of_retrofit = value
+        else:
+            raise ValueError(&#34;Specify year of construction first&#34;)
+
+    @property
+    def with_ahu(self):
+        return self._with_ahu
+
+    @with_ahu.setter
+    def with_ahu(self, value):
+
+        if value is True and self.central_ahu is None:
+            self.central_ahu = BuildingAHU(self)
+            self._with_ahu = True
+        elif value is False and self.central_ahu:
+            self.central_ahu = None
+            self._with_ahu = False
+
+    @property
+    def central_ahu(self):
+        return self._central_ahu
+
+    @central_ahu.setter
+    def central_ahu(self, value):
+
+        if value is None:
+            self._central_ahu = value
+        else:
+
+            ass_error_1 = &#34;central AHU has to be an instance of BuildingAHU()&#34;
+
+            assert type(value).__name__ == &#34;BuildingAHU&#34;, ass_error_1
+
+            self._central_ahu = value
+
+    @property
+    def number_of_elements_calc(self):
+
+        return self._number_of_elements_calc
+
+    @number_of_elements_calc.setter
+    def number_of_elements_calc(self, value):
+
+        ass_error_1 = &#34;calculation_method has to be 1,2,3 or 4&#34;
+
+        assert value != [1, 2, 3, 4], ass_error_1
+
+        if self.parent is None and value is None:
+            self._number_of_elements_calc = 2
+        elif self.parent is not None and value is None:
+            self._number_of_elements_calc = self.parent.number_of_elements_calc
+        elif value is not None:
+            self._number_of_elements_calc = value
+
+    @property
+    def merge_windows_calc(self):
+
+        return self._merge_windows_calc
+
+    @merge_windows_calc.setter
+    def merge_windows_calc(self, value):
+
+        ass_error_1 = &#34;merge windows needs to be True or False&#34;
+
+        assert value != [True, False], ass_error_1
+
+        if self.parent is None and value is None:
+            self._merge_windows_calc = 2
+        elif self.parent is not None and value is None:
+            self._merge_windows_calc = self.parent.merge_windows_calc
+        elif value is not None:
+            self._merge_windows_calc = value
+
+    @property
+    def used_library_calc(self):
+
+        return self._used_library_calc
+
+    @used_library_calc.setter
+    def used_library_calc(self, value):
+
+        ass_error_1 = &#34;used library needs to be AixLib or IBPSA&#34;
+
+        assert value != [&#34;AixLib&#34;, &#34;IBPSA&#34;], ass_error_1
+
+        if self.parent is None and value is None:
+            self._used_library_calc = &#34;AixLib&#34;
+        elif self.parent is not None and value is None:
+            self._used_library_calc = self.parent.used_library_calc
+        elif value is not None:
+            self._used_library_calc = value
+
+        if self.used_library_calc == &#34;AixLib&#34;:
+            self.library_attr = AixLib(parent=self)
+        elif self.used_library_calc == &#34;IBPSA&#34;:
+            self.library_attr = IBPSA(parent=self)
+            
+    @property
+    def lca_data(self):
+        return self._lca_data
+
+    @lca_data.setter
+    def lca_data(self, value):
+        self._lca_data = value
+    
+    @property
+    def additional_lca_data(self):
+        return self._additional_lca_data
+    
+    @additional_lca_data.setter
+    def additional_lca_data(self, value):
+        self._additional_lca_data = value
+        
+    @property
+    def simulated_heat_load(self):
+        return self._simulated_heat_load
+    
+    @simulated_heat_load.setter
+    def simulated_heat_load(self, value):
+        self._simulated_heat_load = value
+        
+        
+    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+        &#34;&#34;&#34;calculates the environmental indicators of the building. Without
+        environmental indicators from heating and electric demand
+        
+        Parameters
+        ----------
+        use_b4 : bool, optional
+            if true environmental indicators of replaced buildingelements are 
+            added to stage B4. Otherwise they are added seperatly to the other stages
+        period_lca_scenario : int, optional
+            period of use taken into account for LCA. Default is the project 
+            period (period_lca_scenario in project class)
+        &#34;&#34;&#34;
+        lca_data = En15804LcaData()
+        
+        if use_b4 is None:
+            try:
+                use_b4 = self.parent.parent.parent.use_b4
+            except:
+                use_b4 = False
+        
+        if period_lca_scenario == None:
+            try:
+                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+            except:
+                print(&#34;Please enter a period for the LCA-scenario!&#34;)
+        
+        for thermal_zone in self.thermal_zones:
+            
+            try:
+                thermal_zone.calc_lca_data(use_b4, period_lca_scenario)
+                lca_data = lca_data + thermal_zone.lca_data
+            except:
+                print(&#34;Error while adding lca-data from thermal zone&#34;)
+                
+        if self.additional_lca_data is not None:
+            if self.additional_lca_data.ref_flow_unit == &#34;pcs&#34;:
+                scalar = self.additional_lca_data.ref_flow_value
+                lca_data = lca_data + self.additional_lca_data * scalar
+            
+        self.lca_data = lca_data
+        
+    def est_elec_demand(self):
+        &#34;&#34;&#34;roughly estimates the electricity demand of the building due to it´s
+        size, without electricity used for heating (e.g. for heat pumps)
+        
+        &#34;&#34;&#34;
+        
+        q_el_ges_a = None
+        d_a = 365 #days in a year
+        q_el_b = 63 #Wh/(m^2 d) DIN 18599-10
+        a_ngf = self.net_leased_area
+        h_B = 8 #hours lighting per day estimate from DIN 18599-10
+        q_el_B = 10 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
+        q_el_wp = 0 #electrical energy for heat pump allready considered in heatload
+        
+        q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
+        
+        q_el_ges_a = q_el_ges_a * 3.6 #conversion kWh -&gt; MJ       
+        
+        self._estimate_elec_demand = q_el_ges_a
+    
+    def add_lca_data_elec(self, lca_data):
+        &#34;&#34;&#34;Calculates enviromental indicators resulting form electric 
+        energy consumption
+
+        Parameters
+        ----------
+        lca_data : En15804LcaData
+            LCA-Dataset representing the used power generation mix
+
+        &#34;&#34;&#34;
+        
+        if self._estimate_elec_demand is None:
+            self.est_elec_demand()
+        
+        if lca_data.ref_flow_unit != &#34;MJ&#34;:
+            try:
+                lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+            except:
+                print(&#34;Unit of the reference flow has to be MJ!&#34;)
+        
+        lca_data = lca_data * self._estimate_elec_demand
+        
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+    
+    def _calc_simulated_annual_heat_energy(self):
+        &#34;&#34;&#34;calculates the annual heating energy from the simulated heatload
+
+        Returns
+        -------
+        result : Float
+            annual heating energy.
+
+        &#34;&#34;&#34;
+        if self.simulated_heat_load is not None:
+            previous_ts = None
+            
+            result = 0
+            
+            for data_tp in self.simulated_heat_load:
+                if previous_ts is not None:
+                    result = result + data_tp[1] * (data_tp[0] - previous_ts)
+                previous_ts = data_tp[0]
+            
+            result = result * 0.000001
+            
+            return result
+                
+                
+    
+    def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
+        &#34;&#34;&#34;Calculates enviromental indicators resulting form heating
+
+        Parameters
+        ----------
+        efficiency : float
+            overall efficiency of the heating-system.
+        annual_heat_load : float [MJ]
+            heat load of the building over a year.
+        lca_data : En15804LcaData
+            LCA-Dataset representing the used energy carrier.
+
+        &#34;&#34;&#34;
+        if annual_heat_energy is None:
+            annual_heat_energy = self._calc_simulated_annual_heat_energy()
+        
+        if lca_data.ref_flow_unit != &#34;MJ&#34;:
+            try:
+                lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+            except:
+                print(&#34;Unit of the reference flow has to be MJ!&#34;)
+        lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
+        lca_data.unit = &#34;pcs&#34;
+                
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data
+        else:
+            self.lca_data = lca_data
+        
+    def add_lca_data_template(self, lca_data_id, amount):
+        &#34;&#34;&#34;This function loads environmental indicators from the JSON,
+        multiplies it with an amount and add it to the building LCA-Data
+
+        Parameters
+        ----------
+        lca_data_id : uuid
+            uuid of the Dataset to be loaded.
+        amount : float
+            factor.
+        &#34;&#34;&#34;
+        lca_data = En15804LcaData()
+        
+        lca_data.load_lca_data_template(lca_data_id, data_class = self.parent.data)
+        
+        if self.lca_data is not None:
+            self.lca_data = self.lca_data + lca_data * amount
+        else:
+            self.lca_data = lca_data * amount
+        
+    def print_be_information(self):
+        &#34;&#34;&#34;prints area of all buildingelements
+        &#34;&#34;&#34;
+        outer_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        doors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        rooftops = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        ground_floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        windows = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        inner_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        ceilings = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+        
+        for tz in self.thermal_zones:
+            for ow in tz.outer_walls:
+                outer_walls[&#34;area&#34;] = outer_walls[&#34;area&#34;] + ow.area
+            for do in tz.doors:
+                doors[&#34;area&#34;] = doors[&#34;area&#34;] + ow.area
+            for rt in tz.rooftops:
+                rooftops[&#34;area&#34;] = rooftops[&#34;area&#34;] + rt.area
+            for gf in tz.ground_floors:
+                ground_floors[&#34;area&#34;] = ground_floors[&#34;area&#34;] + gf.area
+            for wn in tz.windows:
+                windows[&#34;area&#34;] = windows[&#34;area&#34;] + wn.area
+            for iw in tz.inner_walls:
+                inner_walls[&#34;area&#34;] = inner_walls[&#34;area&#34;] + iw.area
+            for fl in tz.floors:
+                floors[&#34;area&#34;] = floors[&#34;area&#34;] + fl.area
+            for ce in tz.ceilings:
+                ceilings[&#34;area&#34;] = ceilings[&#34;area&#34;] + ce.area
+                
+                
+        print(&#34;outer walls area: {}&#34;.format(outer_walls[&#34;area&#34;]))
+        print(&#34;doors area: {}&#34;.format(doors[&#34;area&#34;]))
+        print(&#34;rooftops area: {}&#34;.format(rooftops[&#34;area&#34;]))
+        print(&#34;ground_floors area: {}&#34;.format(ground_floors[&#34;area&#34;]))
+        print(&#34;windows area: {}&#34;.format(windows[&#34;area&#34;]))
+        print(&#34;inner_walls area: {}&#34;.format(inner_walls[&#34;area&#34;]))
+        print(&#34;floors area: {}&#34;.format(floors[&#34;area&#34;]))
+        print(&#34;ceilings area: {}&#34;.format(ceilings[&#34;area&#34;]))</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="teaser.logic.archetypebuildings.nonresidential.NonResidential" href="../archetypebuildings/nonresidential.html#teaser.logic.archetypebuildings.nonresidential.NonResidential">NonResidential</a></li>
+<li><a title="teaser.logic.archetypebuildings.residential.Residential" href="../archetypebuildings/residential.html#teaser.logic.archetypebuildings.residential.Residential">Residential</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.building.Building.additional_lca_data"><code class="name">var <span class="ident">additional_lca_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def additional_lca_data(self):
+    return self._additional_lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.central_ahu"><code class="name">var <span class="ident">central_ahu</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def central_ahu(self):
+    return self._central_ahu</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.height_of_floors"><code class="name">var <span class="ident">height_of_floors</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def height_of_floors(self):
+    return self.__height_of_floors</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.lca_data"><code class="name">var <span class="ident">lca_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def lca_data(self):
+    return self._lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.merge_windows_calc"><code class="name">var <span class="ident">merge_windows_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def merge_windows_calc(self):
+
+    return self._merge_windows_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    return self.__name</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.net_leased_area"><code class="name">var <span class="ident">net_leased_area</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def net_leased_area(self):
+    return self.__net_leased_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.number_of_elements_calc"><code class="name">var <span class="ident">number_of_elements_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def number_of_elements_calc(self):
+
+    return self._number_of_elements_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.number_of_floors"><code class="name">var <span class="ident">number_of_floors</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def number_of_floors(self):
+    return self.__number_of_floors</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.outer_area"><code class="name">var <span class="ident">outer_area</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def outer_area(self):
+    return self._outer_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.parent"><code class="name">var <span class="ident">parent</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parent(self):
+    return self.__parent</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.simulated_heat_load"><code class="name">var <span class="ident">simulated_heat_load</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def simulated_heat_load(self):
+    return self._simulated_heat_load</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.thermal_zones"><code class="name">var <span class="ident">thermal_zones</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def thermal_zones(self):
+    return self._thermal_zones</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.used_library_calc"><code class="name">var <span class="ident">used_library_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def used_library_calc(self):
+
+    return self._used_library_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.window_area"><code class="name">var <span class="ident">window_area</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def window_area(self):
+    return self._window_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.with_ahu"><code class="name">var <span class="ident">with_ahu</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def with_ahu(self):
+    return self._with_ahu</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.year_of_construction"><code class="name">var <span class="ident">year_of_construction</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def year_of_construction(self):
+    return self.__year_of_construction</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.year_of_retrofit"><code class="name">var <span class="ident">year_of_retrofit</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def year_of_retrofit(self):
+    return self._year_of_retrofit</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.building.Building.add_lca_data_elec"><code class="name flex">
+<span>def <span class="ident">add_lca_data_elec</span></span>(<span>self, lca_data)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates enviromental indicators resulting form electric
+energy consumption</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>LCA-Dataset representing the used power generation mix</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_lca_data_elec(self, lca_data):
+    &#34;&#34;&#34;Calculates enviromental indicators resulting form electric 
+    energy consumption
+
+    Parameters
+    ----------
+    lca_data : En15804LcaData
+        LCA-Dataset representing the used power generation mix
+
+    &#34;&#34;&#34;
+    
+    if self._estimate_elec_demand is None:
+        self.est_elec_demand()
+    
+    if lca_data.ref_flow_unit != &#34;MJ&#34;:
+        try:
+            lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+        except:
+            print(&#34;Unit of the reference flow has to be MJ!&#34;)
+    
+    lca_data = lca_data * self._estimate_elec_demand
+    
+    if self.lca_data is not None:
+        self.lca_data = self.lca_data + lca_data
+    else:
+        self.lca_data = lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.add_lca_data_heating"><code class="name flex">
+<span>def <span class="ident">add_lca_data_heating</span></span>(<span>self, efficiency, lca_data, annual_heat_energy=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates enviromental indicators resulting form heating</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>efficiency</code></strong> :&ensp;<code>float</code></dt>
+<dd>overall efficiency of the heating-system.</dd>
+<dt><strong><code>annual_heat_load</code></strong> :&ensp;<code>float [MJ]</code></dt>
+<dd>heat load of the building over a year.</dd>
+<dt><strong><code>lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>LCA-Dataset representing the used energy carrier.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_lca_data_heating(self, efficiency, lca_data, annual_heat_energy = None):
+    &#34;&#34;&#34;Calculates enviromental indicators resulting form heating
+
+    Parameters
+    ----------
+    efficiency : float
+        overall efficiency of the heating-system.
+    annual_heat_load : float [MJ]
+        heat load of the building over a year.
+    lca_data : En15804LcaData
+        LCA-Dataset representing the used energy carrier.
+
+    &#34;&#34;&#34;
+    if annual_heat_energy is None:
+        annual_heat_energy = self._calc_simulated_annual_heat_energy()
+    
+    if lca_data.ref_flow_unit != &#34;MJ&#34;:
+        try:
+            lca_data = lca_data.convert_ref_unit(&#34;MJ&#34;)
+        except:
+            print(&#34;Unit of the reference flow has to be MJ!&#34;)
+    lca_data = lca_data * (1/efficiency) * annual_heat_energy * self.parent.period_lca_scenario
+    lca_data.unit = &#34;pcs&#34;
+            
+    if self.lca_data is not None:
+        self.lca_data = self.lca_data + lca_data
+    else:
+        self.lca_data = lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.add_lca_data_template"><code class="name flex">
+<span>def <span class="ident">add_lca_data_template</span></span>(<span>self, lca_data_id, amount)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function loads environmental indicators from the JSON,
+multiplies it with an amount and add it to the building LCA-Data</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>lca_data_id</code></strong> :&ensp;<code>uuid</code></dt>
+<dd>uuid of the Dataset to be loaded.</dd>
+<dt><strong><code>amount</code></strong> :&ensp;<code>float</code></dt>
+<dd>factor.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_lca_data_template(self, lca_data_id, amount):
+    &#34;&#34;&#34;This function loads environmental indicators from the JSON,
+    multiplies it with an amount and add it to the building LCA-Data
+
+    Parameters
+    ----------
+    lca_data_id : uuid
+        uuid of the Dataset to be loaded.
+    amount : float
+        factor.
+    &#34;&#34;&#34;
+    lca_data = En15804LcaData()
+    
+    lca_data.load_lca_data_template(lca_data_id, data_class = self.parent.data)
+    
+    if self.lca_data is not None:
+        self.lca_data = self.lca_data + lca_data * amount
+    else:
+        self.lca_data = lca_data * amount</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.add_zone"><code class="name flex">
+<span>def <span class="ident">add_zone</span></span>(<span>self, thermal_zone)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a thermal zone to the corresponding list</p>
+<p>This function adds a ThermalZone instance to the the thermal_zones list</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>thermal_zone</code></strong> :&ensp;<code>ThermalZone()</code></dt>
+<dd>ThermalZone() instance of TEASER</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_zone(self, thermal_zone):
+    &#34;&#34;&#34;Adds a thermal zone to the corresponding list
+
+    This function adds a ThermalZone instance to the the thermal_zones list
+
+    Parameters
+    ----------
+    thermal_zone : ThermalZone()
+        ThermalZone() instance of TEASER
+    &#34;&#34;&#34;
+
+    ass_error_1 = &#34;Zone has to be an instance of ThermalZone()&#34;
+
+    assert type(thermal_zone).__name__ == &#34;ThermalZone&#34;, ass_error_1
+
+    self._thermal_zones.append(thermal_zone)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.calc_building_parameter"><code class="name flex">
+<span>def <span class="ident">calc_building_parameter</span></span>(<span>self, number_of_elements=2, merge_windows=False, used_library='AixLib')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>calc all building parameters</p>
+<p>This functions calculates the parameters of all zones in a building
+sums norm heat load of all zones
+sums volume of all zones</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>number_of_elements</code></strong> :&ensp;<code>int</code></dt>
+<dd>defines the number of elements, that area aggregated, between 1
+and 4, default is 2</dd>
+<dt><strong><code>merge_windows</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True for merging the windows into the outer walls, False for
+separate resistance for window, default is False</dd>
+<dt><strong><code>used_library</code></strong> :&ensp;<code>str</code></dt>
+<dd>used library (AixLib and IBPSA are supported)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_building_parameter(
+    self, number_of_elements=2, merge_windows=False, used_library=&#34;AixLib&#34;
+):
+    &#34;&#34;&#34;calc all building parameters
+
+    This functions calculates the parameters of all zones in a building
+    sums norm heat load of all zones
+    sums volume of all zones
+
+    Parameters
+    ----------
+    number_of_elements : int
+        defines the number of elements, that area aggregated, between 1
+        and 4, default is 2
+    merge_windows : bool
+        True for merging the windows into the outer walls, False for
+        separate resistance for window, default is False
+    used_library : str
+        used library (AixLib and IBPSA are supported)
+    &#34;&#34;&#34;
+
+    self._number_of_elements_calc = number_of_elements
+    self._merge_windows_calc = merge_windows
+    self._used_library_calc = used_library
+
+    for zone in self.thermal_zones:
+        zone.calc_zone_parameters(
+            number_of_elements=number_of_elements,
+            merge_windows=merge_windows,
+            t_bt=5,
+        )
+        self.sum_heat_load += zone.model_attr.heat_load
+
+    if self.used_library_calc == self.library_attr.__class__.__name__:
+        if self.used_library_calc == &#34;AixLib&#34;:
+            self.library_attr.calc_auxiliary_attr()
+        else:
+            pass
+    elif self.library_attr is None:
+        if self.used_library_calc == &#34;AixLib&#34;:
+            self.library_attr = AixLib(parent=self)
+            self.library_attr.calc_auxiliary_attr()
+        elif self.used_library_calc == &#34;IBPSA&#34;:
+            self.library_attr = IBPSA(parent=self)
+    else:
+        warnings.warn(
+            &#34;You set conflicting options for the used library &#34;
+            &#34;in Building or Project class and &#34;
+            &#34;calculation function of building. Your library &#34;
+            &#34;attributes are set to default using the library &#34;
+            &#34;you indicated in the function call, which is: &#34;
+            + self.used_library_calc
+        )
+
+        if self.used_library_calc == &#34;AixLib&#34;:
+            self.library_attr = AixLib(parent=self)
+            self.library_attr.calc_auxiliary_attr()
+        elif self.used_library_calc == &#34;IBPSA&#34;:
+            self.library_attr = IBPSA(parent=self)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.calc_lca_data"><code class="name flex">
+<span>def <span class="ident">calc_lca_data</span></span>(<span>self, use_b4=None, period_lca_scenario=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>calculates the environmental indicators of the building. Without
+environmental indicators from heating and electric demand</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>use_b4</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>if true environmental indicators of replaced buildingelements are
+added to stage B4. Otherwise they are added seperatly to the other stages</dd>
+<dt><strong><code>period_lca_scenario</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>period of use taken into account for LCA. Default is the project
+period (period_lca_scenario in project class)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+    &#34;&#34;&#34;calculates the environmental indicators of the building. Without
+    environmental indicators from heating and electric demand
+    
+    Parameters
+    ----------
+    use_b4 : bool, optional
+        if true environmental indicators of replaced buildingelements are 
+        added to stage B4. Otherwise they are added seperatly to the other stages
+    period_lca_scenario : int, optional
+        period of use taken into account for LCA. Default is the project 
+        period (period_lca_scenario in project class)
+    &#34;&#34;&#34;
+    lca_data = En15804LcaData()
+    
+    if use_b4 is None:
+        try:
+            use_b4 = self.parent.parent.parent.use_b4
+        except:
+            use_b4 = False
+    
+    if period_lca_scenario == None:
+        try:
+            period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+        except:
+            print(&#34;Please enter a period for the LCA-scenario!&#34;)
+    
+    for thermal_zone in self.thermal_zones:
+        
+        try:
+            thermal_zone.calc_lca_data(use_b4, period_lca_scenario)
+            lca_data = lca_data + thermal_zone.lca_data
+        except:
+            print(&#34;Error while adding lca-data from thermal zone&#34;)
+            
+    if self.additional_lca_data is not None:
+        if self.additional_lca_data.ref_flow_unit == &#34;pcs&#34;:
+            scalar = self.additional_lca_data.ref_flow_value
+            lca_data = lca_data + self.additional_lca_data * scalar
+        
+    self.lca_data = lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.est_elec_demand"><code class="name flex">
+<span>def <span class="ident">est_elec_demand</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>roughly estimates the electricity demand of the building due to it´s
+size, without electricity used for heating (e.g. for heat pumps)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def est_elec_demand(self):
+    &#34;&#34;&#34;roughly estimates the electricity demand of the building due to it´s
+    size, without electricity used for heating (e.g. for heat pumps)
+    
+    &#34;&#34;&#34;
+    
+    q_el_ges_a = None
+    d_a = 365 #days in a year
+    q_el_b = 63 #Wh/(m^2 d) DIN 18599-10
+    a_ngf = self.net_leased_area
+    h_B = 8 #hours lighting per day estimate from DIN 18599-10
+    q_el_B = 10 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
+    q_el_wp = 0 #electrical energy for heat pump allready considered in heatload
+    
+    q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
+    
+    q_el_ges_a = q_el_ges_a * 3.6 #conversion kWh -&gt; MJ       
+    
+    self._estimate_elec_demand = q_el_ges_a</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.fill_outer_area_dict"><code class="name flex">
+<span>def <span class="ident">fill_outer_area_dict</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fills the attribute outer_area</p>
+<p>Fills the dictionary outer_area with the sum of outer wall area
+corresponding to the orientations of the building. This function
+covers OuterWalls, GroundFloors and Rooftops.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_outer_area_dict(self):
+    &#34;&#34;&#34;Fills the attribute outer_area
+
+    Fills the dictionary outer_area with the sum of outer wall area
+    corresponding to the orientations of the building. This function
+    covers OuterWalls, GroundFloors and Rooftops.
+
+    &#34;&#34;&#34;
+    self.outer_area = {}
+    for zone_count in self.thermal_zones:
+        for wall_count in zone_count.outer_walls:
+            self.outer_area[wall_count.orientation] = None
+        for roof in zone_count.rooftops:
+            self.outer_area[roof.orientation] = None
+        for ground in zone_count.ground_floors:
+            self.outer_area[ground.orientation] = None
+    for key in self.outer_area:
+        self.outer_area[key] = self.get_outer_wall_area(key)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.fill_window_area_dict"><code class="name flex">
+<span>def <span class="ident">fill_window_area_dict</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Fills the attribute</p>
+<p>Fills the dictionary window_area with the sum of window area
+corresponding to the orientations of the building.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill_window_area_dict(self):
+    &#34;&#34;&#34;Fills the attribute
+
+    Fills the dictionary window_area with the sum of window area
+    corresponding to the orientations of the building.
+
+    &#34;&#34;&#34;
+    self.window_area = {}
+    for zone_count in self.thermal_zones:
+        for win_count in zone_count.windows:
+            self.window_area[win_count.orientation] = None
+
+    for key in self.window_area:
+        self.window_area[key] = self.get_window_area(key)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.get_footprint_gml"><code class="name flex">
+<span>def <span class="ident">get_footprint_gml</span></span>(<span>self, merge_building_part=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Gets the footprint surface of a building from CityGML data</p>
+<p>with given gml surfaces, this function computes and returns the
+footprint area of a building from LoD 0 to LoD2 from CityGML data.
+This is done by either analysing the ground floor or the flat roof.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>surface area : float</code></dt>
+<dd>footprint area of a gml building</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_footprint_gml(self, merge_building_part=False):
+    &#34;&#34;&#34;Gets the footprint surface of a building from CityGML data
+
+    with given gml surfaces, this function computes and returns the
+    footprint area of a building from LoD 0 to LoD2 from CityGML data.
+    This is done by either analysing the ground floor or the flat roof.
+
+    Returns
+    ----------
+    surface area : float
+        footprint area of a gml building
+
+    &#34;&#34;&#34;
+    surface_max_help = []
+    for surface in self.gml_surfaces:
+        # print(surface.surface_area, surface.surface_orientation, surface.surface_tilt)
+        if surface.surface_orientation == -2 or surface.surface_orientation == -1 and surface.surface_tilt == \
+                0.0:
+            surface_max_help.append(surface.surface_area)
+    if merge_building_part is False:
+        max_area = max(surface_max_help)
+    else:
+        max_area = sum(surface_max_help)
+    return max_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.get_inner_wall_area"><code class="name flex">
+<span>def <span class="ident">get_inner_wall_area</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get aggregated inner wall area</p>
+<p>Returns the area of all inner walls. This function covers InnerWalls,
+Ceilings and Floors.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sum_area</code></strong> :&ensp;<code>float</code></dt>
+<dd>area of all inner walls</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_inner_wall_area(self):
+    &#34;&#34;&#34;Get aggregated inner wall area
+
+    Returns the area of all inner walls. This function covers InnerWalls,
+    Ceilings and Floors.
+
+    Returns
+    ----------
+    sum_area : float
+        area of all inner walls
+
+    &#34;&#34;&#34;
+
+    sum_area = 0.0
+    for zone_count in self.thermal_zones:
+        for wall_count in zone_count.inner_walls:
+            sum_area += wall_count.area
+        for floor in zone_count.floors:
+            sum_area += floor.area
+        for ceiling in zone_count.ceilings:
+            sum_area += ceiling.area
+    return sum_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.get_outer_wall_area"><code class="name flex">
+<span>def <span class="ident">get_outer_wall_area</span></span>(<span>self, orientation)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get aggregated wall area of one orientation</p>
+<p>Returns the area of all outer walls of one direction. This function
+covers OuterWalls, GroundFloors and Rooftops.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>orientation</code></strong> :&ensp;<code>float</code></dt>
+<dd>orientation of the obtained wall</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sum_area</code></strong> :&ensp;<code>float</code></dt>
+<dd>area of all walls of one direction</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_outer_wall_area(self, orientation):
+    &#34;&#34;&#34;Get aggregated wall area of one orientation
+
+    Returns the area of all outer walls of one direction. This function
+    covers OuterWalls, GroundFloors and Rooftops.
+
+    Parameters
+    ----------
+    orientation : float
+        orientation of the obtained wall
+    Returns
+    ----------
+    sum_area : float
+        area of all walls of one direction
+    &#34;&#34;&#34;
+
+    sum_area = 0.0
+    for zone_count in self.thermal_zones:
+        for wall_count in zone_count.outer_walls:
+            if wall_count.orientation == orientation and wall_count.area is not None:
+                sum_area += wall_count.area
+        for roof_count in zone_count.rooftops:
+            if roof_count.orientation == orientation and roof_count.area is not None:
+                sum_area += roof_count.area
+        for ground_count in zone_count.ground_floors:
+            if (
+                ground_count.orientation == orientation
+                and ground_count.area is not None
+            ):
+                sum_area += ground_count.area
+    return sum_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.get_window_area"><code class="name flex">
+<span>def <span class="ident">get_window_area</span></span>(<span>self, orientation)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get aggregated window area of one orientation</p>
+<p>returns the area of all windows of one direction</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>orientation</code></strong> :&ensp;<code>float</code></dt>
+<dd>orientation of the obtained windows</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>sum_area</code></strong> :&ensp;<code>float</code></dt>
+<dd>area of all windows of one direction</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_window_area(self, orientation):
+    &#34;&#34;&#34;Get aggregated window area of one orientation
+
+    returns the area of all windows of one direction
+
+    Parameters
+    ----------
+    orientation : float
+        orientation of the obtained windows
+    Returns
+    ----------
+    sum_area : float
+        area of all windows of one direction
+    &#34;&#34;&#34;
+
+    sum_area = 0.0
+    for zone_count in self.thermal_zones:
+        for win_count in zone_count.windows:
+            if win_count.orientation == orientation and win_count.area is not None:
+                sum_area += win_count.area
+    return sum_area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.print_be_information"><code class="name flex">
+<span>def <span class="ident">print_be_information</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>prints area of all buildingelements</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def print_be_information(self):
+    &#34;&#34;&#34;prints area of all buildingelements
+    &#34;&#34;&#34;
+    outer_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    doors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    rooftops = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    ground_floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    windows = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    inner_walls = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    floors = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    ceilings = {&#34;area&#34;: 0, &#34;gwp&#34;: None }
+    
+    for tz in self.thermal_zones:
+        for ow in tz.outer_walls:
+            outer_walls[&#34;area&#34;] = outer_walls[&#34;area&#34;] + ow.area
+        for do in tz.doors:
+            doors[&#34;area&#34;] = doors[&#34;area&#34;] + ow.area
+        for rt in tz.rooftops:
+            rooftops[&#34;area&#34;] = rooftops[&#34;area&#34;] + rt.area
+        for gf in tz.ground_floors:
+            ground_floors[&#34;area&#34;] = ground_floors[&#34;area&#34;] + gf.area
+        for wn in tz.windows:
+            windows[&#34;area&#34;] = windows[&#34;area&#34;] + wn.area
+        for iw in tz.inner_walls:
+            inner_walls[&#34;area&#34;] = inner_walls[&#34;area&#34;] + iw.area
+        for fl in tz.floors:
+            floors[&#34;area&#34;] = floors[&#34;area&#34;] + fl.area
+        for ce in tz.ceilings:
+            ceilings[&#34;area&#34;] = ceilings[&#34;area&#34;] + ce.area
+            
+            
+    print(&#34;outer walls area: {}&#34;.format(outer_walls[&#34;area&#34;]))
+    print(&#34;doors area: {}&#34;.format(doors[&#34;area&#34;]))
+    print(&#34;rooftops area: {}&#34;.format(rooftops[&#34;area&#34;]))
+    print(&#34;ground_floors area: {}&#34;.format(ground_floors[&#34;area&#34;]))
+    print(&#34;windows area: {}&#34;.format(windows[&#34;area&#34;]))
+    print(&#34;inner_walls area: {}&#34;.format(inner_walls[&#34;area&#34;]))
+    print(&#34;floors area: {}&#34;.format(floors[&#34;area&#34;]))
+    print(&#34;ceilings area: {}&#34;.format(ceilings[&#34;area&#34;]))</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.retrofit_building"><code class="name flex">
+<span>def <span class="ident">retrofit_building</span></span>(<span>self, year_of_retrofit=None, type_of_retrofit=None, window_type=None, material=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrofits all zones in the building</p>
+<p>Function call for each zone.</p>
+<p>After retrofit, all parameters are calculated directly.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>year_of_retrofit</code></strong> :&ensp;<code>float</code></dt>
+<dd>Year of last retrofit.</dd>
+<dt><strong><code>type_of_retrofit</code></strong> :&ensp;<code>str</code></dt>
+<dd>The classification of retrofit, if the archetype building
+approach of TABULA is used.</dd>
+<dt><strong><code>window_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Default: EnEv 2014</dd>
+<dt><strong><code>material</code></strong> :&ensp;<code>str</code></dt>
+<dd>Default: EPS035</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrofit_building(
+    self,
+    year_of_retrofit=None,
+    type_of_retrofit=None,
+    window_type=None,
+    material=None,
+):
+    &#34;&#34;&#34;Retrofits all zones in the building
+
+    Function call for each zone.
+
+    After retrofit, all parameters are calculated directly.
+
+    Parameters
+    ----------
+    year_of_retrofit : float
+        Year of last retrofit.
+    type_of_retrofit : str
+        The classification of retrofit, if the archetype building
+        approach of TABULA is used.
+    window_type : str
+        Default: EnEv 2014
+    material : str
+        Default: EPS035
+    &#34;&#34;&#34;
+
+    #  Set self.sum_heat_load to zero to prevent summing up of old and new
+    #  design heat load calculation values (see #518)
+    self.sum_heat_load = 0
+
+    if year_of_retrofit is not None:
+        self.year_of_retrofit = year_of_retrofit
+
+    for zone in self.thermal_zones:
+        zone.retrofit_zone(type_of_retrofit, window_type, material)
+
+    self.calc_building_parameter(
+        number_of_elements=self.number_of_elements_calc,
+        merge_windows=self.merge_windows_calc,
+        used_library=self.used_library_calc,
+    )</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.rotate_building"><code class="name flex">
+<span>def <span class="ident">rotate_building</span></span>(<span>self, angle)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Rotates the building to a given angle</p>
+<p>This function covers OuterWall, Rooftop (if not flat roof) and Windows.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>angle</code></strong> :&ensp;<code>float</code></dt>
+<dd>rotation of the building clockwise, between 0 and 360 degrees</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def rotate_building(self, angle):
+    &#34;&#34;&#34;Rotates the building to a given angle
+
+    This function covers OuterWall, Rooftop (if not flat roof) and Windows.
+
+    Parameters
+    ----------
+
+    angle: float
+        rotation of the building clockwise, between 0 and 360 degrees
+    &#34;&#34;&#34;
+
+    for zone_count in self.thermal_zones:
+        new_angle = None
+        for wall_count in zone_count.outer_walls:
+            new_angle = wall_count.orientation + angle
+            if new_angle &gt; 360.0:
+                wall_count.orientation = new_angle - 360.0
+            else:
+                wall_count.orientation = new_angle
+        for roof_count in zone_count.rooftops:
+            if roof_count.orientation != -1:
+                new_angle = roof_count.orientation + angle
+                if new_angle &gt; 360.0:
+                    roof_count.orientation = new_angle - 360.0
+                else:
+                    roof_count.orientation = new_angle
+            else:
+                pass
+        for win_count in zone_count.windows:
+            new_angle = win_count.orientation + angle
+            if new_angle &gt; 360.0:
+                win_count.orientation = new_angle - 360.0
+            else:
+                win_count.orientation = new_angle</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.set_gml_attributes"><code class="name flex">
+<span>def <span class="ident">set_gml_attributes</span></span>(<span>self, height_of_floor=3.5, merge_building_part=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets building attributes from CityGML data</p>
+<p>Computes the net_leased_area depending on the footprint area,
+the number and the height of floors. If the number of floors is
+specified before it will use this value, if not it will compute the
+number of floors based on the gml building height and the average
+height of the floors. If the number of floors is zero it'll be set to
+one. If the net leased area is below 50.0 sqm it'll be set to 50.0.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>height_of_floor</code></strong> :&ensp;<code>float</code></dt>
+<dd>average height of each floor of the building, the default value
+is 3.5 and is absolutely random.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_gml_attributes(self, height_of_floor=3.5, merge_building_part=False):
+    &#34;&#34;&#34;Sets building attributes from CityGML data
+
+    Computes the net_leased_area depending on the footprint area,
+    the number and the height of floors. If the number of floors is
+    specified before it will use this value, if not it will compute the
+    number of floors based on the gml building height and the average
+    height of the floors. If the number of floors is zero it&#39;ll be set to
+    one. If the net leased area is below 50.0 sqm it&#39;ll be set to 50.0.
+
+    Parameters
+    ----------
+    height_of_floor : float
+        average height of each floor of the building, the default value
+        is 3.5 and is absolutely random.
+    &#34;&#34;&#34;
+
+    if self.bldg_height is None:
+        raise AttributeError(&#34;Building height needs to be defined for gml&#34;)
+
+    if self.height_of_floors is None and self.number_of_floors is None:
+        self.height_of_floors = height_of_floor
+    elif self.height_of_floors is None and self.number_of_floors is not \
+            None:
+        self.height_of_floors = self.bldg_height / self.number_of_floors
+    else:
+        pass
+
+    if self.number_of_floors is not None:
+        self.net_leased_area = self.get_footprint_gml() * \
+                               self.number_of_floors
+        return
+
+    else:
+        self.number_of_floors = int(round((self.bldg_height /
+                                           self.height_of_floors)))
+        if self.number_of_floors == 0:
+            self.number_of_floors = 1
+        if merge_building_part is False:
+            self.net_leased_area = self.get_footprint_gml() * \
+                                   self.number_of_floors
+        else:
+            self.net_leased_area = self.get_footprint_gml(merge_building_part=True) * \
+                                   self.number_of_floors
+
+        if self.net_leased_area &lt; 50.0:
+            raise Exception(&#39;The calculated net leased area is under 50m²&#39;)
+            # self.net_leased_area = 50.0</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.set_height_gml"><code class="name flex">
+<span>def <span class="ident">set_height_gml</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the height of a building from CityGML data</p>
+<p>With given gml surfaces, this function computes the height of a
+building of LoD 1 and LoD 2 buildings from CityGML data. All
+z-coordinates are evaluated and the minimum z-value is subtracted
+by the maximal value.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_height_gml(self):
+    &#34;&#34;&#34;Calculates the height of a building from CityGML data
+
+    With given gml surfaces, this function computes the height of a
+    building of LoD 1 and LoD 2 buildings from CityGML data. All
+    z-coordinates are evaluated and the minimum z-value is subtracted
+    by the maximal value.
+
+    &#34;&#34;&#34;
+    if self.bldg_height is not None:
+        pass
+    else:
+        max_help = 0
+        min_help = 9999
+        for surface in self.gml_surfaces:
+            z_value = surface.gml_surface[2::3]
+            max_help = max(max_help, max(z_value))
+            min_help = min(min_help, min(z_value))
+        self.bldg_height = max_help - min_help</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.set_outer_wall_area"><code class="name flex">
+<span>def <span class="ident">set_outer_wall_area</span></span>(<span>self, new_area, orientation, tilt=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Outer area wall setter</p>
+<p>sets the outer wall area of all walls of one direction and weights
+them according to zone size. This function covers OuterWalls,
+Rooftops, GroundFloors.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>tilt</code></strong> :&ensp;<code>float</code></dt>
+<dd>inclination of the obtained walls</dd>
+<dt><strong><code>new_area</code></strong> :&ensp;<code>float</code></dt>
+<dd>new_area of all outer walls of one orientation</dd>
+<dt><strong><code>orientation</code></strong> :&ensp;<code>float</code></dt>
+<dd>orientation of the obtained walls</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_outer_wall_area(self, new_area, orientation, tilt=None):
+    &#34;&#34;&#34;Outer area wall setter
+
+    sets the outer wall area of all walls of one direction and weights
+    them according to zone size. This function covers OuterWalls,
+    Rooftops, GroundFloors.
+
+    Parameters
+    ----------
+    tilt: float
+        inclination of the obtained walls
+    new_area : float
+        new_area of all outer walls of one orientation
+    orientation : float
+        orientation of the obtained walls
+    &#34;&#34;&#34;
+
+    for zone in self.thermal_zones:
+        if tilt is not None:
+            for wall in zone.outer_walls:
+                if wall.orientation == orientation and wall.tilt == tilt:
+                    wall.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                        count.orientation == orientation for count in zone.outer_walls
+                    )
+                    # Addition for LoD3 and LoD4
+                    # for win in zone.windows:
+                    #     if win.area is not None and win.orientation == wall.orientation:
+                    #         wall.area -= win.area
+            for roof in zone.rooftops:
+                if roof.orientation == orientation and roof.tilt == tilt:
+                    roof.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                        count.orientation == orientation for count in zone.rooftops)
+                    # Addition for LoD3 and LoD4
+                    # for win in zone.windows:
+                    #     if win.area is not None and win.orientation == wall.orientation:
+                    #         wall.area -= win.area
+
+            for ground in zone.ground_floors:
+                if ground.orientation == orientation  and new_area &gt; 50:
+                    if new_area &lt; 1:
+                        raise Exception(&#39;ground&#39;)
+                    else:
+                        ground.area = ((new_area / self.net_leased_area) * zone.area)
+
+            for door in zone.doors:
+                if door.orientation == orientation:
+                    door.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                        count.orientation == orientation for count in zone.doors
+                    )
+        else:
+            for zone in self.thermal_zones:
+                for wall in zone.outer_walls:
+                    if wall.orientation == orientation:
+                        wall.area = ((new_area / self.net_leased_area) * zone.area)
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == wall.orientation:
+                        #         wall.area -= win.area
+                for roof in zone.rooftops:
+                    if roof.orientation == orientation:
+                        roof.area = ((new_area / self.net_leased_area) * zone.area)
+                        # Addition for LoD3 and LoD4
+                        # for win in zone.windows:
+                        #     if win.area is not None and win.orientation == roof.orientation and win.tilt == roof.tilt:
+                        #         roof.area -= win.area
+                        #         print(roof.area, &#34;roof-window&#34;)
+                for ground in zone.ground_floors:
+                    if ground.orientation == orientation and new_area &gt; 50:
+                        if new_area &lt; 1:
+                            raise Exception(&#39;ground&#39;)
+                        else:
+                            ground.area = ((new_area / self.net_leased_area) * zone.area)
+                for door in zone.doors:
+                    if door.orientation == orientation:
+                        door.area = (
+                                ((new_area / self.net_leased_area) * zone.area) /
+                                sum(count.orientation == orientation for count in
+                                    zone.doors))</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.building.Building.set_window_area"><code class="name flex">
+<span>def <span class="ident">set_window_area</span></span>(<span>self, new_area, orientation)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Window area setter</p>
+<p>sets the window area of all windows of one direction and weights
+them according to zone size</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>new_area</code></strong> :&ensp;<code>float</code></dt>
+<dd>new_area of all window of one orientation</dd>
+<dt><strong><code>orientation</code></strong> :&ensp;<code>float</code></dt>
+<dd>orientation of the obtained windows</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_window_area(self, new_area, orientation):
+    &#34;&#34;&#34;Window area setter
+
+    sets the window area of all windows of one direction and weights
+    them according to zone size
+
+    Parameters
+    ----------
+    new_area : float
+        new_area of all window of one orientation
+    orientation : float
+        orientation of the obtained windows
+    &#34;&#34;&#34;
+
+    for zone in self.thermal_zones:
+        for win in zone.windows:
+            if win.orientation == orientation:
+                win.area = ((new_area / self.net_leased_area) * zone.area) / sum(
+                    count.orientation == orientation for count in zone.windows
+                )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.logic.buildingobjects" href="index.html">teaser.logic.buildingobjects</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.logic.buildingobjects.building.Building" href="#teaser.logic.buildingobjects.building.Building">Building</a></code></h4>
+<ul class="">
+<li><code><a title="teaser.logic.buildingobjects.building.Building.add_lca_data_elec" href="#teaser.logic.buildingobjects.building.Building.add_lca_data_elec">add_lca_data_elec</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.add_lca_data_heating" href="#teaser.logic.buildingobjects.building.Building.add_lca_data_heating">add_lca_data_heating</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.add_lca_data_template" href="#teaser.logic.buildingobjects.building.Building.add_lca_data_template">add_lca_data_template</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.add_zone" href="#teaser.logic.buildingobjects.building.Building.add_zone">add_zone</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.additional_lca_data" href="#teaser.logic.buildingobjects.building.Building.additional_lca_data">additional_lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.calc_building_parameter" href="#teaser.logic.buildingobjects.building.Building.calc_building_parameter">calc_building_parameter</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.calc_lca_data" href="#teaser.logic.buildingobjects.building.Building.calc_lca_data">calc_lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.central_ahu" href="#teaser.logic.buildingobjects.building.Building.central_ahu">central_ahu</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.est_elec_demand" href="#teaser.logic.buildingobjects.building.Building.est_elec_demand">est_elec_demand</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.fill_outer_area_dict" href="#teaser.logic.buildingobjects.building.Building.fill_outer_area_dict">fill_outer_area_dict</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.fill_window_area_dict" href="#teaser.logic.buildingobjects.building.Building.fill_window_area_dict">fill_window_area_dict</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.get_footprint_gml" href="#teaser.logic.buildingobjects.building.Building.get_footprint_gml">get_footprint_gml</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.get_inner_wall_area" href="#teaser.logic.buildingobjects.building.Building.get_inner_wall_area">get_inner_wall_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.get_outer_wall_area" href="#teaser.logic.buildingobjects.building.Building.get_outer_wall_area">get_outer_wall_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.get_window_area" href="#teaser.logic.buildingobjects.building.Building.get_window_area">get_window_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.height_of_floors" href="#teaser.logic.buildingobjects.building.Building.height_of_floors">height_of_floors</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.lca_data" href="#teaser.logic.buildingobjects.building.Building.lca_data">lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.merge_windows_calc" href="#teaser.logic.buildingobjects.building.Building.merge_windows_calc">merge_windows_calc</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.name" href="#teaser.logic.buildingobjects.building.Building.name">name</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.net_leased_area" href="#teaser.logic.buildingobjects.building.Building.net_leased_area">net_leased_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.number_of_elements_calc" href="#teaser.logic.buildingobjects.building.Building.number_of_elements_calc">number_of_elements_calc</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.number_of_floors" href="#teaser.logic.buildingobjects.building.Building.number_of_floors">number_of_floors</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.outer_area" href="#teaser.logic.buildingobjects.building.Building.outer_area">outer_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.parent" href="#teaser.logic.buildingobjects.building.Building.parent">parent</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.print_be_information" href="#teaser.logic.buildingobjects.building.Building.print_be_information">print_be_information</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.retrofit_building" href="#teaser.logic.buildingobjects.building.Building.retrofit_building">retrofit_building</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.rotate_building" href="#teaser.logic.buildingobjects.building.Building.rotate_building">rotate_building</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.set_gml_attributes" href="#teaser.logic.buildingobjects.building.Building.set_gml_attributes">set_gml_attributes</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.set_height_gml" href="#teaser.logic.buildingobjects.building.Building.set_height_gml">set_height_gml</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.set_outer_wall_area" href="#teaser.logic.buildingobjects.building.Building.set_outer_wall_area">set_outer_wall_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.set_window_area" href="#teaser.logic.buildingobjects.building.Building.set_window_area">set_window_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.simulated_heat_load" href="#teaser.logic.buildingobjects.building.Building.simulated_heat_load">simulated_heat_load</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.thermal_zones" href="#teaser.logic.buildingobjects.building.Building.thermal_zones">thermal_zones</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.used_library_calc" href="#teaser.logic.buildingobjects.building.Building.used_library_calc">used_library_calc</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.window_area" href="#teaser.logic.buildingobjects.building.Building.window_area">window_area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.with_ahu" href="#teaser.logic.buildingobjects.building.Building.with_ahu">with_ahu</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.year_of_construction" href="#teaser.logic.buildingobjects.building.Building.year_of_construction">year_of_construction</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.building.Building.year_of_retrofit" href="#teaser.logic.buildingobjects.building.Building.year_of_retrofit">year_of_retrofit</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

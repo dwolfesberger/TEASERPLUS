@@ -3,7 +3,7 @@
 from teaser.logic.buildingobjects.buildingphysics.layer import Layer
 from teaser.logic.buildingobjects.buildingphysics.material import Material
 import teaser.data.input.material_input_json as mat_input
-
+from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 def load_type_element(element, year, construction, data_class):
     """Load BuildingElement from json.
@@ -27,7 +27,7 @@ def load_type_element(element, year, construction, data_class):
         Construction type, code list ('heavy', 'light', tabula, ...)
 
     data_class : DataClass()
-        DataClass containing the bindings for TypeBuildingElement and
+        DataClass containing the bindings for TypeBuildingElement, LCA-data and
         Material (typically this is the data class stored in prj.data,
         but the user can individually change that.
 
@@ -43,7 +43,7 @@ def load_type_element(element, year, construction, data_class):
                 and element_in["construction_type"] == construction
                 and key.startswith(type(element).__name__)
             ):
-                _set_basic_data(element=element, element_in=element_in)
+                _set_basic_data(element=element, element_in=element_in, data_class=data_class)
                 for id, layer_in in element_in["layer"].items():
                     layer = Layer(element)
                     layer.id = id
@@ -55,7 +55,7 @@ def load_type_element(element, year, construction, data_class):
                     )
 
 
-def _set_basic_data(element, element_in):
+def _set_basic_data(element, element_in, data_class = None):
     """Set basic data for building elements.
 
     Helper function to set basic data to the BuildingElement class.
@@ -83,7 +83,12 @@ def _set_basic_data(element, element_in):
         element.inner_convection = element_in["inner_convection"]
         element.outer_radiation = element_in["outer_radiation"]
         element.outer_convection = element_in["outer_convection"]
-        element.lca_data = element_in["lca_data"]
+        if element_in["lca_data"] is not None:
+            lca_data = En15804LcaData()
+            lca_data.load_lca_data_template(element_in["lca_data"], data_class)
+            element.additional_lca_data = lca_data
+        else:
+            element.additional_lca_data = None
         element.service_life = element_in["service_life"]
 
     elif type(element).__name__ == "Window":
@@ -95,5 +100,11 @@ def _set_basic_data(element, element_in):
         element.shading_g_total = element_in["shading_g_total"]
         element.shading_max_irr = element_in["shading_max_irr"]
         element.lca_data = element_in["lca_data"]
+        if element_in["lca_data"] is not None:
+            lca_data = En15804LcaData()
+            lca_data.load_lca_data_template(element_in["lca_data"], data_class)
+            element.additional_lca_data = lca_data    
+        else:
+            element.additional_lca_data = None
         element.service_life = element_in["service_life"]
         

@@ -75,6 +75,8 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
 
             except:
                 print(f'failed simulation for building {buildings.name}')
+        
+        buildings.simulated_heat_load = list(zip(time1.tolist(), heatload.tolist()))
 
     if visualization:
         """BuildingsPy: plot Results"""

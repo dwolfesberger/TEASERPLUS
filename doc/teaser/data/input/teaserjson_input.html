@@ -1,0 +1,731 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.data.input.teaserjson_input API documentation</title>
+<meta name="description" content="Load Projects in the proprietary TEASER file format .json." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.data.input.teaserjson_input</code></h1>
+</header>
+<section id="section-intro">
+<p>Load Projects in the proprietary TEASER file format .json.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;Load Projects in the proprietary TEASER file format .json.&#34;&#34;&#34;
+
+from teaser.logic.buildingobjects.building import Building
+from teaser.logic.archetypebuildings.tabula.de.apartmentblock import ApartmentBlock
+from teaser.logic.archetypebuildings.tabula.de.multifamilyhouse import MultiFamilyHouse
+from teaser.logic.archetypebuildings.tabula.de.singlefamilyhouse import (
+    SingleFamilyHouse,
+)
+from teaser.logic.archetypebuildings.tabula.de.terracedhouse import TerracedHouse
+from teaser.logic.archetypebuildings.bmvbs.office import Office
+from teaser.logic.archetypebuildings.bmvbs.singlefamilydwelling import (
+    SingleFamilyDwelling,
+)
+from teaser.logic.archetypebuildings.bmvbs.custom.institute import Institute
+from teaser.logic.archetypebuildings.bmvbs.custom.institute4 import Institute4
+from teaser.logic.archetypebuildings.bmvbs.custom.institute8 import Institute8
+from teaser.logic.buildingobjects.thermalzone import ThermalZone
+from teaser.logic.buildingobjects.buildingsystems.buildingahu import BuildingAHU
+from teaser.logic.buildingobjects.useconditions import UseConditions
+from teaser.logic.buildingobjects.buildingphysics.outerwall import OuterWall
+from teaser.logic.buildingobjects.buildingphysics.layer import Layer
+from teaser.logic.buildingobjects.buildingphysics.material import Material
+from teaser.logic.buildingobjects.buildingphysics.rooftop import Rooftop
+from teaser.logic.buildingobjects.buildingphysics.groundfloor import GroundFloor
+from teaser.logic.buildingobjects.buildingphysics.innerwall import InnerWall
+from teaser.logic.buildingobjects.buildingphysics.ceiling import Ceiling
+from teaser.logic.buildingobjects.buildingphysics.floor import Floor
+from teaser.logic.buildingobjects.buildingphysics.window import Window
+from teaser.logic.buildingobjects.buildingphysics.door import Door
+import json
+import collections
+
+
+def load_teaser_json(path, project):
+    &#34;&#34;&#34;Load a project from json.
+
+    TEASERs internal file format to store information.
+
+    Parameters
+    ----------
+    path: string
+        path of teaserjson file
+
+    project: Project()
+        Teaser instance of Project()
+
+
+    &#34;&#34;&#34;
+    __building_class = {
+        &#34;Office&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Office},
+        &#34;Institute&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute},
+        &#34;Institute4&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute4},
+        &#34;Institute8&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute8},
+        &#34;Building&#34;: {&#34;method&#34;: &#34;undefined&#34;, &#34;teaser_class&#34;: Building},
+        &#34;SingleFamilyDwelling&#34;: {&#34;method&#34;: &#34;iwu&#34;, &#34;teaser_class&#34;: SingleFamilyDwelling},
+        &#34;SingleFamilyHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: SingleFamilyHouse},
+        &#34;TerracedHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: TerracedHouse},
+        &#34;MultiFamilyHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: MultiFamilyHouse},
+        &#34;ApartmentBlock&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: ApartmentBlock},
+    }
+    with open(path, &#34;r+&#34;) as f:
+        prj_in = json.load(f, object_pairs_hook=collections.OrderedDict)
+
+    project.name = prj_in[&#34;project&#34;][&#34;name&#34;]
+    project.weather_file_path = prj_in[&#34;project&#34;][&#34;weather_file_path&#34;]
+    project.number_of_elements_calc = prj_in[&#34;project&#34;][&#34;number_of_elements_calc&#34;]
+    project.merge_windows_calc = prj_in[&#34;project&#34;][&#34;merge_windows_calc&#34;]
+    project.used_library_calc = prj_in[&#34;project&#34;][&#34;used_library_calc&#34;]
+    project.modelica_info.start_time = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;start_time&#34;]
+    project.modelica_info.stop_time = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;stop_time&#34;]
+    project.modelica_info.interval_output = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;interval_output&#34;
+    ]
+    project.modelica_info.current_solver = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;current_solver&#34;
+    ]
+    project.modelica_info.equidistant_output = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;equidistant_output&#34;
+    ]
+    project.modelica_info.results_at_events = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;results_at_events&#34;
+    ]
+    project.modelica_info.version = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;version&#34;]
+
+    for bldg_name, bldg_in in prj_in[&#34;project&#34;][&#34;buildings&#34;].items():
+        bl_class = __building_class[bldg_in[&#34;classification&#34;][&#34;class&#34;]][&#34;teaser_class&#34;]
+        bldg = bl_class(parent=project)
+        bldg.name = bldg_name
+        bldg.street_name = bldg_in[&#34;street_name&#34;]
+        bldg.city = bldg_in[&#34;city&#34;]
+        bldg.year_of_construction = bldg_in[&#34;year_of_construction&#34;]
+        bldg.year_of_retrofit = bldg_in[&#34;year_of_retrofit&#34;]
+        bldg.number_of_floors = bldg_in[&#34;number_of_floors&#34;]
+        bldg.height_of_floors = bldg_in[&#34;height_of_floors&#34;]
+        # bldg.net_leased_area = bldg_in[&#34;net_leased_area&#34;]
+        bldg.outer_area = bldg_in[&#34;outer_area&#34;]
+        bldg.window_area = bldg_in[&#34;window_area&#34;]
+
+        try:
+            bldg.central_ahu = BuildingAHU(parent=bldg)
+            bldg.central_ahu.heating = bldg_in[&#34;central_ahu&#34;][&#34;heating&#34;]
+            bldg.central_ahu.cooling = bldg_in[&#34;central_ahu&#34;][&#34;cooling&#34;]
+            bldg.central_ahu.dehumidification = bldg_in[&#34;central_ahu&#34;][
+                &#34;dehumidification&#34;
+            ]
+            bldg.central_ahu.humidification = bldg_in[&#34;central_ahu&#34;][&#34;humidification&#34;]
+            bldg.central_ahu.heat_recovery = bldg_in[&#34;central_ahu&#34;][&#34;heat_recovery&#34;]
+            bldg.central_ahu.by_pass_dehumidification = bldg_in[&#34;central_ahu&#34;][
+                &#34;by_pass_dehumidification&#34;
+            ]
+            bldg.central_ahu.efficiency_recovery = bldg_in[&#34;central_ahu&#34;][
+                &#34;efficiency_recovery&#34;
+            ]
+            bldg.central_ahu.efficiency_recovery_false = bldg_in[&#34;central_ahu&#34;][
+                &#34;efficiency_recovery_false&#34;
+            ]
+            bldg.central_ahu.min_relative_humidity_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;min_relative_humidity_profile&#34;
+            ]
+            bldg.central_ahu.max_relative_humidity_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;max_relative_humidity_profile&#34;
+            ]
+            bldg.central_ahu.v_flow_profile = bldg_in[&#34;central_ahu&#34;][&#34;v_flow_profile&#34;]
+            bldg.central_ahu.temperature_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;temperature_profile&#34;
+            ]
+        except KeyError:
+            pass
+
+        for tz_name, zone_in in bldg_in[&#34;thermal_zones&#34;].items():
+            tz = ThermalZone(parent=bldg)
+            tz.name = tz_name
+            tz.area = zone_in[&#34;area&#34;]
+            tz.volume = zone_in[&#34;volume&#34;]
+            tz.use_conditions = UseConditions(parent=tz)
+            tz.use_conditions.usage = zone_in[&#34;use_conditions&#34;][&#34;usage&#34;]
+            tz.use_conditions.typical_length = zone_in[&#34;use_conditions&#34;][
+                &#34;typical_length&#34;
+            ]
+            tz.use_conditions.typical_width = zone_in[&#34;use_conditions&#34;][&#34;typical_width&#34;]
+            tz.use_conditions.with_heating = zone_in[&#34;use_conditions&#34;][&#34;with_heating&#34;]
+            tz.use_conditions.with_cooling = zone_in[&#34;use_conditions&#34;][&#34;with_cooling&#34;]
+            tz.use_conditions.with_ideal_thresholds = zone_in[&#34;use_conditions&#34;][
+                &#34;with_ideal_thresholds&#34;
+            ]
+            tz.use_conditions.T_threshold_heating = zone_in[&#34;use_conditions&#34;][
+                &#34;T_threshold_heating&#34;
+            ]
+            tz.use_conditions.T_threshold_cooling = zone_in[&#34;use_conditions&#34;][
+                &#34;T_threshold_cooling&#34;
+            ]
+            tz.use_conditions.fixed_heat_flow_rate_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;fixed_heat_flow_rate_persons&#34;
+            ]
+            tz.use_conditions.activity_degree_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;activity_degree_persons&#34;
+            ]
+            tz.use_conditions.persons = zone_in[&#34;use_conditions&#34;][&#34;persons&#34;]
+            tz.use_conditions.internal_gains_moisture_no_people = zone_in[
+                &#34;use_conditions&#34;
+            ][&#34;internal_gains_moisture_no_people&#34;]
+            tz.use_conditions.ratio_conv_rad_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_persons&#34;
+            ]
+            tz.use_conditions.machines = zone_in[&#34;use_conditions&#34;][&#34;machines&#34;]
+            tz.use_conditions.ratio_conv_rad_machines = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_machines&#34;
+            ]
+            tz.use_conditions.lighting_power = zone_in[&#34;use_conditions&#34;][
+                &#34;lighting_power&#34;
+            ]
+            tz.use_conditions.ratio_conv_rad_lighting = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_lighting&#34;
+            ]
+            tz.use_conditions.use_constant_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;use_constant_infiltration&#34;
+            ]
+            tz.use_conditions.infiltration_rate = zone_in[&#34;use_conditions&#34;][
+                &#34;infiltration_rate&#34;
+            ]
+            tz.use_conditions.max_user_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_user_infiltration&#34;
+            ]
+            tz.use_conditions.max_overheating_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_overheating_infiltration&#34;
+            ]
+            tz.use_conditions.max_summer_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_summer_infiltration&#34;
+            ]
+            tz.use_conditions.winter_reduction_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;winter_reduction_infiltration&#34;
+            ]
+            tz.use_conditions.min_ahu = zone_in[&#34;use_conditions&#34;][&#34;min_ahu&#34;]
+            tz.use_conditions.max_ahu = zone_in[&#34;use_conditions&#34;][&#34;max_ahu&#34;]
+            tz.use_conditions.with_ahu = zone_in[&#34;use_conditions&#34;][&#34;with_ahu&#34;]
+            tz.use_conditions.heating_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;heating_profile&#34;
+            ]
+            tz.use_conditions.cooling_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;cooling_profile&#34;
+            ]
+            tz.use_conditions.persons_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;persons_profile&#34;
+            ]
+            tz.use_conditions.machines_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;machines_profile&#34;
+            ]
+            tz.use_conditions.lighting_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;lighting_profile&#34;
+            ]
+
+            for wall_name, wall_in in zone_in[&#34;outer_walls&#34;].items():
+                out_wall = OuterWall(parent=tz)
+                out_wall.name = wall_name
+                set_basic_data_teaser(wall_in, out_wall)
+                set_layer_data_teaser(wall_in, out_wall)
+            for door_name, door_in in zone_in[&#34;doors&#34;].items():
+                door = Door(parent=tz)
+                door.name = door_name
+                set_basic_data_teaser(door_in, door)
+                set_layer_data_teaser(door_in, door)
+            for roof_name, roof_in in zone_in[&#34;rooftops&#34;].items():
+                roof = Rooftop(parent=tz)
+                roof.name = roof_name
+                set_basic_data_teaser(roof_in, roof)
+                set_layer_data_teaser(roof_in, roof)
+            for gf_name, gf_in in zone_in[&#34;ground_floors&#34;].items():
+                gf = GroundFloor(parent=tz)
+                gf.name = gf_name
+                set_basic_data_teaser(gf_in, gf)
+                set_layer_data_teaser(gf_in, gf)
+            for win_name, win_in in zone_in[&#34;windows&#34;].items():
+                win = Window(parent=tz)
+                win.name = win_name
+                set_basic_data_teaser(win_in, win)
+                set_layer_data_teaser(win_in, win)
+            for iw_name, iw_in in zone_in[&#34;inner_walls&#34;].items():
+                in_wall = InnerWall(parent=tz)
+                in_wall.name = iw_name
+                set_basic_data_teaser(iw_in, in_wall)
+                set_layer_data_teaser(iw_in, in_wall)
+            for fl_name, fl_in in zone_in[&#34;floors&#34;].items():
+                floor = Floor(parent=tz)
+                floor.name = fl_name
+                set_basic_data_teaser(fl_in, floor)
+                set_layer_data_teaser(fl_in, floor)
+            for cl_name, cl_in in zone_in[&#34;ceilings&#34;].items():
+                ceil = Ceiling(parent=tz)
+                ceil.name = cl_name
+                set_basic_data_teaser(cl_in, ceil)
+                set_layer_data_teaser(cl_in, ceil)
+
+
+def set_basic_data_teaser(wall_in, element):
+    &#34;&#34;&#34;Set basic data for a building element.
+
+    Helper function.
+
+    Parameters
+    ----------
+    wall_in : collection.OrderedDict
+        OrderedDict for walls
+    element : TEASERClass
+        teaser class representation of a building element
+
+    &#34;&#34;&#34;
+    element.area = wall_in[&#34;area&#34;]
+    element.tilt = wall_in[&#34;tilt&#34;]
+    element.orientation = wall_in[&#34;orientation&#34;]
+    element.inner_radiation = wall_in[&#34;inner_radiation&#34;]
+    element.inner_convection = wall_in[&#34;inner_convection&#34;]
+    element.year_of_construction = wall_in[&#34;year_of_construction&#34;]
+    element.year_of_retrofit = wall_in[&#34;year_of_retrofit&#34;]
+    element.construction_type = wall_in[&#34;construction_type&#34;]
+
+    if (
+        type(element).__name__ == &#34;OuterWall&#34;
+        or type(element).__name__ == &#34;Rooftop&#34;
+        or type(element).__name__ == &#34;Door&#34;
+    ):
+
+        element.outer_radiation = wall_in[&#34;outer_radiation&#34;]
+        element.outer_convection = wall_in[&#34;outer_convection&#34;]
+
+    elif type(element).__name__ == &#34;Window&#34;:
+
+        element.outer_radiation = wall_in[&#34;outer_radiation&#34;]
+        element.outer_convection = wall_in[&#34;outer_convection&#34;]
+        element.g_value = wall_in[&#34;g_value&#34;]
+        element.a_conv = wall_in[&#34;a_conv&#34;]
+        element.shading_g_total = wall_in[&#34;shading_g_total&#34;]
+        element.shading_max_irr = wall_in[&#34;shading_max_irr&#34;]
+
+
+def set_layer_data_teaser(wall_in, element):
+    &#34;&#34;&#34;Set layer data of a building element.
+
+    Helper function.
+
+    Parameters
+    ----------
+    wall_in : collection.OrderedDict
+        OrderedDict for walls
+    element : TEASERClass
+        teaser class representation of a building element
+
+    &#34;&#34;&#34;
+    for lay_id, layer_in in wall_in[&#34;layer&#34;].items():
+        layer = Layer(element)
+
+        layer.id = int(lay_id)
+        layer.thickness = layer_in[&#34;thickness&#34;]
+
+        Material(layer)
+
+        layer.material.name = layer_in[&#34;material&#34;][&#34;name&#34;]
+        layer.material.density = layer_in[&#34;material&#34;][&#34;density&#34;]
+        layer.material.thermal_conduc = layer_in[&#34;material&#34;][&#34;thermal_conduc&#34;]
+        layer.material.heat_capac = layer_in[&#34;material&#34;][&#34;heat_capac&#34;]
+        layer.material.solar_absorp = layer_in[&#34;material&#34;][&#34;solar_absorp&#34;]
+        layer.material.ir_emissivity = layer_in[&#34;material&#34;][&#34;ir_emissivity&#34;]</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="teaser.data.input.teaserjson_input.load_teaser_json"><code class="name flex">
+<span>def <span class="ident">load_teaser_json</span></span>(<span>path, project)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load a project from json.</p>
+<p>TEASERs internal file format to store information.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>path of teaserjson file</dd>
+<dt><strong><code>project</code></strong> :&ensp;<code>Project()</code></dt>
+<dd>Teaser instance of Project()</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_teaser_json(path, project):
+    &#34;&#34;&#34;Load a project from json.
+
+    TEASERs internal file format to store information.
+
+    Parameters
+    ----------
+    path: string
+        path of teaserjson file
+
+    project: Project()
+        Teaser instance of Project()
+
+
+    &#34;&#34;&#34;
+    __building_class = {
+        &#34;Office&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Office},
+        &#34;Institute&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute},
+        &#34;Institute4&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute4},
+        &#34;Institute8&#34;: {&#34;method&#34;: &#34;bmvbs&#34;, &#34;teaser_class&#34;: Institute8},
+        &#34;Building&#34;: {&#34;method&#34;: &#34;undefined&#34;, &#34;teaser_class&#34;: Building},
+        &#34;SingleFamilyDwelling&#34;: {&#34;method&#34;: &#34;iwu&#34;, &#34;teaser_class&#34;: SingleFamilyDwelling},
+        &#34;SingleFamilyHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: SingleFamilyHouse},
+        &#34;TerracedHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: TerracedHouse},
+        &#34;MultiFamilyHouse&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: MultiFamilyHouse},
+        &#34;ApartmentBlock&#34;: {&#34;method&#34;: &#34;tabula_de&#34;, &#34;teaser_class&#34;: ApartmentBlock},
+    }
+    with open(path, &#34;r+&#34;) as f:
+        prj_in = json.load(f, object_pairs_hook=collections.OrderedDict)
+
+    project.name = prj_in[&#34;project&#34;][&#34;name&#34;]
+    project.weather_file_path = prj_in[&#34;project&#34;][&#34;weather_file_path&#34;]
+    project.number_of_elements_calc = prj_in[&#34;project&#34;][&#34;number_of_elements_calc&#34;]
+    project.merge_windows_calc = prj_in[&#34;project&#34;][&#34;merge_windows_calc&#34;]
+    project.used_library_calc = prj_in[&#34;project&#34;][&#34;used_library_calc&#34;]
+    project.modelica_info.start_time = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;start_time&#34;]
+    project.modelica_info.stop_time = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;stop_time&#34;]
+    project.modelica_info.interval_output = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;interval_output&#34;
+    ]
+    project.modelica_info.current_solver = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;current_solver&#34;
+    ]
+    project.modelica_info.equidistant_output = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;equidistant_output&#34;
+    ]
+    project.modelica_info.results_at_events = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][
+        &#34;results_at_events&#34;
+    ]
+    project.modelica_info.version = prj_in[&#34;project&#34;][&#34;modelica_info&#34;][&#34;version&#34;]
+
+    for bldg_name, bldg_in in prj_in[&#34;project&#34;][&#34;buildings&#34;].items():
+        bl_class = __building_class[bldg_in[&#34;classification&#34;][&#34;class&#34;]][&#34;teaser_class&#34;]
+        bldg = bl_class(parent=project)
+        bldg.name = bldg_name
+        bldg.street_name = bldg_in[&#34;street_name&#34;]
+        bldg.city = bldg_in[&#34;city&#34;]
+        bldg.year_of_construction = bldg_in[&#34;year_of_construction&#34;]
+        bldg.year_of_retrofit = bldg_in[&#34;year_of_retrofit&#34;]
+        bldg.number_of_floors = bldg_in[&#34;number_of_floors&#34;]
+        bldg.height_of_floors = bldg_in[&#34;height_of_floors&#34;]
+        # bldg.net_leased_area = bldg_in[&#34;net_leased_area&#34;]
+        bldg.outer_area = bldg_in[&#34;outer_area&#34;]
+        bldg.window_area = bldg_in[&#34;window_area&#34;]
+
+        try:
+            bldg.central_ahu = BuildingAHU(parent=bldg)
+            bldg.central_ahu.heating = bldg_in[&#34;central_ahu&#34;][&#34;heating&#34;]
+            bldg.central_ahu.cooling = bldg_in[&#34;central_ahu&#34;][&#34;cooling&#34;]
+            bldg.central_ahu.dehumidification = bldg_in[&#34;central_ahu&#34;][
+                &#34;dehumidification&#34;
+            ]
+            bldg.central_ahu.humidification = bldg_in[&#34;central_ahu&#34;][&#34;humidification&#34;]
+            bldg.central_ahu.heat_recovery = bldg_in[&#34;central_ahu&#34;][&#34;heat_recovery&#34;]
+            bldg.central_ahu.by_pass_dehumidification = bldg_in[&#34;central_ahu&#34;][
+                &#34;by_pass_dehumidification&#34;
+            ]
+            bldg.central_ahu.efficiency_recovery = bldg_in[&#34;central_ahu&#34;][
+                &#34;efficiency_recovery&#34;
+            ]
+            bldg.central_ahu.efficiency_recovery_false = bldg_in[&#34;central_ahu&#34;][
+                &#34;efficiency_recovery_false&#34;
+            ]
+            bldg.central_ahu.min_relative_humidity_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;min_relative_humidity_profile&#34;
+            ]
+            bldg.central_ahu.max_relative_humidity_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;max_relative_humidity_profile&#34;
+            ]
+            bldg.central_ahu.v_flow_profile = bldg_in[&#34;central_ahu&#34;][&#34;v_flow_profile&#34;]
+            bldg.central_ahu.temperature_profile = bldg_in[&#34;central_ahu&#34;][
+                &#34;temperature_profile&#34;
+            ]
+        except KeyError:
+            pass
+
+        for tz_name, zone_in in bldg_in[&#34;thermal_zones&#34;].items():
+            tz = ThermalZone(parent=bldg)
+            tz.name = tz_name
+            tz.area = zone_in[&#34;area&#34;]
+            tz.volume = zone_in[&#34;volume&#34;]
+            tz.use_conditions = UseConditions(parent=tz)
+            tz.use_conditions.usage = zone_in[&#34;use_conditions&#34;][&#34;usage&#34;]
+            tz.use_conditions.typical_length = zone_in[&#34;use_conditions&#34;][
+                &#34;typical_length&#34;
+            ]
+            tz.use_conditions.typical_width = zone_in[&#34;use_conditions&#34;][&#34;typical_width&#34;]
+            tz.use_conditions.with_heating = zone_in[&#34;use_conditions&#34;][&#34;with_heating&#34;]
+            tz.use_conditions.with_cooling = zone_in[&#34;use_conditions&#34;][&#34;with_cooling&#34;]
+            tz.use_conditions.with_ideal_thresholds = zone_in[&#34;use_conditions&#34;][
+                &#34;with_ideal_thresholds&#34;
+            ]
+            tz.use_conditions.T_threshold_heating = zone_in[&#34;use_conditions&#34;][
+                &#34;T_threshold_heating&#34;
+            ]
+            tz.use_conditions.T_threshold_cooling = zone_in[&#34;use_conditions&#34;][
+                &#34;T_threshold_cooling&#34;
+            ]
+            tz.use_conditions.fixed_heat_flow_rate_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;fixed_heat_flow_rate_persons&#34;
+            ]
+            tz.use_conditions.activity_degree_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;activity_degree_persons&#34;
+            ]
+            tz.use_conditions.persons = zone_in[&#34;use_conditions&#34;][&#34;persons&#34;]
+            tz.use_conditions.internal_gains_moisture_no_people = zone_in[
+                &#34;use_conditions&#34;
+            ][&#34;internal_gains_moisture_no_people&#34;]
+            tz.use_conditions.ratio_conv_rad_persons = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_persons&#34;
+            ]
+            tz.use_conditions.machines = zone_in[&#34;use_conditions&#34;][&#34;machines&#34;]
+            tz.use_conditions.ratio_conv_rad_machines = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_machines&#34;
+            ]
+            tz.use_conditions.lighting_power = zone_in[&#34;use_conditions&#34;][
+                &#34;lighting_power&#34;
+            ]
+            tz.use_conditions.ratio_conv_rad_lighting = zone_in[&#34;use_conditions&#34;][
+                &#34;ratio_conv_rad_lighting&#34;
+            ]
+            tz.use_conditions.use_constant_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;use_constant_infiltration&#34;
+            ]
+            tz.use_conditions.infiltration_rate = zone_in[&#34;use_conditions&#34;][
+                &#34;infiltration_rate&#34;
+            ]
+            tz.use_conditions.max_user_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_user_infiltration&#34;
+            ]
+            tz.use_conditions.max_overheating_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_overheating_infiltration&#34;
+            ]
+            tz.use_conditions.max_summer_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;max_summer_infiltration&#34;
+            ]
+            tz.use_conditions.winter_reduction_infiltration = zone_in[&#34;use_conditions&#34;][
+                &#34;winter_reduction_infiltration&#34;
+            ]
+            tz.use_conditions.min_ahu = zone_in[&#34;use_conditions&#34;][&#34;min_ahu&#34;]
+            tz.use_conditions.max_ahu = zone_in[&#34;use_conditions&#34;][&#34;max_ahu&#34;]
+            tz.use_conditions.with_ahu = zone_in[&#34;use_conditions&#34;][&#34;with_ahu&#34;]
+            tz.use_conditions.heating_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;heating_profile&#34;
+            ]
+            tz.use_conditions.cooling_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;cooling_profile&#34;
+            ]
+            tz.use_conditions.persons_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;persons_profile&#34;
+            ]
+            tz.use_conditions.machines_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;machines_profile&#34;
+            ]
+            tz.use_conditions.lighting_profile = zone_in[&#34;use_conditions&#34;][
+                &#34;lighting_profile&#34;
+            ]
+
+            for wall_name, wall_in in zone_in[&#34;outer_walls&#34;].items():
+                out_wall = OuterWall(parent=tz)
+                out_wall.name = wall_name
+                set_basic_data_teaser(wall_in, out_wall)
+                set_layer_data_teaser(wall_in, out_wall)
+            for door_name, door_in in zone_in[&#34;doors&#34;].items():
+                door = Door(parent=tz)
+                door.name = door_name
+                set_basic_data_teaser(door_in, door)
+                set_layer_data_teaser(door_in, door)
+            for roof_name, roof_in in zone_in[&#34;rooftops&#34;].items():
+                roof = Rooftop(parent=tz)
+                roof.name = roof_name
+                set_basic_data_teaser(roof_in, roof)
+                set_layer_data_teaser(roof_in, roof)
+            for gf_name, gf_in in zone_in[&#34;ground_floors&#34;].items():
+                gf = GroundFloor(parent=tz)
+                gf.name = gf_name
+                set_basic_data_teaser(gf_in, gf)
+                set_layer_data_teaser(gf_in, gf)
+            for win_name, win_in in zone_in[&#34;windows&#34;].items():
+                win = Window(parent=tz)
+                win.name = win_name
+                set_basic_data_teaser(win_in, win)
+                set_layer_data_teaser(win_in, win)
+            for iw_name, iw_in in zone_in[&#34;inner_walls&#34;].items():
+                in_wall = InnerWall(parent=tz)
+                in_wall.name = iw_name
+                set_basic_data_teaser(iw_in, in_wall)
+                set_layer_data_teaser(iw_in, in_wall)
+            for fl_name, fl_in in zone_in[&#34;floors&#34;].items():
+                floor = Floor(parent=tz)
+                floor.name = fl_name
+                set_basic_data_teaser(fl_in, floor)
+                set_layer_data_teaser(fl_in, floor)
+            for cl_name, cl_in in zone_in[&#34;ceilings&#34;].items():
+                ceil = Ceiling(parent=tz)
+                ceil.name = cl_name
+                set_basic_data_teaser(cl_in, ceil)
+                set_layer_data_teaser(cl_in, ceil)</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.teaserjson_input.set_basic_data_teaser"><code class="name flex">
+<span>def <span class="ident">set_basic_data_teaser</span></span>(<span>wall_in, element)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set basic data for a building element.</p>
+<p>Helper function.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>wall_in</code></strong> :&ensp;<code>collection.OrderedDict</code></dt>
+<dd>OrderedDict for walls</dd>
+<dt><strong><code>element</code></strong> :&ensp;<code>TEASERClass</code></dt>
+<dd>teaser class representation of a building element</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_basic_data_teaser(wall_in, element):
+    &#34;&#34;&#34;Set basic data for a building element.
+
+    Helper function.
+
+    Parameters
+    ----------
+    wall_in : collection.OrderedDict
+        OrderedDict for walls
+    element : TEASERClass
+        teaser class representation of a building element
+
+    &#34;&#34;&#34;
+    element.area = wall_in[&#34;area&#34;]
+    element.tilt = wall_in[&#34;tilt&#34;]
+    element.orientation = wall_in[&#34;orientation&#34;]
+    element.inner_radiation = wall_in[&#34;inner_radiation&#34;]
+    element.inner_convection = wall_in[&#34;inner_convection&#34;]
+    element.year_of_construction = wall_in[&#34;year_of_construction&#34;]
+    element.year_of_retrofit = wall_in[&#34;year_of_retrofit&#34;]
+    element.construction_type = wall_in[&#34;construction_type&#34;]
+
+    if (
+        type(element).__name__ == &#34;OuterWall&#34;
+        or type(element).__name__ == &#34;Rooftop&#34;
+        or type(element).__name__ == &#34;Door&#34;
+    ):
+
+        element.outer_radiation = wall_in[&#34;outer_radiation&#34;]
+        element.outer_convection = wall_in[&#34;outer_convection&#34;]
+
+    elif type(element).__name__ == &#34;Window&#34;:
+
+        element.outer_radiation = wall_in[&#34;outer_radiation&#34;]
+        element.outer_convection = wall_in[&#34;outer_convection&#34;]
+        element.g_value = wall_in[&#34;g_value&#34;]
+        element.a_conv = wall_in[&#34;a_conv&#34;]
+        element.shading_g_total = wall_in[&#34;shading_g_total&#34;]
+        element.shading_max_irr = wall_in[&#34;shading_max_irr&#34;]</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.teaserjson_input.set_layer_data_teaser"><code class="name flex">
+<span>def <span class="ident">set_layer_data_teaser</span></span>(<span>wall_in, element)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Set layer data of a building element.</p>
+<p>Helper function.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>wall_in</code></strong> :&ensp;<code>collection.OrderedDict</code></dt>
+<dd>OrderedDict for walls</dd>
+<dt><strong><code>element</code></strong> :&ensp;<code>TEASERClass</code></dt>
+<dd>teaser class representation of a building element</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_layer_data_teaser(wall_in, element):
+    &#34;&#34;&#34;Set layer data of a building element.
+
+    Helper function.
+
+    Parameters
+    ----------
+    wall_in : collection.OrderedDict
+        OrderedDict for walls
+    element : TEASERClass
+        teaser class representation of a building element
+
+    &#34;&#34;&#34;
+    for lay_id, layer_in in wall_in[&#34;layer&#34;].items():
+        layer = Layer(element)
+
+        layer.id = int(lay_id)
+        layer.thickness = layer_in[&#34;thickness&#34;]
+
+        Material(layer)
+
+        layer.material.name = layer_in[&#34;material&#34;][&#34;name&#34;]
+        layer.material.density = layer_in[&#34;material&#34;][&#34;density&#34;]
+        layer.material.thermal_conduc = layer_in[&#34;material&#34;][&#34;thermal_conduc&#34;]
+        layer.material.heat_capac = layer_in[&#34;material&#34;][&#34;heat_capac&#34;]
+        layer.material.solar_absorp = layer_in[&#34;material&#34;][&#34;solar_absorp&#34;]
+        layer.material.ir_emissivity = layer_in[&#34;material&#34;][&#34;ir_emissivity&#34;]</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.data.input" href="index.html">teaser.data.input</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="teaser.data.input.teaserjson_input.load_teaser_json" href="#teaser.data.input.teaserjson_input.load_teaser_json">load_teaser_json</a></code></li>
+<li><code><a title="teaser.data.input.teaserjson_input.set_basic_data_teaser" href="#teaser.data.input.teaserjson_input.set_basic_data_teaser">set_basic_data_teaser</a></code></li>
+<li><code><a title="teaser.data.input.teaserjson_input.set_layer_data_teaser" href="#teaser.data.input.teaserjson_input.set_layer_data_teaser">set_layer_data_teaser</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

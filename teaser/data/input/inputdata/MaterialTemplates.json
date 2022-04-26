@@ -4366,7 +4366,7 @@
             0.35
         ],
         "solar_absorp": 0.5,
-        "lca_id": null,
+        "lca_id": "0689d6a3-cd7c-4710-9709-90fe747f60c0",
         "service_life": null
     },
     "3b8c8192-3a43-11e7-a4b0-2cd444b2e704": {
@@ -6628,7 +6628,7 @@
             0.35
         ],
         "solar_absorp": 0.5,
-        "lca_id": null,
+        "lca_id": "0689d6a3-cd7c-4710-9709-90fe747f60c0",
         "service_life": null
     },
     "5751bba2-3a43-11e7-89db-2cd444b2e704": {

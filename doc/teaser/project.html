@@ -1,0 +1,4518 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.project API documentation</title>
+<meta name="description" content="This module includes the Project class, which is the API for TEASER." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.project</code></h1>
+</header>
+<section id="section-intro">
+<p>This module includes the Project class, which is the API for TEASER.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This module includes the Project class, which is the API for TEASER.&#34;&#34;&#34;
+
+import warnings
+import os
+import re
+import teaser.logic.utilities as utilities
+import teaser.data.input.teaserjson_input as tjson_in
+import teaser.data.output.teaserjson_output as tjson_out
+import teaser.data.output.aixlib_output as aixlib_output
+import teaser.data.output.ibpsa_output as ibpsa_output
+from teaser.data.dataclass import DataClass
+from teaser.logic.archetypebuildings.bmvbs.office import Office
+from teaser.logic.archetypebuildings.bmvbs.custom.institute import Institute
+from teaser.logic.archetypebuildings.bmvbs.custom.institute4 import Institute4
+from teaser.logic.archetypebuildings.bmvbs.custom.institute8 import Institute8
+from teaser.logic.archetypebuildings.urbanrenet.est1a import EST1a
+from teaser.logic.archetypebuildings.urbanrenet.est1b import EST1b
+from teaser.logic.archetypebuildings.urbanrenet.est2 import EST2
+from teaser.logic.archetypebuildings.urbanrenet.est3 import EST3
+from teaser.logic.archetypebuildings.urbanrenet.est4a import EST4a
+from teaser.logic.archetypebuildings.urbanrenet.est4b import EST4b
+from teaser.logic.archetypebuildings.urbanrenet.est5 import EST5
+from teaser.logic.archetypebuildings.urbanrenet.est6 import EST6
+from teaser.logic.archetypebuildings.urbanrenet.est7 import EST7
+from teaser.logic.archetypebuildings.urbanrenet.est8a import EST8a
+from teaser.logic.archetypebuildings.urbanrenet.est8b import EST8b
+from teaser.logic.archetypebuildings.tabula.de.singlefamilyhouse import (
+    SingleFamilyHouse,
+)
+from teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse import (
+    SingleFamilyHouse as SingleFamilyHouse_DK,
+)
+from teaser.logic.archetypebuildings.tabula.de.terracedhouse import TerracedHouse
+from teaser.logic.archetypebuildings.tabula.dk.terracedhouse import (
+    TerracedHouse as TerracedHouse_DK,
+)
+from teaser.logic.archetypebuildings.tabula.de.multifamilyhouse import MultiFamilyHouse
+from teaser.logic.archetypebuildings.tabula.de.apartmentblock import ApartmentBlock
+from teaser.logic.archetypebuildings.tabula.dk.apartmentblock import (
+    ApartmentBlock as ApartmentBlock_DK,
+)
+from teaser.logic.archetypebuildings.bmvbs.singlefamilydwelling import (
+    SingleFamilyDwelling,
+)
+from teaser.logic.simulation.modelicainfo import ModelicaInfo
+
+import teaser.data.output.citygml_output as citygml_out
+import teaser.data.input.citygml_input as citygml_in
+import teaser.data.input.energyade_input as energyade_in
+
+class Project(object):
+    &#34;&#34;&#34;Top class for TEASER projects it serves as an API
+
+    The Project class is the top class for all TEASER projects and serves as an
+    API for script based interface. It is highly recommended to always
+    instantiate the Project class before starting to work with TEASER. It
+    contains functions to generate archetype buildings, to export models and to
+    save information for later use.
+
+    Parameters
+    ----------
+    load_data : boolean
+        boolean if data bases for materials, type elements and use conditions
+        should be loaded. default = False but will be automatically loaded
+        once you add a archetype building. For building generation from
+        scratch, set to True
+
+    Attributes
+    ----------
+
+    name : str
+        Name of the Project (default is &#39;Project&#39;)
+    modelica_info : instance of ModelicaInfo
+        TEASER instance of ModelicaInfo to store Modelica related
+        information, like used compiler, start and stop time, etc.
+    buildings : list
+        List of all buildings in one project, instances of Building()
+    data : instance of DataClass
+        TEASER instance of DataClass containing JSON binding classes
+    weather_file_path : str
+        Absolute path to weather file used for Modelica simulation. Default
+        weather file can be find in inputdata/weatherdata.
+    number_of_elements_calc : int
+        Defines the number of elements, that are aggregated (1, 2, 3 or 4),
+        default is 2
+    merge_windows_calc : bool
+        True for merging the windows into the outer walls, False for
+        separate resistance for window, default is False (only supported for
+        IBPSA)
+    used_library_calc : str
+        used library (AixLib and IBPSA are supported)
+    dir_reference_results : str
+        Path to reference results in BuildingsPy format. If not None, the results
+        will be copied into the model output directories so that the exported
+        models can be regression tested against these results with BuildingsPy.
+    period_lca_scenario : int [a]
+        period which is taken into account for LCA
+    use_b4 : bool
+        if true environmental indicators of replaced buildingelements are added
+        to stage B4. Otherwise they are added seperatly to the other stages
+    
+    &#34;&#34;&#34;
+
+    def __init__(self, load_data=False):
+        &#34;&#34;&#34;Constructor of Project Class.
+        &#34;&#34;&#34;
+        self._name = &#34;Project&#34;
+        self.modelica_info = ModelicaInfo()
+
+        self.weather_file_path = utilities.get_full_path(
+            os.path.join(
+                &#34;data&#34;,
+                &#34;input&#34;,
+                &#34;inputdata&#34;,
+                &#34;weatherdata&#34;,
+                &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+            )
+        )
+
+        self.buildings = []
+
+        self.load_data = load_data
+
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+
+        if load_data is True:
+            self.data = self.instantiate_data_class()
+        else:
+            self.data = None
+
+        self.dir_reference_results = None
+        
+        self._period_lca_scenario = 50
+        self._use_b4 = False
+
+    @staticmethod
+    def instantiate_data_class():
+        &#34;&#34;&#34;Initialization of DataClass
+
+        Returns
+        ----------
+
+        DataClass : Instance of DataClass()
+
+        &#34;&#34;&#34;
+        return DataClass()
+
+    def calc_all_buildings(self, raise_errors=False):
+        &#34;&#34;&#34;Calculates values for all project buildings
+
+        You need to set the following parameters in the Project class.
+
+        number_of_elements_calc : int
+            defines the number of elements, that area aggregated, between 1
+            and 4, default is 2
+            For AixLib you should always use 2 elements!!!
+
+        merge_windows_calc : bool
+            True for merging the windows into the outer walls, False for
+            separate resistance for window, default is False
+            For AixLib vdi calculation is True, ebc calculation is False
+
+        used_library_calc : str
+            used library (AixLib and IBPSA are supported)
+
+        &#34;&#34;&#34;
+        if raise_errors is True:
+            for bldg in reversed(self.buildings):
+                bldg.calc_building_parameter(
+                    number_of_elements=self._number_of_elements_calc,
+                    merge_windows=self._merge_windows_calc,
+                    used_library=self._used_library_calc,
+                )
+        else:
+            for bldg in reversed(self.buildings):
+                try:
+                    bldg.calc_building_parameter(
+                        number_of_elements=self._number_of_elements_calc,
+                        merge_windows=self._merge_windows_calc,
+                        used_library=self._used_library_calc,
+                    )
+                except (ZeroDivisionError, TypeError):
+                    warnings.warn(
+                        &#34;Following building can&#39;t be calculated and is &#34;
+                        &#34;removed from buildings list. Use raise_errors=True &#34;
+                        &#34;to get python errors and stop TEASER from deleting &#34;
+                        &#34;this building:&#34; + bldg.name
+                    )
+                    self.buildings.remove(bldg)
+
+    def retrofit_all_buildings(
+        self,
+        year_of_retrofit=None,
+        type_of_retrofit=None,
+        window_type=None,
+        material=None,
+    ):
+        &#34;&#34;&#34;Retrofits all buildings in the project.
+
+        Depending on the used Archetype approach this function will retrofit
+        the building. If you have archetypes of both typologies (tabula and
+        iwu/BMBVS) you need to pass all keywords (see also Parameters section).
+
+        If TABULA approach is used, it will replace the current construction
+        with the construction specified in &#39;type_of_retrofit&#39;,
+        where &#39;retrofit&#39; and &#39;adv_retrofit&#39; are allowed.
+
+        &#39;iwu&#39; or &#39;BMVBS&#39; Buildings in the project are retrofitted in the
+        following manner:
+
+        - replace all windows of the building to retrofitted window according
+          to the year of retrofit.
+        - add an additional insulation layer to all outer walls
+          (including roof, and ground floor).
+          The thickness of the insulation layer is calculated
+          that the U-Value of the wall corresponds to the retrofit standard of
+          the year of retrofit.
+
+        The needed parameters for the Modelica Model are calculated
+        automatically, using the calculation_method specified in the
+        first scenario.
+
+        Note: To Calculate U-Value, the standard TEASER coefficients for outer
+        and inner heat transfer are used.
+
+        Parameters
+        ----------
+        year_of_retrofit : int
+            the year the buildings are retrofitted, only &#39;iwu&#39;/&#39;bmbvs&#39;
+            archetype approach.
+        type_of_retrofit : str
+            The classification of retrofit, if the archetype building
+            approach of TABULA is used.
+        window_type : str
+            Default: EnEv 2014, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+        material : str
+            Default: EPS035, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+
+        &#34;&#34;&#34;
+        ass_error_type = &#34;only &#39;retrofit&#39; and &#39;adv_retrofit&#39; are valid &#34;
+        assert type_of_retrofit in [None, &#34;adv_retrofit&#34;, &#34;retrofit&#34;], ass_error_type
+        tabula_buildings = []
+        iwu_buildings = []
+
+        for bldg in self.buildings:
+            if isinstance(bldg, SingleFamilyHouse):
+                if type_of_retrofit is None:
+                    raise ValueError(
+                        &#34;you need to set type_of_retrofit for &#34; &#34;TABULA retrofit&#34;
+                    )
+                tabula_buildings.append(bldg)
+            else:
+                if year_of_retrofit is None:
+                    raise ValueError(&#34;you need to set year_of_retrofit for &#34; &#34;retrofit&#34;)
+                iwu_buildings.append(bldg)
+
+        if self.data.used_statistic == &#34;iwu&#34;:
+            for bld_iwu in iwu_buildings:
+                bld_iwu.retrofit_building(
+                    year_of_retrofit=year_of_retrofit,
+                    window_type=window_type,
+                    material=material,
+                )
+            self.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+            for bld_tabula in tabula_buildings:
+                bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+
+        else:
+            for bld_tabula in tabula_buildings:
+                bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+            for bld_iwu in iwu_buildings:
+                bld_iwu.retrofit_building(
+                    year_of_retrofit=year_of_retrofit,
+                    window_type=window_type,
+                    material=material,
+                )
+
+    def add_non_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=True,
+        internal_gains_mode=1,
+        office_layout=None,
+        window_layout=None,
+        construction_type=None,
+    ):
+        &#34;&#34;&#34;Add a non-residential building to the TEASER project.
+
+        This function adds a non-residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according to Lichtmess and BMVBS
+        for non-residential buildings. Further the type of usage needs to be
+        specified. Currently TEASER supports four different types of
+        non-residential buildings (&#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;,
+        &#39;institute8&#39;). For more information on specific archetype buildings and
+        methods, please read the docs of archetype classes.
+
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;bmvbs&#39; is supported
+        usage : str
+            Main usage of the obtained building, currently only &#39;office&#39;,
+            &#39;institute&#39;, &#39;institute4&#39;, institute8&#39; are supported
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        office_layout : int
+            Structure of the floor plan of office buildings, default is 1,
+            which is representative for one elongated floor.
+                1: elongated 1 floor
+                2: elongated 2 floors
+                3: compact (e.g. for a square base building)
+        window_layout : int
+            Structure of the window facade type, default is 1, which is
+            representative for a punctuated facade.
+                1: punctuated facade (individual windows)
+                2: banner facade (continuous windows)
+                3: full glazing
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+
+        Returns
+        ----------
+        type_bldg : Instance of Office()
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only &#39;bmvbs&#39; is a valid method for &#34; &#34;non-residential archetype generation&#34;
+        )
+
+        assert method in [&#34;bmvbs&#34;], ass_error_method
+
+        ass_error_usage = (
+            &#34;only &#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;, &#34;
+            &#34;&#39;institute8&#39; are valid usages for archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert usage in [
+            &#34;office&#34;,
+            &#34;institute&#34;,
+            &#34;institute4&#34;,
+            &#34;institute8&#34;,
+        ], ass_error_usage
+
+        if self.data is None:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+        elif self.data.used_statistic != &#34;iwu&#34;:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+        if usage == &#34;office&#34;:
+
+            type_bldg = Office(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute&#34;:
+
+            type_bldg = Institute(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute4&#34;:
+
+            type_bldg = Institute4(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute8&#34;:
+
+            type_bldg = Institute8(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg
+
+    def add_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=False,
+        internal_gains_mode=1,
+        residential_layout=None,
+        neighbour_buildings=None,
+        attic=None,
+        cellar=None,
+        dormer=None,
+        construction_type=None,
+        number_of_apartments=None,
+    ):
+        &#34;&#34;&#34;Add a residential building to the TEASER project.
+
+        This function adds a residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according &#39;iwu&#39;, &#39;urbanrenet&#39;,
+        &#39;tabula_de&#39; and &#39;tabula_dk&#39; for residential buildings. Further the
+        type of usage needs to be specified. Currently TEASER supports one type
+        of
+        residential building for &#39;iwu&#39; and eleven types for &#39;urbanrenet&#39;. For
+        more information on specific archetype buildings and methods, please
+        read the docs of archetype classes.
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;iwu&#39; or &#39;urbanrenet&#39; are
+            supported, &#39;tabula_de&#39; to follow soon
+        usage : str
+            Main usage of the obtained building, currently only
+            &#39;single_family_dwelling&#39; is supported for iwu and &#39;est1a&#39;, &#39;est1b&#39;,
+            &#39;est2&#39;, &#39;est3&#39;, &#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#39;est8a&#39;,
+            &#39;est8b&#39; for urbanrenet.
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        residential_layout : int
+            Structure of floor plan (default = 0) CAUTION only used for iwu
+                0: compact
+                1: elongated/complex
+        neighbour_buildings : int
+            Number of neighbour buildings. CAUTION: this will not change
+            the orientation of the buildings wall, but just the overall
+            exterior wall and window area(!) (default = 0)
+                0: no neighbour
+                1: one neighbour
+                2: two neighbours
+        attic : int
+            Design of the attic. CAUTION: this will not change the orientation
+            or tilt of the roof instances, but just adapt the roof area(!) (
+            default = 0) CAUTION only used for iwu
+                0: flat roof
+                1: non heated attic
+                2: partly heated attic
+                3: heated attic
+        cellar : int
+            Design of the of cellar CAUTION: this will not change the
+            orientation, tilt of GroundFloor instances, nor the number or area
+            of ThermalZones, but will change GroundFloor area(!) (default = 0)
+            CAUTION only used for iwu
+                0: no cellar
+                1: non heated cellar
+                2: partly heated cellar
+                3: heated cellar
+        dormer : str
+            Is a dormer attached to the roof? CAUTION: this will not
+            change roof or window orientation or tilt, but just adapt the roof
+            area(!) (default = 0) CAUTION only used for iwu
+                0: no dormer
+                1: dormer
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+        number_of_apartments : int
+            number of apartments inside Building (default = 1). CAUTION only
+            used for urbanrenet
+
+        Returns
+        ----------
+        type_bldg : Instance of Archetype Building
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only&#39;tabula_de&#39;, &#39;tabula_dk&#39;, &#39;iwu&#39; and &#34;
+            &#34;&#39;urbanrenet&#39; &#34;
+            &#34;are valid methods for residential archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert method in [
+            &#34;tabula_de&#34;,
+            &#34;iwu&#34;,
+            &#34;urbanrenet&#34;,
+            &#34;tabula_dk&#34;,
+        ], ass_error_method
+
+        ass_error_apart = (
+            &#34;The keyword number_of_apartments does not have any &#34;
+            &#34;effect on archetype generation for &#39;iwu&#39; or&#34;
+            &#34;&#39;tabula_de&#39;, see docs for more information&#34;
+        )
+
+        if (
+            method in [&#34;iwu&#34;, &#34;tabula_de&#34;, &#34;tabula_dk&#34;]
+            and number_of_apartments is not None
+        ):
+            warnings.warn(ass_error_apart)
+
+        if method == &#34;tabula_de&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_de&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;multi_family_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;multi_family_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;multi_family_house&#34;:
+
+                type_bldg = MultiFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;tabula_dk&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_dk&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;iwu&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_iwu = (
+                &#34;only &#39;single_family_dwelling&#39; is a valid &#34;
+                &#34;usage for iwu archetype method&#34;
+            )
+            assert usage in [&#34;single_family_dwelling&#34;], ass_error_usage_iwu
+
+            if usage == &#34;single_family_dwelling&#34;:
+
+                type_bldg = SingleFamilyDwelling(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    residential_layout,
+                    neighbour_buildings,
+                    attic,
+                    cellar,
+                    dormer,
+                    construction_type,
+                )
+
+        elif method == &#34;urbanrenet&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+            ass_error_usage_urn = (
+                &#34;only &#39;est1a&#39;, &#39;est1b&#39;, &#39;est2&#39;, &#39;est3&#39;, &#34;
+                &#34;&#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#34;
+                &#34;&#39;est8a&#39;,&#39;est8b&#39; is are valid usages for &#34;
+                &#34;urbanrenet archetype method&#34;
+            )
+            assert usage in [
+                &#34;est1a&#34;,
+                &#34;est1b&#34;,
+                &#34;est2&#34;,
+                &#34;est3&#34;,
+                &#34;est4a&#34;,
+                &#34;est4b&#34;,
+                &#34;est5&#34;,
+                &#34;est6&#34;,
+                &#34;est7&#34;,
+                &#34;est8a&#34;,
+                &#34;est8b&#34;,
+            ], ass_error_usage_urn
+            if usage == &#34;est1a&#34;:
+
+                type_bldg = EST1a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                )
+
+            elif usage == &#34;est1b&#34;:
+
+                type_bldg = EST1b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est2&#34;:
+
+                type_bldg = EST2(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est3&#34;:
+
+                type_bldg = EST3(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4a&#34;:
+
+                type_bldg = EST4a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4b&#34;:
+
+                type_bldg = EST4b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est5&#34;:
+
+                type_bldg = EST5(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est6&#34;:
+
+                type_bldg = EST6(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est7&#34;:
+
+                type_bldg = EST7(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8a&#34;:
+
+                type_bldg = EST8a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8b&#34;:
+
+                type_bldg = EST8b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg
+
+    def save_project(self, file_name=None, path=None):
+        &#34;&#34;&#34;Saves the project to a JSON file
+
+        Calls the function save_teaser_json in data.output.teaserjson_output
+
+        Parameters
+        ----------
+
+        file_name : string
+            name of the new file
+        path : string
+            if the Files should not be stored in OutputData, an alternative
+            can be specified
+        &#34;&#34;&#34;
+        if file_name is None:
+            name = self.name
+        else:
+            name = file_name
+
+        if path is None:
+            new_path = os.path.join(utilities.get_default_path(), name)
+        else:
+            new_path = os.path.join(path, name)
+
+        tjson_out.save_teaser_json(new_path, self)
+
+    def load_project(self, path):
+        &#34;&#34;&#34;Load the project from a json file (new format).
+
+        Calls the function load_teaser_json.
+
+        Parameters
+        ----------
+        path : string
+            full path to a json file
+
+        &#34;&#34;&#34;
+
+        tjson_in.load_teaser_json(path, self)
+
+    def save_citygml(self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, results=None):
+        &#34;&#34;&#34;Saves the project to a CityGML file
+
+        calls the function save_gml in data.CityGML we make use of CityGML core
+        and EnergyADE to store semantic information
+
+
+        Parameters
+        ----------
+
+        file_name : string
+            name of the new file
+        path : string
+            if the Files should not be stored in OutputData, an alternative
+            can be specified
+
+        &#34;&#34;&#34;
+        if file_name is None:
+            name = self.name
+        else:
+            name = file_name
+
+        if path is None:
+            new_path = os.path.join(utilities.get_default_path(), name)
+        else:
+            new_path = os.path.join(path, name + &#34;.gml&#34;)
+            utilities.create_path(utilities.get_full_path(path))
+
+        citygml_out.save_gml_lxml(self, new_path, ref_coordinates=ref_coordinates, gml_copy=gml_copy, results=results)
+
+    def load_citygml(self, method=&#34;iwu&#34;, path=None, energyade=False,
+                     gml_bldg_ids=None, gml_bldg_names=None, gml_bldg_addresses=None):
+        &#34;&#34;&#34;Loads buildings from a citygml file
+
+        calls the function load_gml choose_gml or load_gmlade
+        in data.CityGML we make use of CityGML core and EnergyADE
+        and possibly not all kinds of CityGML modelling techniques are
+        supported.
+
+        If the function of the building is given as Residential (1000) or
+        Office (1120) the importer directly converts the building to
+        archetype buildings. If not, only the citygml geometry is imported and
+        you need take care of either the material properties and zoning or you
+        may use the _convert_bldg function in citygml_input module.
+
+
+        Parameters
+        ----------
+
+        :param path: string
+            full path to a CityGML file
+        :param energyade:Boolean
+            Load EnergyADE data or not
+            doesn&#39;t check if data is there
+        :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+        :param gml_bldg_addresses: List[string]
+            user&#39;s selection
+        :param gml_bldg_names: List[string]
+            user&#39;s selection
+        :param gml_bldg_ids: List[string]
+            user&#39;s selection
+
+        &#34;&#34;&#34;
+        gml_copy = None
+        if energyade is True:
+            energyade_in.load_ade_lxml(path, self)
+        elif gml_bldg_names is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_names=gml_bldg_names)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        elif gml_bldg_ids is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_ids=gml_bldg_ids)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        elif gml_bldg_addresses is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_addresses=gml_bldg_addresses)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        else:
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=None)
+        return gml_copy, boundary_box
+
+    def export_aixlib(
+        self,
+        building_model=None,
+        zone_model=None,
+        corG=None,
+        internal_id=None,
+        path=None,
+    ):
+        &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+        Exports one (if internal_id is not None) or all buildings for
+        AixLib.ThermalZones.ReducedOrder.Multizone.MultizoneEquipped models
+        using the ThermalZoneEquipped model with a correction of g-value (
+        double pane glazing) and supporting models, like tables and weather
+        model. In contrast to versions &lt; 0.5 TEASER now does not
+        support any model options, as we observed no need, since single
+        ThermalZones are identically with IBPSA models. If you miss one of
+        the old options please contact us.
+
+        Parameters
+        ----------
+
+        internal_id : float
+            setter of a specific building which will be exported, if None then
+            all buildings will be exported
+        path : string
+            if the Files should not be stored in default output path of TEASER,
+            an alternative path can be specified as a full path
+        &#34;&#34;&#34;
+
+        if building_model is not None or zone_model is not None or corG is not None:
+
+            warnings.warn(
+                &#34;building_model, zone_model and corG are no longer &#34;
+                &#34;supported for AixLib export and have no effect. &#34;
+                &#34;The keywords will be deleted within the next &#34;
+                &#34;version, consider rewriting your code.&#34;
+            )
+
+        if path is None:
+            path = os.path.join(utilities.get_default_path(), self.name)
+        else:
+            path = os.path.join(path, self.name)
+
+        utilities.create_path(path)
+
+        if internal_id is None:
+            aixlib_output.export_multizone(
+                buildings=self.buildings, prj=self, path=path
+            )
+        else:
+            for bldg in self.buildings:
+                if bldg.internal_id == internal_id:
+                    aixlib_output.export_multizone(
+                        buildings=[bldg], prj=self, path=path
+                    )
+        return path
+
+    def export_ibpsa(self, library=&#34;AixLib&#34;, internal_id=None, path=None):
+        &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+        For Annex 60 Library
+
+        Parameters
+        ----------
+
+        library : str
+            Used library within the framework of IBPSA library. The
+            models are identical in each library, but IBPSA Modelica library is
+            just a core set of models and should not be used standalone.
+            Valid values are &#39;AixLib&#39; (default), &#39;Buildings&#39;,
+            &#39;BuildingSystems&#39; and &#39;IDEAS&#39;.
+        internal_id : float
+            setter of a specific building which will be exported, if None then
+            all buildings will be exported
+        path : string
+            if the Files should not be stored in default output path of TEASER,
+            an alternative path can be specified as a full path
+        &#34;&#34;&#34;
+
+        ass_error_1 = (
+            &#34;library for IBPSA export has to be &#39;AixLib&#39;, &#34;
+            &#34;&#39;Buildings&#39;, &#39;BuildingSystems&#39; or &#39;IDEAS&#39;&#34;
+        )
+
+        assert library in [
+            &#34;AixLib&#34;,
+            &#34;Buildings&#34;,
+            &#34;BuildingSystems&#34;,
+            &#34;IDEAS&#34;,
+        ], ass_error_1
+
+        if path is None:
+            path = os.path.join(utilities.get_default_path(), self.name)
+        else:
+            path = os.path.join(path, self.name)
+
+        utilities.create_path(path)
+
+        if internal_id is None:
+            ibpsa_output.export_ibpsa(
+                buildings=self.buildings, prj=self, path=path, library=library
+            )
+        else:
+            for bldg in self.buildings:
+                if bldg.internal_id == internal_id:
+                    ibpsa_output.export_ibpsa(buildings=[bldg], prj=self, path=path)
+        return path
+
+    def set_default(self, load_data=None):
+        &#34;&#34;&#34;Sets all attributes to default
+
+        Caution: this will delete all buildings.
+
+        Parameters
+        ----------
+        load_data : boolean, None-type
+            boolean if data bindings for type elements and use conditions
+            should be loaded (default = True), in addition it could be a None-
+            type to use the already used data bindings
+        &#34;&#34;&#34;
+
+        self._name = &#34;Project&#34;
+        self.modelica_info = ModelicaInfo()
+
+        self.weather_file_path = utilities.get_full_path(
+            os.path.join(
+                &#34;data&#34;,
+                &#34;input&#34;,
+                &#34;inputdata&#34;,
+                &#34;weatherdata&#34;,
+                &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+            )
+        )
+
+        self.buildings = []
+
+        if load_data is True:
+            self.data = self.instantiate_data_class()
+        elif not load_data:
+            pass
+        else:
+            self.data = None
+
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+
+    @property
+    def weather_file_path(self):
+        return self._weather_file_path
+
+    @weather_file_path.setter
+    def weather_file_path(self, value):
+        if value is None:
+            self._weather_file_path = utilities.get_full_path(
+                os.path.join(
+                    &#34;data&#34;,
+                    &#34;input&#34;,
+                    &#34;inputdata&#34;,
+                    &#34;weatherdata&#34;,
+                    &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+                )
+            )
+        else:
+            self._weather_file_path = os.path.normpath(value)
+            self.weather_file_name = os.path.split(self.weather_file_path)[1]
+
+    @property
+    def number_of_elements_calc(self):
+        return self._number_of_elements_calc
+
+    @number_of_elements_calc.setter
+    def number_of_elements_calc(self, value):
+
+        ass_error_1 = &#34;number_of_elements_calc has to be 1,2,3 or 4&#34;
+
+        assert value != [1, 2, 3, 4], ass_error_1
+
+        self._number_of_elements_calc = value
+
+        for bldg in self.buildings:
+            bldg.number_of_elements_calc = value
+
+    @property
+    def merge_windows_calc(self):
+        return self._merge_windows_calc
+
+    @merge_windows_calc.setter
+    def merge_windows_calc(self, value):
+
+        ass_error_1 = &#34;merge windows needs to be True or False&#34;
+
+        assert value != [True, False], ass_error_1
+
+        self._merge_windows_calc = value
+
+        for bldg in self.buildings:
+            bldg.merge_windows_calc = value
+
+    @property
+    def used_library_calc(self):
+        return self._used_library_calc
+
+    @used_library_calc.setter
+    def used_library_calc(self, value):
+
+        ass_error_1 = &#34;used library needs to be AixLib or IBPSA&#34;
+
+        assert value != [&#34;AixLib&#34;, &#34;IBPSA&#34;], ass_error_1
+
+        self._used_library_calc = value
+
+        for bldg in self.buildings:
+            bldg.used_library_calc = value
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+            self._name = regex.sub(&#34;&#34;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+                self._name = regex.sub(&#34;&#34;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+        if self._name[0].isdigit():
+            self._name = &#34;P&#34; + self._name
+
+    @property
+    def use_b4(self):
+        return self._use_b4 
+    
+    @use_b4.setter 
+    def use_b4(self, value):
+        if isinstance(value, bool):
+            self._use_b4 = value
+        else:
+            try:
+                value = bool(value)
+                self._use_b4 = value
+            except ValueError:
+                print(&#34;Can´t convert value to boolean&#34;)
+                
+    @property
+    def period_lca_scenario(self):
+        return self._period_lca_scenario
+    
+    @period_lca_scenario.setter
+    def period_lca_scenario(self, value):
+        if isinstance(value, int):
+            self._period_lca_scenario = value
+        else:
+            try:
+                value = int(value)
+                self._period_lca_scenario = value
+            except ValueError:
+                print(&#34;Can´t convert value to integer&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.project.Project"><code class="flex name class">
+<span>class <span class="ident">Project</span></span>
+<span>(</span><span>load_data=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Top class for TEASER projects it serves as an API</p>
+<p>The Project class is the top class for all TEASER projects and serves as an
+API for script based interface. It is highly recommended to always
+instantiate the Project class before starting to work with TEASER. It
+contains functions to generate archetype buildings, to export models and to
+save information for later use.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>load_data</code></strong> :&ensp;<code>boolean</code></dt>
+<dd>boolean if data bases for materials, type elements and use conditions
+should be loaded. default = False but will be automatically loaded
+once you add a archetype building. For building generation from
+scratch, set to True</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the Project (default is 'Project')</dd>
+<dt><strong><code>modelica_info</code></strong> :&ensp;<code>instance</code> of <code>ModelicaInfo</code></dt>
+<dd>TEASER instance of ModelicaInfo to store Modelica related
+information, like used compiler, start and stop time, etc.</dd>
+<dt><strong><code>buildings</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of all buildings in one project, instances of Building()</dd>
+<dt><strong><code>data</code></strong> :&ensp;<code>instance</code> of <code>DataClass</code></dt>
+<dd>TEASER instance of DataClass containing JSON binding classes</dd>
+<dt><strong><code>weather_file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Absolute path to weather file used for Modelica simulation. Default
+weather file can be find in inputdata/weatherdata.</dd>
+<dt><strong><code>number_of_elements_calc</code></strong> :&ensp;<code>int</code></dt>
+<dd>Defines the number of elements, that are aggregated (1, 2, 3 or 4),
+default is 2</dd>
+<dt><strong><code>merge_windows_calc</code></strong> :&ensp;<code>bool</code></dt>
+<dd>True for merging the windows into the outer walls, False for
+separate resistance for window, default is False (only supported for
+IBPSA)</dd>
+<dt><strong><code>used_library_calc</code></strong> :&ensp;<code>str</code></dt>
+<dd>used library (AixLib and IBPSA are supported)</dd>
+<dt><strong><code>dir_reference_results</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to reference results in BuildingsPy format. If not None, the results
+will be copied into the model output directories so that the exported
+models can be regression tested against these results with BuildingsPy.</dd>
+<dt><strong><code>period_lca_scenario</code></strong> :&ensp;<code>int [a]</code></dt>
+<dd>period which is taken into account for LCA</dd>
+<dt><strong><code>use_b4</code></strong> :&ensp;<code>bool</code></dt>
+<dd>if true environmental indicators of replaced buildingelements are added
+to stage B4. Otherwise they are added seperatly to the other stages</dd>
+</dl>
+<p>Constructor of Project Class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Project(object):
+    &#34;&#34;&#34;Top class for TEASER projects it serves as an API
+
+    The Project class is the top class for all TEASER projects and serves as an
+    API for script based interface. It is highly recommended to always
+    instantiate the Project class before starting to work with TEASER. It
+    contains functions to generate archetype buildings, to export models and to
+    save information for later use.
+
+    Parameters
+    ----------
+    load_data : boolean
+        boolean if data bases for materials, type elements and use conditions
+        should be loaded. default = False but will be automatically loaded
+        once you add a archetype building. For building generation from
+        scratch, set to True
+
+    Attributes
+    ----------
+
+    name : str
+        Name of the Project (default is &#39;Project&#39;)
+    modelica_info : instance of ModelicaInfo
+        TEASER instance of ModelicaInfo to store Modelica related
+        information, like used compiler, start and stop time, etc.
+    buildings : list
+        List of all buildings in one project, instances of Building()
+    data : instance of DataClass
+        TEASER instance of DataClass containing JSON binding classes
+    weather_file_path : str
+        Absolute path to weather file used for Modelica simulation. Default
+        weather file can be find in inputdata/weatherdata.
+    number_of_elements_calc : int
+        Defines the number of elements, that are aggregated (1, 2, 3 or 4),
+        default is 2
+    merge_windows_calc : bool
+        True for merging the windows into the outer walls, False for
+        separate resistance for window, default is False (only supported for
+        IBPSA)
+    used_library_calc : str
+        used library (AixLib and IBPSA are supported)
+    dir_reference_results : str
+        Path to reference results in BuildingsPy format. If not None, the results
+        will be copied into the model output directories so that the exported
+        models can be regression tested against these results with BuildingsPy.
+    period_lca_scenario : int [a]
+        period which is taken into account for LCA
+    use_b4 : bool
+        if true environmental indicators of replaced buildingelements are added
+        to stage B4. Otherwise they are added seperatly to the other stages
+    
+    &#34;&#34;&#34;
+
+    def __init__(self, load_data=False):
+        &#34;&#34;&#34;Constructor of Project Class.
+        &#34;&#34;&#34;
+        self._name = &#34;Project&#34;
+        self.modelica_info = ModelicaInfo()
+
+        self.weather_file_path = utilities.get_full_path(
+            os.path.join(
+                &#34;data&#34;,
+                &#34;input&#34;,
+                &#34;inputdata&#34;,
+                &#34;weatherdata&#34;,
+                &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+            )
+        )
+
+        self.buildings = []
+
+        self.load_data = load_data
+
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+
+        if load_data is True:
+            self.data = self.instantiate_data_class()
+        else:
+            self.data = None
+
+        self.dir_reference_results = None
+        
+        self._period_lca_scenario = 50
+        self._use_b4 = False
+
+    @staticmethod
+    def instantiate_data_class():
+        &#34;&#34;&#34;Initialization of DataClass
+
+        Returns
+        ----------
+
+        DataClass : Instance of DataClass()
+
+        &#34;&#34;&#34;
+        return DataClass()
+
+    def calc_all_buildings(self, raise_errors=False):
+        &#34;&#34;&#34;Calculates values for all project buildings
+
+        You need to set the following parameters in the Project class.
+
+        number_of_elements_calc : int
+            defines the number of elements, that area aggregated, between 1
+            and 4, default is 2
+            For AixLib you should always use 2 elements!!!
+
+        merge_windows_calc : bool
+            True for merging the windows into the outer walls, False for
+            separate resistance for window, default is False
+            For AixLib vdi calculation is True, ebc calculation is False
+
+        used_library_calc : str
+            used library (AixLib and IBPSA are supported)
+
+        &#34;&#34;&#34;
+        if raise_errors is True:
+            for bldg in reversed(self.buildings):
+                bldg.calc_building_parameter(
+                    number_of_elements=self._number_of_elements_calc,
+                    merge_windows=self._merge_windows_calc,
+                    used_library=self._used_library_calc,
+                )
+        else:
+            for bldg in reversed(self.buildings):
+                try:
+                    bldg.calc_building_parameter(
+                        number_of_elements=self._number_of_elements_calc,
+                        merge_windows=self._merge_windows_calc,
+                        used_library=self._used_library_calc,
+                    )
+                except (ZeroDivisionError, TypeError):
+                    warnings.warn(
+                        &#34;Following building can&#39;t be calculated and is &#34;
+                        &#34;removed from buildings list. Use raise_errors=True &#34;
+                        &#34;to get python errors and stop TEASER from deleting &#34;
+                        &#34;this building:&#34; + bldg.name
+                    )
+                    self.buildings.remove(bldg)
+
+    def retrofit_all_buildings(
+        self,
+        year_of_retrofit=None,
+        type_of_retrofit=None,
+        window_type=None,
+        material=None,
+    ):
+        &#34;&#34;&#34;Retrofits all buildings in the project.
+
+        Depending on the used Archetype approach this function will retrofit
+        the building. If you have archetypes of both typologies (tabula and
+        iwu/BMBVS) you need to pass all keywords (see also Parameters section).
+
+        If TABULA approach is used, it will replace the current construction
+        with the construction specified in &#39;type_of_retrofit&#39;,
+        where &#39;retrofit&#39; and &#39;adv_retrofit&#39; are allowed.
+
+        &#39;iwu&#39; or &#39;BMVBS&#39; Buildings in the project are retrofitted in the
+        following manner:
+
+        - replace all windows of the building to retrofitted window according
+          to the year of retrofit.
+        - add an additional insulation layer to all outer walls
+          (including roof, and ground floor).
+          The thickness of the insulation layer is calculated
+          that the U-Value of the wall corresponds to the retrofit standard of
+          the year of retrofit.
+
+        The needed parameters for the Modelica Model are calculated
+        automatically, using the calculation_method specified in the
+        first scenario.
+
+        Note: To Calculate U-Value, the standard TEASER coefficients for outer
+        and inner heat transfer are used.
+
+        Parameters
+        ----------
+        year_of_retrofit : int
+            the year the buildings are retrofitted, only &#39;iwu&#39;/&#39;bmbvs&#39;
+            archetype approach.
+        type_of_retrofit : str
+            The classification of retrofit, if the archetype building
+            approach of TABULA is used.
+        window_type : str
+            Default: EnEv 2014, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+        material : str
+            Default: EPS035, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+
+        &#34;&#34;&#34;
+        ass_error_type = &#34;only &#39;retrofit&#39; and &#39;adv_retrofit&#39; are valid &#34;
+        assert type_of_retrofit in [None, &#34;adv_retrofit&#34;, &#34;retrofit&#34;], ass_error_type
+        tabula_buildings = []
+        iwu_buildings = []
+
+        for bldg in self.buildings:
+            if isinstance(bldg, SingleFamilyHouse):
+                if type_of_retrofit is None:
+                    raise ValueError(
+                        &#34;you need to set type_of_retrofit for &#34; &#34;TABULA retrofit&#34;
+                    )
+                tabula_buildings.append(bldg)
+            else:
+                if year_of_retrofit is None:
+                    raise ValueError(&#34;you need to set year_of_retrofit for &#34; &#34;retrofit&#34;)
+                iwu_buildings.append(bldg)
+
+        if self.data.used_statistic == &#34;iwu&#34;:
+            for bld_iwu in iwu_buildings:
+                bld_iwu.retrofit_building(
+                    year_of_retrofit=year_of_retrofit,
+                    window_type=window_type,
+                    material=material,
+                )
+            self.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+            for bld_tabula in tabula_buildings:
+                bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+
+        else:
+            for bld_tabula in tabula_buildings:
+                bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+            for bld_iwu in iwu_buildings:
+                bld_iwu.retrofit_building(
+                    year_of_retrofit=year_of_retrofit,
+                    window_type=window_type,
+                    material=material,
+                )
+
+    def add_non_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=True,
+        internal_gains_mode=1,
+        office_layout=None,
+        window_layout=None,
+        construction_type=None,
+    ):
+        &#34;&#34;&#34;Add a non-residential building to the TEASER project.
+
+        This function adds a non-residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according to Lichtmess and BMVBS
+        for non-residential buildings. Further the type of usage needs to be
+        specified. Currently TEASER supports four different types of
+        non-residential buildings (&#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;,
+        &#39;institute8&#39;). For more information on specific archetype buildings and
+        methods, please read the docs of archetype classes.
+
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;bmvbs&#39; is supported
+        usage : str
+            Main usage of the obtained building, currently only &#39;office&#39;,
+            &#39;institute&#39;, &#39;institute4&#39;, institute8&#39; are supported
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        office_layout : int
+            Structure of the floor plan of office buildings, default is 1,
+            which is representative for one elongated floor.
+                1: elongated 1 floor
+                2: elongated 2 floors
+                3: compact (e.g. for a square base building)
+        window_layout : int
+            Structure of the window facade type, default is 1, which is
+            representative for a punctuated facade.
+                1: punctuated facade (individual windows)
+                2: banner facade (continuous windows)
+                3: full glazing
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+
+        Returns
+        ----------
+        type_bldg : Instance of Office()
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only &#39;bmvbs&#39; is a valid method for &#34; &#34;non-residential archetype generation&#34;
+        )
+
+        assert method in [&#34;bmvbs&#34;], ass_error_method
+
+        ass_error_usage = (
+            &#34;only &#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;, &#34;
+            &#34;&#39;institute8&#39; are valid usages for archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert usage in [
+            &#34;office&#34;,
+            &#34;institute&#34;,
+            &#34;institute4&#34;,
+            &#34;institute8&#34;,
+        ], ass_error_usage
+
+        if self.data is None:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+        elif self.data.used_statistic != &#34;iwu&#34;:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+        if usage == &#34;office&#34;:
+
+            type_bldg = Office(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute&#34;:
+
+            type_bldg = Institute(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute4&#34;:
+
+            type_bldg = Institute4(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute8&#34;:
+
+            type_bldg = Institute8(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg
+
+    def add_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=False,
+        internal_gains_mode=1,
+        residential_layout=None,
+        neighbour_buildings=None,
+        attic=None,
+        cellar=None,
+        dormer=None,
+        construction_type=None,
+        number_of_apartments=None,
+    ):
+        &#34;&#34;&#34;Add a residential building to the TEASER project.
+
+        This function adds a residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according &#39;iwu&#39;, &#39;urbanrenet&#39;,
+        &#39;tabula_de&#39; and &#39;tabula_dk&#39; for residential buildings. Further the
+        type of usage needs to be specified. Currently TEASER supports one type
+        of
+        residential building for &#39;iwu&#39; and eleven types for &#39;urbanrenet&#39;. For
+        more information on specific archetype buildings and methods, please
+        read the docs of archetype classes.
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;iwu&#39; or &#39;urbanrenet&#39; are
+            supported, &#39;tabula_de&#39; to follow soon
+        usage : str
+            Main usage of the obtained building, currently only
+            &#39;single_family_dwelling&#39; is supported for iwu and &#39;est1a&#39;, &#39;est1b&#39;,
+            &#39;est2&#39;, &#39;est3&#39;, &#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#39;est8a&#39;,
+            &#39;est8b&#39; for urbanrenet.
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        residential_layout : int
+            Structure of floor plan (default = 0) CAUTION only used for iwu
+                0: compact
+                1: elongated/complex
+        neighbour_buildings : int
+            Number of neighbour buildings. CAUTION: this will not change
+            the orientation of the buildings wall, but just the overall
+            exterior wall and window area(!) (default = 0)
+                0: no neighbour
+                1: one neighbour
+                2: two neighbours
+        attic : int
+            Design of the attic. CAUTION: this will not change the orientation
+            or tilt of the roof instances, but just adapt the roof area(!) (
+            default = 0) CAUTION only used for iwu
+                0: flat roof
+                1: non heated attic
+                2: partly heated attic
+                3: heated attic
+        cellar : int
+            Design of the of cellar CAUTION: this will not change the
+            orientation, tilt of GroundFloor instances, nor the number or area
+            of ThermalZones, but will change GroundFloor area(!) (default = 0)
+            CAUTION only used for iwu
+                0: no cellar
+                1: non heated cellar
+                2: partly heated cellar
+                3: heated cellar
+        dormer : str
+            Is a dormer attached to the roof? CAUTION: this will not
+            change roof or window orientation or tilt, but just adapt the roof
+            area(!) (default = 0) CAUTION only used for iwu
+                0: no dormer
+                1: dormer
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+        number_of_apartments : int
+            number of apartments inside Building (default = 1). CAUTION only
+            used for urbanrenet
+
+        Returns
+        ----------
+        type_bldg : Instance of Archetype Building
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only&#39;tabula_de&#39;, &#39;tabula_dk&#39;, &#39;iwu&#39; and &#34;
+            &#34;&#39;urbanrenet&#39; &#34;
+            &#34;are valid methods for residential archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert method in [
+            &#34;tabula_de&#34;,
+            &#34;iwu&#34;,
+            &#34;urbanrenet&#34;,
+            &#34;tabula_dk&#34;,
+        ], ass_error_method
+
+        ass_error_apart = (
+            &#34;The keyword number_of_apartments does not have any &#34;
+            &#34;effect on archetype generation for &#39;iwu&#39; or&#34;
+            &#34;&#39;tabula_de&#39;, see docs for more information&#34;
+        )
+
+        if (
+            method in [&#34;iwu&#34;, &#34;tabula_de&#34;, &#34;tabula_dk&#34;]
+            and number_of_apartments is not None
+        ):
+            warnings.warn(ass_error_apart)
+
+        if method == &#34;tabula_de&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_de&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;multi_family_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;multi_family_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;multi_family_house&#34;:
+
+                type_bldg = MultiFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;tabula_dk&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_dk&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;iwu&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_iwu = (
+                &#34;only &#39;single_family_dwelling&#39; is a valid &#34;
+                &#34;usage for iwu archetype method&#34;
+            )
+            assert usage in [&#34;single_family_dwelling&#34;], ass_error_usage_iwu
+
+            if usage == &#34;single_family_dwelling&#34;:
+
+                type_bldg = SingleFamilyDwelling(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    residential_layout,
+                    neighbour_buildings,
+                    attic,
+                    cellar,
+                    dormer,
+                    construction_type,
+                )
+
+        elif method == &#34;urbanrenet&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+            ass_error_usage_urn = (
+                &#34;only &#39;est1a&#39;, &#39;est1b&#39;, &#39;est2&#39;, &#39;est3&#39;, &#34;
+                &#34;&#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#34;
+                &#34;&#39;est8a&#39;,&#39;est8b&#39; is are valid usages for &#34;
+                &#34;urbanrenet archetype method&#34;
+            )
+            assert usage in [
+                &#34;est1a&#34;,
+                &#34;est1b&#34;,
+                &#34;est2&#34;,
+                &#34;est3&#34;,
+                &#34;est4a&#34;,
+                &#34;est4b&#34;,
+                &#34;est5&#34;,
+                &#34;est6&#34;,
+                &#34;est7&#34;,
+                &#34;est8a&#34;,
+                &#34;est8b&#34;,
+            ], ass_error_usage_urn
+            if usage == &#34;est1a&#34;:
+
+                type_bldg = EST1a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                )
+
+            elif usage == &#34;est1b&#34;:
+
+                type_bldg = EST1b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est2&#34;:
+
+                type_bldg = EST2(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est3&#34;:
+
+                type_bldg = EST3(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4a&#34;:
+
+                type_bldg = EST4a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4b&#34;:
+
+                type_bldg = EST4b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est5&#34;:
+
+                type_bldg = EST5(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est6&#34;:
+
+                type_bldg = EST6(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est7&#34;:
+
+                type_bldg = EST7(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8a&#34;:
+
+                type_bldg = EST8a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8b&#34;:
+
+                type_bldg = EST8b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg
+
+    def save_project(self, file_name=None, path=None):
+        &#34;&#34;&#34;Saves the project to a JSON file
+
+        Calls the function save_teaser_json in data.output.teaserjson_output
+
+        Parameters
+        ----------
+
+        file_name : string
+            name of the new file
+        path : string
+            if the Files should not be stored in OutputData, an alternative
+            can be specified
+        &#34;&#34;&#34;
+        if file_name is None:
+            name = self.name
+        else:
+            name = file_name
+
+        if path is None:
+            new_path = os.path.join(utilities.get_default_path(), name)
+        else:
+            new_path = os.path.join(path, name)
+
+        tjson_out.save_teaser_json(new_path, self)
+
+    def load_project(self, path):
+        &#34;&#34;&#34;Load the project from a json file (new format).
+
+        Calls the function load_teaser_json.
+
+        Parameters
+        ----------
+        path : string
+            full path to a json file
+
+        &#34;&#34;&#34;
+
+        tjson_in.load_teaser_json(path, self)
+
+    def save_citygml(self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, results=None):
+        &#34;&#34;&#34;Saves the project to a CityGML file
+
+        calls the function save_gml in data.CityGML we make use of CityGML core
+        and EnergyADE to store semantic information
+
+
+        Parameters
+        ----------
+
+        file_name : string
+            name of the new file
+        path : string
+            if the Files should not be stored in OutputData, an alternative
+            can be specified
+
+        &#34;&#34;&#34;
+        if file_name is None:
+            name = self.name
+        else:
+            name = file_name
+
+        if path is None:
+            new_path = os.path.join(utilities.get_default_path(), name)
+        else:
+            new_path = os.path.join(path, name + &#34;.gml&#34;)
+            utilities.create_path(utilities.get_full_path(path))
+
+        citygml_out.save_gml_lxml(self, new_path, ref_coordinates=ref_coordinates, gml_copy=gml_copy, results=results)
+
+    def load_citygml(self, method=&#34;iwu&#34;, path=None, energyade=False,
+                     gml_bldg_ids=None, gml_bldg_names=None, gml_bldg_addresses=None):
+        &#34;&#34;&#34;Loads buildings from a citygml file
+
+        calls the function load_gml choose_gml or load_gmlade
+        in data.CityGML we make use of CityGML core and EnergyADE
+        and possibly not all kinds of CityGML modelling techniques are
+        supported.
+
+        If the function of the building is given as Residential (1000) or
+        Office (1120) the importer directly converts the building to
+        archetype buildings. If not, only the citygml geometry is imported and
+        you need take care of either the material properties and zoning or you
+        may use the _convert_bldg function in citygml_input module.
+
+
+        Parameters
+        ----------
+
+        :param path: string
+            full path to a CityGML file
+        :param energyade:Boolean
+            Load EnergyADE data or not
+            doesn&#39;t check if data is there
+        :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+        :param gml_bldg_addresses: List[string]
+            user&#39;s selection
+        :param gml_bldg_names: List[string]
+            user&#39;s selection
+        :param gml_bldg_ids: List[string]
+            user&#39;s selection
+
+        &#34;&#34;&#34;
+        gml_copy = None
+        if energyade is True:
+            energyade_in.load_ade_lxml(path, self)
+        elif gml_bldg_names is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_names=gml_bldg_names)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        elif gml_bldg_ids is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_ids=gml_bldg_ids)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        elif gml_bldg_addresses is not None:
+            chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_addresses=gml_bldg_addresses)
+            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+        else:
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=None)
+        return gml_copy, boundary_box
+
+    def export_aixlib(
+        self,
+        building_model=None,
+        zone_model=None,
+        corG=None,
+        internal_id=None,
+        path=None,
+    ):
+        &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+        Exports one (if internal_id is not None) or all buildings for
+        AixLib.ThermalZones.ReducedOrder.Multizone.MultizoneEquipped models
+        using the ThermalZoneEquipped model with a correction of g-value (
+        double pane glazing) and supporting models, like tables and weather
+        model. In contrast to versions &lt; 0.5 TEASER now does not
+        support any model options, as we observed no need, since single
+        ThermalZones are identically with IBPSA models. If you miss one of
+        the old options please contact us.
+
+        Parameters
+        ----------
+
+        internal_id : float
+            setter of a specific building which will be exported, if None then
+            all buildings will be exported
+        path : string
+            if the Files should not be stored in default output path of TEASER,
+            an alternative path can be specified as a full path
+        &#34;&#34;&#34;
+
+        if building_model is not None or zone_model is not None or corG is not None:
+
+            warnings.warn(
+                &#34;building_model, zone_model and corG are no longer &#34;
+                &#34;supported for AixLib export and have no effect. &#34;
+                &#34;The keywords will be deleted within the next &#34;
+                &#34;version, consider rewriting your code.&#34;
+            )
+
+        if path is None:
+            path = os.path.join(utilities.get_default_path(), self.name)
+        else:
+            path = os.path.join(path, self.name)
+
+        utilities.create_path(path)
+
+        if internal_id is None:
+            aixlib_output.export_multizone(
+                buildings=self.buildings, prj=self, path=path
+            )
+        else:
+            for bldg in self.buildings:
+                if bldg.internal_id == internal_id:
+                    aixlib_output.export_multizone(
+                        buildings=[bldg], prj=self, path=path
+                    )
+        return path
+
+    def export_ibpsa(self, library=&#34;AixLib&#34;, internal_id=None, path=None):
+        &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+        For Annex 60 Library
+
+        Parameters
+        ----------
+
+        library : str
+            Used library within the framework of IBPSA library. The
+            models are identical in each library, but IBPSA Modelica library is
+            just a core set of models and should not be used standalone.
+            Valid values are &#39;AixLib&#39; (default), &#39;Buildings&#39;,
+            &#39;BuildingSystems&#39; and &#39;IDEAS&#39;.
+        internal_id : float
+            setter of a specific building which will be exported, if None then
+            all buildings will be exported
+        path : string
+            if the Files should not be stored in default output path of TEASER,
+            an alternative path can be specified as a full path
+        &#34;&#34;&#34;
+
+        ass_error_1 = (
+            &#34;library for IBPSA export has to be &#39;AixLib&#39;, &#34;
+            &#34;&#39;Buildings&#39;, &#39;BuildingSystems&#39; or &#39;IDEAS&#39;&#34;
+        )
+
+        assert library in [
+            &#34;AixLib&#34;,
+            &#34;Buildings&#34;,
+            &#34;BuildingSystems&#34;,
+            &#34;IDEAS&#34;,
+        ], ass_error_1
+
+        if path is None:
+            path = os.path.join(utilities.get_default_path(), self.name)
+        else:
+            path = os.path.join(path, self.name)
+
+        utilities.create_path(path)
+
+        if internal_id is None:
+            ibpsa_output.export_ibpsa(
+                buildings=self.buildings, prj=self, path=path, library=library
+            )
+        else:
+            for bldg in self.buildings:
+                if bldg.internal_id == internal_id:
+                    ibpsa_output.export_ibpsa(buildings=[bldg], prj=self, path=path)
+        return path
+
+    def set_default(self, load_data=None):
+        &#34;&#34;&#34;Sets all attributes to default
+
+        Caution: this will delete all buildings.
+
+        Parameters
+        ----------
+        load_data : boolean, None-type
+            boolean if data bindings for type elements and use conditions
+            should be loaded (default = True), in addition it could be a None-
+            type to use the already used data bindings
+        &#34;&#34;&#34;
+
+        self._name = &#34;Project&#34;
+        self.modelica_info = ModelicaInfo()
+
+        self.weather_file_path = utilities.get_full_path(
+            os.path.join(
+                &#34;data&#34;,
+                &#34;input&#34;,
+                &#34;inputdata&#34;,
+                &#34;weatherdata&#34;,
+                &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+            )
+        )
+
+        self.buildings = []
+
+        if load_data is True:
+            self.data = self.instantiate_data_class()
+        elif not load_data:
+            pass
+        else:
+            self.data = None
+
+        self._number_of_elements_calc = 2
+        self._merge_windows_calc = False
+        self._used_library_calc = &#34;AixLib&#34;
+
+    @property
+    def weather_file_path(self):
+        return self._weather_file_path
+
+    @weather_file_path.setter
+    def weather_file_path(self, value):
+        if value is None:
+            self._weather_file_path = utilities.get_full_path(
+                os.path.join(
+                    &#34;data&#34;,
+                    &#34;input&#34;,
+                    &#34;inputdata&#34;,
+                    &#34;weatherdata&#34;,
+                    &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+                )
+            )
+        else:
+            self._weather_file_path = os.path.normpath(value)
+            self.weather_file_name = os.path.split(self.weather_file_path)[1]
+
+    @property
+    def number_of_elements_calc(self):
+        return self._number_of_elements_calc
+
+    @number_of_elements_calc.setter
+    def number_of_elements_calc(self, value):
+
+        ass_error_1 = &#34;number_of_elements_calc has to be 1,2,3 or 4&#34;
+
+        assert value != [1, 2, 3, 4], ass_error_1
+
+        self._number_of_elements_calc = value
+
+        for bldg in self.buildings:
+            bldg.number_of_elements_calc = value
+
+    @property
+    def merge_windows_calc(self):
+        return self._merge_windows_calc
+
+    @merge_windows_calc.setter
+    def merge_windows_calc(self, value):
+
+        ass_error_1 = &#34;merge windows needs to be True or False&#34;
+
+        assert value != [True, False], ass_error_1
+
+        self._merge_windows_calc = value
+
+        for bldg in self.buildings:
+            bldg.merge_windows_calc = value
+
+    @property
+    def used_library_calc(self):
+        return self._used_library_calc
+
+    @used_library_calc.setter
+    def used_library_calc(self, value):
+
+        ass_error_1 = &#34;used library needs to be AixLib or IBPSA&#34;
+
+        assert value != [&#34;AixLib&#34;, &#34;IBPSA&#34;], ass_error_1
+
+        self._used_library_calc = value
+
+        for bldg in self.buildings:
+            bldg.used_library_calc = value
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+            self._name = regex.sub(&#34;&#34;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#34;[^a-zA-z0-9]&#34;)
+                self._name = regex.sub(&#34;&#34;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+        if self._name[0].isdigit():
+            self._name = &#34;P&#34; + self._name
+
+    @property
+    def use_b4(self):
+        return self._use_b4 
+    
+    @use_b4.setter 
+    def use_b4(self, value):
+        if isinstance(value, bool):
+            self._use_b4 = value
+        else:
+            try:
+                value = bool(value)
+                self._use_b4 = value
+            except ValueError:
+                print(&#34;Can´t convert value to boolean&#34;)
+                
+    @property
+    def period_lca_scenario(self):
+        return self._period_lca_scenario
+    
+    @period_lca_scenario.setter
+    def period_lca_scenario(self, value):
+        if isinstance(value, int):
+            self._period_lca_scenario = value
+        else:
+            try:
+                value = int(value)
+                self._period_lca_scenario = value
+            except ValueError:
+                print(&#34;Can´t convert value to integer&#34;)</code></pre>
+</details>
+<h3>Static methods</h3>
+<dl>
+<dt id="teaser.project.Project.instantiate_data_class"><code class="name flex">
+<span>def <span class="ident">instantiate_data_class</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialization of DataClass</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>DataClass</code></strong> :&ensp;<code>Instance</code> of <code>DataClass()</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@staticmethod
+def instantiate_data_class():
+    &#34;&#34;&#34;Initialization of DataClass
+
+    Returns
+    ----------
+
+    DataClass : Instance of DataClass()
+
+    &#34;&#34;&#34;
+    return DataClass()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.project.Project.merge_windows_calc"><code class="name">var <span class="ident">merge_windows_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def merge_windows_calc(self):
+    return self._merge_windows_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    return self._name</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.number_of_elements_calc"><code class="name">var <span class="ident">number_of_elements_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def number_of_elements_calc(self):
+    return self._number_of_elements_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.period_lca_scenario"><code class="name">var <span class="ident">period_lca_scenario</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def period_lca_scenario(self):
+    return self._period_lca_scenario</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.use_b4"><code class="name">var <span class="ident">use_b4</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def use_b4(self):
+    return self._use_b4 </code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.used_library_calc"><code class="name">var <span class="ident">used_library_calc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def used_library_calc(self):
+    return self._used_library_calc</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.weather_file_path"><code class="name">var <span class="ident">weather_file_path</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def weather_file_path(self):
+    return self._weather_file_path</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.project.Project.add_non_residential"><code class="name flex">
+<span>def <span class="ident">add_non_residential</span></span>(<span>self, method, usage, name, year_of_construction, number_of_floors, height_of_floors, net_leased_area, with_ahu=True, internal_gains_mode=1, office_layout=None, window_layout=None, construction_type=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a non-residential building to the TEASER project.</p>
+<pre><code>    This function adds a non-residential archetype building to the TEASER
+    project. You need to specify the method of the archetype generation.
+    Currently TEASER supports only method according to Lichtmess and BMVBS
+    for non-residential buildings. Further the type of usage needs to be
+    specified. Currently TEASER supports four different types of
+    non-residential buildings ('office', 'institute', 'institute4',
+    'institute8'). For more information on specific archetype buildings and
+    methods, please read the docs of archetype classes.
+
+    This function also calculates the parameters of the buildings directly
+    with the settings set in the project (e.g. used_library_calc or
+    number_of_elements_calc).
+
+    Parameters
+    ----------
+    method : str
+        Used archetype method, currently only 'bmvbs' is supported
+    usage : str
+        Main usage of the obtained building, currently only 'office',
+        'institute', 'institute4', institute8' are supported
+    name : str
+        Individual name
+    year_of_construction : int
+        Year of first construction
+    height_of_floors : float [m]
+        Average height of the buildings' floors
+    number_of_floors : int
+        Number of building's floors above ground
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the
+        footprint
+        of a building
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated
+        and
+        assigned to attribute central_ahu. This instance holds information
+        for central Air Handling units. Default is False.
+</code></pre>
+<p>internal_gains_mode: int [1, 2, 3]
+mode for the internal gains calculation done in AixLib:
+1: Temperature and activity degree dependent heat flux calculation for persons. The
+calculation is based on
+SIA 2024 (default)
+2: Temperature and activity degree independent heat flux calculation for persons, the max.
+heatflowrate is prescribed by the parameter
+fixed_heat_flow_rate_persons.
+3: Temperature and activity degree dependent calculation with
+consideration of moisture and co2. The moisture calculation is
+based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+Engineering ToolBox (2004) and regards only persons.
+office_layout : int
+Structure of the floor plan of office buildings, default is 1,
+which is representative for one elongated floor.
+1: elongated 1 floor
+2: elongated 2 floors
+3: compact (e.g. for a square base building)
+window_layout : int
+Structure of the window facade type, default is 1, which is
+representative for a punctuated facade.
+1: punctuated facade (individual windows)
+2: banner facade (continuous windows)
+3: full glazing
+construction_type : str
+Construction type of used wall constructions default is "heavy")
+heavy: heavy construction
+light: light construction</p>
+<pre><code>    Returns
+    ----------
+    type_bldg : Instance of Office()
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def add_non_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=True,
+        internal_gains_mode=1,
+        office_layout=None,
+        window_layout=None,
+        construction_type=None,
+    ):
+        &#34;&#34;&#34;Add a non-residential building to the TEASER project.
+
+        This function adds a non-residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according to Lichtmess and BMVBS
+        for non-residential buildings. Further the type of usage needs to be
+        specified. Currently TEASER supports four different types of
+        non-residential buildings (&#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;,
+        &#39;institute8&#39;). For more information on specific archetype buildings and
+        methods, please read the docs of archetype classes.
+
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;bmvbs&#39; is supported
+        usage : str
+            Main usage of the obtained building, currently only &#39;office&#39;,
+            &#39;institute&#39;, &#39;institute4&#39;, institute8&#39; are supported
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        office_layout : int
+            Structure of the floor plan of office buildings, default is 1,
+            which is representative for one elongated floor.
+                1: elongated 1 floor
+                2: elongated 2 floors
+                3: compact (e.g. for a square base building)
+        window_layout : int
+            Structure of the window facade type, default is 1, which is
+            representative for a punctuated facade.
+                1: punctuated facade (individual windows)
+                2: banner facade (continuous windows)
+                3: full glazing
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+
+        Returns
+        ----------
+        type_bldg : Instance of Office()
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only &#39;bmvbs&#39; is a valid method for &#34; &#34;non-residential archetype generation&#34;
+        )
+
+        assert method in [&#34;bmvbs&#34;], ass_error_method
+
+        ass_error_usage = (
+            &#34;only &#39;office&#39;, &#39;institute&#39;, &#39;institute4&#39;, &#34;
+            &#34;&#39;institute8&#39; are valid usages for archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert usage in [
+            &#34;office&#34;,
+            &#34;institute&#34;,
+            &#34;institute4&#34;,
+            &#34;institute8&#34;,
+        ], ass_error_usage
+
+        if self.data is None:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+        elif self.data.used_statistic != &#34;iwu&#34;:
+            self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+        if usage == &#34;office&#34;:
+
+            type_bldg = Office(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute&#34;:
+
+            type_bldg = Institute(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute4&#34;:
+
+            type_bldg = Institute4(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        elif usage == &#34;institute8&#34;:
+
+            type_bldg = Institute8(
+                self,
+                name,
+                year_of_construction,
+                number_of_floors,
+                height_of_floors,
+                net_leased_area,
+                with_ahu,
+                internal_gains_mode,
+                office_layout,
+                window_layout,
+                construction_type,
+            )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.add_residential"><code class="name flex">
+<span>def <span class="ident">add_residential</span></span>(<span>self, method, usage, name, year_of_construction, number_of_floors, height_of_floors, net_leased_area, with_ahu=False, internal_gains_mode=1, residential_layout=None, neighbour_buildings=None, attic=None, cellar=None, dormer=None, construction_type=None, number_of_apartments=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a residential building to the TEASER project.</p>
+<pre><code>    This function adds a residential archetype building to the TEASER
+    project. You need to specify the method of the archetype generation.
+    Currently TEASER supports only method according 'iwu', 'urbanrenet',
+    'tabula_de' and 'tabula_dk' for residential buildings. Further the
+    type of usage needs to be specified. Currently TEASER supports one type
+    of
+    residential building for 'iwu' and eleven types for 'urbanrenet'. For
+    more information on specific archetype buildings and methods, please
+    read the docs of archetype classes.
+    This function also calculates the parameters of the buildings directly
+    with the settings set in the project (e.g. used_library_calc or
+    number_of_elements_calc).
+
+    Parameters
+    ----------
+    method : str
+        Used archetype method, currently only 'iwu' or 'urbanrenet' are
+        supported, 'tabula_de' to follow soon
+    usage : str
+        Main usage of the obtained building, currently only
+        'single_family_dwelling' is supported for iwu and 'est1a', 'est1b',
+        'est2', 'est3', 'est4a', 'est4b', 'est5' 'est6', 'est7', 'est8a',
+        'est8b' for urbanrenet.
+    name : str
+        Individual name
+    year_of_construction : int
+        Year of first construction
+    height_of_floors : float [m]
+        Average height of the buildings' floors
+    number_of_floors : int
+        Number of building's floors above ground
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the
+        footprint
+        of a building
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated
+        and
+        assigned to attribute central_ahu. This instance holds information
+        for central Air Handling units. Default is False.
+</code></pre>
+<p>internal_gains_mode: int [1, 2, 3]
+mode for the internal gains calculation done in AixLib:
+1: Temperature and activity degree dependent heat flux calculation for persons. The
+calculation is based on
+SIA 2024 (default)
+2: Temperature and activity degree independent heat flux calculation for persons, the max.
+heatflowrate is prescribed by the parameter
+fixed_heat_flow_rate_persons.
+3: Temperature and activity degree dependent calculation with
+consideration of moisture and co2. The moisture calculation is
+based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+Engineering ToolBox (2004) and regards only persons.
+residential_layout : int
+Structure of floor plan (default = 0) CAUTION only used for iwu
+0: compact
+1: elongated/complex
+neighbour_buildings : int
+Number of neighbour buildings. CAUTION: this will not change
+the orientation of the buildings wall, but just the overall
+exterior wall and window area(!) (default = 0)
+0: no neighbour
+1: one neighbour
+2: two neighbours
+attic : int
+Design of the attic. CAUTION: this will not change the orientation
+or tilt of the roof instances, but just adapt the roof area(!) (
+default = 0) CAUTION only used for iwu
+0: flat roof
+1: non heated attic
+2: partly heated attic
+3: heated attic
+cellar : int
+Design of the of cellar CAUTION: this will not change the
+orientation, tilt of GroundFloor instances, nor the number or area
+of ThermalZones, but will change GroundFloor area(!) (default = 0)
+CAUTION only used for iwu
+0: no cellar
+1: non heated cellar
+2: partly heated cellar
+3: heated cellar
+dormer : str
+Is a dormer attached to the roof? CAUTION: this will not
+change roof or window orientation or tilt, but just adapt the roof
+area(!) (default = 0) CAUTION only used for iwu
+0: no dormer
+1: dormer
+construction_type : str
+Construction type of used wall constructions default is "heavy")
+heavy: heavy construction
+light: light construction
+number_of_apartments : int
+number of apartments inside Building (default = 1). CAUTION only
+used for urbanrenet</p>
+<pre><code>    Returns
+    ----------
+    type_bldg : Instance of Archetype Building
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">    def add_residential(
+        self,
+        method,
+        usage,
+        name,
+        year_of_construction,
+        number_of_floors,
+        height_of_floors,
+        net_leased_area,
+        with_ahu=False,
+        internal_gains_mode=1,
+        residential_layout=None,
+        neighbour_buildings=None,
+        attic=None,
+        cellar=None,
+        dormer=None,
+        construction_type=None,
+        number_of_apartments=None,
+    ):
+        &#34;&#34;&#34;Add a residential building to the TEASER project.
+
+        This function adds a residential archetype building to the TEASER
+        project. You need to specify the method of the archetype generation.
+        Currently TEASER supports only method according &#39;iwu&#39;, &#39;urbanrenet&#39;,
+        &#39;tabula_de&#39; and &#39;tabula_dk&#39; for residential buildings. Further the
+        type of usage needs to be specified. Currently TEASER supports one type
+        of
+        residential building for &#39;iwu&#39; and eleven types for &#39;urbanrenet&#39;. For
+        more information on specific archetype buildings and methods, please
+        read the docs of archetype classes.
+        This function also calculates the parameters of the buildings directly
+        with the settings set in the project (e.g. used_library_calc or
+        number_of_elements_calc).
+
+        Parameters
+        ----------
+        method : str
+            Used archetype method, currently only &#39;iwu&#39; or &#39;urbanrenet&#39; are
+            supported, &#39;tabula_de&#39; to follow soon
+        usage : str
+            Main usage of the obtained building, currently only
+            &#39;single_family_dwelling&#39; is supported for iwu and &#39;est1a&#39;, &#39;est1b&#39;,
+            &#39;est2&#39;, &#39;est3&#39;, &#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#39;est8a&#39;,
+            &#39;est8b&#39; for urbanrenet.
+        name : str
+            Individual name
+        year_of_construction : int
+            Year of first construction
+        height_of_floors : float [m]
+            Average height of the buildings&#39; floors
+        number_of_floors : int
+            Number of building&#39;s floors above ground
+        net_leased_area : float [m2]
+            Total net leased area of building. This is area is NOT the
+            footprint
+            of a building
+        with_ahu : Boolean
+            If set to True, an empty instance of BuildingAHU is instantiated
+            and
+            assigned to attribute central_ahu. This instance holds information
+            for central Air Handling units. Default is False.
+internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+        residential_layout : int
+            Structure of floor plan (default = 0) CAUTION only used for iwu
+                0: compact
+                1: elongated/complex
+        neighbour_buildings : int
+            Number of neighbour buildings. CAUTION: this will not change
+            the orientation of the buildings wall, but just the overall
+            exterior wall and window area(!) (default = 0)
+                0: no neighbour
+                1: one neighbour
+                2: two neighbours
+        attic : int
+            Design of the attic. CAUTION: this will not change the orientation
+            or tilt of the roof instances, but just adapt the roof area(!) (
+            default = 0) CAUTION only used for iwu
+                0: flat roof
+                1: non heated attic
+                2: partly heated attic
+                3: heated attic
+        cellar : int
+            Design of the of cellar CAUTION: this will not change the
+            orientation, tilt of GroundFloor instances, nor the number or area
+            of ThermalZones, but will change GroundFloor area(!) (default = 0)
+            CAUTION only used for iwu
+                0: no cellar
+                1: non heated cellar
+                2: partly heated cellar
+                3: heated cellar
+        dormer : str
+            Is a dormer attached to the roof? CAUTION: this will not
+            change roof or window orientation or tilt, but just adapt the roof
+            area(!) (default = 0) CAUTION only used for iwu
+                0: no dormer
+                1: dormer
+        construction_type : str
+            Construction type of used wall constructions default is &#34;heavy&#34;)
+                heavy: heavy construction
+                light: light construction
+        number_of_apartments : int
+            number of apartments inside Building (default = 1). CAUTION only
+            used for urbanrenet
+
+        Returns
+        ----------
+        type_bldg : Instance of Archetype Building
+
+        &#34;&#34;&#34;
+        ass_error_method = (
+            &#34;only&#39;tabula_de&#39;, &#39;tabula_dk&#39;, &#39;iwu&#39; and &#34;
+            &#34;&#39;urbanrenet&#39; &#34;
+            &#34;are valid methods for residential archetype &#34;
+            &#34;generation&#34;
+        )
+
+        assert method in [
+            &#34;tabula_de&#34;,
+            &#34;iwu&#34;,
+            &#34;urbanrenet&#34;,
+            &#34;tabula_dk&#34;,
+        ], ass_error_method
+
+        ass_error_apart = (
+            &#34;The keyword number_of_apartments does not have any &#34;
+            &#34;effect on archetype generation for &#39;iwu&#39; or&#34;
+            &#34;&#39;tabula_de&#39;, see docs for more information&#34;
+        )
+
+        if (
+            method in [&#34;iwu&#34;, &#34;tabula_de&#34;, &#34;tabula_dk&#34;]
+            and number_of_apartments is not None
+        ):
+            warnings.warn(ass_error_apart)
+
+        if method == &#34;tabula_de&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_de&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;multi_family_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;multi_family_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;multi_family_house&#34;:
+
+                type_bldg = MultiFamilyHouse(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;tabula_dk&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;tabula_dk&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_tabula = &#34;only &#39;single_family_house&#39;,&#34;
+            &#34;&#39;terraced_house&#39;, &#39;apartment_block&#39; are&#34;
+            &#34;valid usages for iwu archetype method&#34;
+            assert usage in [
+                &#34;single_family_house&#34;,
+                &#34;terraced_house&#34;,
+                &#34;apartment_block&#34;,
+            ], ass_error_usage_tabula
+
+            if usage == &#34;single_family_house&#34;:
+
+                type_bldg = SingleFamilyHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;terraced_house&#34;:
+
+                type_bldg = TerracedHouse_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+            elif usage == &#34;apartment_block&#34;:
+
+                type_bldg = ApartmentBlock_DK(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    construction_type,
+                )
+                type_bldg.generate_archetype()
+                return type_bldg
+
+        elif method == &#34;iwu&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=method)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=method)
+
+            ass_error_usage_iwu = (
+                &#34;only &#39;single_family_dwelling&#39; is a valid &#34;
+                &#34;usage for iwu archetype method&#34;
+            )
+            assert usage in [&#34;single_family_dwelling&#34;], ass_error_usage_iwu
+
+            if usage == &#34;single_family_dwelling&#34;:
+
+                type_bldg = SingleFamilyDwelling(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    residential_layout,
+                    neighbour_buildings,
+                    attic,
+                    cellar,
+                    dormer,
+                    construction_type,
+                )
+
+        elif method == &#34;urbanrenet&#34;:
+
+            if self.data is None:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+            elif self.data.used_statistic != &#34;iwu&#34;:
+                self.data = DataClass(used_statistic=&#34;iwu&#34;)
+
+            ass_error_usage_urn = (
+                &#34;only &#39;est1a&#39;, &#39;est1b&#39;, &#39;est2&#39;, &#39;est3&#39;, &#34;
+                &#34;&#39;est4a&#39;, &#39;est4b&#39;, &#39;est5&#39; &#39;est6&#39;, &#39;est7&#39;, &#34;
+                &#34;&#39;est8a&#39;,&#39;est8b&#39; is are valid usages for &#34;
+                &#34;urbanrenet archetype method&#34;
+            )
+            assert usage in [
+                &#34;est1a&#34;,
+                &#34;est1b&#34;,
+                &#34;est2&#34;,
+                &#34;est3&#34;,
+                &#34;est4a&#34;,
+                &#34;est4b&#34;,
+                &#34;est5&#34;,
+                &#34;est6&#34;,
+                &#34;est7&#34;,
+                &#34;est8a&#34;,
+                &#34;est8b&#34;,
+            ], ass_error_usage_urn
+            if usage == &#34;est1a&#34;:
+
+                type_bldg = EST1a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                )
+
+            elif usage == &#34;est1b&#34;:
+
+                type_bldg = EST1b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est2&#34;:
+
+                type_bldg = EST2(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est3&#34;:
+
+                type_bldg = EST3(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4a&#34;:
+
+                type_bldg = EST4a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est4b&#34;:
+
+                type_bldg = EST4b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est5&#34;:
+
+                type_bldg = EST5(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est6&#34;:
+
+                type_bldg = EST6(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est7&#34;:
+
+                type_bldg = EST7(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8a&#34;:
+
+                type_bldg = EST8a(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+            elif usage == &#34;est8b&#34;:
+
+                type_bldg = EST8b(
+                    self,
+                    name,
+                    year_of_construction,
+                    number_of_floors,
+                    height_of_floors,
+                    net_leased_area,
+                    with_ahu,
+                    internal_gains_mode,
+                    neighbour_buildings,
+                    construction_type,
+                    number_of_apartments,
+                )
+
+        type_bldg.generate_archetype()
+        type_bldg.calc_building_parameter(
+            number_of_elements=self._number_of_elements_calc,
+            merge_windows=self._merge_windows_calc,
+            used_library=self._used_library_calc,
+        )
+        return type_bldg</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.calc_all_buildings"><code class="name flex">
+<span>def <span class="ident">calc_all_buildings</span></span>(<span>self, raise_errors=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates values for all project buildings</p>
+<p>You need to set the following parameters in the Project class.</p>
+<p>number_of_elements_calc : int
+defines the number of elements, that area aggregated, between 1
+and 4, default is 2
+For AixLib you should always use 2 elements!!!</p>
+<p>merge_windows_calc : bool
+True for merging the windows into the outer walls, False for
+separate resistance for window, default is False
+For AixLib vdi calculation is True, ebc calculation is False</p>
+<p>used_library_calc : str
+used library (AixLib and IBPSA are supported)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_all_buildings(self, raise_errors=False):
+    &#34;&#34;&#34;Calculates values for all project buildings
+
+    You need to set the following parameters in the Project class.
+
+    number_of_elements_calc : int
+        defines the number of elements, that area aggregated, between 1
+        and 4, default is 2
+        For AixLib you should always use 2 elements!!!
+
+    merge_windows_calc : bool
+        True for merging the windows into the outer walls, False for
+        separate resistance for window, default is False
+        For AixLib vdi calculation is True, ebc calculation is False
+
+    used_library_calc : str
+        used library (AixLib and IBPSA are supported)
+
+    &#34;&#34;&#34;
+    if raise_errors is True:
+        for bldg in reversed(self.buildings):
+            bldg.calc_building_parameter(
+                number_of_elements=self._number_of_elements_calc,
+                merge_windows=self._merge_windows_calc,
+                used_library=self._used_library_calc,
+            )
+    else:
+        for bldg in reversed(self.buildings):
+            try:
+                bldg.calc_building_parameter(
+                    number_of_elements=self._number_of_elements_calc,
+                    merge_windows=self._merge_windows_calc,
+                    used_library=self._used_library_calc,
+                )
+            except (ZeroDivisionError, TypeError):
+                warnings.warn(
+                    &#34;Following building can&#39;t be calculated and is &#34;
+                    &#34;removed from buildings list. Use raise_errors=True &#34;
+                    &#34;to get python errors and stop TEASER from deleting &#34;
+                    &#34;this building:&#34; + bldg.name
+                )
+                self.buildings.remove(bldg)</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.export_aixlib"><code class="name flex">
+<span>def <span class="ident">export_aixlib</span></span>(<span>self, building_model=None, zone_model=None, corG=None, internal_id=None, path=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports values to a record file for Modelica simulation</p>
+<p>Exports one (if internal_id is not None) or all buildings for
+AixLib.ThermalZones.ReducedOrder.Multizone.MultizoneEquipped models
+using the ThermalZoneEquipped model with a correction of g-value (
+double pane glazing) and supporting models, like tables and weather
+model. In contrast to versions &lt; 0.5 TEASER now does not
+support any model options, as we observed no need, since single
+ThermalZones are identically with IBPSA models. If you miss one of
+the old options please contact us.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>internal_id</code></strong> :&ensp;<code>float</code></dt>
+<dd>setter of a specific building which will be exported, if None then
+all buildings will be exported</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>if the Files should not be stored in default output path of TEASER,
+an alternative path can be specified as a full path</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_aixlib(
+    self,
+    building_model=None,
+    zone_model=None,
+    corG=None,
+    internal_id=None,
+    path=None,
+):
+    &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+    Exports one (if internal_id is not None) or all buildings for
+    AixLib.ThermalZones.ReducedOrder.Multizone.MultizoneEquipped models
+    using the ThermalZoneEquipped model with a correction of g-value (
+    double pane glazing) and supporting models, like tables and weather
+    model. In contrast to versions &lt; 0.5 TEASER now does not
+    support any model options, as we observed no need, since single
+    ThermalZones are identically with IBPSA models. If you miss one of
+    the old options please contact us.
+
+    Parameters
+    ----------
+
+    internal_id : float
+        setter of a specific building which will be exported, if None then
+        all buildings will be exported
+    path : string
+        if the Files should not be stored in default output path of TEASER,
+        an alternative path can be specified as a full path
+    &#34;&#34;&#34;
+
+    if building_model is not None or zone_model is not None or corG is not None:
+
+        warnings.warn(
+            &#34;building_model, zone_model and corG are no longer &#34;
+            &#34;supported for AixLib export and have no effect. &#34;
+            &#34;The keywords will be deleted within the next &#34;
+            &#34;version, consider rewriting your code.&#34;
+        )
+
+    if path is None:
+        path = os.path.join(utilities.get_default_path(), self.name)
+    else:
+        path = os.path.join(path, self.name)
+
+    utilities.create_path(path)
+
+    if internal_id is None:
+        aixlib_output.export_multizone(
+            buildings=self.buildings, prj=self, path=path
+        )
+    else:
+        for bldg in self.buildings:
+            if bldg.internal_id == internal_id:
+                aixlib_output.export_multizone(
+                    buildings=[bldg], prj=self, path=path
+                )
+    return path</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.export_ibpsa"><code class="name flex">
+<span>def <span class="ident">export_ibpsa</span></span>(<span>self, library='AixLib', internal_id=None, path=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Exports values to a record file for Modelica simulation</p>
+<p>For Annex 60 Library</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>library</code></strong> :&ensp;<code>str</code></dt>
+<dd>Used library within the framework of IBPSA library. The
+models are identical in each library, but IBPSA Modelica library is
+just a core set of models and should not be used standalone.
+Valid values are 'AixLib' (default), 'Buildings',
+'BuildingSystems' and 'IDEAS'.</dd>
+<dt><strong><code>internal_id</code></strong> :&ensp;<code>float</code></dt>
+<dd>setter of a specific building which will be exported, if None then
+all buildings will be exported</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>if the Files should not be stored in default output path of TEASER,
+an alternative path can be specified as a full path</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def export_ibpsa(self, library=&#34;AixLib&#34;, internal_id=None, path=None):
+    &#34;&#34;&#34;Exports values to a record file for Modelica simulation
+
+    For Annex 60 Library
+
+    Parameters
+    ----------
+
+    library : str
+        Used library within the framework of IBPSA library. The
+        models are identical in each library, but IBPSA Modelica library is
+        just a core set of models and should not be used standalone.
+        Valid values are &#39;AixLib&#39; (default), &#39;Buildings&#39;,
+        &#39;BuildingSystems&#39; and &#39;IDEAS&#39;.
+    internal_id : float
+        setter of a specific building which will be exported, if None then
+        all buildings will be exported
+    path : string
+        if the Files should not be stored in default output path of TEASER,
+        an alternative path can be specified as a full path
+    &#34;&#34;&#34;
+
+    ass_error_1 = (
+        &#34;library for IBPSA export has to be &#39;AixLib&#39;, &#34;
+        &#34;&#39;Buildings&#39;, &#39;BuildingSystems&#39; or &#39;IDEAS&#39;&#34;
+    )
+
+    assert library in [
+        &#34;AixLib&#34;,
+        &#34;Buildings&#34;,
+        &#34;BuildingSystems&#34;,
+        &#34;IDEAS&#34;,
+    ], ass_error_1
+
+    if path is None:
+        path = os.path.join(utilities.get_default_path(), self.name)
+    else:
+        path = os.path.join(path, self.name)
+
+    utilities.create_path(path)
+
+    if internal_id is None:
+        ibpsa_output.export_ibpsa(
+            buildings=self.buildings, prj=self, path=path, library=library
+        )
+    else:
+        for bldg in self.buildings:
+            if bldg.internal_id == internal_id:
+                ibpsa_output.export_ibpsa(buildings=[bldg], prj=self, path=path)
+    return path</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.load_citygml"><code class="name flex">
+<span>def <span class="ident">load_citygml</span></span>(<span>self, method='iwu', path=None, energyade=False, gml_bldg_ids=None, gml_bldg_names=None, gml_bldg_addresses=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads buildings from a citygml file</p>
+<p>calls the function load_gml choose_gml or load_gmlade
+in data.CityGML we make use of CityGML core and EnergyADE
+and possibly not all kinds of CityGML modelling techniques are
+supported.</p>
+<p>If the function of the building is given as Residential (1000) or
+Office (1120) the importer directly converts the building to
+archetype buildings. If not, only the citygml geometry is imported and
+you need take care of either the material properties and zoning or you
+may use the _convert_bldg function in citygml_input module.</p>
+<h2 id="parameters">Parameters</h2>
+<p>:param path: string
+full path to a CityGML file
+:param energyade:Boolean
+Load EnergyADE data or not
+doesn't check if data is there
+:param method: Str
+method for enrichment of single family dwellings
+either default="iwu" or "tabula_de"
+offices always use "iwu"= BMVBS and other residential
+buildings will be always using "tabula_de"
+:param gml_bldg_addresses: List[string]
+user's selection
+:param gml_bldg_names: List[string]
+user's selection
+:param gml_bldg_ids: List[string]
+user's selection</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_citygml(self, method=&#34;iwu&#34;, path=None, energyade=False,
+                 gml_bldg_ids=None, gml_bldg_names=None, gml_bldg_addresses=None):
+    &#34;&#34;&#34;Loads buildings from a citygml file
+
+    calls the function load_gml choose_gml or load_gmlade
+    in data.CityGML we make use of CityGML core and EnergyADE
+    and possibly not all kinds of CityGML modelling techniques are
+    supported.
+
+    If the function of the building is given as Residential (1000) or
+    Office (1120) the importer directly converts the building to
+    archetype buildings. If not, only the citygml geometry is imported and
+    you need take care of either the material properties and zoning or you
+    may use the _convert_bldg function in citygml_input module.
+
+
+    Parameters
+    ----------
+
+    :param path: string
+        full path to a CityGML file
+    :param energyade:Boolean
+        Load EnergyADE data or not
+        doesn&#39;t check if data is there
+    :param method: Str
+        method for enrichment of single family dwellings
+        either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+        offices always use &#34;iwu&#34;= BMVBS and other residential
+        buildings will be always using &#34;tabula_de&#34;
+    :param gml_bldg_addresses: List[string]
+        user&#39;s selection
+    :param gml_bldg_names: List[string]
+        user&#39;s selection
+    :param gml_bldg_ids: List[string]
+        user&#39;s selection
+
+    &#34;&#34;&#34;
+    gml_copy = None
+    if energyade is True:
+        energyade_in.load_ade_lxml(path, self)
+    elif gml_bldg_names is not None:
+        chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_names=gml_bldg_names)
+        citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+    elif gml_bldg_ids is not None:
+        chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_ids=gml_bldg_ids)
+        citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+    elif gml_bldg_addresses is not None:
+        chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_addresses=gml_bldg_addresses)
+        citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+    else:
+        gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=None)
+    return gml_copy, boundary_box</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.load_project"><code class="name flex">
+<span>def <span class="ident">load_project</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Load the project from a json file (new format).</p>
+<p>Calls the function load_teaser_json.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>full path to a json file</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_project(self, path):
+    &#34;&#34;&#34;Load the project from a json file (new format).
+
+    Calls the function load_teaser_json.
+
+    Parameters
+    ----------
+    path : string
+        full path to a json file
+
+    &#34;&#34;&#34;
+
+    tjson_in.load_teaser_json(path, self)</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.retrofit_all_buildings"><code class="name flex">
+<span>def <span class="ident">retrofit_all_buildings</span></span>(<span>self, year_of_retrofit=None, type_of_retrofit=None, window_type=None, material=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrofits all buildings in the project.</p>
+<p>Depending on the used Archetype approach this function will retrofit
+the building. If you have archetypes of both typologies (tabula and
+iwu/BMBVS) you need to pass all keywords (see also Parameters section).</p>
+<p>If TABULA approach is used, it will replace the current construction
+with the construction specified in 'type_of_retrofit',
+where 'retrofit' and 'adv_retrofit' are allowed.</p>
+<p>'iwu' or 'BMVBS' Buildings in the project are retrofitted in the
+following manner:</p>
+<ul>
+<li>replace all windows of the building to retrofitted window according
+to the year of retrofit.</li>
+<li>add an additional insulation layer to all outer walls
+(including roof, and ground floor).
+The thickness of the insulation layer is calculated
+that the U-Value of the wall corresponds to the retrofit standard of
+the year of retrofit.</li>
+</ul>
+<p>The needed parameters for the Modelica Model are calculated
+automatically, using the calculation_method specified in the
+first scenario.</p>
+<p>Note: To Calculate U-Value, the standard TEASER coefficients for outer
+and inner heat transfer are used.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>year_of_retrofit</code></strong> :&ensp;<code>int</code></dt>
+<dd>the year the buildings are retrofitted, only 'iwu'/'bmbvs'
+archetype approach.</dd>
+<dt><strong><code>type_of_retrofit</code></strong> :&ensp;<code>str</code></dt>
+<dd>The classification of retrofit, if the archetype building
+approach of TABULA is used.</dd>
+<dt><strong><code>window_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Default: EnEv 2014, only 'iwu'/'bmbvs' archetype approach.</dd>
+<dt><strong><code>material</code></strong> :&ensp;<code>str</code></dt>
+<dd>Default: EPS035, only 'iwu'/'bmbvs' archetype approach.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def retrofit_all_buildings(
+    self,
+    year_of_retrofit=None,
+    type_of_retrofit=None,
+    window_type=None,
+    material=None,
+):
+    &#34;&#34;&#34;Retrofits all buildings in the project.
+
+    Depending on the used Archetype approach this function will retrofit
+    the building. If you have archetypes of both typologies (tabula and
+    iwu/BMBVS) you need to pass all keywords (see also Parameters section).
+
+    If TABULA approach is used, it will replace the current construction
+    with the construction specified in &#39;type_of_retrofit&#39;,
+    where &#39;retrofit&#39; and &#39;adv_retrofit&#39; are allowed.
+
+    &#39;iwu&#39; or &#39;BMVBS&#39; Buildings in the project are retrofitted in the
+    following manner:
+
+    - replace all windows of the building to retrofitted window according
+      to the year of retrofit.
+    - add an additional insulation layer to all outer walls
+      (including roof, and ground floor).
+      The thickness of the insulation layer is calculated
+      that the U-Value of the wall corresponds to the retrofit standard of
+      the year of retrofit.
+
+    The needed parameters for the Modelica Model are calculated
+    automatically, using the calculation_method specified in the
+    first scenario.
+
+    Note: To Calculate U-Value, the standard TEASER coefficients for outer
+    and inner heat transfer are used.
+
+    Parameters
+    ----------
+    year_of_retrofit : int
+        the year the buildings are retrofitted, only &#39;iwu&#39;/&#39;bmbvs&#39;
+        archetype approach.
+    type_of_retrofit : str
+        The classification of retrofit, if the archetype building
+        approach of TABULA is used.
+    window_type : str
+        Default: EnEv 2014, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+    material : str
+        Default: EPS035, only &#39;iwu&#39;/&#39;bmbvs&#39; archetype approach.
+
+    &#34;&#34;&#34;
+    ass_error_type = &#34;only &#39;retrofit&#39; and &#39;adv_retrofit&#39; are valid &#34;
+    assert type_of_retrofit in [None, &#34;adv_retrofit&#34;, &#34;retrofit&#34;], ass_error_type
+    tabula_buildings = []
+    iwu_buildings = []
+
+    for bldg in self.buildings:
+        if isinstance(bldg, SingleFamilyHouse):
+            if type_of_retrofit is None:
+                raise ValueError(
+                    &#34;you need to set type_of_retrofit for &#34; &#34;TABULA retrofit&#34;
+                )
+            tabula_buildings.append(bldg)
+        else:
+            if year_of_retrofit is None:
+                raise ValueError(&#34;you need to set year_of_retrofit for &#34; &#34;retrofit&#34;)
+            iwu_buildings.append(bldg)
+
+    if self.data.used_statistic == &#34;iwu&#34;:
+        for bld_iwu in iwu_buildings:
+            bld_iwu.retrofit_building(
+                year_of_retrofit=year_of_retrofit,
+                window_type=window_type,
+                material=material,
+            )
+        self.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+        for bld_tabula in tabula_buildings:
+            bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+
+    else:
+        for bld_tabula in tabula_buildings:
+            bld_tabula.retrofit_building(type_of_retrofit=type_of_retrofit)
+        self.data = DataClass(used_statistic=&#34;iwu&#34;)
+        for bld_iwu in iwu_buildings:
+            bld_iwu.retrofit_building(
+                year_of_retrofit=year_of_retrofit,
+                window_type=window_type,
+                material=material,
+            )</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.save_citygml"><code class="name flex">
+<span>def <span class="ident">save_citygml</span></span>(<span>self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, results=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves the project to a CityGML file</p>
+<p>calls the function save_gml in data.CityGML we make use of CityGML core
+and EnergyADE to store semantic information</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>string</code></dt>
+<dd>name of the new file</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>if the Files should not be stored in OutputData, an alternative
+can be specified</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_citygml(self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, results=None):
+    &#34;&#34;&#34;Saves the project to a CityGML file
+
+    calls the function save_gml in data.CityGML we make use of CityGML core
+    and EnergyADE to store semantic information
+
+
+    Parameters
+    ----------
+
+    file_name : string
+        name of the new file
+    path : string
+        if the Files should not be stored in OutputData, an alternative
+        can be specified
+
+    &#34;&#34;&#34;
+    if file_name is None:
+        name = self.name
+    else:
+        name = file_name
+
+    if path is None:
+        new_path = os.path.join(utilities.get_default_path(), name)
+    else:
+        new_path = os.path.join(path, name + &#34;.gml&#34;)
+        utilities.create_path(utilities.get_full_path(path))
+
+    citygml_out.save_gml_lxml(self, new_path, ref_coordinates=ref_coordinates, gml_copy=gml_copy, results=results)</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.save_project"><code class="name flex">
+<span>def <span class="ident">save_project</span></span>(<span>self, file_name=None, path=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves the project to a JSON file</p>
+<p>Calls the function save_teaser_json in data.output.teaserjson_output</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>file_name</code></strong> :&ensp;<code>string</code></dt>
+<dd>name of the new file</dd>
+<dt><strong><code>path</code></strong> :&ensp;<code>string</code></dt>
+<dd>if the Files should not be stored in OutputData, an alternative
+can be specified</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_project(self, file_name=None, path=None):
+    &#34;&#34;&#34;Saves the project to a JSON file
+
+    Calls the function save_teaser_json in data.output.teaserjson_output
+
+    Parameters
+    ----------
+
+    file_name : string
+        name of the new file
+    path : string
+        if the Files should not be stored in OutputData, an alternative
+        can be specified
+    &#34;&#34;&#34;
+    if file_name is None:
+        name = self.name
+    else:
+        name = file_name
+
+    if path is None:
+        new_path = os.path.join(utilities.get_default_path(), name)
+    else:
+        new_path = os.path.join(path, name)
+
+    tjson_out.save_teaser_json(new_path, self)</code></pre>
+</details>
+</dd>
+<dt id="teaser.project.Project.set_default"><code class="name flex">
+<span>def <span class="ident">set_default</span></span>(<span>self, load_data=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets all attributes to default</p>
+<p>Caution: this will delete all buildings.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>load_data</code></strong> :&ensp;<code>boolean, None-type</code></dt>
+<dd>boolean if data bindings for type elements and use conditions
+should be loaded (default = True), in addition it could be a None-
+type to use the already used data bindings</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_default(self, load_data=None):
+    &#34;&#34;&#34;Sets all attributes to default
+
+    Caution: this will delete all buildings.
+
+    Parameters
+    ----------
+    load_data : boolean, None-type
+        boolean if data bindings for type elements and use conditions
+        should be loaded (default = True), in addition it could be a None-
+        type to use the already used data bindings
+    &#34;&#34;&#34;
+
+    self._name = &#34;Project&#34;
+    self.modelica_info = ModelicaInfo()
+
+    self.weather_file_path = utilities.get_full_path(
+        os.path.join(
+            &#34;data&#34;,
+            &#34;input&#34;,
+            &#34;inputdata&#34;,
+            &#34;weatherdata&#34;,
+            &#34;DEU_BW_Mannheim_107290_TRY2010_12_Jahr_BBSR.mos&#34;,
+        )
+    )
+
+    self.buildings = []
+
+    if load_data is True:
+        self.data = self.instantiate_data_class()
+    elif not load_data:
+        pass
+    else:
+        self.data = None
+
+    self._number_of_elements_calc = 2
+    self._merge_windows_calc = False
+    self._used_library_calc = &#34;AixLib&#34;</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser" href="index.html">teaser</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.project.Project" href="#teaser.project.Project">Project</a></code></h4>
+<ul class="">
+<li><code><a title="teaser.project.Project.add_non_residential" href="#teaser.project.Project.add_non_residential">add_non_residential</a></code></li>
+<li><code><a title="teaser.project.Project.add_residential" href="#teaser.project.Project.add_residential">add_residential</a></code></li>
+<li><code><a title="teaser.project.Project.calc_all_buildings" href="#teaser.project.Project.calc_all_buildings">calc_all_buildings</a></code></li>
+<li><code><a title="teaser.project.Project.export_aixlib" href="#teaser.project.Project.export_aixlib">export_aixlib</a></code></li>
+<li><code><a title="teaser.project.Project.export_ibpsa" href="#teaser.project.Project.export_ibpsa">export_ibpsa</a></code></li>
+<li><code><a title="teaser.project.Project.instantiate_data_class" href="#teaser.project.Project.instantiate_data_class">instantiate_data_class</a></code></li>
+<li><code><a title="teaser.project.Project.load_citygml" href="#teaser.project.Project.load_citygml">load_citygml</a></code></li>
+<li><code><a title="teaser.project.Project.load_project" href="#teaser.project.Project.load_project">load_project</a></code></li>
+<li><code><a title="teaser.project.Project.merge_windows_calc" href="#teaser.project.Project.merge_windows_calc">merge_windows_calc</a></code></li>
+<li><code><a title="teaser.project.Project.name" href="#teaser.project.Project.name">name</a></code></li>
+<li><code><a title="teaser.project.Project.number_of_elements_calc" href="#teaser.project.Project.number_of_elements_calc">number_of_elements_calc</a></code></li>
+<li><code><a title="teaser.project.Project.period_lca_scenario" href="#teaser.project.Project.period_lca_scenario">period_lca_scenario</a></code></li>
+<li><code><a title="teaser.project.Project.retrofit_all_buildings" href="#teaser.project.Project.retrofit_all_buildings">retrofit_all_buildings</a></code></li>
+<li><code><a title="teaser.project.Project.save_citygml" href="#teaser.project.Project.save_citygml">save_citygml</a></code></li>
+<li><code><a title="teaser.project.Project.save_project" href="#teaser.project.Project.save_project">save_project</a></code></li>
+<li><code><a title="teaser.project.Project.set_default" href="#teaser.project.Project.set_default">set_default</a></code></li>
+<li><code><a title="teaser.project.Project.use_b4" href="#teaser.project.Project.use_b4">use_b4</a></code></li>
+<li><code><a title="teaser.project.Project.used_library_calc" href="#teaser.project.Project.used_library_calc">used_library_calc</a></code></li>
+<li><code><a title="teaser.project.Project.weather_file_path" href="#teaser.project.Project.weather_file_path">weather_file_path</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

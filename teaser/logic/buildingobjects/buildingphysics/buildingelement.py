@@ -113,12 +113,12 @@ class BuildingElement(object):
     wf_out : float
         Weightfactor of building element ua_value/ua_value_zone
     lca_data : En15804LcaData
-        enviromental indicator of the buildingelement. The data referencing
-        one buildingelement
+        enviromental indicators of the building element. The data referencing
+        one building element
     additional_lca_data : En15804LcaData
         additional environmental indicators to the indicators from the materials
     service_life : int [a]
-        service_life of the building_element in years
+        service_life of the building element in years
     """
 
     def __init__(self, parent=None):
@@ -736,21 +736,23 @@ class BuildingElement(object):
                 remaining_period = period_lca_scenario % self.service_life
                 
                 if use_b4:
-                    pass
-                    
+                    lca_data = n_be_repl * self.calc_lca_data_no_repl()                  
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)                   
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self.calc_lca_data_no_repl()
                     
                 else:
-                    lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()
-                    
-                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)
-                    
+                    lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()                    
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
                     lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
             else:
                 if use_b4:
-                    pass
+                    lca_data = self._calc_lca_data_layer_repl(period_lca_scenario)                    
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self._calc_lca_data_no_repl()
                 else:
-                    lca_data = self._calc_lca_data_no_repl()
-                    
+                    lca_data = self._calc_lca_data_no_repl()                   
                     lca_data = lca_data + self._calc_lca_data_layer_repl(period_lca_scenario)
                 
             self.lca_data = lca_data
@@ -766,15 +768,15 @@ class BuildingElement(object):
         
 
     def _calc_lca_data_no_repl(self):
-        """calculates the LCA-data of the buildingelement without any
-        replacements
+        """calculates the environmental indicators of the buildingelement 
+        without any replacements
         
 
         Returns
         -------
         lca_data_be : En15804LcaData
-            LCA-data of the buildingelement without any replacements
-
+            environmental indicators of the buildingelement without any
+            replacements
         """
         
         lca_data_be = En15804LcaData()
@@ -791,7 +793,12 @@ class BuildingElement(object):
                                     )
             
             lca_data_be = lca_data_be + lca_data_layer
-        
+        if self.additional_lca_data is not None:
+            if self.additional_lca_data.ref_flow_unit != "pcs":
+                self.additional_lca_data = self.additional_lca_data.convert_ref_unit("pcs", area=self.area)
+
+            lca_data_be = lca_data_be + self.additional_lca_data
+            
         return lca_data_be
         
     def _calc_lca_data_layer_repl(self, ref_period=80):
@@ -801,13 +808,13 @@ class BuildingElement(object):
 
         Parameters
         ----------
-        ref_period : int, optional
-            reference time period. The default is 80.
+        ref_period : int, optional [a]
+            reference time period. The default is 80 years.
 
         Returns
         -------
         lca_data_repl_layers : En15804LcaData
-            LCA-data caused by layer replacement in a specific time period
+            environmental indicators from layer replacement
 
         """
         

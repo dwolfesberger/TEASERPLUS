@@ -1,0 +1,1549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># created April 2017
+# by TEASER Development Team
+
+from teaser.logic.archetypebuildings.residential import Residential
+from teaser.logic.buildingobjects.useconditions import UseConditions as UseCond
+from teaser.logic.buildingobjects.buildingphysics.ceiling import Ceiling
+from teaser.logic.buildingobjects.buildingphysics.floor import Floor
+from teaser.logic.buildingobjects.buildingphysics.groundfloor import GroundFloor
+from teaser.logic.buildingobjects.buildingphysics.innerwall import InnerWall
+from teaser.logic.buildingobjects.buildingphysics.outerwall import OuterWall
+from teaser.logic.buildingobjects.buildingphysics.rooftop import Rooftop
+from teaser.logic.buildingobjects.buildingphysics.window import Window
+from teaser.logic.buildingobjects.buildingphysics.door import Door
+from teaser.logic.buildingobjects.thermalzone import ThermalZone
+
+
+class SingleFamilyHouse(Residential):
+    &#34;&#34;&#34;Archetype for Danish TABULA Single Family House.
+
+    This is an archetype building for danish single family house according to
+    TABULA building typology (http://webtool.building-typology.eu/#bm). As
+    TABULA defines one reference building, whereas TEASER wants to provide a
+    methodology to generate individual building information, this archetype
+    underlies some assumptions. The made assumptions are explained in the
+    following:
+
+    Each building has four orientations for outer walls and windows (north,
+    east, south and west), two orientations for rooftops (south and north), with
+    tilt of 35 degree and one orientation for ground floors and one door (
+    default
+    orientation is west). The area of each surface is calculated using the
+    product of the given net_leased_area and specific estimation factors. These
+    estimation factors where build by dividing the given &#39;surface area&#39; by the
+    &#39;reference floor area&#39; in TABULA. The estimation factors are calculated for
+    each building period (&#39;construction year class&#39;). Please note that the
+    number and height of the floors given in TEASER does not have any effect on
+    the surface area for heat transmission, but is only used to calculate the
+    interior wall area, which is not specified in TABULA at all. Further, TABULA
+    does not specify any specific user profile, by default the SingleFamilyHouse
+    class has exactly one usage zone, which is &#39;Living&#39;. TABULA also does not
+    always specify the exact construction of building elements, but always
+    provides a prescribed U-Value. We used the U-Value and the given material
+    information to determine thickness of each layer and implemented it into
+    elements json (&#39;teaser.data.input.inputdata.TypeElements_TABULA_DK.json&#39;). The
+    material properties have been assumed from the &#34;Handbook for Energy
+    Consultants - HB2016&#34; (http://www.hbemo.dk/). As there might be some
+    differences in the assumptions for material properties from TABULA and
+    HB2016 the U-Value might not always be exactly the same as in TABULA but is
+    always in an acceptable range. The U-Value has been calculated using
+    combined constant values for interior and exterior heat transmission, we
+    used a resistance of 0.17 (m2*K)/W for outer walls, windows, flat roofs and
+    doors; 0.34 (m2*K)/W for ground floors to unheated cellars and 0.17 (m2*K)/W
+    to direct ground coupled floors, 0.21 (m2*K)/W  was taken for pitched roofs.
+
+    Parameters
+    ----------
+
+    parent: Project()
+        The parent class of this object, the Project the Building belongs to.
+        Allows for better control of hierarchical structures. If not None it
+        adds this Building instance to Project.buildings.
+        (default: None)
+    name : str
+        Individual name
+    year_of_construction : int
+        Year of first construction
+    height_of_floors : float [m]
+        Average height of the buildings&#39; floors
+    number_of_floors : int
+        Number of building&#39;s floors above ground
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the footprint
+        of a building
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated and
+        assigned to attribute central_ahu. This instance holds information for
+        central Air Handling units. Default is False.
+    internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+    construction_type : str
+        Construction type of used wall constructions default is &#34;existing
+        state&#34;
+            existing state:
+                construction of walls according to existing state in TABULA
+            usual refurbishment:
+                construction of walls according to usual refurbishment in TABULA
+            advanced refurbishment:
+                construction of walls according to advanced refurbishment in
+                TABULA
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        parent,
+        name=None,
+        year_of_construction=None,
+        number_of_floors=None,
+        height_of_floors=None,
+        net_leased_area=None,
+        with_ahu=False,
+        internal_gains_mode=1,
+        construction_type=None,
+    ):
+
+        super(SingleFamilyHouse, self).__init__(
+            parent,
+            name,
+            year_of_construction,
+            net_leased_area,
+            with_ahu,
+            internal_gains_mode,
+        )
+
+        self.construction_type = construction_type
+        self.number_of_floors = number_of_floors
+        self.height_of_floors = height_of_floors
+
+        self._construction_type_1 = self.construction_type + &#34;_1_SFH&#34;
+        self._construction_type_2 = self.construction_type + &#34;_2_SFH&#34;
+
+        self.zone_area_factors = {&#34;SingleDwelling&#34;: [1, &#34;Living&#34;]}
+
+        self._outer_wall_names_1 = {
+            &#34;ExteriorFacadeNorth_1&#34;: [90.0, 0.0],
+            &#34;ExteriorFacadeEast_1&#34;: [90.0, 90.0],
+            &#34;ExteriorFacadeSouth_1&#34;: [90.0, 180.0],
+            &#34;ExteriorFacadeWest_1&#34;: [90.0, 270.0],
+        }
+
+        self._outer_wall_names_2 = {
+            &#34;ExteriorFacadeNorth_2&#34;: [90.0, 0.0],
+            &#34;ExteriorFacadeEast_2&#34;: [90.0, 90.0],
+            &#34;ExteriorFacadeSouth_2&#34;: [90.0, 180.0],
+            &#34;ExteriorFacadeWest_2&#34;: [90.0, 270.0],
+        }
+
+        self.roof_names_1 = {
+            &#34;RooftopNorth_1&#34;: [35.0, 0.0],
+            &#34;RooftopSouth_1&#34;: [35.0, 90.0],
+        }
+
+        self.roof_names_2 = {
+            &#34;RooftopNorth_2&#34;: [35.0, 0.0],
+            &#34;RooftopSouth_2&#34;: [35.0, 90.0],
+        }
+
+        self.ground_floor_names_1 = {&#34;GroundFloor_1&#34;: [0, -2]}
+
+        self.ground_floor_names_2 = {&#34;GroundFloor_2&#34;: [0, -2]}
+
+        self.door_names = {&#34;Door&#34;: [90.0, 270]}
+
+        self.window_names_1 = {
+            &#34;WindowFacadeNorth_1&#34;: [90.0, 0.0],
+            &#34;WindowFacadeEast_1&#34;: [90.0, 90.0],
+            &#34;WindowFacadeSouth_1&#34;: [90.0, 180.0],
+            &#34;WindowFacadeWest_1&#34;: [90.0, 270.0],
+        }
+        self.window_names_2 = {
+            &#34;WindowFacadeNorth_2&#34;: [90.0, 0.0],
+            &#34;WindowFacadeEast_2&#34;: [90.0, 90.0],
+            &#34;WindowFacadeSouth_2&#34;: [90.0, 180.0],
+            &#34;WindowFacadeWest_2&#34;: [90.0, 270.0],
+        }
+
+        # [tilt, orientation]
+
+        self.inner_wall_names = {&#34;InnerWall&#34;: [90.0, 0.0]}
+
+        self.ceiling_names = {&#34;Ceiling&#34;: [0.0, -1]}
+
+        self.floor_names = {&#34;Floor&#34;: [0.0, -2]}
+
+        # Rooftop1, Rooftop2, Wall1, Wall2, GroundFloor1, GroundFloor2,
+        # Window1, Window2, Door
+        # Area/ReferenceFloorArea
+        self.facade_estimation_factors = {
+            (2007, 2010): {
+                &#34;rt1&#34;: 1.179,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0345,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0276,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.17,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1999, 2006): {
+                &#34;rt1&#34;: 0.8054,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.7852,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.6040,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1839,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1979, 1998): {
+                &#34;rt1&#34;: 1.1721,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0164,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0000,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2025,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1973, 1978): {
+                &#34;rt1&#34;: 1.1197,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.6154,
+                &#34;ow2&#34;: 0.2137,
+                &#34;gf1&#34;: 1.0085,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1906,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1961, 1972): {
+                &#34;rt1&#34;: 1.1765,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.7908,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0458,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2203,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1951, 1960): {
+                &#34;rt1&#34;: 1.1778,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.1222,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.1778,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.3133,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1931, 1950): {
+                &#34;rt1&#34;: 0.7479,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.6891,
+                &#34;ow2&#34;: 0.2269,
+                &#34;gf1&#34;: 0.7395,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1824,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1851, 1930): {
+                &#34;rt1&#34;: 0.9895,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0316,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.6947,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1589,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (0, 1850): {
+                &#34;rt1&#34;: 1.1742,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.1061,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.9621,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2045,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+        }
+
+        self.building_age_group = None
+
+        if self.with_ahu is True:
+            self.central_ahu.profile_temperature = (
+                7 * [293.15] + 12 * [295.15] + 5 * [293.15]
+            )
+            self.central_ahu.profile_min_relative_humidity = 24 * [0.45]
+            self.central_ahu.profile_max_relative_humidity = 24 * [0.55]
+            self.central_ahu.profile_v_flow = 7 * [0.0] + 12 * [1.0] + 5 * [0.0]
+
+    def _check_year_of_construction(self):
+        &#34;&#34;&#34;Assigns the bldg age group according to year of construction&#34;&#34;&#34;
+
+        for key in self.facade_estimation_factors:
+            if (
+                self.year_of_construction in range(key[0], key[1])
+                or self.year_of_construction == key[1]
+            ):
+                self.building_age_group = (key[0], key[1])
+
+        if self.building_age_group is None:
+            raise RuntimeError(
+                &#34;Year of construction not supported for this archetype&#34; &#34;building&#34;
+            )
+
+    def generate_archetype(self):
+        &#34;&#34;&#34;Generates a SingleFamilyHouse archetype buildings
+
+        With given values, this function generates an archetype building for
+        Tabula Single Family House.
+        &#34;&#34;&#34;
+        self.thermal_zones = None
+        self._check_year_of_construction()
+        # help area for the correct building area setting while using typeBldgs
+        type_bldg_area = self.net_leased_area
+        self.net_leased_area = 0.0
+
+        for key, value in self.zone_area_factors.items():
+            zone = ThermalZone(parent=self)
+            zone.name = key
+            zone.area = type_bldg_area * value[0]
+            use_cond = UseCond(parent=zone)
+            use_cond.load_use_conditions(zone_usage=value[1])
+            zone.use_conditions = use_cond
+
+            zone.use_conditions.with_ahu = False
+            zone.use_conditions.persons *= zone.area * 0.01
+            zone.use_conditions.machines *= zone.area * 0.01
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;] != 0:
+            for key, value in self._outer_wall_names_1.items():
+                for zone in self.thermal_zones:
+                    outer_wall = OuterWall(zone)
+                    outer_wall.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    outer_wall.name = key
+                    outer_wall.tilt = value[0]
+                    outer_wall.orientation = value[1]
+                    outer_wall.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;]
+                        * zone.area
+                    ) / len(self._outer_wall_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;] != 0:
+            for key, value in self._outer_wall_names_2.items():
+                for zone in self.thermal_zones:
+                    outer_wall = OuterWall(zone)
+                    outer_wall.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    outer_wall.name = key
+                    outer_wall.tilt = value[0]
+                    outer_wall.orientation = value[1]
+                    outer_wall.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;]
+                        * zone.area
+                    ) / len(self._outer_wall_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;] != 0:
+            for key, value in self.window_names_1.items():
+                for zone in self.thermal_zones:
+                    window = Window(zone)
+                    window.load_type_element(
+                        self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    window.name = key
+                    window.tilt = value[0]
+                    window.orientation = value[1]
+                    window.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;]
+                        * zone.area
+                    ) / len(self.window_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;] != 0:
+            for key, value in self.window_names_2.items():
+                for zone in self.thermal_zones:
+                    window = Window(zone)
+                    window.load_type_element(
+                        self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    window.name = key
+                    window.tilt = value[0]
+                    window.orientation = value[1]
+                    window.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;]
+                        * zone.area
+                    ) / len(self.window_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;] != 0:
+            for key, value in self.ground_floor_names_1.items():
+
+                for zone in self.thermal_zones:
+                    gf = GroundFloor(zone)
+                    gf.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    gf.name = key
+                    gf.tilt = value[0]
+                    gf.orientation = value[1]
+                    gf.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;]
+                        * zone.area
+                    ) / len(self.ground_floor_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;] != 0:
+            for key, value in self.ground_floor_names_2.items():
+
+                for zone in self.thermal_zones:
+                    gf = GroundFloor(zone)
+                    gf.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    gf.name = key
+                    gf.tilt = value[0]
+                    gf.orientation = value[1]
+                    gf.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;]
+                        * zone.area
+                    ) / len(self.ground_floor_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;] != 0:
+            for key, value in self.roof_names_1.items():
+
+                for zone in self.thermal_zones:
+                    rt = Rooftop(zone)
+                    rt.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    rt.name = key
+                    rt.tilt = value[0]
+                    rt.orientation = value[1]
+                    rt.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;]
+                        * zone.area
+                    ) / len(self.roof_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;] != 0:
+            for key, value in self.roof_names_2.items():
+
+                for zone in self.thermal_zones:
+                    rt = Rooftop(zone)
+                    rt.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    rt.name = key
+                    rt.tilt = value[0]
+                    rt.orientation = value[1]
+                    rt.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;]
+                        * zone.area
+                    ) / len(self.roof_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;door&#34;] != 0:
+            for key, value in self.door_names.items():
+
+                for zone in self.thermal_zones:
+                    door = Door(zone)
+                    door.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    door.name = key
+                    door.tilt = value[0]
+                    door.orientation = value[1]
+                    door.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;door&#34;]
+                        * zone.area
+                    ) / len(self.door_names)
+
+        for key, value in self.inner_wall_names.items():
+
+            for zone in self.thermal_zones:
+                inner_wall = InnerWall(zone)
+                inner_wall.load_type_element(
+                    year=self.year_of_construction,
+                    construction=&#34;tabula_standard&#34;,
+                    data_class=self.parent.data,
+                )
+                inner_wall.name = key
+                inner_wall.tilt = value[0]
+                inner_wall.orientation = value[1]
+
+        if self.number_of_floors &gt; 1:
+
+            for key, value in self.ceiling_names.items():
+
+                for zone in self.thermal_zones:
+                    ceiling = Ceiling(zone)
+                    ceiling.load_type_element(
+                        year=self.year_of_construction,
+                        construction=&#34;tabula_standard&#34;,
+                        data_class=self.parent.data,
+                    )
+                    ceiling.name = key
+                    ceiling.tilt = value[0]
+                    ceiling.orientation = value[1]
+
+            for key, value in self.floor_names.items():
+
+                for zone in self.thermal_zones:
+                    floor = Floor(zone)
+                    floor.load_type_element(
+                        year=self.year_of_construction,
+                        construction=&#34;tabula_standard&#34;,
+                        data_class=self.parent.data,
+                    )
+                    floor.name = key
+                    floor.tilt = value[0]
+                    floor.orientation = value[1]
+
+        for zone in self.thermal_zones:
+            zone.set_inner_wall_area()
+            zone.set_volume_zone()
+
+    @property
+    def construction_type(self):
+        return self._construction_type
+
+    @construction_type.setter
+    def construction_type(self, value):
+        if value is not None:
+            if value in [&#34;tabula_standard&#34;, &#34;tabula_retrofit&#34;, &#34;tabula_adv_retrofit&#34;]:
+                self._construction_type = value
+            else:
+                raise ValueError(
+                    &#34;Construction_type has to be tabula_standard,&#34;
+                    &#34;tabula_retrofit, &#34;
+                    &#34;tabula_adv_retrofit&#34;
+                )
+        else:
+            self._construction_type = &#34;tabula_standard&#34;</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse"><code class="flex name class">
+<span>class <span class="ident">SingleFamilyHouse</span></span>
+<span>(</span><span>parent, name=None, year_of_construction=None, number_of_floors=None, height_of_floors=None, net_leased_area=None, with_ahu=False, internal_gains_mode=1, construction_type=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Archetype for Danish TABULA Single Family House.</p>
+<p>This is an archetype building for danish single family house according to
+TABULA building typology (<a href="http://webtool.building-typology.eu/#bm">http://webtool.building-typology.eu/#bm</a>). As
+TABULA defines one reference building, whereas TEASER wants to provide a
+methodology to generate individual building information, this archetype
+underlies some assumptions. The made assumptions are explained in the
+following:</p>
+<p>Each building has four orientations for outer walls and windows (north,
+east, south and west), two orientations for rooftops (south and north), with
+tilt of 35 degree and one orientation for ground floors and one door (
+default
+orientation is west). The area of each surface is calculated using the
+product of the given net_leased_area and specific estimation factors. These
+estimation factors where build by dividing the given 'surface area' by the
+'reference floor area' in TABULA. The estimation factors are calculated for
+each building period ('construction year class'). Please note that the
+number and height of the floors given in TEASER does not have any effect on
+the surface area for heat transmission, but is only used to calculate the
+interior wall area, which is not specified in TABULA at all. Further, TABULA
+does not specify any specific user profile, by default the SingleFamilyHouse
+class has exactly one usage zone, which is 'Living'. TABULA also does not
+always specify the exact construction of building elements, but always
+provides a prescribed U-Value. We used the U-Value and the given material
+information to determine thickness of each layer and implemented it into
+elements json ('teaser.data.input.inputdata.TypeElements_TABULA_DK.json'). The
+material properties have been assumed from the "Handbook for Energy
+Consultants - HB2016" (<a href="http://www.hbemo.dk/">http://www.hbemo.dk/</a>). As there might be some
+differences in the assumptions for material properties from TABULA and
+HB2016 the U-Value might not always be exactly the same as in TABULA but is
+always in an acceptable range. The U-Value has been calculated using
+combined constant values for interior and exterior heat transmission, we
+used a resistance of 0.17 (m2<em>K)/W for outer walls, windows, flat roofs and
+doors; 0.34 (m2</em>K)/W for ground floors to unheated cellars and 0.17 (m2<em>K)/W
+to direct ground coupled floors, 0.21 (m2</em>K)/W
+was taken for pitched roofs.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>Project()</code></dt>
+<dd>The parent class of this object, the Project the Building belongs to.
+Allows for better control of hierarchical structures. If not None it
+adds this Building instance to Project.buildings.
+(default: None)</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Individual name</dd>
+<dt><strong><code>year_of_construction</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of first construction</dd>
+<dt><strong><code>height_of_floors</code></strong> :&ensp;<code>float [m]</code></dt>
+<dd>Average height of the buildings' floors</dd>
+<dt><strong><code>number_of_floors</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of building's floors above ground</dd>
+<dt><strong><code>net_leased_area</code></strong> :&ensp;<code>float [m2]</code></dt>
+<dd>Total net leased area of building. This is area is NOT the footprint
+of a building</dd>
+<dt><strong><code>with_ahu</code></strong> :&ensp;<code>Boolean</code></dt>
+<dd>If set to True, an empty instance of BuildingAHU is instantiated and
+assigned to attribute central_ahu. This instance holds information for
+central Air Handling units. Default is False.</dd>
+<dt><strong><code>internal_gains_mode</code></strong> :&ensp;<code>int [1, 2, 3]</code></dt>
+<dd>mode for the internal gains calculation done in AixLib:
+1: Temperature and activity degree dependent heat flux calculation for persons. The
+calculation is based on
+SIA 2024 (default)
+2: Temperature and activity degree independent heat flux calculation for persons, the max.
+heatflowrate is prescribed by the parameter
+fixed_heat_flow_rate_persons.
+3: Temperature and activity degree dependent calculation with
+consideration of moisture and co2. The moisture calculation is
+based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+Engineering ToolBox (2004) and regards only persons.</dd>
+<dt><strong><code>construction_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Construction type of used wall constructions default is "existing
+state"
+existing state:
+construction of walls according to existing state in TABULA
+usual refurbishment:
+construction of walls according to usual refurbishment in TABULA
+advanced refurbishment:
+construction of walls according to advanced refurbishment in
+TABULA</dd>
+</dl>
+<p>Constructor of Residential archetype building</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SingleFamilyHouse(Residential):
+    &#34;&#34;&#34;Archetype for Danish TABULA Single Family House.
+
+    This is an archetype building for danish single family house according to
+    TABULA building typology (http://webtool.building-typology.eu/#bm). As
+    TABULA defines one reference building, whereas TEASER wants to provide a
+    methodology to generate individual building information, this archetype
+    underlies some assumptions. The made assumptions are explained in the
+    following:
+
+    Each building has four orientations for outer walls and windows (north,
+    east, south and west), two orientations for rooftops (south and north), with
+    tilt of 35 degree and one orientation for ground floors and one door (
+    default
+    orientation is west). The area of each surface is calculated using the
+    product of the given net_leased_area and specific estimation factors. These
+    estimation factors where build by dividing the given &#39;surface area&#39; by the
+    &#39;reference floor area&#39; in TABULA. The estimation factors are calculated for
+    each building period (&#39;construction year class&#39;). Please note that the
+    number and height of the floors given in TEASER does not have any effect on
+    the surface area for heat transmission, but is only used to calculate the
+    interior wall area, which is not specified in TABULA at all. Further, TABULA
+    does not specify any specific user profile, by default the SingleFamilyHouse
+    class has exactly one usage zone, which is &#39;Living&#39;. TABULA also does not
+    always specify the exact construction of building elements, but always
+    provides a prescribed U-Value. We used the U-Value and the given material
+    information to determine thickness of each layer and implemented it into
+    elements json (&#39;teaser.data.input.inputdata.TypeElements_TABULA_DK.json&#39;). The
+    material properties have been assumed from the &#34;Handbook for Energy
+    Consultants - HB2016&#34; (http://www.hbemo.dk/). As there might be some
+    differences in the assumptions for material properties from TABULA and
+    HB2016 the U-Value might not always be exactly the same as in TABULA but is
+    always in an acceptable range. The U-Value has been calculated using
+    combined constant values for interior and exterior heat transmission, we
+    used a resistance of 0.17 (m2*K)/W for outer walls, windows, flat roofs and
+    doors; 0.34 (m2*K)/W for ground floors to unheated cellars and 0.17 (m2*K)/W
+    to direct ground coupled floors, 0.21 (m2*K)/W  was taken for pitched roofs.
+
+    Parameters
+    ----------
+
+    parent: Project()
+        The parent class of this object, the Project the Building belongs to.
+        Allows for better control of hierarchical structures. If not None it
+        adds this Building instance to Project.buildings.
+        (default: None)
+    name : str
+        Individual name
+    year_of_construction : int
+        Year of first construction
+    height_of_floors : float [m]
+        Average height of the buildings&#39; floors
+    number_of_floors : int
+        Number of building&#39;s floors above ground
+    net_leased_area : float [m2]
+        Total net leased area of building. This is area is NOT the footprint
+        of a building
+    with_ahu : Boolean
+        If set to True, an empty instance of BuildingAHU is instantiated and
+        assigned to attribute central_ahu. This instance holds information for
+        central Air Handling units. Default is False.
+    internal_gains_mode: int [1, 2, 3]
+        mode for the internal gains calculation done in AixLib:
+        1: Temperature and activity degree dependent heat flux calculation for persons. The
+           calculation is based on  SIA 2024 (default)
+        2: Temperature and activity degree independent heat flux calculation for persons, the max.
+           heatflowrate is prescribed by the parameter
+           fixed_heat_flow_rate_persons.
+        3: Temperature and activity degree dependent calculation with
+           consideration of moisture and co2. The moisture calculation is
+           based on SIA 2024 (2015) and regards persons and non-persons, the co2 calculation is based on
+           Engineering ToolBox (2004) and regards only persons.
+    construction_type : str
+        Construction type of used wall constructions default is &#34;existing
+        state&#34;
+            existing state:
+                construction of walls according to existing state in TABULA
+            usual refurbishment:
+                construction of walls according to usual refurbishment in TABULA
+            advanced refurbishment:
+                construction of walls according to advanced refurbishment in
+                TABULA
+    &#34;&#34;&#34;
+
+    def __init__(
+        self,
+        parent,
+        name=None,
+        year_of_construction=None,
+        number_of_floors=None,
+        height_of_floors=None,
+        net_leased_area=None,
+        with_ahu=False,
+        internal_gains_mode=1,
+        construction_type=None,
+    ):
+
+        super(SingleFamilyHouse, self).__init__(
+            parent,
+            name,
+            year_of_construction,
+            net_leased_area,
+            with_ahu,
+            internal_gains_mode,
+        )
+
+        self.construction_type = construction_type
+        self.number_of_floors = number_of_floors
+        self.height_of_floors = height_of_floors
+
+        self._construction_type_1 = self.construction_type + &#34;_1_SFH&#34;
+        self._construction_type_2 = self.construction_type + &#34;_2_SFH&#34;
+
+        self.zone_area_factors = {&#34;SingleDwelling&#34;: [1, &#34;Living&#34;]}
+
+        self._outer_wall_names_1 = {
+            &#34;ExteriorFacadeNorth_1&#34;: [90.0, 0.0],
+            &#34;ExteriorFacadeEast_1&#34;: [90.0, 90.0],
+            &#34;ExteriorFacadeSouth_1&#34;: [90.0, 180.0],
+            &#34;ExteriorFacadeWest_1&#34;: [90.0, 270.0],
+        }
+
+        self._outer_wall_names_2 = {
+            &#34;ExteriorFacadeNorth_2&#34;: [90.0, 0.0],
+            &#34;ExteriorFacadeEast_2&#34;: [90.0, 90.0],
+            &#34;ExteriorFacadeSouth_2&#34;: [90.0, 180.0],
+            &#34;ExteriorFacadeWest_2&#34;: [90.0, 270.0],
+        }
+
+        self.roof_names_1 = {
+            &#34;RooftopNorth_1&#34;: [35.0, 0.0],
+            &#34;RooftopSouth_1&#34;: [35.0, 90.0],
+        }
+
+        self.roof_names_2 = {
+            &#34;RooftopNorth_2&#34;: [35.0, 0.0],
+            &#34;RooftopSouth_2&#34;: [35.0, 90.0],
+        }
+
+        self.ground_floor_names_1 = {&#34;GroundFloor_1&#34;: [0, -2]}
+
+        self.ground_floor_names_2 = {&#34;GroundFloor_2&#34;: [0, -2]}
+
+        self.door_names = {&#34;Door&#34;: [90.0, 270]}
+
+        self.window_names_1 = {
+            &#34;WindowFacadeNorth_1&#34;: [90.0, 0.0],
+            &#34;WindowFacadeEast_1&#34;: [90.0, 90.0],
+            &#34;WindowFacadeSouth_1&#34;: [90.0, 180.0],
+            &#34;WindowFacadeWest_1&#34;: [90.0, 270.0],
+        }
+        self.window_names_2 = {
+            &#34;WindowFacadeNorth_2&#34;: [90.0, 0.0],
+            &#34;WindowFacadeEast_2&#34;: [90.0, 90.0],
+            &#34;WindowFacadeSouth_2&#34;: [90.0, 180.0],
+            &#34;WindowFacadeWest_2&#34;: [90.0, 270.0],
+        }
+
+        # [tilt, orientation]
+
+        self.inner_wall_names = {&#34;InnerWall&#34;: [90.0, 0.0]}
+
+        self.ceiling_names = {&#34;Ceiling&#34;: [0.0, -1]}
+
+        self.floor_names = {&#34;Floor&#34;: [0.0, -2]}
+
+        # Rooftop1, Rooftop2, Wall1, Wall2, GroundFloor1, GroundFloor2,
+        # Window1, Window2, Door
+        # Area/ReferenceFloorArea
+        self.facade_estimation_factors = {
+            (2007, 2010): {
+                &#34;rt1&#34;: 1.179,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0345,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0276,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.17,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1999, 2006): {
+                &#34;rt1&#34;: 0.8054,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.7852,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.6040,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1839,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1979, 1998): {
+                &#34;rt1&#34;: 1.1721,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0164,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0000,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2025,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1973, 1978): {
+                &#34;rt1&#34;: 1.1197,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.6154,
+                &#34;ow2&#34;: 0.2137,
+                &#34;gf1&#34;: 1.0085,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1906,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1961, 1972): {
+                &#34;rt1&#34;: 1.1765,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.7908,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.0458,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2203,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1951, 1960): {
+                &#34;rt1&#34;: 1.1778,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.1222,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 1.1778,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.3133,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1931, 1950): {
+                &#34;rt1&#34;: 0.7479,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 0.6891,
+                &#34;ow2&#34;: 0.2269,
+                &#34;gf1&#34;: 0.7395,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1824,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (1851, 1930): {
+                &#34;rt1&#34;: 0.9895,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.0316,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.6947,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.1589,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+            (0, 1850): {
+                &#34;rt1&#34;: 1.1742,
+                &#34;rt2&#34;: 0.0,
+                &#34;ow1&#34;: 1.1061,
+                &#34;ow2&#34;: 0.0,
+                &#34;gf1&#34;: 0.9621,
+                &#34;gf2&#34;: 0.0,
+                &#34;win1&#34;: 0.2045,
+                &#34;win2&#34;: 0.0,
+                &#34;door&#34;: 0.009,
+            },
+        }
+
+        self.building_age_group = None
+
+        if self.with_ahu is True:
+            self.central_ahu.profile_temperature = (
+                7 * [293.15] + 12 * [295.15] + 5 * [293.15]
+            )
+            self.central_ahu.profile_min_relative_humidity = 24 * [0.45]
+            self.central_ahu.profile_max_relative_humidity = 24 * [0.55]
+            self.central_ahu.profile_v_flow = 7 * [0.0] + 12 * [1.0] + 5 * [0.0]
+
+    def _check_year_of_construction(self):
+        &#34;&#34;&#34;Assigns the bldg age group according to year of construction&#34;&#34;&#34;
+
+        for key in self.facade_estimation_factors:
+            if (
+                self.year_of_construction in range(key[0], key[1])
+                or self.year_of_construction == key[1]
+            ):
+                self.building_age_group = (key[0], key[1])
+
+        if self.building_age_group is None:
+            raise RuntimeError(
+                &#34;Year of construction not supported for this archetype&#34; &#34;building&#34;
+            )
+
+    def generate_archetype(self):
+        &#34;&#34;&#34;Generates a SingleFamilyHouse archetype buildings
+
+        With given values, this function generates an archetype building for
+        Tabula Single Family House.
+        &#34;&#34;&#34;
+        self.thermal_zones = None
+        self._check_year_of_construction()
+        # help area for the correct building area setting while using typeBldgs
+        type_bldg_area = self.net_leased_area
+        self.net_leased_area = 0.0
+
+        for key, value in self.zone_area_factors.items():
+            zone = ThermalZone(parent=self)
+            zone.name = key
+            zone.area = type_bldg_area * value[0]
+            use_cond = UseCond(parent=zone)
+            use_cond.load_use_conditions(zone_usage=value[1])
+            zone.use_conditions = use_cond
+
+            zone.use_conditions.with_ahu = False
+            zone.use_conditions.persons *= zone.area * 0.01
+            zone.use_conditions.machines *= zone.area * 0.01
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;] != 0:
+            for key, value in self._outer_wall_names_1.items():
+                for zone in self.thermal_zones:
+                    outer_wall = OuterWall(zone)
+                    outer_wall.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    outer_wall.name = key
+                    outer_wall.tilt = value[0]
+                    outer_wall.orientation = value[1]
+                    outer_wall.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;]
+                        * zone.area
+                    ) / len(self._outer_wall_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;] != 0:
+            for key, value in self._outer_wall_names_2.items():
+                for zone in self.thermal_zones:
+                    outer_wall = OuterWall(zone)
+                    outer_wall.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    outer_wall.name = key
+                    outer_wall.tilt = value[0]
+                    outer_wall.orientation = value[1]
+                    outer_wall.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;]
+                        * zone.area
+                    ) / len(self._outer_wall_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;] != 0:
+            for key, value in self.window_names_1.items():
+                for zone in self.thermal_zones:
+                    window = Window(zone)
+                    window.load_type_element(
+                        self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    window.name = key
+                    window.tilt = value[0]
+                    window.orientation = value[1]
+                    window.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;]
+                        * zone.area
+                    ) / len(self.window_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;] != 0:
+            for key, value in self.window_names_2.items():
+                for zone in self.thermal_zones:
+                    window = Window(zone)
+                    window.load_type_element(
+                        self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    window.name = key
+                    window.tilt = value[0]
+                    window.orientation = value[1]
+                    window.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;]
+                        * zone.area
+                    ) / len(self.window_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;] != 0:
+            for key, value in self.ground_floor_names_1.items():
+
+                for zone in self.thermal_zones:
+                    gf = GroundFloor(zone)
+                    gf.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    gf.name = key
+                    gf.tilt = value[0]
+                    gf.orientation = value[1]
+                    gf.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;]
+                        * zone.area
+                    ) / len(self.ground_floor_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;] != 0:
+            for key, value in self.ground_floor_names_2.items():
+
+                for zone in self.thermal_zones:
+                    gf = GroundFloor(zone)
+                    gf.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    gf.name = key
+                    gf.tilt = value[0]
+                    gf.orientation = value[1]
+                    gf.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;]
+                        * zone.area
+                    ) / len(self.ground_floor_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;] != 0:
+            for key, value in self.roof_names_1.items():
+
+                for zone in self.thermal_zones:
+                    rt = Rooftop(zone)
+                    rt.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    rt.name = key
+                    rt.tilt = value[0]
+                    rt.orientation = value[1]
+                    rt.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;]
+                        * zone.area
+                    ) / len(self.roof_names_1)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;] != 0:
+            for key, value in self.roof_names_2.items():
+
+                for zone in self.thermal_zones:
+                    rt = Rooftop(zone)
+                    rt.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_2,
+                        data_class=self.parent.data,
+                    )
+                    rt.name = key
+                    rt.tilt = value[0]
+                    rt.orientation = value[1]
+                    rt.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;]
+                        * zone.area
+                    ) / len(self.roof_names_2)
+
+        if self.facade_estimation_factors[self.building_age_group][&#34;door&#34;] != 0:
+            for key, value in self.door_names.items():
+
+                for zone in self.thermal_zones:
+                    door = Door(zone)
+                    door.load_type_element(
+                        year=self.year_of_construction,
+                        construction=self._construction_type_1,
+                        data_class=self.parent.data,
+                    )
+                    door.name = key
+                    door.tilt = value[0]
+                    door.orientation = value[1]
+                    door.area = (
+                        self.facade_estimation_factors[self.building_age_group][&#34;door&#34;]
+                        * zone.area
+                    ) / len(self.door_names)
+
+        for key, value in self.inner_wall_names.items():
+
+            for zone in self.thermal_zones:
+                inner_wall = InnerWall(zone)
+                inner_wall.load_type_element(
+                    year=self.year_of_construction,
+                    construction=&#34;tabula_standard&#34;,
+                    data_class=self.parent.data,
+                )
+                inner_wall.name = key
+                inner_wall.tilt = value[0]
+                inner_wall.orientation = value[1]
+
+        if self.number_of_floors &gt; 1:
+
+            for key, value in self.ceiling_names.items():
+
+                for zone in self.thermal_zones:
+                    ceiling = Ceiling(zone)
+                    ceiling.load_type_element(
+                        year=self.year_of_construction,
+                        construction=&#34;tabula_standard&#34;,
+                        data_class=self.parent.data,
+                    )
+                    ceiling.name = key
+                    ceiling.tilt = value[0]
+                    ceiling.orientation = value[1]
+
+            for key, value in self.floor_names.items():
+
+                for zone in self.thermal_zones:
+                    floor = Floor(zone)
+                    floor.load_type_element(
+                        year=self.year_of_construction,
+                        construction=&#34;tabula_standard&#34;,
+                        data_class=self.parent.data,
+                    )
+                    floor.name = key
+                    floor.tilt = value[0]
+                    floor.orientation = value[1]
+
+        for zone in self.thermal_zones:
+            zone.set_inner_wall_area()
+            zone.set_volume_zone()
+
+    @property
+    def construction_type(self):
+        return self._construction_type
+
+    @construction_type.setter
+    def construction_type(self, value):
+        if value is not None:
+            if value in [&#34;tabula_standard&#34;, &#34;tabula_retrofit&#34;, &#34;tabula_adv_retrofit&#34;]:
+                self._construction_type = value
+            else:
+                raise ValueError(
+                    &#34;Construction_type has to be tabula_standard,&#34;
+                    &#34;tabula_retrofit, &#34;
+                    &#34;tabula_adv_retrofit&#34;
+                )
+        else:
+            self._construction_type = &#34;tabula_standard&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="teaser.logic.archetypebuildings.residential.Residential" href="../../residential.html#teaser.logic.archetypebuildings.residential.Residential">Residential</a></li>
+<li><a title="teaser.logic.buildingobjects.building.Building" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building">Building</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.construction_type"><code class="name">var <span class="ident">construction_type</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def construction_type(self):
+    return self._construction_type</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.generate_archetype"><code class="name flex">
+<span>def <span class="ident">generate_archetype</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Generates a SingleFamilyHouse archetype buildings</p>
+<p>With given values, this function generates an archetype building for
+Tabula Single Family House.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_archetype(self):
+    &#34;&#34;&#34;Generates a SingleFamilyHouse archetype buildings
+
+    With given values, this function generates an archetype building for
+    Tabula Single Family House.
+    &#34;&#34;&#34;
+    self.thermal_zones = None
+    self._check_year_of_construction()
+    # help area for the correct building area setting while using typeBldgs
+    type_bldg_area = self.net_leased_area
+    self.net_leased_area = 0.0
+
+    for key, value in self.zone_area_factors.items():
+        zone = ThermalZone(parent=self)
+        zone.name = key
+        zone.area = type_bldg_area * value[0]
+        use_cond = UseCond(parent=zone)
+        use_cond.load_use_conditions(zone_usage=value[1])
+        zone.use_conditions = use_cond
+
+        zone.use_conditions.with_ahu = False
+        zone.use_conditions.persons *= zone.area * 0.01
+        zone.use_conditions.machines *= zone.area * 0.01
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;] != 0:
+        for key, value in self._outer_wall_names_1.items():
+            for zone in self.thermal_zones:
+                outer_wall = OuterWall(zone)
+                outer_wall.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_1,
+                    data_class=self.parent.data,
+                )
+                outer_wall.name = key
+                outer_wall.tilt = value[0]
+                outer_wall.orientation = value[1]
+                outer_wall.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;ow1&#34;]
+                    * zone.area
+                ) / len(self._outer_wall_names_1)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;] != 0:
+        for key, value in self._outer_wall_names_2.items():
+            for zone in self.thermal_zones:
+                outer_wall = OuterWall(zone)
+                outer_wall.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_2,
+                    data_class=self.parent.data,
+                )
+                outer_wall.name = key
+                outer_wall.tilt = value[0]
+                outer_wall.orientation = value[1]
+                outer_wall.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;ow2&#34;]
+                    * zone.area
+                ) / len(self._outer_wall_names_2)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;] != 0:
+        for key, value in self.window_names_1.items():
+            for zone in self.thermal_zones:
+                window = Window(zone)
+                window.load_type_element(
+                    self.year_of_construction,
+                    construction=self._construction_type_1,
+                    data_class=self.parent.data,
+                )
+                window.name = key
+                window.tilt = value[0]
+                window.orientation = value[1]
+                window.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;win1&#34;]
+                    * zone.area
+                ) / len(self.window_names_1)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;] != 0:
+        for key, value in self.window_names_2.items():
+            for zone in self.thermal_zones:
+                window = Window(zone)
+                window.load_type_element(
+                    self.year_of_construction,
+                    construction=self._construction_type_2,
+                    data_class=self.parent.data,
+                )
+                window.name = key
+                window.tilt = value[0]
+                window.orientation = value[1]
+                window.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;win2&#34;]
+                    * zone.area
+                ) / len(self.window_names_2)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;] != 0:
+        for key, value in self.ground_floor_names_1.items():
+
+            for zone in self.thermal_zones:
+                gf = GroundFloor(zone)
+                gf.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_1,
+                    data_class=self.parent.data,
+                )
+                gf.name = key
+                gf.tilt = value[0]
+                gf.orientation = value[1]
+                gf.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;gf1&#34;]
+                    * zone.area
+                ) / len(self.ground_floor_names_1)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;] != 0:
+        for key, value in self.ground_floor_names_2.items():
+
+            for zone in self.thermal_zones:
+                gf = GroundFloor(zone)
+                gf.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_2,
+                    data_class=self.parent.data,
+                )
+                gf.name = key
+                gf.tilt = value[0]
+                gf.orientation = value[1]
+                gf.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;gf2&#34;]
+                    * zone.area
+                ) / len(self.ground_floor_names_2)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;] != 0:
+        for key, value in self.roof_names_1.items():
+
+            for zone in self.thermal_zones:
+                rt = Rooftop(zone)
+                rt.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_1,
+                    data_class=self.parent.data,
+                )
+                rt.name = key
+                rt.tilt = value[0]
+                rt.orientation = value[1]
+                rt.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;rt1&#34;]
+                    * zone.area
+                ) / len(self.roof_names_1)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;] != 0:
+        for key, value in self.roof_names_2.items():
+
+            for zone in self.thermal_zones:
+                rt = Rooftop(zone)
+                rt.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_2,
+                    data_class=self.parent.data,
+                )
+                rt.name = key
+                rt.tilt = value[0]
+                rt.orientation = value[1]
+                rt.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;rt2&#34;]
+                    * zone.area
+                ) / len(self.roof_names_2)
+
+    if self.facade_estimation_factors[self.building_age_group][&#34;door&#34;] != 0:
+        for key, value in self.door_names.items():
+
+            for zone in self.thermal_zones:
+                door = Door(zone)
+                door.load_type_element(
+                    year=self.year_of_construction,
+                    construction=self._construction_type_1,
+                    data_class=self.parent.data,
+                )
+                door.name = key
+                door.tilt = value[0]
+                door.orientation = value[1]
+                door.area = (
+                    self.facade_estimation_factors[self.building_age_group][&#34;door&#34;]
+                    * zone.area
+                ) / len(self.door_names)
+
+    for key, value in self.inner_wall_names.items():
+
+        for zone in self.thermal_zones:
+            inner_wall = InnerWall(zone)
+            inner_wall.load_type_element(
+                year=self.year_of_construction,
+                construction=&#34;tabula_standard&#34;,
+                data_class=self.parent.data,
+            )
+            inner_wall.name = key
+            inner_wall.tilt = value[0]
+            inner_wall.orientation = value[1]
+
+    if self.number_of_floors &gt; 1:
+
+        for key, value in self.ceiling_names.items():
+
+            for zone in self.thermal_zones:
+                ceiling = Ceiling(zone)
+                ceiling.load_type_element(
+                    year=self.year_of_construction,
+                    construction=&#34;tabula_standard&#34;,
+                    data_class=self.parent.data,
+                )
+                ceiling.name = key
+                ceiling.tilt = value[0]
+                ceiling.orientation = value[1]
+
+        for key, value in self.floor_names.items():
+
+            for zone in self.thermal_zones:
+                floor = Floor(zone)
+                floor.load_type_element(
+                    year=self.year_of_construction,
+                    construction=&#34;tabula_standard&#34;,
+                    data_class=self.parent.data,
+                )
+                floor.name = key
+                floor.tilt = value[0]
+                floor.orientation = value[1]
+
+    for zone in self.thermal_zones:
+        zone.set_inner_wall_area()
+        zone.set_volume_zone()</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="teaser.logic.archetypebuildings.residential.Residential" href="../../residential.html#teaser.logic.archetypebuildings.residential.Residential">Residential</a></b></code>:
+<ul class="hlist">
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.add_lca_data_elec" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.add_lca_data_elec">add_lca_data_elec</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.add_lca_data_heating" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.add_lca_data_heating">add_lca_data_heating</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.add_lca_data_template" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.add_lca_data_template">add_lca_data_template</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.add_zone" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.add_zone">add_zone</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.calc_building_parameter" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.calc_building_parameter">calc_building_parameter</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.calc_lca_data" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.calc_lca_data">calc_lca_data</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.est_elec_demand" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.est_elec_demand">est_elec_demand</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.fill_outer_area_dict" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.fill_outer_area_dict">fill_outer_area_dict</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.fill_window_area_dict" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.fill_window_area_dict">fill_window_area_dict</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.get_footprint_gml" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.get_footprint_gml">get_footprint_gml</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.get_inner_wall_area" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.get_inner_wall_area">get_inner_wall_area</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.get_outer_wall_area" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.get_outer_wall_area">get_outer_wall_area</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.get_window_area" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.get_window_area">get_window_area</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.print_be_information" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.print_be_information">print_be_information</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.retrofit_building" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.retrofit_building">retrofit_building</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.rotate_building" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.rotate_building">rotate_building</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.set_gml_attributes" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.set_gml_attributes">set_gml_attributes</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.set_height_gml" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.set_height_gml">set_height_gml</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.set_outer_wall_area" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.set_outer_wall_area">set_outer_wall_area</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.residential.Residential.set_window_area" href="../../../buildingobjects/building.html#teaser.logic.buildingobjects.building.Building.set_window_area">set_window_area</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.logic.archetypebuildings.tabula.dk" href="index.html">teaser.logic.archetypebuildings.tabula.dk</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse" href="#teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse">SingleFamilyHouse</a></code></h4>
+<ul class="">
+<li><code><a title="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.construction_type" href="#teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.construction_type">construction_type</a></code></li>
+<li><code><a title="teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.generate_archetype" href="#teaser.logic.archetypebuildings.tabula.dk.singlefamilyhouse.SingleFamilyHouse.generate_archetype">generate_archetype</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

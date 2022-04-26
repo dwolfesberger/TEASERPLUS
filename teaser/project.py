@@ -132,7 +132,7 @@ class Project(object):
 
         self.dir_reference_results = None
         
-        self._period_lca_scenario = 80
+        self._period_lca_scenario = 50
         self._use_b4 = False
 
     @staticmethod

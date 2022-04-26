@@ -527,7 +527,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "4127e60a-3c42-4076-83f5-5232b4ed642e",
     "service_life": null
   },
   "Window_[0, 1978]_Holzfenster, zweifach": {
@@ -553,7 +553,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "4127e60a-3c42-4076-83f5-5232b4ed642e",
     "service_life": null
   },
   "Window_[0, 1978]_Kunststofffenster, Isolierverglasung": {
@@ -579,7 +579,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "5e90e94d-6e79-4d9f-854c-fb33f15c033e",
     "service_life": null
   },
   "Window_[0, 1978]_Alu- oder Stahlfenster, Isolierverglasung": {
@@ -605,7 +605,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1979, 1983]_Holzfenster, zweifach": {
@@ -631,7 +631,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "4127e60a-3c42-4076-83f5-5232b4ed642e",
     "service_life": null
   },
   "Window_[1979, 1983]_Kunststofffenster, Isolierverglasung": {
@@ -657,7 +657,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "5e90e94d-6e79-4d9f-854c-fb33f15c033e",
     "service_life": null
   },
   "Window_[1979, 1983]_Alu- oder Stahlfenster, Isolierverglasung": {
@@ -683,7 +683,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1984, 1994]_Holzfenster, zweifach": {
@@ -709,7 +709,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "4127e60a-3c42-4076-83f5-5232b4ed642e",
     "service_life": null
   },
   "Window_[1984, 1994]_Kunststofffenster, Isolierverglasung": {
@@ -735,7 +735,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "5e90e94d-6e79-4d9f-854c-fb33f15c033e",
     "service_life": null
   },
   "Window_[1984, 1994]_Alu- oder Stahlfenster, Isolierverglasung": {
@@ -761,7 +761,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1995, 2015]_Holzfenster, zweifach": {
@@ -787,7 +787,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "4127e60a-3c42-4076-83f5-5232b4ed642e",
     "service_life": null
   },
   "Window_[1995, 2015]_Kunststofffenster, Isolierverglasung": {
@@ -813,7 +813,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "5e90e94d-6e79-4d9f-854c-fb33f15c033e",
     "service_life": null
   },
   "Window_[1995, 2015]_Alu- oder Stahlfenster, Isolierverglasung": {
@@ -839,7 +839,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1995, 2015]_Alu- oder Stahlfenster, Waermeschutzverglasung, zweifach": {
@@ -865,7 +865,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1995, 2015]_Waermeschutzverglasung, dreifach": {
@@ -891,7 +891,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Window_[1995, 2015]_EnEv": {
@@ -917,7 +917,7 @@
         }
       }
     },
-    "lca_data": null,
+    "lca_data": "9ae099db-6bd6-42ba-892f-f1e8cfb507ed",
     "service_life": null
   },
   "Rooftop_[0, 1918]_heavy": {

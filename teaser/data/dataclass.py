@@ -42,6 +42,10 @@ class DataClass(object):
     path_uc : str
         Full path to UseConditions.json. Default is
         teaser/data/input/inputdata/UseConditions.json
+    lca_data_bind : collections.OrderedDict
+        Ordered dictionary of the lca_data binding.        
+    lca_data_fallback_bind : collections.OrderedDict
+        Ordered dictionary of the lca_data_fallback binding.
 
     """
 

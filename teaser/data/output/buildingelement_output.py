@@ -110,6 +110,8 @@ def _set_basic_data_json(element, wall_out):
     wall_out["construction_type"] = element.construction_type
     wall_out["inner_radiation"] = element.inner_radiation
     wall_out["inner_convection"] = element.inner_convection
+    wall_out["lca_data"] = element.lca_data.lca_data_id
+    wall_out["service_life"] = element.service_life
 
     if type(element).__name__ == "Window":
 

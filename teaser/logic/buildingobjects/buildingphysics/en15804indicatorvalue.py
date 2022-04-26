@@ -96,7 +96,7 @@ class En15804IndicatorValue(object):
 
         Parameters
         ----------
-        value : TYPE
+        value : float
             value to be validated 
         stage_name : str
             printable name of a stage. Used for Error-Messages.
@@ -288,7 +288,7 @@ class En15804IndicatorValue(object):
 
         """
         
-        if "a1_a3" not in values or values["a1_a3"] is not None:
+        if "a1_a3" not in values or values["a1_a3"] is None:
             if "a1" in values and "a2" in values and "a3" in values:
                 if values["a1"] is not None or values["a2"] is not None or values["a3"] is not None:
                     a1_a3 = self._ignore_none_sum(self._ignore_none_sum(values["a1"], values["a2"]), values["a3"])
@@ -300,7 +300,7 @@ class En15804IndicatorValue(object):
 
     
     def _ignore_none_sum(self, addend1, addend2):
-        """sums up two numbers, but interprets Noneaddends as 0. When both
+        """sums up two numbers, but interprets None addends as 0. When both
         input-addends are None, it returns None
         
         Parameters
@@ -328,7 +328,7 @@ class En15804IndicatorValue(object):
                 
     def __add__(self, other):
         """Adds two En15804IndicatorValue-Objects. Every stage is summed up 
-        separately and both Objects need equal units.
+        separately. Both objects must have the same unit
         
 
         Parameters
@@ -459,7 +459,8 @@ class En15804IndicatorValue(object):
 
         Returns
         -------
-            sum : overall value of all stages. With or without stage d 
+            sum : float
+                overall value of all stages. With or without stage d 
 
         """
 
@@ -530,8 +531,8 @@ class En15804IndicatorValue(object):
         Parameters
         ----------
         stage : str
-            Stage to add
-        other : TYPE
+            Stage to add (e.g. 'b4')
+        other : En15804IndicatorValue
             the other En15804IndicatorValue
 
         Returns
@@ -599,6 +600,52 @@ class En15804IndicatorValue(object):
                 
         
         return(result)
+    
+    def get_values_as_dict(self):
+        return_dict = {}
+        
+        if self.a1 is not None:
+            return_dict["a1"] = self.a1
+        if self.a2 is not None:
+            return_dict["a2"] = self.a2
+        if self.a3 is not None:
+            return_dict["a3"] = self.a3
+        if self.a1_a3 is not None:
+            return_dict["a1_a3"] = self.a1_a3
+        if self.a4 is not None:
+            return_dict["a4"] = self.a4
+        if self.a5 is not None:
+            return_dict["a5"] = self.a5
+            
+        if self.b1 is not None:
+            return_dict["b1"] = self.b1
+        if self.b2 is not None:
+            return_dict["b2"] = self.b2
+        if self.b3 is not None:
+            return_dict["b3"] = self.b3
+        if self.b4 is not None:
+            return_dict["b4"] = self.b4
+        if self.b5 is not None:
+            return_dict["b5"] = self.b5
+        if self.b6 is not None:
+            return_dict["b6"] = self.b6
+        if self.b7 is not None:
+            return_dict["b7"] = self.b7
+            
+        if self.c1 is not None:
+            return_dict["c1"] = self.c1
+        if self.c2 is not None:
+            return_dict["c2"] = self.c2
+        if self.c3 is not None:
+            return_dict["c3"] = self.c3
+        if self.c4 is not None:
+            return_dict["c4"] = self.c4
+        if self.d is not None:
+            return_dict["d"] = self.d
+
+        return_dict["unit"] = self.unit
+        
+        return(return_dict)
                     
 
            

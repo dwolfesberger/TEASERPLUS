@@ -1,0 +1,1181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.data.input.citygml_input API documentation</title>
+<meta name="description" content="CityGML …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.data.input.citygml_input</code></h1>
+</header>
+<section id="section-intro">
+<p>CityGML</p>
+<p>This module contains function to load Buildings in the non proprietary
+CityGML file format .gml</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Created April 2016
+# TEASER Development Team
+#
+#
+
+&#34;&#34;&#34;CityGML
+
+This module contains function to load Buildings in the non proprietary
+CityGML file format .gml
+&#34;&#34;&#34;
+
+import lxml.etree as ET
+import statistics
+from teaser.data.dataclass import DataClass
+from teaser.data.surfacegml import SurfaceGML
+from teaser.logic.archetypebuildings.bmvbs.singlefamilydwelling \
+                         import SingleFamilyDwelling
+from teaser.logic.archetypebuildings.bmvbs.office import Office
+from teaser.logic.archetypebuildings.bmvbs.custom.institute import Institute
+from teaser.logic.archetypebuildings.bmvbs.custom.institute4 import Institute4
+from teaser.logic.archetypebuildings.tabula.de.singlefamilyhouse import SingleFamilyHouse
+from teaser.logic.archetypebuildings.tabula.de.multifamilyhouse import MultiFamilyHouse
+from teaser.logic.archetypebuildings.tabula.de.terracedhouse import TerracedHouse
+from teaser.logic.archetypebuildings.tabula.de.apartmentblock import ApartmentBlock
+from teaser.logic.buildingobjects.building import Building
+
+import copy
+
+
+&#34;&#34;&#34;Alkis Building Function Codes Lists&#34;&#34;&#34;
+alkis_sfh_codes = [&#34;1000&#34;, &#34;31001_1000&#34;] #Single Famuly House
+alkis_mfh_codes = [&#34;1010&#34;, &#34;31001_1010&#34;] #MultiFamilyHouse
+alkis_th_codes = [] #TerracedHouse
+alkis_office_codes = [] #Offices
+
+
+def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
+    &#34;&#34;&#34;This function loads buildings from a CityGML file and
+        selects specific buildings by Id, name ore address
+
+        This function is a proof of concept, be careful using it.
+
+    :param path:string
+            path of CityGML file
+    :param prj:Project()
+            Teaser instance of Project()
+    :param bldg_ids:list[string]
+            users choice
+    :param bldg_names:list[string]
+            users choice
+    :param bldg_addresses:list[(string,string)]
+            users choice
+
+    :return chosen_gmls: list[etree.Element]
+    &#34;&#34;&#34;
+    with open(path, &#39;r&#39;) as xml_file:
+        tree = ET.parse(xml_file)
+        root = tree.getroot()
+        namespace = root.nsmap
+        buildings_in_file = root.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)
+
+    chosen_gmls = []
+
+    if bldg_ids is not None:
+
+        for building_lxml in buildings_in_file:
+            if building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;] is not None and \
+                    building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;] in bldg_ids:
+                chosen_gmls.append(building_lxml)
+
+    if bldg_names is not None:
+
+        for building_lxml in buildings_in_file:
+            if building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace) is not None and \
+            building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace).text in bldg_names:
+                chosen_gmls.append(building_lxml)
+
+            if building_lxml.find(&#39;gml:name&#39;, namespace) is not None and \
+                    building_lxml.find(&#39;gml:name&#39;, namespace).text in bldg_names:
+                chosen_gmls.append(building_lxml)
+
+    if bldg_addresses is not None:
+        for building_lxml in buildings_in_file:
+            if building_lxml.find(&#39;bldg:address&#39;, namespace) is not None and \
+                    (building_lxml.find(&#39;bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country&#39;
+                                        &#39;/xal:Locality/xal:Thoroughfare/xal:ThoroughfareName&#39;, namespace).text,
+                     building_lxml.find(&#39;bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country&#39;
+                                        &#39;/xal:Locality/xal:Thoroughfare/xal:ThoroughfareNumber&#39;, namespace).text) \
+                    in bldg_addresses:
+
+                chosen_gmls.append(building_lxml)
+    return chosen_gmls, namespace
+
+
+def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
+    &#34;&#34;&#34;
+    This function loads buildings from a CityGML file, checks for a name, BuildingParts and
+    start GML surface extraction and consequent building genaration.
+
+    This function is a proof of concept, be careful using it.
+
+    :param path:string
+            path of CityGML file
+    :param prj:Project()
+            Teaser instance of Project()
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :param chosen_gmls: List[]
+            List of chosen CityObject(Buildings)
+    :param yoc_list: List[]
+            List of year of construction for chosen gml buildings
+    :return: gml_copy_list
+    &#34;&#34;&#34;
+    if chosen_gmls is None:
+        with open(path, &#39;r&#39;) as xml_file:
+            tree = ET.parse(xml_file)
+            root = tree.getroot()
+            namespace = root.nsmap
+            buildings = root.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)
+            boundary_box = root.find(&#34;gml:boundedBy/gml:Envelope&#34;, namespace)
+    else:
+        buildings, namespace = chosen_gmls
+
+    gml_copy_list = []
+    &#34;&#34;&#34;Start Loop through selected Buildings in GML file, assign Archetype by Function and create TEASER building&#34;&#34;&#34;
+
+    for i, building_lxml in enumerate(buildings):
+        gml_copy_list.append(copy.copy(building_lxml))
+
+
+        &#34;&#34;&#34;find building name, if not there, use building id&#34;&#34;&#34;
+        if building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace) is not None:
+            bldg_name = building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace).text
+        else:
+            try:
+                bldg_name = building_lxml.find(&#39;gml:name&#39;, namespace).text
+            except:
+                bldg_name = building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;]
+
+        &#34;&#34;&#34;Check for BuildingParts&#34;&#34;&#34;
+        if building_lxml.find(&#39;./bldg:consistsOfBuildingPart&#39;, namespace) is not None:
+            load_gml_buildingparts_lxml(prj=prj, gml_bldg=building_lxml, namespace=namespace,
+                                        bldg_name=bldg_name, method=method)
+            continue
+
+        &#34;&#34;&#34;Assign Archetype&#34;&#34;&#34;
+        bldg = assign_archetype(prj=prj, building_lxml=building_lxml, namespace=namespace,
+                                bldg_name=bldg_name, method=method)
+
+        &#34;&#34;&#34;Extract GML surface from File&#34;&#34;&#34;
+        get_gml_surfaces(bldg=bldg, city_object=building_lxml, namespace=namespace)
+
+        &#34;&#34;&#34;Set Building Attribute&#34;&#34;&#34;
+        if yoc_list is not None:
+            _set_attributes(bldg=bldg, gml_bldg=building_lxml, bldg_yoc=yoc_list[i])
+        else:
+            _set_attributes(bldg=bldg, gml_bldg=building_lxml, namespace=namespace, bldg_name=bldg_name)
+
+        &#34;&#34;&#34;Calculate building height through GML surfaces, overwrites measured height from GML Building&#34;&#34;&#34;
+        bldg.set_height_gml()
+
+        &#34;&#34;&#34;Calculates net_floor_area and number of toreys in Building with default storey height&#34;&#34;&#34;
+        try:
+            bldg.set_gml_attributes()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+            pass
+        &#34;&#34;&#34;Sets Building Elements&#34;&#34;&#34;
+        try:
+            bldg.generate_from_gml()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+            pass
+
+    return gml_copy_list, boundary_box
+
+
+def load_gml_buildingparts_lxml(prj, gml_bldg, namespace, bldg_name, method, yoc=None, calc_sep=True):
+    &#34;&#34;&#34;
+    This function loads buildings parts from a CityGML Buildings,
+    assigns archetypes by gml function and creates TEASER building
+    instances.
+
+    :param prj: Project()
+            Teaser instance of Project()
+    :param gml_bldg: lxml object
+            CityGML City Object(Building)
+    :param namespace:lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg_name: Str
+            Pass through Building Name extracted from CityGML Building
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :param yoc: Int
+            year of construction for chosen gml buildings
+    :param calc_sep: Boolean
+            Decision variable for buildingPart handling, if False BuildingParts are
+            calculated as separate Buildings inheriting only function and yoc. If True,
+            BuildingsParts are merged together with calculation on the mean measured Height
+    &#34;&#34;&#34;
+
+    building_parts = gml_bldg.findall(&#39;./bldg:consistsOfBuildingPart/bldg:BuildingPart&#39;, namespace)
+    if calc_sep:
+        for number_of_buildpart, gml_bldg_part in enumerate(building_parts):
+            bldg = assign_archetype(prj=prj, building_lxml=gml_bldg, namespace=namespace,
+                                    bldg_name=bldg_name, method=method)
+
+            get_gml_surfaces(bldg=bldg, city_object=gml_bldg_part, namespace=namespace)
+
+            if yoc is not None:
+                _set_attributes(bldg=bldg, gml_bldg=gml_bldg, bldg_yoc=yoc)
+            else:
+                _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                                gml_bldg_part=gml_bldg_part, bldg_part=number_of_buildpart)
+
+            bldg.set_height_gml()
+
+            try:
+                bldg.set_gml_attributes()
+            except (UserWarning, AttributeError):
+                print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+                pass
+            try:
+                bldg.generate_from_gml()
+            except (UserWarning, AttributeError):
+                print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+                pass
+
+        &#34;&#34;&#34;BuildingParts are merged&#34;&#34;&#34;
+        #TODO: Needs testing! Also take a look at called functions in building and set_gml_height()
+    else:
+        bldg = assign_archetype(prj=prj, building_lxml=gml_bldg, namespace=namespace,
+                                bldg_name=bldg_name, method=method)
+
+        measured_heights = []
+        for number_of_buildpart, gml_bldg_part in enumerate(building_parts):
+            get_gml_surfaces(bldg=bldg, city_object=gml_bldg_part, namespace=namespace)
+            measured_heights.append(float(gml_bldg_part.find(&#34;.//bldg:measuredHeight&#34;, namespace).text))
+
+        if yoc is not None:
+            _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                            gml_bldg_part=gml_bldg_part,
+                            measured_mean_height=measured_heights.mean(), bldg_yoc=yoc)
+        else:
+            _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                            gml_bldg_part=gml_bldg_part,
+                            measured_mean_height=statistics.mean(measured_heights))
+
+        #bldg.set_height_gml()
+
+        try:
+            bldg.set_gml_attributes(merge_building_part=True)
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+            pass
+        try:
+            bldg.generate_from_gml()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+            pass
+
+
+def assign_archetype(prj, building_lxml, namespace, bldg_name, method):
+    &#34;&#34;&#34;
+    Assigns a archetype and creates a TEASER building on bases of Bilding Function scrapped from CityGML Building.
+
+    :param prj: Project()
+            Teaser instance of Project()
+    :param building_lxml: lxml object
+            CityGML City Object(Building)
+    :param namespace: lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg_name: Str
+            Pass through Building Name extracted from CityGML Building
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :return: bldg - TEASER Building
+            An Instant of a TEASER Building in the Project with Name
+    &#34;&#34;&#34;
+
+    if building_lxml.find(&#39;bldg:function&#39;, namespace) is not None:
+        bldg_function = building_lxml.find(&#39;bldg:function&#39;, namespace).text
+
+        if bldg_function in alkis_sfh_codes:  # Single Family Buildings
+            if method == &#34;tabula_de&#34;:
+                prj.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+                bldg = SingleFamilyHouse(parent=prj, name=bldg_name)
+            else:
+                prj.data = DataClass(used_statistic=&#39;iwu&#39;)
+                bldg = SingleFamilyDwelling(parent=prj, name=bldg_name)
+
+        elif bldg_function in alkis_mfh_codes:  # Multi Family Buildings
+            prj.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+            bldg = MultiFamilyHouse(parent=prj, name=bldg_name)
+
+        elif bldg_function in alkis_mfh_codes:  # Offices
+            prj.data = DataClass(used_statistic=&#34;iwu&#34;)
+            bldg = Office(parent=prj, name=bldg_name)
+
+        else:
+            bldg = Building(parent=prj,
+                            name=bldg_name)
+    else:
+        bldg = Building(parent=prj, name=bldg_name)
+    return bldg
+
+
+def get_gml_surfaces(bldg, city_object, namespace):
+    &#34;&#34;&#34;
+    This Function extracts the position coordinates of CityGML Building surfaces and passes them to the SurfaceGML
+    class for processing and finally populates the TEASER building gml_surfaces list for further calculation.
+
+    :param namespace: lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg: TEASER building()
+            TEASER Building Object
+    :param city_object: lxml object
+            CityGML City Object(Building)
+    &#34;&#34;&#34;
+
+    lod = get_lod(city_object=city_object)
+    if lod == 0:
+        if city_object.find(&#34;.//bldg:measuredHeight&#34;, namespace) is not None:
+            from itertools import chain
+            height = float(city_object.find(&#34;.//bldg:measuredHeight&#34;, namespace).text)
+            a_list = city_object.find(&#34;bldg:lod0FootPrint/gml:MultiSurface/gml:surfaceMember/gml:Polygon/&#34;
+                                      &#34;gml:exterior/gml:LinearRing/gml:posList&#34;, namespace).text.split()
+            map_object = map(float, a_list)
+            coord_list = list(map_object)
+            base = coord_list
+            roof = [base[0], base[1], base[2] + height, base[9], base[10], base[11] + height, base[6], base[7],
+                    base[8] + height, base[3], base[4], base[5] + height, base[12], base[13], base[14] + height]
+
+            help_list_base = list(zip(*[iter(base)] * 3))
+            help_list_roof = list(zip(*[iter(roof)] * 3))
+
+            wall_help_1 = [help_list_base[0], help_list_base[1], help_list_roof[3], help_list_roof[0],
+                           help_list_base[0]]
+            wall_list_1 = list(chain(*wall_help_1))
+
+            wall_help_2 = [help_list_base[0], help_list_base[3], help_list_roof[1], help_list_roof[0],
+                           help_list_base[0]]
+            wall_list_2 = list(chain(*wall_help_2))
+
+            wall_help_3 = [help_list_base[2], help_list_base[1], help_list_roof[3], help_list_roof[2],
+                           help_list_base[2]]
+            wall_list_3 = list(chain(*wall_help_3))
+
+            wall_help_4 = [help_list_base[2], help_list_base[3], help_list_roof[1], help_list_roof[2],
+                           help_list_base[2]]
+            wall_list_4 = list(chain(*wall_help_4))
+
+            bldg.gml_surfaces.append(SurfaceGML(base))
+            bldg.gml_surfaces.append(SurfaceGML(roof))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_1))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_2))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_3))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_4))
+
+        else:
+            print(&#34;The LoD0 Model, no building-height is defined, set a height or no calculations are possible&#34;)
+
+    elif lod == 1:
+        boundary_surfaces = city_object.findall(&#39;./bldg:lod1Solid&#39;, namespace)
+
+    elif lod == 2 or lod == 3:
+        boundary_surfaces = city_object.findall(&#39;./bldg:boundedBy&#39;, namespace)
+
+    if not lod == 0:
+        for bound_surf in boundary_surfaces:
+            for surf_member in bound_surf.iter():
+
+                # if surf_member.tag == &#34;{http://www.opengis.net/gml}name&#34;:
+                #     print(&#34;Surface Name:&#34;, surf_member.text)
+
+                # modelling option 1
+                if surf_member.tag == &#34;{http://www.opengis.net/gml}exterior&#34;:
+                    for surf_pos in surf_member.iter():
+                        if &#34;{http://www.opengis.net/gml}posList&#34; in surf_member:
+                            if surf_pos.tag == &#34;{http://www.opengis.net/gml}posList&#34;:
+                                a_list = surf_pos.text.split()
+                                map_object = map(float, a_list)
+                                coord_list = list(map_object)
+                                help = SurfaceGML(coord_list)
+                                if help.surface_area &gt; 1:
+                                    bldg.gml_surfaces.append(help)
+
+                        # modelling option 2
+                        else:
+                            if surf_pos.tag == &#34;{http://www.opengis.net/gml}LinearRing&#34;:
+                                position_list_help = []
+                                for pos in surf_pos.iter():
+                                    a_list = pos.text.split()
+                                    map_object = map(float, a_list)
+                                    coord_list = list(map_object)
+                                    position_list_help.extend(coord_list)
+                                help = SurfaceGML(position_list_help)
+                                if help.surface_area &gt; 1:
+                                    bldg.gml_surfaces.append(help)
+    if lod == 3 or lod == 4:
+        openings_name = &#34;Window&#34;
+        for bound_surf in boundary_surfaces:
+            for surf_member in bound_surf.iter():
+                if surf_member.tag == &#34;{http://www.opengis.net/citygml/building/2.0}opening&#34;:
+                    # if surf_member.tag == &#34;{http://www.opengis.net/gml}name&#34;:
+                    #     openings_name = surf_member.text
+                    #     print(&#34;Opening Name:&#34;, surf_member.text)
+                    for openings in surf_member.iter():
+                        if openings.tag == &#34;{http://www.opengis.net/gml}exterior&#34;:
+                            for openings_pos in openings.iter():
+                                if &#34;{http://www.opengis.net/gml}posList&#34; in surf_member:
+                                    # modelling option 1
+                                    if openings_pos.tag == &#34;{http://www.opengis.net/gml}posList&#34;:
+                                        a_list = openings_pos.text.split()
+                                        map_object = map(float, a_list)
+                                        coord_list = list(map_object)
+                                        opening = SurfaceGML(coord_list)
+                                        opening.name = openings_name
+                                        # print(opening.surface_area)
+                                        bldg.gml_surfaces.append(opening)
+                                else:
+                                    # modelling option 2
+                                    if openings_pos.tag == &#34;{http://www.opengis.net/gml}LinearRing&#34;:
+                                        position_list_help = []
+                                        for pos in openings_pos.iter():
+                                            a_list = pos.text.split()
+                                            map_object = map(float, a_list)
+                                            coord_list = list(map_object)
+                                            position_list_help.extend(coord_list)
+                                        help = SurfaceGML(position_list_help)
+                                        help.name = openings_name
+                                        # print(help.surface_area)
+                                        bldg.gml_surfaces.append(help)
+
+
+def get_lod(city_object):
+    &#34;&#34;&#34;
+    Help Function, gets and returns the Level of Detail of a CityGML Building.
+    By Simon Raming CityATB
+
+    :param city_object: lxml CityGML City Object(Building)
+    :return: CityGML City Object Level of Detail
+    &#34;&#34;&#34;
+    lods = []
+    for elem in city_object.iter():
+        # print(elem)
+        try:
+            if elem.tag.split(&#34;}&#34;)[1].startswith(&#39;lod&#39;):
+                lods.append(elem.tag.split(&#39;}&#39;)[1][3])
+        except:
+            pass
+
+    if lods != []:
+        lods = list(set(lods))
+        if len(lods) &gt; 1:
+            print(&#34;Check file for LoDs!!!&#34;)
+        lods.sort()
+        lod = int(lods[0])
+    return lod
+
+
+def _set_attributes(bldg, gml_bldg, namespace, bldg_name, gml_bldg_part=None, bldg_part=None,
+                    measured_mean_height=None, bldg_yoc=None):
+    &#34;&#34;&#34;This function tries to set attributes for type building generation.
+
+    :param bldg: TEASER building()
+            TEASER Building Object
+    :param gml_bldg: lxml object
+            CityGML City Object(Building)
+    :param namespace: lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg_name: Str
+            Pass through Building Name extracted from CityGML Building
+    :param gml_bldg_part:lxml object
+            CityGML Building - BuildingPart
+    :param bldg_part: int
+            Number of BuildingPart in Building (specifically for naming scheme)
+    :param measured_mean_height: float
+            measured mean height of buildingparts of a GML Building
+    :param bldg_yoc: Integer
+            Element of yoc_list, past on year of construction
+
+    &#34;&#34;&#34;
+    try:
+        # bldg.name = gml_bldg.name[0].value()
+        # bldg.name = gml_bldg.id
+        if bldg_part is None:
+            try:
+                bldg.name = bldg_name
+            except:
+                bldg.name = gml_bldg.name[0].value()
+        else:
+            try:
+                bldg.name = f&#39;{bldg_name}bt_{bldg_part}&#39;
+            except:
+                bldg.name = gml_bldg.name[0].value()
+    except UserWarning:
+        bldg.name = gml_bldg.id
+        print(&#34;no name specified in gml file&#34;)
+        pass
+    try:
+        bldg.number_of_floors = int(gml_bldg.find(&#34;.//bldg:storeysAboveGround&#34;, namespace).text)
+    except (UserWarning, AttributeError):
+        print(&#34;no storeysAboveGround specified in gml file&#34;)
+        pass
+    try:
+        bldg.height_of_floors = float(gml_bldg.find(&#34;.//bldg:storeyHeightsAboveGround&#34;, namespace).text)
+    except (UserWarning, AttributeError):
+        print(&#34;no storeyHeightsAboveGround specified in gml file&#34;)
+        pass
+    if bldg_yoc is None:
+        try:
+            bldg.year_of_construction = int(gml_bldg.find(&#34;.//bldg:yearOfConstruction&#34;, namespace).text)
+        except (UserWarning, AttributeError):
+            print(&#34;no yearOfConstruction specified in gml file&#34;)
+            print(&#34;default is set to 1980&#34;)
+            bldg.year_of_construction = 1980
+            pass
+    else:
+        bldg.year_of_construction = bldg_yoc
+    if gml_bldg_part is None:
+        try:
+            bldg.bldg_height = float(gml_bldg.find(&#34;.//bldg:measuredHeight&#34;, namespace).text)
+        except (UserWarning, AttributeError):
+            print(&#34;no measuredHeight specified in gml file&#34;)
+            pass
+    elif gml_bldg_part and measured_mean_height is not None:
+        bldg.bldg_height = measured_mean_height
+    else:
+        try:
+            bldg.bldg_height = float(gml_bldg_part.find(&#34;.//bldg:measuredHeight&#34;, namespace).text)
+        except (UserWarning, AttributeError):
+            print(&#34;no measuredHeight specified in gml file&#34;)
+            pass</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="teaser.data.input.citygml_input.assign_archetype"><code class="name flex">
+<span>def <span class="ident">assign_archetype</span></span>(<span>prj, building_lxml, namespace, bldg_name, method)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Assigns a archetype and creates a TEASER building on bases of Bilding Function scrapped from CityGML Building.</p>
+<p>:param prj: Project()
+Teaser instance of Project()
+:param building_lxml: lxml object
+CityGML City Object(Building)
+:param namespace: lxml.msmap()
+Original namespaces from CityGML file (root)
+:param bldg_name: Str
+Pass through Building Name extracted from CityGML Building
+:param method: Str
+method for enrichment of single family dwellings
+either default="iwu" or "tabula_de"
+offices always use "iwu"= BMVBS and other residential
+buildings will be always using "tabula_de"
+:return: bldg - TEASER Building
+An Instant of a TEASER Building in the Project with Name</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def assign_archetype(prj, building_lxml, namespace, bldg_name, method):
+    &#34;&#34;&#34;
+    Assigns a archetype and creates a TEASER building on bases of Bilding Function scrapped from CityGML Building.
+
+    :param prj: Project()
+            Teaser instance of Project()
+    :param building_lxml: lxml object
+            CityGML City Object(Building)
+    :param namespace: lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg_name: Str
+            Pass through Building Name extracted from CityGML Building
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :return: bldg - TEASER Building
+            An Instant of a TEASER Building in the Project with Name
+    &#34;&#34;&#34;
+
+    if building_lxml.find(&#39;bldg:function&#39;, namespace) is not None:
+        bldg_function = building_lxml.find(&#39;bldg:function&#39;, namespace).text
+
+        if bldg_function in alkis_sfh_codes:  # Single Family Buildings
+            if method == &#34;tabula_de&#34;:
+                prj.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+                bldg = SingleFamilyHouse(parent=prj, name=bldg_name)
+            else:
+                prj.data = DataClass(used_statistic=&#39;iwu&#39;)
+                bldg = SingleFamilyDwelling(parent=prj, name=bldg_name)
+
+        elif bldg_function in alkis_mfh_codes:  # Multi Family Buildings
+            prj.data = DataClass(used_statistic=&#34;tabula_de&#34;)
+            bldg = MultiFamilyHouse(parent=prj, name=bldg_name)
+
+        elif bldg_function in alkis_mfh_codes:  # Offices
+            prj.data = DataClass(used_statistic=&#34;iwu&#34;)
+            bldg = Office(parent=prj, name=bldg_name)
+
+        else:
+            bldg = Building(parent=prj,
+                            name=bldg_name)
+    else:
+        bldg = Building(parent=prj, name=bldg_name)
+    return bldg</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.citygml_input.choose_gml_lxml"><code class="name flex">
+<span>def <span class="ident">choose_gml_lxml</span></span>(<span>path, bldg_ids=None, bldg_names=None, bldg_addresses=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function loads buildings from a CityGML file and
+selects specific buildings by Id, name ore address</p>
+<pre><code>This function is a proof of concept, be careful using it.
+</code></pre>
+<p>:param path:string
+path of CityGML file
+:param prj:Project()
+Teaser instance of Project()
+:param bldg_ids:list[string]
+users choice
+:param bldg_names:list[string]
+users choice
+:param bldg_addresses:list[(string,string)]
+users choice</p>
+<p>:return chosen_gmls: list[etree.Element]</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
+    &#34;&#34;&#34;This function loads buildings from a CityGML file and
+        selects specific buildings by Id, name ore address
+
+        This function is a proof of concept, be careful using it.
+
+    :param path:string
+            path of CityGML file
+    :param prj:Project()
+            Teaser instance of Project()
+    :param bldg_ids:list[string]
+            users choice
+    :param bldg_names:list[string]
+            users choice
+    :param bldg_addresses:list[(string,string)]
+            users choice
+
+    :return chosen_gmls: list[etree.Element]
+    &#34;&#34;&#34;
+    with open(path, &#39;r&#39;) as xml_file:
+        tree = ET.parse(xml_file)
+        root = tree.getroot()
+        namespace = root.nsmap
+        buildings_in_file = root.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)
+
+    chosen_gmls = []
+
+    if bldg_ids is not None:
+
+        for building_lxml in buildings_in_file:
+            if building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;] is not None and \
+                    building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;] in bldg_ids:
+                chosen_gmls.append(building_lxml)
+
+    if bldg_names is not None:
+
+        for building_lxml in buildings_in_file:
+            if building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace) is not None and \
+            building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace).text in bldg_names:
+                chosen_gmls.append(building_lxml)
+
+            if building_lxml.find(&#39;gml:name&#39;, namespace) is not None and \
+                    building_lxml.find(&#39;gml:name&#39;, namespace).text in bldg_names:
+                chosen_gmls.append(building_lxml)
+
+    if bldg_addresses is not None:
+        for building_lxml in buildings_in_file:
+            if building_lxml.find(&#39;bldg:address&#39;, namespace) is not None and \
+                    (building_lxml.find(&#39;bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country&#39;
+                                        &#39;/xal:Locality/xal:Thoroughfare/xal:ThoroughfareName&#39;, namespace).text,
+                     building_lxml.find(&#39;bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country&#39;
+                                        &#39;/xal:Locality/xal:Thoroughfare/xal:ThoroughfareNumber&#39;, namespace).text) \
+                    in bldg_addresses:
+
+                chosen_gmls.append(building_lxml)
+    return chosen_gmls, namespace</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.citygml_input.get_gml_surfaces"><code class="name flex">
+<span>def <span class="ident">get_gml_surfaces</span></span>(<span>bldg, city_object, namespace)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This Function extracts the position coordinates of CityGML Building surfaces and passes them to the SurfaceGML
+class for processing and finally populates the TEASER building gml_surfaces list for further calculation.</p>
+<p>:param namespace: lxml.msmap()
+Original namespaces from CityGML file (root)
+:param bldg: TEASER building()
+TEASER Building Object
+:param city_object: lxml object
+CityGML City Object(Building)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_gml_surfaces(bldg, city_object, namespace):
+    &#34;&#34;&#34;
+    This Function extracts the position coordinates of CityGML Building surfaces and passes them to the SurfaceGML
+    class for processing and finally populates the TEASER building gml_surfaces list for further calculation.
+
+    :param namespace: lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg: TEASER building()
+            TEASER Building Object
+    :param city_object: lxml object
+            CityGML City Object(Building)
+    &#34;&#34;&#34;
+
+    lod = get_lod(city_object=city_object)
+    if lod == 0:
+        if city_object.find(&#34;.//bldg:measuredHeight&#34;, namespace) is not None:
+            from itertools import chain
+            height = float(city_object.find(&#34;.//bldg:measuredHeight&#34;, namespace).text)
+            a_list = city_object.find(&#34;bldg:lod0FootPrint/gml:MultiSurface/gml:surfaceMember/gml:Polygon/&#34;
+                                      &#34;gml:exterior/gml:LinearRing/gml:posList&#34;, namespace).text.split()
+            map_object = map(float, a_list)
+            coord_list = list(map_object)
+            base = coord_list
+            roof = [base[0], base[1], base[2] + height, base[9], base[10], base[11] + height, base[6], base[7],
+                    base[8] + height, base[3], base[4], base[5] + height, base[12], base[13], base[14] + height]
+
+            help_list_base = list(zip(*[iter(base)] * 3))
+            help_list_roof = list(zip(*[iter(roof)] * 3))
+
+            wall_help_1 = [help_list_base[0], help_list_base[1], help_list_roof[3], help_list_roof[0],
+                           help_list_base[0]]
+            wall_list_1 = list(chain(*wall_help_1))
+
+            wall_help_2 = [help_list_base[0], help_list_base[3], help_list_roof[1], help_list_roof[0],
+                           help_list_base[0]]
+            wall_list_2 = list(chain(*wall_help_2))
+
+            wall_help_3 = [help_list_base[2], help_list_base[1], help_list_roof[3], help_list_roof[2],
+                           help_list_base[2]]
+            wall_list_3 = list(chain(*wall_help_3))
+
+            wall_help_4 = [help_list_base[2], help_list_base[3], help_list_roof[1], help_list_roof[2],
+                           help_list_base[2]]
+            wall_list_4 = list(chain(*wall_help_4))
+
+            bldg.gml_surfaces.append(SurfaceGML(base))
+            bldg.gml_surfaces.append(SurfaceGML(roof))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_1))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_2))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_3))
+            bldg.gml_surfaces.append(SurfaceGML(wall_list_4))
+
+        else:
+            print(&#34;The LoD0 Model, no building-height is defined, set a height or no calculations are possible&#34;)
+
+    elif lod == 1:
+        boundary_surfaces = city_object.findall(&#39;./bldg:lod1Solid&#39;, namespace)
+
+    elif lod == 2 or lod == 3:
+        boundary_surfaces = city_object.findall(&#39;./bldg:boundedBy&#39;, namespace)
+
+    if not lod == 0:
+        for bound_surf in boundary_surfaces:
+            for surf_member in bound_surf.iter():
+
+                # if surf_member.tag == &#34;{http://www.opengis.net/gml}name&#34;:
+                #     print(&#34;Surface Name:&#34;, surf_member.text)
+
+                # modelling option 1
+                if surf_member.tag == &#34;{http://www.opengis.net/gml}exterior&#34;:
+                    for surf_pos in surf_member.iter():
+                        if &#34;{http://www.opengis.net/gml}posList&#34; in surf_member:
+                            if surf_pos.tag == &#34;{http://www.opengis.net/gml}posList&#34;:
+                                a_list = surf_pos.text.split()
+                                map_object = map(float, a_list)
+                                coord_list = list(map_object)
+                                help = SurfaceGML(coord_list)
+                                if help.surface_area &gt; 1:
+                                    bldg.gml_surfaces.append(help)
+
+                        # modelling option 2
+                        else:
+                            if surf_pos.tag == &#34;{http://www.opengis.net/gml}LinearRing&#34;:
+                                position_list_help = []
+                                for pos in surf_pos.iter():
+                                    a_list = pos.text.split()
+                                    map_object = map(float, a_list)
+                                    coord_list = list(map_object)
+                                    position_list_help.extend(coord_list)
+                                help = SurfaceGML(position_list_help)
+                                if help.surface_area &gt; 1:
+                                    bldg.gml_surfaces.append(help)
+    if lod == 3 or lod == 4:
+        openings_name = &#34;Window&#34;
+        for bound_surf in boundary_surfaces:
+            for surf_member in bound_surf.iter():
+                if surf_member.tag == &#34;{http://www.opengis.net/citygml/building/2.0}opening&#34;:
+                    # if surf_member.tag == &#34;{http://www.opengis.net/gml}name&#34;:
+                    #     openings_name = surf_member.text
+                    #     print(&#34;Opening Name:&#34;, surf_member.text)
+                    for openings in surf_member.iter():
+                        if openings.tag == &#34;{http://www.opengis.net/gml}exterior&#34;:
+                            for openings_pos in openings.iter():
+                                if &#34;{http://www.opengis.net/gml}posList&#34; in surf_member:
+                                    # modelling option 1
+                                    if openings_pos.tag == &#34;{http://www.opengis.net/gml}posList&#34;:
+                                        a_list = openings_pos.text.split()
+                                        map_object = map(float, a_list)
+                                        coord_list = list(map_object)
+                                        opening = SurfaceGML(coord_list)
+                                        opening.name = openings_name
+                                        # print(opening.surface_area)
+                                        bldg.gml_surfaces.append(opening)
+                                else:
+                                    # modelling option 2
+                                    if openings_pos.tag == &#34;{http://www.opengis.net/gml}LinearRing&#34;:
+                                        position_list_help = []
+                                        for pos in openings_pos.iter():
+                                            a_list = pos.text.split()
+                                            map_object = map(float, a_list)
+                                            coord_list = list(map_object)
+                                            position_list_help.extend(coord_list)
+                                        help = SurfaceGML(position_list_help)
+                                        help.name = openings_name
+                                        # print(help.surface_area)
+                                        bldg.gml_surfaces.append(help)</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.citygml_input.get_lod"><code class="name flex">
+<span>def <span class="ident">get_lod</span></span>(<span>city_object)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Help Function, gets and returns the Level of Detail of a CityGML Building.
+By Simon Raming CityATB</p>
+<p>:param city_object: lxml CityGML City Object(Building)
+:return: CityGML City Object Level of Detail</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_lod(city_object):
+    &#34;&#34;&#34;
+    Help Function, gets and returns the Level of Detail of a CityGML Building.
+    By Simon Raming CityATB
+
+    :param city_object: lxml CityGML City Object(Building)
+    :return: CityGML City Object Level of Detail
+    &#34;&#34;&#34;
+    lods = []
+    for elem in city_object.iter():
+        # print(elem)
+        try:
+            if elem.tag.split(&#34;}&#34;)[1].startswith(&#39;lod&#39;):
+                lods.append(elem.tag.split(&#39;}&#39;)[1][3])
+        except:
+            pass
+
+    if lods != []:
+        lods = list(set(lods))
+        if len(lods) &gt; 1:
+            print(&#34;Check file for LoDs!!!&#34;)
+        lods.sort()
+        lod = int(lods[0])
+    return lod</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.citygml_input.load_gml_buildingparts_lxml"><code class="name flex">
+<span>def <span class="ident">load_gml_buildingparts_lxml</span></span>(<span>prj, gml_bldg, namespace, bldg_name, method, yoc=None, calc_sep=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function loads buildings parts from a CityGML Buildings,
+assigns archetypes by gml function and creates TEASER building
+instances.</p>
+<p>:param prj: Project()
+Teaser instance of Project()
+:param gml_bldg: lxml object
+CityGML City Object(Building)
+:param namespace:lxml.msmap()
+Original namespaces from CityGML file (root)
+:param bldg_name: Str
+Pass through Building Name extracted from CityGML Building
+:param method: Str
+method for enrichment of single family dwellings
+either default="iwu" or "tabula_de"
+offices always use "iwu"= BMVBS and other residential
+buildings will be always using "tabula_de"
+:param yoc: Int
+year of construction for chosen gml buildings
+:param calc_sep: Boolean
+Decision variable for buildingPart handling, if False BuildingParts are
+calculated as separate Buildings inheriting only function and yoc. If True,
+BuildingsParts are merged together with calculation on the mean measured Height</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_gml_buildingparts_lxml(prj, gml_bldg, namespace, bldg_name, method, yoc=None, calc_sep=True):
+    &#34;&#34;&#34;
+    This function loads buildings parts from a CityGML Buildings,
+    assigns archetypes by gml function and creates TEASER building
+    instances.
+
+    :param prj: Project()
+            Teaser instance of Project()
+    :param gml_bldg: lxml object
+            CityGML City Object(Building)
+    :param namespace:lxml.msmap()
+            Original namespaces from CityGML file (root)
+    :param bldg_name: Str
+            Pass through Building Name extracted from CityGML Building
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :param yoc: Int
+            year of construction for chosen gml buildings
+    :param calc_sep: Boolean
+            Decision variable for buildingPart handling, if False BuildingParts are
+            calculated as separate Buildings inheriting only function and yoc. If True,
+            BuildingsParts are merged together with calculation on the mean measured Height
+    &#34;&#34;&#34;
+
+    building_parts = gml_bldg.findall(&#39;./bldg:consistsOfBuildingPart/bldg:BuildingPart&#39;, namespace)
+    if calc_sep:
+        for number_of_buildpart, gml_bldg_part in enumerate(building_parts):
+            bldg = assign_archetype(prj=prj, building_lxml=gml_bldg, namespace=namespace,
+                                    bldg_name=bldg_name, method=method)
+
+            get_gml_surfaces(bldg=bldg, city_object=gml_bldg_part, namespace=namespace)
+
+            if yoc is not None:
+                _set_attributes(bldg=bldg, gml_bldg=gml_bldg, bldg_yoc=yoc)
+            else:
+                _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                                gml_bldg_part=gml_bldg_part, bldg_part=number_of_buildpart)
+
+            bldg.set_height_gml()
+
+            try:
+                bldg.set_gml_attributes()
+            except (UserWarning, AttributeError):
+                print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+                pass
+            try:
+                bldg.generate_from_gml()
+            except (UserWarning, AttributeError):
+                print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+                pass
+
+        &#34;&#34;&#34;BuildingParts are merged&#34;&#34;&#34;
+        #TODO: Needs testing! Also take a look at called functions in building and set_gml_height()
+    else:
+        bldg = assign_archetype(prj=prj, building_lxml=gml_bldg, namespace=namespace,
+                                bldg_name=bldg_name, method=method)
+
+        measured_heights = []
+        for number_of_buildpart, gml_bldg_part in enumerate(building_parts):
+            get_gml_surfaces(bldg=bldg, city_object=gml_bldg_part, namespace=namespace)
+            measured_heights.append(float(gml_bldg_part.find(&#34;.//bldg:measuredHeight&#34;, namespace).text))
+
+        if yoc is not None:
+            _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                            gml_bldg_part=gml_bldg_part,
+                            measured_mean_height=measured_heights.mean(), bldg_yoc=yoc)
+        else:
+            _set_attributes(bldg=bldg, gml_bldg=gml_bldg, namespace=namespace, bldg_name=bldg_name,
+                            gml_bldg_part=gml_bldg_part,
+                            measured_mean_height=statistics.mean(measured_heights))
+
+        #bldg.set_height_gml()
+
+        try:
+            bldg.set_gml_attributes(merge_building_part=True)
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+            pass
+        try:
+            bldg.generate_from_gml()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+            pass</code></pre>
+</details>
+</dd>
+<dt id="teaser.data.input.citygml_input.load_gml_lxml"><code class="name flex">
+<span>def <span class="ident">load_gml_lxml</span></span>(<span>path, prj, method, chosen_gmls=None, yoc_list=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function loads buildings from a CityGML file, checks for a name, BuildingParts and
+start GML surface extraction and consequent building genaration.</p>
+<p>This function is a proof of concept, be careful using it.</p>
+<p>:param path:string
+path of CityGML file
+:param prj:Project()
+Teaser instance of Project()
+:param method: Str
+method for enrichment of single family dwellings
+either default="iwu" or "tabula_de"
+offices always use "iwu"= BMVBS and other residential
+buildings will be always using "tabula_de"
+:param chosen_gmls: List[]
+List of chosen CityObject(Buildings)
+:param yoc_list: List[]
+List of year of construction for chosen gml buildings
+:return: gml_copy_list</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
+    &#34;&#34;&#34;
+    This function loads buildings from a CityGML file, checks for a name, BuildingParts and
+    start GML surface extraction and consequent building genaration.
+
+    This function is a proof of concept, be careful using it.
+
+    :param path:string
+            path of CityGML file
+    :param prj:Project()
+            Teaser instance of Project()
+    :param method: Str
+            method for enrichment of single family dwellings
+            either default=&#34;iwu&#34; or &#34;tabula_de&#34;
+            offices always use &#34;iwu&#34;= BMVBS and other residential
+            buildings will be always using &#34;tabula_de&#34;
+    :param chosen_gmls: List[]
+            List of chosen CityObject(Buildings)
+    :param yoc_list: List[]
+            List of year of construction for chosen gml buildings
+    :return: gml_copy_list
+    &#34;&#34;&#34;
+    if chosen_gmls is None:
+        with open(path, &#39;r&#39;) as xml_file:
+            tree = ET.parse(xml_file)
+            root = tree.getroot()
+            namespace = root.nsmap
+            buildings = root.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)
+            boundary_box = root.find(&#34;gml:boundedBy/gml:Envelope&#34;, namespace)
+    else:
+        buildings, namespace = chosen_gmls
+
+    gml_copy_list = []
+    &#34;&#34;&#34;Start Loop through selected Buildings in GML file, assign Archetype by Function and create TEASER building&#34;&#34;&#34;
+
+    for i, building_lxml in enumerate(buildings):
+        gml_copy_list.append(copy.copy(building_lxml))
+
+
+        &#34;&#34;&#34;find building name, if not there, use building id&#34;&#34;&#34;
+        if building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace) is not None:
+            bldg_name = building_lxml.find(&#39;core:externalReference/core:externalObject/core:name&#39;, namespace).text
+        else:
+            try:
+                bldg_name = building_lxml.find(&#39;gml:name&#39;, namespace).text
+            except:
+                bldg_name = building_lxml.attrib[&#39;{http://www.opengis.net/gml}id&#39;]
+
+        &#34;&#34;&#34;Check for BuildingParts&#34;&#34;&#34;
+        if building_lxml.find(&#39;./bldg:consistsOfBuildingPart&#39;, namespace) is not None:
+            load_gml_buildingparts_lxml(prj=prj, gml_bldg=building_lxml, namespace=namespace,
+                                        bldg_name=bldg_name, method=method)
+            continue
+
+        &#34;&#34;&#34;Assign Archetype&#34;&#34;&#34;
+        bldg = assign_archetype(prj=prj, building_lxml=building_lxml, namespace=namespace,
+                                bldg_name=bldg_name, method=method)
+
+        &#34;&#34;&#34;Extract GML surface from File&#34;&#34;&#34;
+        get_gml_surfaces(bldg=bldg, city_object=building_lxml, namespace=namespace)
+
+        &#34;&#34;&#34;Set Building Attribute&#34;&#34;&#34;
+        if yoc_list is not None:
+            _set_attributes(bldg=bldg, gml_bldg=building_lxml, bldg_yoc=yoc_list[i])
+        else:
+            _set_attributes(bldg=bldg, gml_bldg=building_lxml, namespace=namespace, bldg_name=bldg_name)
+
+        &#34;&#34;&#34;Calculate building height through GML surfaces, overwrites measured height from GML Building&#34;&#34;&#34;
+        bldg.set_height_gml()
+
+        &#34;&#34;&#34;Calculates net_floor_area and number of toreys in Building with default storey height&#34;&#34;&#34;
+        try:
+            bldg.set_gml_attributes()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.set_gml_attributes() did not work&#34;)
+            pass
+        &#34;&#34;&#34;Sets Building Elements&#34;&#34;&#34;
+        try:
+            bldg.generate_from_gml()
+        except (UserWarning, AttributeError):
+            print(f&#34;{bldg.name} bldg.generate_from_gml() did not work&#34;)
+            pass
+
+    return gml_copy_list, boundary_box</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.data.input" href="index.html">teaser.data.input</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="teaser.data.input.citygml_input.assign_archetype" href="#teaser.data.input.citygml_input.assign_archetype">assign_archetype</a></code></li>
+<li><code><a title="teaser.data.input.citygml_input.choose_gml_lxml" href="#teaser.data.input.citygml_input.choose_gml_lxml">choose_gml_lxml</a></code></li>
+<li><code><a title="teaser.data.input.citygml_input.get_gml_surfaces" href="#teaser.data.input.citygml_input.get_gml_surfaces">get_gml_surfaces</a></code></li>
+<li><code><a title="teaser.data.input.citygml_input.get_lod" href="#teaser.data.input.citygml_input.get_lod">get_lod</a></code></li>
+<li><code><a title="teaser.data.input.citygml_input.load_gml_buildingparts_lxml" href="#teaser.data.input.citygml_input.load_gml_buildingparts_lxml">load_gml_buildingparts_lxml</a></code></li>
+<li><code><a title="teaser.data.input.citygml_input.load_gml_lxml" href="#teaser.data.input.citygml_input.load_gml_lxml">load_gml_lxml</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,1992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># -*- coding: utf-8 -*-
+
+# created September 2021
+# by Johannes Linus Cuypers
+
+class En15804IndicatorValue(object):
+    &#34;&#34;&#34;En15804IndicatorValue class
+    
+    This class holds one value for every lifecycle-stage according to EN 15804.
+    It can be used to set the value of an environmental indicator.    
+    
+    Parameters
+    ----------
+    
+    parent : XXX, optional
+        Default is None
+    
+    Attributes
+    ----------
+    unit : str
+        unit of the values
+    a1 : float
+        Product stage: Raw material supply
+    a2 : float
+        Product stage: Transport
+    a3 : float
+        Product stage: Manufacturing
+    a1_a3 : float
+        sum of stage a1, a2 and a3
+    a4 : float
+        Construction on process stage: Transport from the gate to the site
+    a5 : float
+        Construction on process stage: Assembly
+    b1 : float
+        Use stage: Use
+    b2 : float
+        Use Stage: Maintenance
+    b3 : float
+        Use Stage: Repair
+    b4 : float
+        Use Stage: Replacement
+    b5 : float
+        Use Stage: Refurbishment
+    b6 : float
+        Use Stage: Operational energy use
+    b7 : float
+        Use Stage: Operational water use
+    c1 : float
+        End of Life Stage: De-Construction demolition
+    c2 : float
+        End of Life Stage: Transport
+    c3 : float
+        End of Life Stage: Waste processing
+    c4 : float
+        End of Life stage: Disposal
+    d : float
+        Benefits and loads beyond the system boundaries: 
+        Reuse-Recovery-Recycling-Potential
+    
+    
+    &#34;&#34;&#34;
+    def __init__(self, parent = None):
+        &#34;&#34;&#34;Constructor of En15804IndicatorValue
+        &#34;&#34;&#34;
+        
+        self.parent = parent
+        self._unit = None
+        
+        self._a1 = None
+        self._a2 = None
+        self._a3 = None
+        self._a1_a3 = None
+        
+        self._a4 = None
+        self._a5 = None
+        
+        self._b1 = None
+        self._b2 = None
+        self._b3 = None
+        self._b4 = None
+        self._b5 = None
+        self._b6 = None
+        self._b7 = None
+        
+        self._c1 = None
+        self._c2 = None
+        self._c3 = None
+        self._c4 = None
+        
+        self._d = None
+        
+    
+        
+    def _validate_stage_value(self, value, stage_name):
+        &#34;&#34;&#34;Function to validate the value of an stage.
+
+        Parameters
+        ----------
+        value : float
+            value to be validated 
+        stage_name : str
+            printable name of a stage. Used for Error-Messages.
+
+        Returns
+        -------
+        validated value: float, nonetype
+
+        &#34;&#34;&#34;
+        if isinstance(value, float):
+            return(value)
+        else:
+            if not value:
+                return(None)
+            try:
+                value = float(value)
+                return(value)
+            except ValueError:
+                print(&#34;Can&#39;t convert value of &#39;{}&#39; to float&#34;.format(stage_name))       
+            except TypeError:
+                print(&#34;Can´t convert {} into float&#34;.format(type(value)))
+
+                
+    @property
+    def unit(self):
+        return(self._unit)
+    
+    @unit.setter
+    def unit(self, value):
+        if value != None:
+            if isinstance(value, str):
+                self._unit = value
+            else:
+                print(&#34;En15804IndicatorValue.unit must be string!&#34;)
+        else:
+            self._unit = None
+
+    @property
+    def a1(self):
+        return(self._a1)
+    
+    @a1.setter
+    def a1(self, value):
+       self._a1 = self._validate_stage_value(value, &#34;A1&#34;)
+       
+    @property
+    def a2(self):
+        return(self._a2)
+    
+    @a2.setter
+    def a2(self, value):
+       self._a2 = self._validate_stage_value(value, &#34;A2&#34;)
+       
+    @property
+    def a3(self):
+        return(self._a3)
+    
+    @a3.setter
+    def a3(self, value):
+       self._a3 = self._validate_stage_value(value, &#34;A3&#34;)
+    
+    @property
+    def a1_a3(self):
+        return(self._a1_a3)
+    
+    @a1_a3.setter
+    def a1_a3(self, value):
+       self._a1_a3 = self._validate_stage_value(value, &#34;A1-A3&#34;)
+       
+    @property
+    def a4(self):
+        return(self._a4)
+    
+    @a4.setter
+    def a4(self, value):
+       self._a4 = self._validate_stage_value(value, &#34;A4&#34;)
+       
+    @property
+    def a5(self):
+        return(self._a5)
+    
+    @a5.setter
+    def a5(self, value):
+       self._a5 = self._validate_stage_value(value, &#34;A5&#34;)
+       
+    @property
+    def b1(self):
+        return(self._b1)
+    
+    @b1.setter
+    def b1(self, value):
+       self._b1 = self._validate_stage_value(value, &#34;B1&#34;)
+       
+    @property
+    def b2(self):
+        return(self._b2)
+    
+    @b2.setter
+    def b2(self, value):
+       self._b2 = self._validate_stage_value(value, &#34;B2&#34;)
+       
+    @property
+    def b3(self):
+        return(self._b3)
+    
+    @b3.setter
+    def b3(self, value):
+       self._b3 = self._validate_stage_value(value, &#34;B3&#34;)
+       
+    @property
+    def b4(self):
+        return(self._b4)
+    
+    @b4.setter
+    def b4(self, value):
+       self._b4 = self._validate_stage_value(value, &#34;B4&#34;)
+       
+    @property
+    def b5(self):
+        return(self._b5)
+    
+    @b5.setter
+    def b5(self, value):
+       self._b5 = self._validate_stage_value(value, &#34;B5&#34;)
+       
+    @property
+    def b6(self):
+        return(self._b6)
+    
+    @b6.setter
+    def b6(self, value):
+       self._b6 = self._validate_stage_value(value, &#34;B6&#34;)
+       
+    @property
+    def b7(self):
+        return(self._b7)
+    
+    @b7.setter
+    def b7(self, value):
+       self._b7 = self._validate_stage_value(value, &#34;B7&#34;)
+       
+    @property
+    def c1(self):
+        return(self._c1)
+    
+    @c1.setter
+    def c1(self, value):
+       self._c1 = self._validate_stage_value(value, &#34;C1&#34;)
+       
+    @property
+    def c2(self):
+        return(self._c2)
+    
+    @c2.setter
+    def c2(self, value):
+       self._c2 = self._validate_stage_value(value, &#34;C2&#34;)
+       
+    @property
+    def c3(self):
+        return(self._c3)
+    
+    @c3.setter
+    def c3(self, value):
+       self._c3 = self._validate_stage_value(value, &#34;C3&#34;)
+       
+    @property
+    def c4(self):
+        return(self._c4)
+    
+    @c4.setter
+    def c4(self, value):
+       self._c4 = self._validate_stage_value(value, &#34;C4&#34;)
+       
+    @property
+    def d(self):
+        return(self._d)
+    
+    @d.setter
+    def d(self, value):
+       self._d = self._validate_stage_value(value, &#34;D&#34;)
+       
+    def set_values(self, **values):
+        &#34;&#34;&#34;Procedure to set all object-attributes at once
+
+        Parameters
+        ----------
+        **values : dict
+            Dictionary with attribute-name as key and attribute-value as value 
+
+        &#34;&#34;&#34;
+        
+        if &#34;a1_a3&#34; not in values or values[&#34;a1_a3&#34;] is None:
+            if &#34;a1&#34; in values and &#34;a2&#34; in values and &#34;a3&#34; in values:
+                if values[&#34;a1&#34;] is not None or values[&#34;a2&#34;] is not None or values[&#34;a3&#34;] is not None:
+                    a1_a3 = self._ignore_none_sum(self._ignore_none_sum(values[&#34;a1&#34;], values[&#34;a2&#34;]), values[&#34;a3&#34;])
+                    
+                    values[&#34;a1_a3&#34;] = a1_a3
+
+        for attr, value in values.items():
+            setattr(self, attr, value)
+
+    
+    def _ignore_none_sum(self, addend1, addend2):
+        &#34;&#34;&#34;sums up two numbers, but interprets None addends as 0. When both
+        input-addends are None, it returns None
+        
+        Parameters
+        ----------
+        addend1 : int, float, none
+            addend 1
+        addend2 : int, float, none
+            addend 2
+
+        Returns
+        -------
+        sum of addends : int, float
+        or None
+        &#34;&#34;&#34;
+        if addend1 and addend2:
+            return(addend1 + addend2)
+        else:
+            if not addend1 and not addend2:
+                return(None)
+            else:
+                if addend1:
+                    return(addend1)
+                else:
+                    return(addend2)
+                
+    def __add__(self, other):
+        &#34;&#34;&#34;Adds two En15804IndicatorValue-Objects. Every stage is summed up 
+        separately. Both objects must have the same unit
+        
+
+        Parameters
+        ----------
+        other : En15804IndicatorValue
+            The addend En15804IndicatorValue-Object
+
+        Returns
+        -------
+        sum: En15804IndicatorValue
+           sum of both En15804IndicatorValue-Objects. 
+
+        &#34;&#34;&#34;
+        if isinstance(other, En15804IndicatorValue):
+            
+            if self.unit == other.unit or not self.unit or not other.unit:
+
+                values = {&#34;a1&#34;: self._ignore_none_sum(self.a1, other.a1),
+                    &#34;a2&#34;: self._ignore_none_sum(self.a2, other.a2),
+                    &#34;a3&#34;: self._ignore_none_sum(self.a3, other.a3),
+                    &#34;a1_a3&#34;: self._ignore_none_sum(self.a1_a3, other.a1_a3),
+                    &#34;a4&#34;: self._ignore_none_sum(self.a4, other.a4),
+                    &#34;a5&#34;: self._ignore_none_sum(self.a5, other.a5),
+                    &#34;b1&#34;: self._ignore_none_sum(self.b1, other.b1),
+                    &#34;b2&#34;: self._ignore_none_sum(self.b2, other.b2),
+                    &#34;b3&#34;: self._ignore_none_sum(self.b3, other.b3),
+                    &#34;b4&#34;: self._ignore_none_sum(self.b4, other.b4),
+                    &#34;b5&#34;: self._ignore_none_sum(self.b5, other.b5),
+                    &#34;b6&#34;: self._ignore_none_sum(self.b6, other.b6),
+                    &#34;b7&#34;: self._ignore_none_sum(self.b7, other.b7),
+                    &#34;c1&#34;: self._ignore_none_sum(self.c1, other.c1),
+                    &#34;c2&#34;: self._ignore_none_sum(self.c2, other.c2),
+                    &#34;c3&#34;: self._ignore_none_sum(self.c3, other.c3),
+                    &#34;c4&#34;: self._ignore_none_sum(self.c4, other.c4),
+                    &#34;d&#34;: self._ignore_none_sum(self.d, other.d),
+                    }
+                
+                if self.unit:
+                    values[&#34;unit&#34;] = self.unit
+                else:
+                    values[&#34;unit&#34;] = other.unit
+                
+                new = En15804IndicatorValue()
+                new.set_values(**values)
+                return(new)
+            
+            else:
+                print(&#34;Addends must have the same unit!&#34;)
+            
+        else:
+            
+            print(&#34;Addend must be an &#39;En15804IndicatorValue&#39;-Object!&#34;)
+            
+    def _ignore_none_mul(self, factor1, factor2):
+        &#34;&#34;&#34;Multiplies two factors. If one is None, it returns None
+
+        Parameters
+        ----------
+        factor1 : int, float
+            Factor 1
+        factor2 : TYPE
+            Factor 2
+
+        Returns
+        -------
+            Product of factors or None
+
+        &#34;&#34;&#34;
+        if not factor1 or not factor2:
+            return(None)
+        else:
+            return(factor1 * factor2)
+        
+    def __mul__(self, scalar):
+        &#34;&#34;&#34;Multiplies every stage-value with a scalar
+
+        Parameters
+        ----------
+        scalar : int, float
+            scalar to be mutliplied
+
+        Returns
+        -------
+        new : En15804IndicatorValue
+            product of &#34;self&#34; and scalar
+
+        &#34;&#34;&#34;
+        try:
+            scalar = float(scalar)
+            
+            values = {&#34;a1&#34;: self._ignore_none_mul(self.a1, scalar),
+                &#34;a2&#34;: self._ignore_none_mul(self.a2, scalar),
+                &#34;a3&#34;: self._ignore_none_mul(self.a3, scalar),
+                &#34;a1_a3&#34;: self._ignore_none_mul(self.a1_a3, scalar),
+                &#34;a4&#34;: self._ignore_none_mul(self.a4, scalar),
+                &#34;a5&#34;: self._ignore_none_mul(self.a5, scalar),
+                &#34;b1&#34;: self._ignore_none_mul(self.b1, scalar),
+                &#34;b2&#34;: self._ignore_none_mul(self.b2, scalar),
+                &#34;b3&#34;: self._ignore_none_mul(self.b3, scalar),
+                &#34;b4&#34;: self._ignore_none_mul(self.b4, scalar),
+                &#34;b5&#34;: self._ignore_none_mul(self.b5, scalar),
+                &#34;b6&#34;: self._ignore_none_mul(self.b6, scalar),
+                &#34;b7&#34;: self._ignore_none_mul(self.b7, scalar),
+                &#34;c1&#34;: self._ignore_none_mul(self.c1, scalar),
+                &#34;c2&#34;: self._ignore_none_mul(self.c2, scalar),
+                &#34;c3&#34;: self._ignore_none_mul(self.c3, scalar),
+                &#34;c4&#34;: self._ignore_none_mul(self.c4, scalar),
+                &#34;d&#34;: self._ignore_none_mul(self.d, scalar),
+                &#34;unit&#34;: self.unit}
+            
+            new = En15804IndicatorValue()
+            new.set_values(**values)
+            return(new)
+            
+        except ValueError:
+            print(&#34;Can&#39;t convert value of &#39;{}&#39; to float. Please insert scalar!&#34;.format(scalar))
+        
+        except TypeError:
+            print(&#34;Can´t convert {} into float. Please insert scalar!&#34;.format(type(scalar)))
+    
+    def sum_stages(self, add_stage_d = False):
+        &#34;&#34;&#34;sums up all values of the object
+
+        Parameters
+        ----------
+        add_stage_d : Boolean
+            Is true, when stage d should be added. The default is False.
+
+        Returns
+        -------
+            sum : float
+                overall value of all stages. With or without stage d 
+
+        &#34;&#34;&#34;
+
+        addends = []
+        
+        
+        
+        if self.a1_a3:
+            addends.append(self.a1_a3)
+        else:
+            if self.a1: addends.append(self.a1)
+            if self.a2: addends.append(self.a2)
+            if self.a3: addends.append(self.a3)
+        if self.a4: addends.append(self.a4)
+        if self.a5: addends.append(self.a5)
+        if self.b1: addends.append(self.b1)
+        if self.b2: addends.append(self.b2)
+        if self.b3: addends.append(self.b3)
+        if self.b4: addends.append(self.b4)
+        if self.b5: addends.append(self.b5)
+        if self.b6: addends.append(self.b6)
+        if self.b7: addends.append(self.b7)
+        if self.c1: addends.append(self.c1)
+        if self.c2: addends.append(self.c2)
+        if self.c3: addends.append(self.c3)
+        if self.c4: addends.append(self.c4)
+        if self.d and add_stage_d: addends.append(self.d)
+        
+        return(sum(addends))
+
+    def stages(self):
+        &#34;&#34;&#34;returns a list with all stages that are not None
+
+
+        Returns
+        -------
+            list of stages
+
+        &#34;&#34;&#34;
+        stages = []
+        
+        if self.a1 is not None: stages.append(&#34;a1&#34;)
+        if self.a2 is not None: stages.append(&#34;a2&#34;)
+        if self.a3 is not None: stages.append(&#34;a3&#34;)
+        if self.a1_a3 is not None: stages.append(&#34;a1_a3&#34;)
+        if self.a4 is not None: stages.append(&#34;a4&#34;)
+        if self.a5 is not None: stages.append(&#34;a5&#34;)
+        if self.b1 is not None: stages.append(&#34;b1&#34;)
+        if self.b2 is not None: stages.append(&#34;b2&#34;)
+        if self.b3 is not None: stages.append(&#34;b3&#34;)
+        if self.b4 is not None: stages.append(&#34;b4&#34;)
+        if self.b5 is not None: stages.append(&#34;b5&#34;)
+        if self.b6 is not None: stages.append(&#34;b6&#34;)
+        if self.b7 is not None: stages.append(&#34;b7&#34;)
+        if self.c1 is not None: stages.append(&#34;c1&#34;)
+        if self.c2 is not None: stages.append(&#34;c2&#34;)
+        if self.c3 is not None: stages.append(&#34;c3&#34;)
+        if self.c4 is not None: stages.append(&#34;c4&#34;)
+        if self.d is not None: stages.append(&#34;d&#34;)
+        
+        return stages
+
+    def add_stage(self, stage, other):
+        &#34;&#34;&#34;Function which adds only a specific stage from an En15804Indicator-
+        Object to self
+        
+
+        Parameters
+        ----------
+        stage : str
+            Stage to add (e.g. &#39;b4&#39;)
+        other : En15804IndicatorValue
+            the other En15804IndicatorValue
+
+        Returns
+        -------
+        result En15804IndicatorValue
+
+        &#34;&#34;&#34;
+        result = En15804IndicatorValue()
+        addend = En15804IndicatorValue()
+        addend.unit = other.unit
+        if isinstance(other, En15804IndicatorValue):
+            other_stages = other.stages()
+            if stage in other_stages:
+                if len(other_stages) != 1:
+                    if stage == &#34;a1&#34;:
+                        addend.a1 = other.a1
+                    elif stage == &#34;a2&#34;:
+                        addend.a2 = other.a2
+                    elif stage == &#34;a3&#34;:
+                        addend.a3 = other.a3
+                    elif stage == &#34;a1_a3&#34;:
+                        addend.a1_a3 = other.a1_a3
+                    elif stage == &#34;a4&#34;:
+                        addend.a4 = other.a4
+                    elif stage == &#34;a5&#34;:
+                        addend.a5 = other.a5
+                    elif stage == &#34;b1&#34;:
+                        addend.b1 = other.b1
+                    elif stage == &#34;b2&#34;:
+                        addend.b2 = other.b2
+                    elif stage == &#34;b3&#34;:
+                        addend.b3 = other.b3
+                    elif stage == &#34;b4&#34;:
+                        addend.b4 = other.b4
+                    elif stage == &#34;b5&#34;:
+                        addend.b5 = other.b5
+                    elif stage == &#34;b6&#34;:
+                        addend.b6 = other.b6
+                    elif stage == &#34;b7&#34;:
+                        addend.b7 = other.b7
+                    elif stage == &#34;c1&#34;:
+                        addend.c1 = other.c1
+                    elif stage == &#34;c2&#34;:
+                        addend.c2 = other.c2
+                    elif stage == &#34;c3&#34;:
+                        addend.c3 = other.c3
+                    elif stage == &#34;c4&#34;:
+                        addend.c4 = other.c4
+                    elif stage == &#34;d&#34;:
+                        addend.d = other.d
+
+                else:
+                    addend = other
+
+                    
+                    #print(vars(other))
+                    #other = other.set_values(**{stage: vars(other)[stage]})
+                result = self + addend
+            else:
+                print(&#34;No value for Stage {}&#34;.format(stage))
+                result = self
+        
+        else:
+            print(&#34;Addend must be an &#39;En15804IndicatorValue&#39;-Object!&#34;)
+                
+        
+        return(result)
+    
+    def get_values_as_dict(self):
+        return_dict = {}
+        
+        if self.a1 is not None:
+            return_dict[&#34;a1&#34;] = self.a1
+        if self.a2 is not None:
+            return_dict[&#34;a2&#34;] = self.a2
+        if self.a3 is not None:
+            return_dict[&#34;a3&#34;] = self.a3
+        if self.a1_a3 is not None:
+            return_dict[&#34;a1_a3&#34;] = self.a1_a3
+        if self.a4 is not None:
+            return_dict[&#34;a4&#34;] = self.a4
+        if self.a5 is not None:
+            return_dict[&#34;a5&#34;] = self.a5
+            
+        if self.b1 is not None:
+            return_dict[&#34;b1&#34;] = self.b1
+        if self.b2 is not None:
+            return_dict[&#34;b2&#34;] = self.b2
+        if self.b3 is not None:
+            return_dict[&#34;b3&#34;] = self.b3
+        if self.b4 is not None:
+            return_dict[&#34;b4&#34;] = self.b4
+        if self.b5 is not None:
+            return_dict[&#34;b5&#34;] = self.b5
+        if self.b6 is not None:
+            return_dict[&#34;b6&#34;] = self.b6
+        if self.b7 is not None:
+            return_dict[&#34;b7&#34;] = self.b7
+            
+        if self.c1 is not None:
+            return_dict[&#34;c1&#34;] = self.c1
+        if self.c2 is not None:
+            return_dict[&#34;c2&#34;] = self.c2
+        if self.c3 is not None:
+            return_dict[&#34;c3&#34;] = self.c3
+        if self.c3 is not None:
+            return_dict[&#34;c4&#34;] = self.c4
+        if self.d is not None:
+            return_dict[&#34;d&#34;] = self.d
+
+        return_dict[&#34;unit&#34;] = self.unit
+        
+        return(return_dict)
+                    
+
+           
+                
+                    
+            
+            
+       
+                
+                
+    
+        </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue"><code class="flex name class">
+<span>class <span class="ident">En15804IndicatorValue</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>En15804IndicatorValue class</p>
+<p>This class holds one value for every lifecycle-stage according to EN 15804.
+It can be used to set the value of an environmental indicator.
+</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>XXX</code>, optional</dt>
+<dd>Default is None</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code></dt>
+<dd>unit of the values</dd>
+<dt><strong><code>a1</code></strong> :&ensp;<code>float</code></dt>
+<dd>Product stage: Raw material supply</dd>
+<dt><strong><code>a2</code></strong> :&ensp;<code>float</code></dt>
+<dd>Product stage: Transport</dd>
+<dt><strong><code>a3</code></strong> :&ensp;<code>float</code></dt>
+<dd>Product stage: Manufacturing</dd>
+<dt><strong><code>a1_a3</code></strong> :&ensp;<code>float</code></dt>
+<dd>sum of stage a1, a2 and a3</dd>
+<dt><strong><code>a4</code></strong> :&ensp;<code>float</code></dt>
+<dd>Construction on process stage: Transport from the gate to the site</dd>
+<dt><strong><code>a5</code></strong> :&ensp;<code>float</code></dt>
+<dd>Construction on process stage: Assembly</dd>
+<dt><strong><code>b1</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use stage: Use</dd>
+<dt><strong><code>b2</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Maintenance</dd>
+<dt><strong><code>b3</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Repair</dd>
+<dt><strong><code>b4</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Replacement</dd>
+<dt><strong><code>b5</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Refurbishment</dd>
+<dt><strong><code>b6</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Operational energy use</dd>
+<dt><strong><code>b7</code></strong> :&ensp;<code>float</code></dt>
+<dd>Use Stage: Operational water use</dd>
+<dt><strong><code>c1</code></strong> :&ensp;<code>float</code></dt>
+<dd>End of Life Stage: De-Construction demolition</dd>
+<dt><strong><code>c2</code></strong> :&ensp;<code>float</code></dt>
+<dd>End of Life Stage: Transport</dd>
+<dt><strong><code>c3</code></strong> :&ensp;<code>float</code></dt>
+<dd>End of Life Stage: Waste processing</dd>
+<dt><strong><code>c4</code></strong> :&ensp;<code>float</code></dt>
+<dd>End of Life stage: Disposal</dd>
+<dt><strong><code>d</code></strong> :&ensp;<code>float</code></dt>
+<dd>Benefits and loads beyond the system boundaries:
+Reuse-Recovery-Recycling-Potential</dd>
+</dl>
+<p>Constructor of En15804IndicatorValue</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class En15804IndicatorValue(object):
+    &#34;&#34;&#34;En15804IndicatorValue class
+    
+    This class holds one value for every lifecycle-stage according to EN 15804.
+    It can be used to set the value of an environmental indicator.    
+    
+    Parameters
+    ----------
+    
+    parent : XXX, optional
+        Default is None
+    
+    Attributes
+    ----------
+    unit : str
+        unit of the values
+    a1 : float
+        Product stage: Raw material supply
+    a2 : float
+        Product stage: Transport
+    a3 : float
+        Product stage: Manufacturing
+    a1_a3 : float
+        sum of stage a1, a2 and a3
+    a4 : float
+        Construction on process stage: Transport from the gate to the site
+    a5 : float
+        Construction on process stage: Assembly
+    b1 : float
+        Use stage: Use
+    b2 : float
+        Use Stage: Maintenance
+    b3 : float
+        Use Stage: Repair
+    b4 : float
+        Use Stage: Replacement
+    b5 : float
+        Use Stage: Refurbishment
+    b6 : float
+        Use Stage: Operational energy use
+    b7 : float
+        Use Stage: Operational water use
+    c1 : float
+        End of Life Stage: De-Construction demolition
+    c2 : float
+        End of Life Stage: Transport
+    c3 : float
+        End of Life Stage: Waste processing
+    c4 : float
+        End of Life stage: Disposal
+    d : float
+        Benefits and loads beyond the system boundaries: 
+        Reuse-Recovery-Recycling-Potential
+    
+    
+    &#34;&#34;&#34;
+    def __init__(self, parent = None):
+        &#34;&#34;&#34;Constructor of En15804IndicatorValue
+        &#34;&#34;&#34;
+        
+        self.parent = parent
+        self._unit = None
+        
+        self._a1 = None
+        self._a2 = None
+        self._a3 = None
+        self._a1_a3 = None
+        
+        self._a4 = None
+        self._a5 = None
+        
+        self._b1 = None
+        self._b2 = None
+        self._b3 = None
+        self._b4 = None
+        self._b5 = None
+        self._b6 = None
+        self._b7 = None
+        
+        self._c1 = None
+        self._c2 = None
+        self._c3 = None
+        self._c4 = None
+        
+        self._d = None
+        
+    
+        
+    def _validate_stage_value(self, value, stage_name):
+        &#34;&#34;&#34;Function to validate the value of an stage.
+
+        Parameters
+        ----------
+        value : float
+            value to be validated 
+        stage_name : str
+            printable name of a stage. Used for Error-Messages.
+
+        Returns
+        -------
+        validated value: float, nonetype
+
+        &#34;&#34;&#34;
+        if isinstance(value, float):
+            return(value)
+        else:
+            if not value:
+                return(None)
+            try:
+                value = float(value)
+                return(value)
+            except ValueError:
+                print(&#34;Can&#39;t convert value of &#39;{}&#39; to float&#34;.format(stage_name))       
+            except TypeError:
+                print(&#34;Can´t convert {} into float&#34;.format(type(value)))
+
+                
+    @property
+    def unit(self):
+        return(self._unit)
+    
+    @unit.setter
+    def unit(self, value):
+        if value != None:
+            if isinstance(value, str):
+                self._unit = value
+            else:
+                print(&#34;En15804IndicatorValue.unit must be string!&#34;)
+        else:
+            self._unit = None
+
+    @property
+    def a1(self):
+        return(self._a1)
+    
+    @a1.setter
+    def a1(self, value):
+       self._a1 = self._validate_stage_value(value, &#34;A1&#34;)
+       
+    @property
+    def a2(self):
+        return(self._a2)
+    
+    @a2.setter
+    def a2(self, value):
+       self._a2 = self._validate_stage_value(value, &#34;A2&#34;)
+       
+    @property
+    def a3(self):
+        return(self._a3)
+    
+    @a3.setter
+    def a3(self, value):
+       self._a3 = self._validate_stage_value(value, &#34;A3&#34;)
+    
+    @property
+    def a1_a3(self):
+        return(self._a1_a3)
+    
+    @a1_a3.setter
+    def a1_a3(self, value):
+       self._a1_a3 = self._validate_stage_value(value, &#34;A1-A3&#34;)
+       
+    @property
+    def a4(self):
+        return(self._a4)
+    
+    @a4.setter
+    def a4(self, value):
+       self._a4 = self._validate_stage_value(value, &#34;A4&#34;)
+       
+    @property
+    def a5(self):
+        return(self._a5)
+    
+    @a5.setter
+    def a5(self, value):
+       self._a5 = self._validate_stage_value(value, &#34;A5&#34;)
+       
+    @property
+    def b1(self):
+        return(self._b1)
+    
+    @b1.setter
+    def b1(self, value):
+       self._b1 = self._validate_stage_value(value, &#34;B1&#34;)
+       
+    @property
+    def b2(self):
+        return(self._b2)
+    
+    @b2.setter
+    def b2(self, value):
+       self._b2 = self._validate_stage_value(value, &#34;B2&#34;)
+       
+    @property
+    def b3(self):
+        return(self._b3)
+    
+    @b3.setter
+    def b3(self, value):
+       self._b3 = self._validate_stage_value(value, &#34;B3&#34;)
+       
+    @property
+    def b4(self):
+        return(self._b4)
+    
+    @b4.setter
+    def b4(self, value):
+       self._b4 = self._validate_stage_value(value, &#34;B4&#34;)
+       
+    @property
+    def b5(self):
+        return(self._b5)
+    
+    @b5.setter
+    def b5(self, value):
+       self._b5 = self._validate_stage_value(value, &#34;B5&#34;)
+       
+    @property
+    def b6(self):
+        return(self._b6)
+    
+    @b6.setter
+    def b6(self, value):
+       self._b6 = self._validate_stage_value(value, &#34;B6&#34;)
+       
+    @property
+    def b7(self):
+        return(self._b7)
+    
+    @b7.setter
+    def b7(self, value):
+       self._b7 = self._validate_stage_value(value, &#34;B7&#34;)
+       
+    @property
+    def c1(self):
+        return(self._c1)
+    
+    @c1.setter
+    def c1(self, value):
+       self._c1 = self._validate_stage_value(value, &#34;C1&#34;)
+       
+    @property
+    def c2(self):
+        return(self._c2)
+    
+    @c2.setter
+    def c2(self, value):
+       self._c2 = self._validate_stage_value(value, &#34;C2&#34;)
+       
+    @property
+    def c3(self):
+        return(self._c3)
+    
+    @c3.setter
+    def c3(self, value):
+       self._c3 = self._validate_stage_value(value, &#34;C3&#34;)
+       
+    @property
+    def c4(self):
+        return(self._c4)
+    
+    @c4.setter
+    def c4(self, value):
+       self._c4 = self._validate_stage_value(value, &#34;C4&#34;)
+       
+    @property
+    def d(self):
+        return(self._d)
+    
+    @d.setter
+    def d(self, value):
+       self._d = self._validate_stage_value(value, &#34;D&#34;)
+       
+    def set_values(self, **values):
+        &#34;&#34;&#34;Procedure to set all object-attributes at once
+
+        Parameters
+        ----------
+        **values : dict
+            Dictionary with attribute-name as key and attribute-value as value 
+
+        &#34;&#34;&#34;
+        
+        if &#34;a1_a3&#34; not in values or values[&#34;a1_a3&#34;] is None:
+            if &#34;a1&#34; in values and &#34;a2&#34; in values and &#34;a3&#34; in values:
+                if values[&#34;a1&#34;] is not None or values[&#34;a2&#34;] is not None or values[&#34;a3&#34;] is not None:
+                    a1_a3 = self._ignore_none_sum(self._ignore_none_sum(values[&#34;a1&#34;], values[&#34;a2&#34;]), values[&#34;a3&#34;])
+                    
+                    values[&#34;a1_a3&#34;] = a1_a3
+
+        for attr, value in values.items():
+            setattr(self, attr, value)
+
+    
+    def _ignore_none_sum(self, addend1, addend2):
+        &#34;&#34;&#34;sums up two numbers, but interprets None addends as 0. When both
+        input-addends are None, it returns None
+        
+        Parameters
+        ----------
+        addend1 : int, float, none
+            addend 1
+        addend2 : int, float, none
+            addend 2
+
+        Returns
+        -------
+        sum of addends : int, float
+        or None
+        &#34;&#34;&#34;
+        if addend1 and addend2:
+            return(addend1 + addend2)
+        else:
+            if not addend1 and not addend2:
+                return(None)
+            else:
+                if addend1:
+                    return(addend1)
+                else:
+                    return(addend2)
+                
+    def __add__(self, other):
+        &#34;&#34;&#34;Adds two En15804IndicatorValue-Objects. Every stage is summed up 
+        separately. Both objects must have the same unit
+        
+
+        Parameters
+        ----------
+        other : En15804IndicatorValue
+            The addend En15804IndicatorValue-Object
+
+        Returns
+        -------
+        sum: En15804IndicatorValue
+           sum of both En15804IndicatorValue-Objects. 
+
+        &#34;&#34;&#34;
+        if isinstance(other, En15804IndicatorValue):
+            
+            if self.unit == other.unit or not self.unit or not other.unit:
+
+                values = {&#34;a1&#34;: self._ignore_none_sum(self.a1, other.a1),
+                    &#34;a2&#34;: self._ignore_none_sum(self.a2, other.a2),
+                    &#34;a3&#34;: self._ignore_none_sum(self.a3, other.a3),
+                    &#34;a1_a3&#34;: self._ignore_none_sum(self.a1_a3, other.a1_a3),
+                    &#34;a4&#34;: self._ignore_none_sum(self.a4, other.a4),
+                    &#34;a5&#34;: self._ignore_none_sum(self.a5, other.a5),
+                    &#34;b1&#34;: self._ignore_none_sum(self.b1, other.b1),
+                    &#34;b2&#34;: self._ignore_none_sum(self.b2, other.b2),
+                    &#34;b3&#34;: self._ignore_none_sum(self.b3, other.b3),
+                    &#34;b4&#34;: self._ignore_none_sum(self.b4, other.b4),
+                    &#34;b5&#34;: self._ignore_none_sum(self.b5, other.b5),
+                    &#34;b6&#34;: self._ignore_none_sum(self.b6, other.b6),
+                    &#34;b7&#34;: self._ignore_none_sum(self.b7, other.b7),
+                    &#34;c1&#34;: self._ignore_none_sum(self.c1, other.c1),
+                    &#34;c2&#34;: self._ignore_none_sum(self.c2, other.c2),
+                    &#34;c3&#34;: self._ignore_none_sum(self.c3, other.c3),
+                    &#34;c4&#34;: self._ignore_none_sum(self.c4, other.c4),
+                    &#34;d&#34;: self._ignore_none_sum(self.d, other.d),
+                    }
+                
+                if self.unit:
+                    values[&#34;unit&#34;] = self.unit
+                else:
+                    values[&#34;unit&#34;] = other.unit
+                
+                new = En15804IndicatorValue()
+                new.set_values(**values)
+                return(new)
+            
+            else:
+                print(&#34;Addends must have the same unit!&#34;)
+            
+        else:
+            
+            print(&#34;Addend must be an &#39;En15804IndicatorValue&#39;-Object!&#34;)
+            
+    def _ignore_none_mul(self, factor1, factor2):
+        &#34;&#34;&#34;Multiplies two factors. If one is None, it returns None
+
+        Parameters
+        ----------
+        factor1 : int, float
+            Factor 1
+        factor2 : TYPE
+            Factor 2
+
+        Returns
+        -------
+            Product of factors or None
+
+        &#34;&#34;&#34;
+        if not factor1 or not factor2:
+            return(None)
+        else:
+            return(factor1 * factor2)
+        
+    def __mul__(self, scalar):
+        &#34;&#34;&#34;Multiplies every stage-value with a scalar
+
+        Parameters
+        ----------
+        scalar : int, float
+            scalar to be mutliplied
+
+        Returns
+        -------
+        new : En15804IndicatorValue
+            product of &#34;self&#34; and scalar
+
+        &#34;&#34;&#34;
+        try:
+            scalar = float(scalar)
+            
+            values = {&#34;a1&#34;: self._ignore_none_mul(self.a1, scalar),
+                &#34;a2&#34;: self._ignore_none_mul(self.a2, scalar),
+                &#34;a3&#34;: self._ignore_none_mul(self.a3, scalar),
+                &#34;a1_a3&#34;: self._ignore_none_mul(self.a1_a3, scalar),
+                &#34;a4&#34;: self._ignore_none_mul(self.a4, scalar),
+                &#34;a5&#34;: self._ignore_none_mul(self.a5, scalar),
+                &#34;b1&#34;: self._ignore_none_mul(self.b1, scalar),
+                &#34;b2&#34;: self._ignore_none_mul(self.b2, scalar),
+                &#34;b3&#34;: self._ignore_none_mul(self.b3, scalar),
+                &#34;b4&#34;: self._ignore_none_mul(self.b4, scalar),
+                &#34;b5&#34;: self._ignore_none_mul(self.b5, scalar),
+                &#34;b6&#34;: self._ignore_none_mul(self.b6, scalar),
+                &#34;b7&#34;: self._ignore_none_mul(self.b7, scalar),
+                &#34;c1&#34;: self._ignore_none_mul(self.c1, scalar),
+                &#34;c2&#34;: self._ignore_none_mul(self.c2, scalar),
+                &#34;c3&#34;: self._ignore_none_mul(self.c3, scalar),
+                &#34;c4&#34;: self._ignore_none_mul(self.c4, scalar),
+                &#34;d&#34;: self._ignore_none_mul(self.d, scalar),
+                &#34;unit&#34;: self.unit}
+            
+            new = En15804IndicatorValue()
+            new.set_values(**values)
+            return(new)
+            
+        except ValueError:
+            print(&#34;Can&#39;t convert value of &#39;{}&#39; to float. Please insert scalar!&#34;.format(scalar))
+        
+        except TypeError:
+            print(&#34;Can´t convert {} into float. Please insert scalar!&#34;.format(type(scalar)))
+    
+    def sum_stages(self, add_stage_d = False):
+        &#34;&#34;&#34;sums up all values of the object
+
+        Parameters
+        ----------
+        add_stage_d : Boolean
+            Is true, when stage d should be added. The default is False.
+
+        Returns
+        -------
+            sum : float
+                overall value of all stages. With or without stage d 
+
+        &#34;&#34;&#34;
+
+        addends = []
+        
+        
+        
+        if self.a1_a3:
+            addends.append(self.a1_a3)
+        else:
+            if self.a1: addends.append(self.a1)
+            if self.a2: addends.append(self.a2)
+            if self.a3: addends.append(self.a3)
+        if self.a4: addends.append(self.a4)
+        if self.a5: addends.append(self.a5)
+        if self.b1: addends.append(self.b1)
+        if self.b2: addends.append(self.b2)
+        if self.b3: addends.append(self.b3)
+        if self.b4: addends.append(self.b4)
+        if self.b5: addends.append(self.b5)
+        if self.b6: addends.append(self.b6)
+        if self.b7: addends.append(self.b7)
+        if self.c1: addends.append(self.c1)
+        if self.c2: addends.append(self.c2)
+        if self.c3: addends.append(self.c3)
+        if self.c4: addends.append(self.c4)
+        if self.d and add_stage_d: addends.append(self.d)
+        
+        return(sum(addends))
+
+    def stages(self):
+        &#34;&#34;&#34;returns a list with all stages that are not None
+
+
+        Returns
+        -------
+            list of stages
+
+        &#34;&#34;&#34;
+        stages = []
+        
+        if self.a1 is not None: stages.append(&#34;a1&#34;)
+        if self.a2 is not None: stages.append(&#34;a2&#34;)
+        if self.a3 is not None: stages.append(&#34;a3&#34;)
+        if self.a1_a3 is not None: stages.append(&#34;a1_a3&#34;)
+        if self.a4 is not None: stages.append(&#34;a4&#34;)
+        if self.a5 is not None: stages.append(&#34;a5&#34;)
+        if self.b1 is not None: stages.append(&#34;b1&#34;)
+        if self.b2 is not None: stages.append(&#34;b2&#34;)
+        if self.b3 is not None: stages.append(&#34;b3&#34;)
+        if self.b4 is not None: stages.append(&#34;b4&#34;)
+        if self.b5 is not None: stages.append(&#34;b5&#34;)
+        if self.b6 is not None: stages.append(&#34;b6&#34;)
+        if self.b7 is not None: stages.append(&#34;b7&#34;)
+        if self.c1 is not None: stages.append(&#34;c1&#34;)
+        if self.c2 is not None: stages.append(&#34;c2&#34;)
+        if self.c3 is not None: stages.append(&#34;c3&#34;)
+        if self.c4 is not None: stages.append(&#34;c4&#34;)
+        if self.d is not None: stages.append(&#34;d&#34;)
+        
+        return stages
+
+    def add_stage(self, stage, other):
+        &#34;&#34;&#34;Function which adds only a specific stage from an En15804Indicator-
+        Object to self
+        
+
+        Parameters
+        ----------
+        stage : str
+            Stage to add (e.g. &#39;b4&#39;)
+        other : En15804IndicatorValue
+            the other En15804IndicatorValue
+
+        Returns
+        -------
+        result En15804IndicatorValue
+
+        &#34;&#34;&#34;
+        result = En15804IndicatorValue()
+        addend = En15804IndicatorValue()
+        addend.unit = other.unit
+        if isinstance(other, En15804IndicatorValue):
+            other_stages = other.stages()
+            if stage in other_stages:
+                if len(other_stages) != 1:
+                    if stage == &#34;a1&#34;:
+                        addend.a1 = other.a1
+                    elif stage == &#34;a2&#34;:
+                        addend.a2 = other.a2
+                    elif stage == &#34;a3&#34;:
+                        addend.a3 = other.a3
+                    elif stage == &#34;a1_a3&#34;:
+                        addend.a1_a3 = other.a1_a3
+                    elif stage == &#34;a4&#34;:
+                        addend.a4 = other.a4
+                    elif stage == &#34;a5&#34;:
+                        addend.a5 = other.a5
+                    elif stage == &#34;b1&#34;:
+                        addend.b1 = other.b1
+                    elif stage == &#34;b2&#34;:
+                        addend.b2 = other.b2
+                    elif stage == &#34;b3&#34;:
+                        addend.b3 = other.b3
+                    elif stage == &#34;b4&#34;:
+                        addend.b4 = other.b4
+                    elif stage == &#34;b5&#34;:
+                        addend.b5 = other.b5
+                    elif stage == &#34;b6&#34;:
+                        addend.b6 = other.b6
+                    elif stage == &#34;b7&#34;:
+                        addend.b7 = other.b7
+                    elif stage == &#34;c1&#34;:
+                        addend.c1 = other.c1
+                    elif stage == &#34;c2&#34;:
+                        addend.c2 = other.c2
+                    elif stage == &#34;c3&#34;:
+                        addend.c3 = other.c3
+                    elif stage == &#34;c4&#34;:
+                        addend.c4 = other.c4
+                    elif stage == &#34;d&#34;:
+                        addend.d = other.d
+
+                else:
+                    addend = other
+
+                    
+                    #print(vars(other))
+                    #other = other.set_values(**{stage: vars(other)[stage]})
+                result = self + addend
+            else:
+                print(&#34;No value for Stage {}&#34;.format(stage))
+                result = self
+        
+        else:
+            print(&#34;Addend must be an &#39;En15804IndicatorValue&#39;-Object!&#34;)
+                
+        
+        return(result)
+    
+    def get_values_as_dict(self):
+        return_dict = {}
+        
+        if self.a1 is not None:
+            return_dict[&#34;a1&#34;] = self.a1
+        if self.a2 is not None:
+            return_dict[&#34;a2&#34;] = self.a2
+        if self.a3 is not None:
+            return_dict[&#34;a3&#34;] = self.a3
+        if self.a1_a3 is not None:
+            return_dict[&#34;a1_a3&#34;] = self.a1_a3
+        if self.a4 is not None:
+            return_dict[&#34;a4&#34;] = self.a4
+        if self.a5 is not None:
+            return_dict[&#34;a5&#34;] = self.a5
+            
+        if self.b1 is not None:
+            return_dict[&#34;b1&#34;] = self.b1
+        if self.b2 is not None:
+            return_dict[&#34;b2&#34;] = self.b2
+        if self.b3 is not None:
+            return_dict[&#34;b3&#34;] = self.b3
+        if self.b4 is not None:
+            return_dict[&#34;b4&#34;] = self.b4
+        if self.b5 is not None:
+            return_dict[&#34;b5&#34;] = self.b5
+        if self.b6 is not None:
+            return_dict[&#34;b6&#34;] = self.b6
+        if self.b7 is not None:
+            return_dict[&#34;b7&#34;] = self.b7
+            
+        if self.c1 is not None:
+            return_dict[&#34;c1&#34;] = self.c1
+        if self.c2 is not None:
+            return_dict[&#34;c2&#34;] = self.c2
+        if self.c3 is not None:
+            return_dict[&#34;c3&#34;] = self.c3
+        if self.c3 is not None:
+            return_dict[&#34;c4&#34;] = self.c4
+        if self.d is not None:
+            return_dict[&#34;d&#34;] = self.d
+
+        return_dict[&#34;unit&#34;] = self.unit
+        
+        return(return_dict)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1"><code class="name">var <span class="ident">a1</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a1(self):
+    return(self._a1)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1_a3"><code class="name">var <span class="ident">a1_a3</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a1_a3(self):
+    return(self._a1_a3)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a2"><code class="name">var <span class="ident">a2</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a2(self):
+    return(self._a2)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a3"><code class="name">var <span class="ident">a3</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a3(self):
+    return(self._a3)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a4"><code class="name">var <span class="ident">a4</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a4(self):
+    return(self._a4)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a5"><code class="name">var <span class="ident">a5</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def a5(self):
+    return(self._a5)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b1"><code class="name">var <span class="ident">b1</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b1(self):
+    return(self._b1)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b2"><code class="name">var <span class="ident">b2</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b2(self):
+    return(self._b2)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b3"><code class="name">var <span class="ident">b3</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b3(self):
+    return(self._b3)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b4"><code class="name">var <span class="ident">b4</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b4(self):
+    return(self._b4)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b5"><code class="name">var <span class="ident">b5</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b5(self):
+    return(self._b5)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b6"><code class="name">var <span class="ident">b6</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b6(self):
+    return(self._b6)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b7"><code class="name">var <span class="ident">b7</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def b7(self):
+    return(self._b7)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c1"><code class="name">var <span class="ident">c1</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c1(self):
+    return(self._c1)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c2"><code class="name">var <span class="ident">c2</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c2(self):
+    return(self._c2)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c3"><code class="name">var <span class="ident">c3</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c3(self):
+    return(self._c3)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c4"><code class="name">var <span class="ident">c4</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def c4(self):
+    return(self._c4)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.d"><code class="name">var <span class="ident">d</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def d(self):
+    return(self._d)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.unit"><code class="name">var <span class="ident">unit</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def unit(self):
+    return(self._unit)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.add_stage"><code class="name flex">
+<span>def <span class="ident">add_stage</span></span>(<span>self, stage, other)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Function which adds only a specific stage from an En15804Indicator-
+Object to self</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stage</code></strong> :&ensp;<code>str</code></dt>
+<dd>Stage to add (e.g. 'b4')</dd>
+<dt><strong><code>other</code></strong> :&ensp;<code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue">En15804IndicatorValue</a></code></dt>
+<dd>the other En15804IndicatorValue</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>result <a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue">En15804IndicatorValue</a></code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_stage(self, stage, other):
+    &#34;&#34;&#34;Function which adds only a specific stage from an En15804Indicator-
+    Object to self
+    
+
+    Parameters
+    ----------
+    stage : str
+        Stage to add (e.g. &#39;b4&#39;)
+    other : En15804IndicatorValue
+        the other En15804IndicatorValue
+
+    Returns
+    -------
+    result En15804IndicatorValue
+
+    &#34;&#34;&#34;
+    result = En15804IndicatorValue()
+    addend = En15804IndicatorValue()
+    addend.unit = other.unit
+    if isinstance(other, En15804IndicatorValue):
+        other_stages = other.stages()
+        if stage in other_stages:
+            if len(other_stages) != 1:
+                if stage == &#34;a1&#34;:
+                    addend.a1 = other.a1
+                elif stage == &#34;a2&#34;:
+                    addend.a2 = other.a2
+                elif stage == &#34;a3&#34;:
+                    addend.a3 = other.a3
+                elif stage == &#34;a1_a3&#34;:
+                    addend.a1_a3 = other.a1_a3
+                elif stage == &#34;a4&#34;:
+                    addend.a4 = other.a4
+                elif stage == &#34;a5&#34;:
+                    addend.a5 = other.a5
+                elif stage == &#34;b1&#34;:
+                    addend.b1 = other.b1
+                elif stage == &#34;b2&#34;:
+                    addend.b2 = other.b2
+                elif stage == &#34;b3&#34;:
+                    addend.b3 = other.b3
+                elif stage == &#34;b4&#34;:
+                    addend.b4 = other.b4
+                elif stage == &#34;b5&#34;:
+                    addend.b5 = other.b5
+                elif stage == &#34;b6&#34;:
+                    addend.b6 = other.b6
+                elif stage == &#34;b7&#34;:
+                    addend.b7 = other.b7
+                elif stage == &#34;c1&#34;:
+                    addend.c1 = other.c1
+                elif stage == &#34;c2&#34;:
+                    addend.c2 = other.c2
+                elif stage == &#34;c3&#34;:
+                    addend.c3 = other.c3
+                elif stage == &#34;c4&#34;:
+                    addend.c4 = other.c4
+                elif stage == &#34;d&#34;:
+                    addend.d = other.d
+
+            else:
+                addend = other
+
+                
+                #print(vars(other))
+                #other = other.set_values(**{stage: vars(other)[stage]})
+            result = self + addend
+        else:
+            print(&#34;No value for Stage {}&#34;.format(stage))
+            result = self
+    
+    else:
+        print(&#34;Addend must be an &#39;En15804IndicatorValue&#39;-Object!&#34;)
+            
+    
+    return(result)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.get_values_as_dict"><code class="name flex">
+<span>def <span class="ident">get_values_as_dict</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_values_as_dict(self):
+    return_dict = {}
+    
+    if self.a1 is not None:
+        return_dict[&#34;a1&#34;] = self.a1
+    if self.a2 is not None:
+        return_dict[&#34;a2&#34;] = self.a2
+    if self.a3 is not None:
+        return_dict[&#34;a3&#34;] = self.a3
+    if self.a1_a3 is not None:
+        return_dict[&#34;a1_a3&#34;] = self.a1_a3
+    if self.a4 is not None:
+        return_dict[&#34;a4&#34;] = self.a4
+    if self.a5 is not None:
+        return_dict[&#34;a5&#34;] = self.a5
+        
+    if self.b1 is not None:
+        return_dict[&#34;b1&#34;] = self.b1
+    if self.b2 is not None:
+        return_dict[&#34;b2&#34;] = self.b2
+    if self.b3 is not None:
+        return_dict[&#34;b3&#34;] = self.b3
+    if self.b4 is not None:
+        return_dict[&#34;b4&#34;] = self.b4
+    if self.b5 is not None:
+        return_dict[&#34;b5&#34;] = self.b5
+    if self.b6 is not None:
+        return_dict[&#34;b6&#34;] = self.b6
+    if self.b7 is not None:
+        return_dict[&#34;b7&#34;] = self.b7
+        
+    if self.c1 is not None:
+        return_dict[&#34;c1&#34;] = self.c1
+    if self.c2 is not None:
+        return_dict[&#34;c2&#34;] = self.c2
+    if self.c3 is not None:
+        return_dict[&#34;c3&#34;] = self.c3
+    if self.c3 is not None:
+        return_dict[&#34;c4&#34;] = self.c4
+    if self.d is not None:
+        return_dict[&#34;d&#34;] = self.d
+
+    return_dict[&#34;unit&#34;] = self.unit
+    
+    return(return_dict)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.set_values"><code class="name flex">
+<span>def <span class="ident">set_values</span></span>(<span>self, **values)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Procedure to set all object-attributes at once</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>**values</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary with attribute-name as key and attribute-value as value</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_values(self, **values):
+    &#34;&#34;&#34;Procedure to set all object-attributes at once
+
+    Parameters
+    ----------
+    **values : dict
+        Dictionary with attribute-name as key and attribute-value as value 
+
+    &#34;&#34;&#34;
+    
+    if &#34;a1_a3&#34; not in values or values[&#34;a1_a3&#34;] is None:
+        if &#34;a1&#34; in values and &#34;a2&#34; in values and &#34;a3&#34; in values:
+            if values[&#34;a1&#34;] is not None or values[&#34;a2&#34;] is not None or values[&#34;a3&#34;] is not None:
+                a1_a3 = self._ignore_none_sum(self._ignore_none_sum(values[&#34;a1&#34;], values[&#34;a2&#34;]), values[&#34;a3&#34;])
+                
+                values[&#34;a1_a3&#34;] = a1_a3
+
+    for attr, value in values.items():
+        setattr(self, attr, value)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.stages"><code class="name flex">
+<span>def <span class="ident">stages</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>returns a list with all stages that are not None</p>
+<h2 id="returns">Returns</h2>
+<pre><code>list of stages
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def stages(self):
+    &#34;&#34;&#34;returns a list with all stages that are not None
+
+
+    Returns
+    -------
+        list of stages
+
+    &#34;&#34;&#34;
+    stages = []
+    
+    if self.a1 is not None: stages.append(&#34;a1&#34;)
+    if self.a2 is not None: stages.append(&#34;a2&#34;)
+    if self.a3 is not None: stages.append(&#34;a3&#34;)
+    if self.a1_a3 is not None: stages.append(&#34;a1_a3&#34;)
+    if self.a4 is not None: stages.append(&#34;a4&#34;)
+    if self.a5 is not None: stages.append(&#34;a5&#34;)
+    if self.b1 is not None: stages.append(&#34;b1&#34;)
+    if self.b2 is not None: stages.append(&#34;b2&#34;)
+    if self.b3 is not None: stages.append(&#34;b3&#34;)
+    if self.b4 is not None: stages.append(&#34;b4&#34;)
+    if self.b5 is not None: stages.append(&#34;b5&#34;)
+    if self.b6 is not None: stages.append(&#34;b6&#34;)
+    if self.b7 is not None: stages.append(&#34;b7&#34;)
+    if self.c1 is not None: stages.append(&#34;c1&#34;)
+    if self.c2 is not None: stages.append(&#34;c2&#34;)
+    if self.c3 is not None: stages.append(&#34;c3&#34;)
+    if self.c4 is not None: stages.append(&#34;c4&#34;)
+    if self.d is not None: stages.append(&#34;d&#34;)
+    
+    return stages</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.sum_stages"><code class="name flex">
+<span>def <span class="ident">sum_stages</span></span>(<span>self, add_stage_d=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>sums up all values of the object</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>add_stage_d</code></strong> :&ensp;<code>Boolean</code></dt>
+<dd>Is true, when stage d should be added. The default is False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<pre><code>sum : float
+    overall value of all stages. With or without stage d
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sum_stages(self, add_stage_d = False):
+    &#34;&#34;&#34;sums up all values of the object
+
+    Parameters
+    ----------
+    add_stage_d : Boolean
+        Is true, when stage d should be added. The default is False.
+
+    Returns
+    -------
+        sum : float
+            overall value of all stages. With or without stage d 
+
+    &#34;&#34;&#34;
+
+    addends = []
+    
+    
+    
+    if self.a1_a3:
+        addends.append(self.a1_a3)
+    else:
+        if self.a1: addends.append(self.a1)
+        if self.a2: addends.append(self.a2)
+        if self.a3: addends.append(self.a3)
+    if self.a4: addends.append(self.a4)
+    if self.a5: addends.append(self.a5)
+    if self.b1: addends.append(self.b1)
+    if self.b2: addends.append(self.b2)
+    if self.b3: addends.append(self.b3)
+    if self.b4: addends.append(self.b4)
+    if self.b5: addends.append(self.b5)
+    if self.b6: addends.append(self.b6)
+    if self.b7: addends.append(self.b7)
+    if self.c1: addends.append(self.c1)
+    if self.c2: addends.append(self.c2)
+    if self.c3: addends.append(self.c3)
+    if self.c4: addends.append(self.c4)
+    if self.d and add_stage_d: addends.append(self.d)
+    
+    return(sum(addends))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics" href="index.html">teaser.logic.buildingobjects.buildingphysics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue">En15804IndicatorValue</a></code></h4>
+<ul class="two-column">
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1">a1</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1_a3" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a1_a3">a1_a3</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a2" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a2">a2</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a3" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a3">a3</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a4" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a4">a4</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a5" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.a5">a5</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.add_stage" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.add_stage">add_stage</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b1" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b1">b1</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b2" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b2">b2</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b3" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b3">b3</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b4" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b4">b4</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b5" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b5">b5</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b6" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b6">b6</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b7" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.b7">b7</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c1" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c1">c1</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c2" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c2">c2</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c3" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c3">c3</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c4" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.c4">c4</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.d" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.d">d</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.get_values_as_dict" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.get_values_as_dict">get_values_as_dict</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.set_values" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.set_values">set_values</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.stages" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.stages">stages</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.sum_stages" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.sum_stages">sum_stages</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.unit" href="#teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue.En15804IndicatorValue.unit">unit</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

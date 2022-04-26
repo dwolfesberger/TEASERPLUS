@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.examples.e6_generate_building API documentation</title>
+<meta name="description" content="This module contains an example that shows to create a building not using
+the archetype approach but adding all information separately. In this …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.examples.e6_generate_building</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains an example that shows to create a building not using
+the archetype approach but adding all information separately. In this example
+we import all needed modules and classes where we need it in the code. For you
+application we suggest to use PEP008 and import them at the beginning of the
+script.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Created July 2015
+# TEASER Development Team
+
+&#34;&#34;&#34;This module contains an example that shows to create a building not using
+the archetype approach but adding all information separately. In this example
+we import all needed modules and classes where we need it in the code. For you
+application we suggest to use PEP008 and import them at the beginning of the
+script.
+&#34;&#34;&#34;
+
+
+def example_create_building():
+    &#34;&#34;&#34;&#34;This function demonstrates generating a building adding all
+    information separately&#34;&#34;&#34;
+
+    # First step: Import the TEASER API (called Project) into your Python module
+
+    from teaser.project import Project
+
+    # To use the API instantiate the Project class and rename the Project. The
+    # parameter load_data=True indicates that we load data into our
+    # Project (e.g. for Material properties and typical wall constructions.
+    # This can take a few seconds, depending on the size of the used data base.
+
+    prj = Project(load_data=True)
+    prj.name = &#34;BuildingExample&#34;
+
+    # Instantiate a Building class and set the Project API as a parent to
+    # this building. This will automatically add this building and all its
+    # future changes to the project. This is helpful as we can use the data
+    # base and API functions (like explained in e2 - e5). We also set some
+    # building parameters. Be careful: Dymola does not like whitespaces in
+    # names and filenames, thus we will delete them anyway in TEASER.
+
+    from teaser.logic.buildingobjects.building import Building
+
+    bldg = Building(parent=prj)
+    bldg.name = &#34;SuperExampleBuilding&#34;
+    bldg.street_name = &#34;AwesomeAvenue42&#34;
+    bldg.city = &#34;46325FantasticTown&#34;
+    bldg.year_of_construction = 2015
+    bldg.number_of_floors = 1
+    bldg.height_of_floors = 3.5
+
+    # Instantiate a ThermalZone class and set the Building as a parent of it.
+    # Set some parameters of the thermal zone. Be careful: Dymola does not
+    # like whitespaces in  names and filenames, thus we will delete them
+    # anyway in TEASER.
+
+    from teaser.logic.buildingobjects.thermalzone import ThermalZone
+
+    tz = ThermalZone(parent=bldg)
+    tz.name = &#34;LivingRoom&#34;
+    tz.area = 140.0
+    tz.volume = tz.area * bldg.number_of_floors * bldg.height_of_floors
+    tz.infiltration_rate = 0.5
+
+    # Instantiate BoundaryConditions and load conditions for `Living`.
+
+    from teaser.logic.buildingobjects.useconditions \
+        import UseConditions
+
+    tz.use_conditions = UseConditions(parent=tz)
+    tz.use_conditions.load_use_conditions(&#34;Living&#34;, prj.data)
+
+    # Define two building elements reflecting a pitched roof (south = 180° and
+    # north = 0°). Setting the the ThermalZone as a parent will automatically
+    # assign this element to the thermal zone. We also set names, tilt and
+    # coefficients for heat transfer on the inner and outer side of the
+    # roofs. If the building has a flat roof, please use -1 as
+    # orientation. Please read the docs to get more information on these
+    # parameters.
+
+    from teaser.logic.buildingobjects.buildingphysics.rooftop import Rooftop
+
+    roof_south = Rooftop(parent=tz)
+    roof_south.name = &#34;Roof_South&#34;
+    roof_south.area = 75.0
+    roof_south.orientation = 180.0
+    roof_south.tilt = 55.0
+    roof_south.inner_convection = 1.7
+    roof_south.outer_convection = 20.0
+    roof_south.inner_radiation = 5.0
+    roof_south.outer_radiation = 5.0
+
+    roof_north = Rooftop(parent=tz)
+    roof_north.name = &#34;Roof_North&#34;
+    roof_north.area = 75.0
+    roof_north.orientation = 0.0
+    roof_north.tilt = 55.0
+    roof_north.inner_convection = 1.7
+    roof_north.outer_convection = 20.0
+    roof_north.inner_radiation = 5.0
+    roof_north.outer_radiation = 5.0
+
+    # To define the wall constructions we need to instantiate Layer and
+    # Material objects and set attributes. id indicates the order of wall
+    # construction from inside to outside (so 0 is on the inner surface). You
+    # need to set this value!
+
+    from teaser.logic.buildingobjects.buildingphysics.layer import Layer
+
+    # First layer south
+
+    layer_s1 = Layer(parent=roof_south, id=0)
+    layer_s1.thickness = 0.3
+
+    from teaser.logic.buildingobjects.buildingphysics.material import Material
+
+    material_s1 = Material(layer_s1)
+    material_s1.name = &#34;Insulation&#34;
+    material_s1.density = 120.0
+    material_s1.heat_capac = 0.04
+    material_s1.thermal_conduc = 1.0
+
+    # Second layer south
+
+    layer_s2 = Layer(parent=roof_south, id=1)
+    layer_s2.thickness = 0.15
+
+    material_s2 = Material(layer_s2)
+    material_s2.name = &#34;Tile&#34;
+    material_s2.density = 1400.0
+    material_s2.heat_capac = 0.6
+    material_s2.thermal_conduc = 2.5
+
+    # First layer north
+
+    layer_n1 = Layer(parent=roof_north, id=0)
+    layer_n1.thickness = 0.3
+
+    from teaser.logic.buildingobjects.buildingphysics.material import Material
+
+    material_n1 = Material(layer_n1)
+    material_n1.name = &#34;Insulation&#34;
+    material_n1.density = 120.0
+    material_n1.heat_capac = 0.04
+    material_n1.thermal_conduc = 1.0
+
+    # Second layer north
+
+    layer_n2 = Layer(parent=roof_north, id=1)
+    layer_n2.thickness = 0.15
+
+    material_n2 = Material(layer_n2)
+    material_n2.name = &#34;Tile&#34;
+    material_n2.density = 1400.0
+    material_n2.heat_capac = 0.6
+    material_n2.thermal_conduc = 2.5
+
+    # Another option is to use the database for typical wall constructions,
+    # but set area, tilt, orientation individually. To simplify code,
+    # we save individual information for exterior walls, interior walls into
+    # dictionaries.
+    # outer walls
+    # {&#39;name_of_wall&#39;: [area, tilt, orientation]}
+    # interior walls
+    # {&#39;name_of_wall&#39;: [area, tilt, orientation]}
+
+    from teaser.logic.buildingobjects.buildingphysics.outerwall import OuterWall
+
+    out_wall_dict = {&#34;OuterWall_north&#34;: [10.0, 90.0, 0.0],
+                     &#34;OuterWall_east&#34;: [14.0, 90.0, 90.0],
+                     &#34;OuterWall_south&#34;: [10.0, 90.0, 180.0],
+                     &#34;OuterWall_west&#34;: [14.0, 90.0, 270.0]}
+
+    # For ground floors the orientation is always -2
+
+    ground_floor_dict = {&#34;GroundFloor&#34;: [100.0, 0.0, -2]}
+
+    from teaser.logic.buildingobjects.buildingphysics.innerwall import InnerWall
+
+    in_wall_dict = {&#34;InnerWall1&#34;: [10.0],
+                    &#34;InnerWall2&#34;: [14.0],
+                    &#34;InnerWall3&#34;: [10.0]}
+
+    for key, value in out_wall_dict.items():
+        # Instantiate class, key is the name
+        out_wall = OuterWall(parent=tz)
+        out_wall.name = key
+        # Use load_type_element() function of the building element, and pass
+        # over the year of construction of the building and the type of
+        # construction (in this case `heavy`).
+
+        out_wall.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+
+        # area, tilt and orientation need to be set individually.
+
+        out_wall.area = value[0]
+        out_wall.tilt = value[1]
+        out_wall.orientation = value[2]
+
+    # Repeat the procedure for inner walls and ground floors
+
+    for key, value in in_wall_dict.items():
+
+        in_wall = InnerWall(parent=tz)
+        in_wall.name = key
+        in_wall.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+        in_wall.area = value[0]
+
+    from teaser.logic.buildingobjects.buildingphysics.groundfloor import \
+        GroundFloor
+
+    for key, value in ground_floor_dict.items():
+
+        ground = GroundFloor(parent=tz)
+        ground.name = key
+        ground.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+        ground.area = value[0]
+        ground.tilt = value[1]
+        ground.orientation = value[2]
+
+    from teaser.logic.buildingobjects.buildingphysics.window import Window
+
+    win_dict = {&#34;Window_east&#34;: [5.0, 90.0, 90.0],
+                &#34;Window_south&#34;: [8.0, 90.0, 180.0],
+                &#34;Window_west&#34;: [5.0, 90.0, 270.0]}
+
+    for key, value in win_dict.items():
+
+        win = Window(parent=tz)
+        win.name = key
+        win.area = value[0]
+        win.tilt = value[1]
+        win.orientation = value[2]
+
+        # Additional to the already known attributes the window has
+        # additional attributes. Window.g_value describes the solar gain
+        # through windows, a_conv the convective heat transmission due to
+        # absorption of the window on the inner side. shading_g_total and
+        # shading_max_irr refers to the shading (solar gain reduction of the
+        # shading and shading_max_irr the threshold of irradiance to
+        # automatically apply shading).
+
+        win.inner_convection = 1.7
+        win.inner_radiation = 5.0
+        win.outer_convection = 20.0
+        win.outer_radiation = 5.0
+        win.g_value = 0.789
+        win.a_conv = 0.03
+        win.shading_g_total = 0.0
+        win.shading_max_irr = 180.0
+
+        # One equivalent layer for windows
+
+        win_layer = Layer(parent=win)
+        win_layer.id = 1
+        win_layer.thickness = 0.024
+
+        # Material for glass
+
+        win_material = Material(win_layer)
+        win_material.name = &#34;GlasWindow&#34;
+        win_material.thermal_conduc = 0.067
+        win_material.transmittance = 0.9
+
+
+if __name__ == &#39;__main__&#39;:
+    example_create_building()
+    print(&#34;Example 6: That&#39;s it :)&#34;)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="teaser.examples.e6_generate_building.example_create_building"><code class="name flex">
+<span>def <span class="ident">example_create_building</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>"This function demonstrates generating a building adding all
+information separately</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def example_create_building():
+    &#34;&#34;&#34;&#34;This function demonstrates generating a building adding all
+    information separately&#34;&#34;&#34;
+
+    # First step: Import the TEASER API (called Project) into your Python module
+
+    from teaser.project import Project
+
+    # To use the API instantiate the Project class and rename the Project. The
+    # parameter load_data=True indicates that we load data into our
+    # Project (e.g. for Material properties and typical wall constructions.
+    # This can take a few seconds, depending on the size of the used data base.
+
+    prj = Project(load_data=True)
+    prj.name = &#34;BuildingExample&#34;
+
+    # Instantiate a Building class and set the Project API as a parent to
+    # this building. This will automatically add this building and all its
+    # future changes to the project. This is helpful as we can use the data
+    # base and API functions (like explained in e2 - e5). We also set some
+    # building parameters. Be careful: Dymola does not like whitespaces in
+    # names and filenames, thus we will delete them anyway in TEASER.
+
+    from teaser.logic.buildingobjects.building import Building
+
+    bldg = Building(parent=prj)
+    bldg.name = &#34;SuperExampleBuilding&#34;
+    bldg.street_name = &#34;AwesomeAvenue42&#34;
+    bldg.city = &#34;46325FantasticTown&#34;
+    bldg.year_of_construction = 2015
+    bldg.number_of_floors = 1
+    bldg.height_of_floors = 3.5
+
+    # Instantiate a ThermalZone class and set the Building as a parent of it.
+    # Set some parameters of the thermal zone. Be careful: Dymola does not
+    # like whitespaces in  names and filenames, thus we will delete them
+    # anyway in TEASER.
+
+    from teaser.logic.buildingobjects.thermalzone import ThermalZone
+
+    tz = ThermalZone(parent=bldg)
+    tz.name = &#34;LivingRoom&#34;
+    tz.area = 140.0
+    tz.volume = tz.area * bldg.number_of_floors * bldg.height_of_floors
+    tz.infiltration_rate = 0.5
+
+    # Instantiate BoundaryConditions and load conditions for `Living`.
+
+    from teaser.logic.buildingobjects.useconditions \
+        import UseConditions
+
+    tz.use_conditions = UseConditions(parent=tz)
+    tz.use_conditions.load_use_conditions(&#34;Living&#34;, prj.data)
+
+    # Define two building elements reflecting a pitched roof (south = 180° and
+    # north = 0°). Setting the the ThermalZone as a parent will automatically
+    # assign this element to the thermal zone. We also set names, tilt and
+    # coefficients for heat transfer on the inner and outer side of the
+    # roofs. If the building has a flat roof, please use -1 as
+    # orientation. Please read the docs to get more information on these
+    # parameters.
+
+    from teaser.logic.buildingobjects.buildingphysics.rooftop import Rooftop
+
+    roof_south = Rooftop(parent=tz)
+    roof_south.name = &#34;Roof_South&#34;
+    roof_south.area = 75.0
+    roof_south.orientation = 180.0
+    roof_south.tilt = 55.0
+    roof_south.inner_convection = 1.7
+    roof_south.outer_convection = 20.0
+    roof_south.inner_radiation = 5.0
+    roof_south.outer_radiation = 5.0
+
+    roof_north = Rooftop(parent=tz)
+    roof_north.name = &#34;Roof_North&#34;
+    roof_north.area = 75.0
+    roof_north.orientation = 0.0
+    roof_north.tilt = 55.0
+    roof_north.inner_convection = 1.7
+    roof_north.outer_convection = 20.0
+    roof_north.inner_radiation = 5.0
+    roof_north.outer_radiation = 5.0
+
+    # To define the wall constructions we need to instantiate Layer and
+    # Material objects and set attributes. id indicates the order of wall
+    # construction from inside to outside (so 0 is on the inner surface). You
+    # need to set this value!
+
+    from teaser.logic.buildingobjects.buildingphysics.layer import Layer
+
+    # First layer south
+
+    layer_s1 = Layer(parent=roof_south, id=0)
+    layer_s1.thickness = 0.3
+
+    from teaser.logic.buildingobjects.buildingphysics.material import Material
+
+    material_s1 = Material(layer_s1)
+    material_s1.name = &#34;Insulation&#34;
+    material_s1.density = 120.0
+    material_s1.heat_capac = 0.04
+    material_s1.thermal_conduc = 1.0
+
+    # Second layer south
+
+    layer_s2 = Layer(parent=roof_south, id=1)
+    layer_s2.thickness = 0.15
+
+    material_s2 = Material(layer_s2)
+    material_s2.name = &#34;Tile&#34;
+    material_s2.density = 1400.0
+    material_s2.heat_capac = 0.6
+    material_s2.thermal_conduc = 2.5
+
+    # First layer north
+
+    layer_n1 = Layer(parent=roof_north, id=0)
+    layer_n1.thickness = 0.3
+
+    from teaser.logic.buildingobjects.buildingphysics.material import Material
+
+    material_n1 = Material(layer_n1)
+    material_n1.name = &#34;Insulation&#34;
+    material_n1.density = 120.0
+    material_n1.heat_capac = 0.04
+    material_n1.thermal_conduc = 1.0
+
+    # Second layer north
+
+    layer_n2 = Layer(parent=roof_north, id=1)
+    layer_n2.thickness = 0.15
+
+    material_n2 = Material(layer_n2)
+    material_n2.name = &#34;Tile&#34;
+    material_n2.density = 1400.0
+    material_n2.heat_capac = 0.6
+    material_n2.thermal_conduc = 2.5
+
+    # Another option is to use the database for typical wall constructions,
+    # but set area, tilt, orientation individually. To simplify code,
+    # we save individual information for exterior walls, interior walls into
+    # dictionaries.
+    # outer walls
+    # {&#39;name_of_wall&#39;: [area, tilt, orientation]}
+    # interior walls
+    # {&#39;name_of_wall&#39;: [area, tilt, orientation]}
+
+    from teaser.logic.buildingobjects.buildingphysics.outerwall import OuterWall
+
+    out_wall_dict = {&#34;OuterWall_north&#34;: [10.0, 90.0, 0.0],
+                     &#34;OuterWall_east&#34;: [14.0, 90.0, 90.0],
+                     &#34;OuterWall_south&#34;: [10.0, 90.0, 180.0],
+                     &#34;OuterWall_west&#34;: [14.0, 90.0, 270.0]}
+
+    # For ground floors the orientation is always -2
+
+    ground_floor_dict = {&#34;GroundFloor&#34;: [100.0, 0.0, -2]}
+
+    from teaser.logic.buildingobjects.buildingphysics.innerwall import InnerWall
+
+    in_wall_dict = {&#34;InnerWall1&#34;: [10.0],
+                    &#34;InnerWall2&#34;: [14.0],
+                    &#34;InnerWall3&#34;: [10.0]}
+
+    for key, value in out_wall_dict.items():
+        # Instantiate class, key is the name
+        out_wall = OuterWall(parent=tz)
+        out_wall.name = key
+        # Use load_type_element() function of the building element, and pass
+        # over the year of construction of the building and the type of
+        # construction (in this case `heavy`).
+
+        out_wall.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+
+        # area, tilt and orientation need to be set individually.
+
+        out_wall.area = value[0]
+        out_wall.tilt = value[1]
+        out_wall.orientation = value[2]
+
+    # Repeat the procedure for inner walls and ground floors
+
+    for key, value in in_wall_dict.items():
+
+        in_wall = InnerWall(parent=tz)
+        in_wall.name = key
+        in_wall.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+        in_wall.area = value[0]
+
+    from teaser.logic.buildingobjects.buildingphysics.groundfloor import \
+        GroundFloor
+
+    for key, value in ground_floor_dict.items():
+
+        ground = GroundFloor(parent=tz)
+        ground.name = key
+        ground.load_type_element(
+            year=bldg.year_of_construction,
+            construction=&#39;heavy&#39;)
+        ground.area = value[0]
+        ground.tilt = value[1]
+        ground.orientation = value[2]
+
+    from teaser.logic.buildingobjects.buildingphysics.window import Window
+
+    win_dict = {&#34;Window_east&#34;: [5.0, 90.0, 90.0],
+                &#34;Window_south&#34;: [8.0, 90.0, 180.0],
+                &#34;Window_west&#34;: [5.0, 90.0, 270.0]}
+
+    for key, value in win_dict.items():
+
+        win = Window(parent=tz)
+        win.name = key
+        win.area = value[0]
+        win.tilt = value[1]
+        win.orientation = value[2]
+
+        # Additional to the already known attributes the window has
+        # additional attributes. Window.g_value describes the solar gain
+        # through windows, a_conv the convective heat transmission due to
+        # absorption of the window on the inner side. shading_g_total and
+        # shading_max_irr refers to the shading (solar gain reduction of the
+        # shading and shading_max_irr the threshold of irradiance to
+        # automatically apply shading).
+
+        win.inner_convection = 1.7
+        win.inner_radiation = 5.0
+        win.outer_convection = 20.0
+        win.outer_radiation = 5.0
+        win.g_value = 0.789
+        win.a_conv = 0.03
+        win.shading_g_total = 0.0
+        win.shading_max_irr = 180.0
+
+        # One equivalent layer for windows
+
+        win_layer = Layer(parent=win)
+        win_layer.id = 1
+        win_layer.thickness = 0.024
+
+        # Material for glass
+
+        win_material = Material(win_layer)
+        win_material.name = &#34;GlasWindow&#34;
+        win_material.thermal_conduc = 0.067
+        win_material.transmittance = 0.9</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.examples" href="index.html">teaser.examples</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="teaser.examples.e6_generate_building.example_create_building" href="#teaser.examples.e6_generate_building.example_create_building">example_create_building</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

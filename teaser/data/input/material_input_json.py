@@ -19,7 +19,7 @@ def load_material(material, mat_name, data_class):
         Code list for Material
 
     data_class : DataClass()
-        DataClass containing the bindings for TypeBuildingElement and
+        DataClass containing the bindings for TypeBuildingElement, LCA-data and
         Material (typically this is the data class stored in prj.data,
         but the user can individually change that.
 
@@ -58,7 +58,7 @@ def load_material_id(material, mat_id, data_class):
         id of material from JSON
 
     data_class : DataClass()
-        DataClass containing the bindings for TypeBuildingElement and
+        DataClass containing the bindings for TypeBuildingElement, LCA-data and
         Material (typically this is the data class stored in prj.data,
         but the user can individually change that.
 

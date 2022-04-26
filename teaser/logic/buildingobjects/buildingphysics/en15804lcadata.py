@@ -1,30 +1,32 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 25 15:33:51 2021
-
-@author: Linus
-"""
+# -*- coding: utf-8 -"*-
+"""This module includes the En15804LcaData-class"""
 
 import uuid
 
 from teaser.logic.buildingobjects.buildingphysics.en15804indicatorvalue import En15804IndicatorValue
 
 import teaser.data.input.lca_data_input as lca_data_input
+import teaser.data.output.lca_data_output as lca_data_output
 
 class En15804LcaData(object):
     """En15804LcaData class
     
-    This class can be used to store environmental indicators according to 
-    EN 15804 
+    This class can be used to store environmental product declarations
+    according to EN 15804. All 25 environmental indicators of EN 15804 
+    can be specified.
     
     Parameters
     ----------
     
-    parent : XXX, optional
-        Default is None
+    parent : object, optional
+        parent of the object. Default is None
     
     Attributes
     ----------
+        lca_data_id : str
+            universally unique identifier of the LCA-dataset
+        name : str
+            name of the EPD (e.g. name of the material)
         ref_flow_value : float [-]
             value of the reference flow
         ref_flow_unit : str
@@ -80,9 +82,10 @@ class En15804LcaData(object):
         adpf : En15804IndicatorValue [MJ]
             Abiotic depletion potential for fossil resources 
         fallback : dict
-            Dictonarie with stages as key and LCA-Datasets as values
+            Dictonarie with stages as key and LCA-datasets as values. 
+            The LCA dataset serves as the fallback for the specified stage
         _fallback_added : boolean
-            is True if the fallbacks allready added to "lca_data"
+            is True when fallbacks allready added to "lca_data"
     """
     def __init__(self, parent = None):
       
@@ -125,8 +128,9 @@ class En15804LcaData(object):
         
         
     def _check_unit(self, unit, unit_expected, var_name = None):
-        """function to check if unit
-
+        """function to check if unit equals the excpected unit. The  
+        name of the checked variable can be passed for the error-message
+        
         Parameters
         ----------
         unit : str
@@ -134,7 +138,8 @@ class En15804LcaData(object):
         unit_expected : str
             unit to be expected
         var_name : str, optional
-            Name of the Variable to display Error. The default is None.
+            Name of the Variable used for the error-message. The default is 
+            None.
 
         Returns
         -------
@@ -152,6 +157,23 @@ class En15804LcaData(object):
             return(False)
         
     def _check_en15804indicatorvalue_class(self, value, var_name = None):
+        """fuction to check if value is En15804IndicatorValue-Object. The  
+        namf of the checked variable can be passed for the error-message
+        
+
+        Parameters
+        ----------
+        value : En15804IndicatorValue
+            value to be checked
+        var_name : str, optional
+            Name of the Variable used for the error-message. The default is 
+            None.
+
+        Returns
+        -------
+        Boolean
+
+        """
 
         if value:
             if isinstance(value, En15804IndicatorValue): 
@@ -502,7 +524,8 @@ class En15804LcaData(object):
                 "ap": self._ignore_none_mul(self.ap , scalar),
                 "ep": self._ignore_none_mul(self.ep , scalar),
                 "adpe": self._ignore_none_mul(self.adpe , scalar),
-                "adpf": self._ignore_none_mul(self.adpf , scalar)
+                "adpf": self._ignore_none_mul(self.adpf , scalar),
+                "unit": self.ref_flow_unit
                 }
         
         new = En15804LcaData()
@@ -512,6 +535,19 @@ class En15804LcaData(object):
 
         
     def __add__(self, other):
+        """function to add two En15804LcaData-Objects.
+
+        Parameters
+        ----------
+        other : En15804LcaData
+            other En15804LcaData-Object to be added
+
+        Returns
+        -------
+        new : En15804LcaData
+            sum of other En15804LcaData-Object and self.
+
+        """
         
         if isinstance(other, En15804LcaData):
 
@@ -558,8 +594,10 @@ class En15804LcaData(object):
         lca_id : str
             LCA-data Identifier
 
-        data_class : DataClass()
-            
+        data_class : DataClass
+            DataClass containing the bindings for LCA-data and LCA-data
+            -fallbacks (typically this is the data class stored in prj.data,
+            but the user can individually change that.)
 
         """
         
@@ -570,7 +608,46 @@ class En15804LcaData(object):
                                      lca_id=lca_id,
                                      data_class=data_class)
         
+    def save_lca_data_template(self, data_class=None):
+        """LCA-data loader.
+
+        Saves LCA-data specified in the json.
+
+        Parameters
+        ----------
+
+        data_class : DataClass
+            DataClass containing the bindings for LCA-data and LCA-data
+            -fallbacks (typically this is the data class stored in prj.data,
+            but the user can individually change that.)
+
+        """
+        
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        
+
+        lca_data_output.save_lca_data(lca_data=self,
+                                     data_class=data_class)
+        
     def load_fallbacks(self, fallback_dictonarie, data_class):
+        """procedure to load fallbacks specified in the fallback-dictonarie
+        into the self.fallback attribute
+
+        Parameters
+        ----------
+        fallback_dictonarie : dict
+            Dictonarie with stages as key and LCA-dataset-uuid as value
+        data_class : DataClass
+            DataClass containing the bindings for LCA-data and LCA-data
+            -fallbacks (typically this is the data class stored in prj.data,
+            but the user can individually change that.)
+
+        Returns
+        -------
+        None.
+
+        """
         if fallback_dictonarie:
             self.fallback = {}
             for stage in fallback_dictonarie:
@@ -594,8 +671,10 @@ class En15804LcaData(object):
         lca_id : str
             LCA-Data Identifier
 
-        data_class : DataClass()
-            
+        data_class : DataClass
+            DataClass containing the bindings for LCA-data and LCA-data
+            -fallbacks (typically this is the data class stored in prj.data,
+            but the user can individually change that.)
 
         """
 
@@ -607,8 +686,9 @@ class En15804LcaData(object):
                                      data_class=data_class)
         
     def convert_ref_unit(self, target_unit, area = None, thickness = None, density = None):
-        """converts the values of the environmental indicators to a new unit.
-        All parameters are optional and used only, if necessary for the conversion. 
+        """converts the values of the environmental indicators to a new 
+        reference unit. All parameters are optional and are only used if they 
+        are necessary for the conversion.
         
 
         Parameters
@@ -616,7 +696,7 @@ class En15804LcaData(object):
         target_unit : str
             target unit of the conversion
         area : float, optional
-            area (e.g. area of a buildingelement / a layer)
+            area (e.g. area of a buildingelement)
         thickness : float, optional
             thickness (e.g. thickness of a layer). The default is None.
         density : float, optional
@@ -625,7 +705,7 @@ class En15804LcaData(object):
         Returns
         -------
         result : En15804LcaData
-            LCA-Data in new unit.
+            LCA-Data with new reference flow
 
         """
         result = En15804LcaData()
@@ -646,8 +726,8 @@ class En15804LcaData(object):
                 
             else:
                 scalar = 1
-                target_unit = self.unit
-                raise ValueError("Unable to convert unit into target unit!")
+                target_unit = self.ref_flow_unit
+                raise ValueError("Unable to convert {} into {}!".format(self.ref_flow_unit, target_unit))
         
         elif target_unit == "kg":
             
@@ -660,6 +740,10 @@ class En15804LcaData(object):
                 scalar = 1
                 target_unit = self.unit
                 raise ValueError("Unable to convert unit into target unit!")
+        
+        elif target_unit == "m^2":
+            if self.ref_flow_unit == "m^3":
+                scalar = 1/thickness
             
         scalar = scalar / self.ref_flow_value
         result = self * scalar
@@ -670,13 +754,13 @@ class En15804LcaData(object):
             
     def sum_to_b4(self):
         """function to sum up all every stage indicators to stage
-        B4; replacement
+        B4 'replacement'
         
 
         Returns
         -------
         result : En15804LcaData()
-            LCA-data with all stages sumed up in b4
+            LCA-data with all stages sumed up to B4
 
         """
         
@@ -765,8 +849,9 @@ class En15804LcaData(object):
         return result
     
     def add_fallbacks(self):
-        """adds the lca-data-fallbacks to the attribute "lca_data". The
-        attribute "_fallback_added" is True, if the fallbacks are allready added
+        """adds the indicators from the lca-data-fallbacks specified in 
+        self.fallback to the matching stages of self.The attribute 
+        "_fallback_added" is True, if the fallbacks are allready added
 
         Returns
         -------
@@ -811,12 +896,14 @@ class En15804LcaData(object):
                     
                         self.fallback[stage].convert_ref_unit(
                             target_unit = self.ref_flow_unit,
-                            density = self.parent.density                            
+                            density = self.parent.density,
+                            thickness = self.parent.parent.thickness                           
                             )
-                        
+                    
                     except:
-                        print("Error while trying to convert fallback reference unit",
-                              "{} to {}".format(self.fallback[stage].ref_flow_unit, self.ref_flow_unit))
+                        
+                        print("Error while trying to convert fallback {} of {} reference unit".format(self.fallback[stage].lca_data_id, self.lca_data_id),
+                             "{} to {}".format( self.fallback[stage].ref_flow_unit, self.ref_flow_unit))
                         
                         self.pere = pere_backup
                         self.pert = pert_backup

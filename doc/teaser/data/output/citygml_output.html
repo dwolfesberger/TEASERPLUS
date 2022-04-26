@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.data.output.citygml_output API documentation</title>
+<meta name="description" content="CityGML …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.data.output.citygml_output</code></h1>
+</header>
+<section id="section-intro">
+<p>CityGML</p>
+<p>This module contains function to save and load Projects in the non proprietary
+CityGML file format .gml</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># Created October 2015
+# TEASER Development Team
+
+&#34;&#34;&#34;CityGML
+
+This module contains function to save and load Projects in the non proprietary
+CityGML file format .gml
+&#34;&#34;&#34;
+import re
+import os
+import lxml.etree as ET
+from datetime import date, datetime
+import uuid
+import teaser.data.output.citygml_classes as cl
+import pyxb
+import pyxb.utils
+import pyxb.namespace
+import pyxb.bundles
+import pyxb.binding as bd
+import pyxb.bundles.common.raw.xlink as xlink
+import pandas as pd
+
+
+def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=None):
+    &#34;&#34;&#34;Based on CityGML Building export from CityBIT&#34;&#34;&#34;
+
+    crs = &#34;urn:adv:crs:ETRS89_UTM32*DE_DHHN2016_NH*GCG2016&#34;
+
+    global nsClass
+    nsClass = cl.CGML2
+
+    # creating new namespacemap
+    newNSmap = {&#39;core&#39;: nsClass.core, &#39;gen&#39;: nsClass.gen, &#39;grp&#39;: nsClass.grp, &#39;app&#39;: nsClass.app, &#39;bldg&#39;: nsClass.bldg,
+                &#39;gml&#39;: nsClass.gml, &#39;xal&#39;: nsClass.xal, &#39;xlink&#39;: nsClass.xlink, &#39;xsi&#39;: nsClass.xsi,
+                &#39;energy&#39;: nsClass.energy}
+    schemaLocation = &#34;http://www.opengis.net/citygml/2.0 http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyADE.xsd&#34;
+
+    # creating new root element
+    global nroot_E
+    nroot_E = ET.Element(ET.QName(nsClass.core, &#39;CityModel&#39;),
+                         attrib={&#34;{&#34; + nsClass.xsi + &#34;}schemaLocation&#34;:schemaLocation}, nsmap=newNSmap)
+
+    # creating name element
+    name_E = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;name&#39;), nsmap={&#39;gml&#39;: nsClass.gml})
+    name_E.text = &#39;created using the e3D TEASERplus&#39;
+
+    &#34;&#34;&#34;set boundary box&#34;&#34;&#34;
+    if ref_coordinates is not None:
+        boundedBy = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;boundedBy&#39;), nsmap={&#39;gml&#39;: nsClass.gml})
+        boundedBy.append(ref_coordinates)
+    else:
+        bldg_center = [0, 0, 0]
+        pass
+
+    &#34;&#34;&#34;create new cityObjectMember here&#34;&#34;&#34;
+    cityObjectMember_E = ET.SubElement(nroot_E, ET.QName(nsClass.core, &#39;cityObjectMember&#39;))
+
+    for i, bldg_count in enumerate(project.buildings):
+        gmlID = &#34;e3D_TEASERplus_&#34; + str(bldg_count.internal_id)
+
+        if gml_copy is None or re.match(r&#34;(\w+)bt_&#34;, bldg_count.name):
+
+            gml_bldg = ET.SubElement(cityObjectMember_E, ET.QName(nsClass.bldg, &#39;Building&#39;),
+                                       attrib={ET.QName(nsClass.gml, &#39;id&#39;): gmlID})
+
+            _set_gml_building_lxml(gml_bldg, nsClass, bldg_count, ET)
+
+            &#34;&#34;&#34;for testing the loop&#34;&#34;&#34;
+            if results is not None:
+                _save_simulation_results(gml_bldg, results=results)
+
+            bldg_center = [i * 80, 0, 0]
+
+            if type(bldg_count).__name__ == &#34;SingleFamilyDwelling&#34;:
+                building_length = (bldg_count.thermal_zones[0].area /
+                                   bldg_count.thermal_zones[0].typical_width)
+                building_width = bldg_count.thermal_zones[0].typical_width
+                building_height = (bldg_count.number_of_floors *
+                                   bldg_count.height_of_floors)
+
+            else:
+                building_width = 0.05 * (bldg_count.net_leased_area /
+                                         bldg_count.number_of_floors)
+                building_length = (bldg_count.net_leased_area /
+                                   bldg_count.number_of_floors) / building_width
+                building_height = (bldg_count.number_of_floors *
+                                   bldg_count.height_of_floors)
+
+            _set_lod_2_lxml(gml_bldg, building_length, building_width, building_height, bldg_center, nsClass, None)
+
+        else:
+            cityObjectMember_E.append(gml_copy[i])
+            tree = ET.ElementTree(nroot_E)
+
+            # writing file
+            print(&#39;writing file temp file&#39;)
+            tree.write(os.path.join(path), pretty_print=True, xml_declaration=True,
+                       encoding=&#39;utf-8&#39;, standalone=&#39;yes&#39;, method=&#34;xml&#34;)
+            with open(path, &#39;r&#39;) as xml_file:
+                parser = ET.XMLParser(remove_blank_text=True)
+                tree = ET.parse(xml_file, parser=parser)
+                nroot_E = tree.getroot()
+                namespace = nroot_E.nsmap
+                gml_bldg = nroot_E.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)[0]
+
+            if results is not None:
+                _save_simulation_results(gml_bldg, results=results)
+
+        for zone_count in bldg_count.thermal_zones:
+            _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
+            PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
+
+            if gml_copy is None:
+                tree = ET.ElementTree(nroot_E)
+
+            &#34;&#34;&#34;writing file&#34;&#34;&#34;
+            print(&#39;writing file&#39;)
+            tree.write(os.path.join(path), pretty_print=True, xml_declaration=True,
+                       encoding=&#39;utf-8&#39;, standalone=&#39;yes&#39;, method=&#34;xml&#34;)
+
+
+def _set_gml_building_lxml(gml_bldg, nsClass, teaser_building, ET):
+    &#34;&#34;&#34;Creates an instance of a citygml Building with attributes
+
+        creates a citygml.building.Building object. And fills the attributes of
+        this instance with attributes of the TEASER building
+
+        Parameters
+        ----------
+
+        teaser_building : Building Object of TEASER
+            Instance of a TEASER object with set attributes
+
+        Returns
+        -------
+
+        gml_bldg : citygml.building.Building() object
+            Returns a citygml Building with attributes
+        &#34;&#34;&#34;
+
+# gml_bldg = ET.SubElement(cityObjectMember_E, ET.QName(nsClass.bldg, &#39;Building&#39;),
+#                                        attrib={ET.QName(nsClass.gml, &#39;id&#39;): gmlID})
+
+    ET.SubElement(gml_bldg, ET.QName(nsClass.gml,
+                                       &#39;description&#39;)).text = &#39;created using the e3D TEASER+&#39;
+
+    # building attributes
+    ET.SubElement(gml_bldg, ET.QName(nsClass.gml, &#39;name&#39;)).text = teaser_building.name
+    ET.SubElement(gml_bldg, ET.QName(nsClass.core, &#39;creationDate&#39;)).text = str(date.today())
+    ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;function&#39;)).text = str(teaser_building.type_of_building)
+    ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;yearOfConstruction&#39;)).text = \
+        str(teaser_building.year_of_construction)
+    ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;roofType&#39;), attrib={
+        &#39;codeSpace&#39;: &#39;http://www.sig3d.org/codelists/citygml/2.0/building/2.0/_AbstractBuilding_roofType.xml&#39;})\
+        .text = str(1000)
+    ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;measuredHeight&#39;), attrib={&#39;uom&#39;: &#34;m&#34;}).text = \
+        str(teaser_building.number_of_floors * teaser_building.height_of_floors)
+    ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;storeysAboveGround&#39;)).text = \
+        str(teaser_building.number_of_floors)
+
+
+def _set_reference_boundary(gml_out, lower_coords, upper_coords):
+    &#34;&#34;&#34;Adds a reference coordinate system with `Envelope`&#39;s corners
+
+    The gml file includes a reference coordinate system defined in the
+    `boundedBy` object, within which the `Envelope` object contains both a
+    `lowerCorner` and an `upperCorner`. Both corners extend
+    `gml.DirectPositionType`. This method sets all necessary parts of the
+    `boundedBy` in a given gml file.
+
+    Parameters
+    ----------
+
+    gml_out : citygml.CityModel() object
+        A CityModel object, where citygml is a reference to
+        `pyxb.bundles.opengis.citygml.base`. The reference coordinate system
+        will be added to this object.
+    lower_coords : list
+        A list that contains the coordinates of the point for the
+        `lowerCorner` definition. It should contain 3 ints or floats for
+        x, y, and z coordinates of the point.
+    upper_coords : list
+        A list that contains the coordinates of the point for the
+        `upperCorner` definition. It should contain 3 ints or floats for
+        x, y, and z coordinates of the point.
+
+    Returns
+    -------
+
+    gml_out : citygml.CityModel() object
+        Returns the modified CityModel object
+    &#34;&#34;&#34;
+    assert len(lower_coords) == 3, &#39;lower_coords must contain 3 elements&#39;
+    assert len(upper_coords) == 3, &#39;lower_coords must contain 3 elements&#39;
+
+    reference_bound = gml.boundedBy()
+
+    reference_envelope = gml.Envelope()
+    reference_envelope.srsDimension = 3
+    reference_envelope.srsName = &#39;urn:adv:crs:ETRS89_UTM32&#39;
+
+    lower_corner = gml.DirectPositionType(lower_coords)
+    lower_corner.srsDimension = 3
+    reference_envelope.lowerCorner = lower_corner
+    upper_corner = gml.DirectPositionType(upper_coords)
+    upper_corner.srsDimension = 3
+    reference_envelope.upperCorner = upper_corner
+
+    reference_bound.Envelope = reference_envelope
+    gml_out.boundedBy = reference_bound
+
+    return gml_out
+
+
+def _set_lod_2_lxml(gml_bldg, length, width, height, bldg_center, nsClass, PolyIDs):
+    &#34;&#34;&#34;Adds a LOD 2 representation of the building based on building length,
+    width and height
+
+    alternative way to handle building position
+
+    Parameters
+    ----------
+
+    gml_bldg : bldg.Building() object
+        A building object, where bldg is a reference to
+        `pyxb.bundles.opengis.citygml.building`.
+    length : float
+        length of the building
+    width : float
+        width of the building
+    height : float
+        height of the building
+    bldg_center : list
+        coordinates in the reference system of the building center
+
+
+    &#34;&#34;&#34;
+
+    # Ground surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    groundSurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;GroundSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): groundSurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;GroundSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    bldg_center[0] -= length / 2
+    bldg_center[1] -= width / 2
+
+    coords = [[bldg_center[0], bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], width + bldg_center[1], bldg_center[2]],
+              [bldg_center[0], width + bldg_center[1], bldg_center[2]]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+    # Roof surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    roofSurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;RoofSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): roofSurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;RoofSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    coords = [[bldg_center[0], bldg_center[1], bldg_center[2] + height],
+              [length + bldg_center[0], bldg_center[1],
+               bldg_center[2] + height],
+              [length + bldg_center[0], width + bldg_center[1],
+               bldg_center[2] + height],
+              [bldg_center[0], width + bldg_center[1], bldg_center[2] + height]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+    # Side a surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    wall_a_SurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;WallSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): wall_a_SurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;WallSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    coords = [[bldg_center[0], bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], bldg_center[1],
+               bldg_center[2] + height],
+              [bldg_center[0], bldg_center[1], bldg_center[2] + height]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+    # Side b surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    wall_b_SurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;WallSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): wall_b_SurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;WallSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    coords = [[bldg_center[0], width + bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], width + bldg_center[1],
+               bldg_center[2]],
+              [length + bldg_center[0], width + bldg_center[1],
+               bldg_center[2] + height],
+              [bldg_center[0], width + bldg_center[1], bldg_center[2] + height]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+    # Side c surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    wall_c_SurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;WallSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): wall_c_SurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;WallSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    coords = [[bldg_center[0], bldg_center[1], bldg_center[2]],
+              [bldg_center[0], width + bldg_center[1], bldg_center[2]],
+              [bldg_center[0], width + bldg_center[1], bldg_center[2] + height],
+              [bldg_center[0], bldg_center[1], bldg_center[2] + height]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+    # Side d surface
+
+    boundedBy_E = ET.SubElement(gml_bldg, ET.QName(nsClass.bldg, &#39;boundedBy&#39;))
+    wall_d_SurfaceID = &#34;GML_&#34; + str(uuid.uuid1())
+    wallRoofGround_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.bldg, &#39;WallSurface&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): wall_d_SurfaceID})
+    ET.SubElement(wallRoofGround_E, ET.QName(nsClass.gml, &#39;name&#39;)).text = &#39;WallSurface&#39;
+    lodnMultisurface_E = ET.SubElement(wallRoofGround_E, ET.QName(nsClass.bldg, &#39;lod2MultiSurface&#39;))
+    multiSurface_E = ET.SubElement(lodnMultisurface_E, ET.QName(nsClass.gml, &#39;MultiSurface&#39;))
+    surfaceMember_E = ET.SubElement(multiSurface_E, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+
+    coords = [[length + bldg_center[0], bldg_center[1], bldg_center[2]],
+              [length + bldg_center[0], width + bldg_center[1],
+               bldg_center[2]],
+              [length + bldg_center[0], width + bldg_center[1],
+               bldg_center[2] + height],
+              [length + bldg_center[0], bldg_center[1],
+               bldg_center[2] + height]]
+
+    polyID = str(uuid.uuid1())
+
+    _add_surface_lxml(surfaceMember_E, nsClass, coords, polyID)
+
+
+def _add_surface_lxml(multi_surface, nsClass, coords, polyID):
+    assert len(coords) == 4, &#39;coords must contain 4 elements&#39;
+    for coord in coords:
+        assert len(coord) == 3, &#39;Each coord list should contain 3 elements&#39;
+
+    surfaceMember_E = ET.SubElement(multi_surface, ET.QName(nsClass.gml, &#39;surfaceMember&#39;))
+    polygon_E = ET.SubElement(surfaceMember_E, ET.QName(nsClass.gml, &#39;Polygon&#39;),
+                              attrib={ET.QName(nsClass.gml, &#39;id&#39;): polyID})
+    exterior_E = ET.SubElement(polygon_E, ET.QName(nsClass.gml, &#39;exterior&#39;))
+    ring_id = polyID + &#39;_0&#39;
+    linearRing_E = ET.SubElement(exterior_E, ET.QName(nsClass.gml, &#39;LinearRing&#39;),
+                                 attrib={ET.QName(nsClass.gml, &#39;id&#39;): ring_id})
+
+    input_list = []
+    for coord in coords:
+        for value in coord:
+            input_list.append(value)
+    for value in coords[0]:
+        input_list.append(value)
+
+    stringed = [str(j) for j in input_list]
+    ET.SubElement(linearRing_E, ET.QName(nsClass.gml, &#39;posList&#39;)).text = &#39; &#39;.join(stringed)
+
+
+def _set_gml_volume_lxml(gml_bldg, nsClass, thermal_zone, ET):
+
+    # declaring Volume Object
+
+    gml_volume = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, &#39;volume&#39;))
+    gml_volume_type = ET.SubElement(gml_volume, ET.QName(nsClass.energy, &#39;VolumeType&#39;))
+    ET.SubElement(gml_volume_type, ET.QName(nsClass.energy, &#39;type&#39;)).text = &#34;grossVolume&#34;
+    ET.SubElement(gml_volume_type, ET.QName(nsClass.energy, &#39;value&#39;), attrib={&#39;uom&#39;: &#34;m3&#34;}).text \
+        = str(thermal_zone.volume)
+
+
+def _set_gml_floor_area_lxml(gml_bldg, nsClass,thermal_zone, ET):
+
+    # declaring Floor Area Object
+
+    gml_floor_area = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, &#39;floorArea&#39;))
+    gml_floor_area_type = ET.SubElement(gml_floor_area, ET.QName(nsClass.energy, &#39;FloorArea&#39;))
+    ET.SubElement(gml_floor_area_type, ET.QName(nsClass.energy, &#39;type&#39;)).text = &#34;grossFloorArea&#34;
+    ET.SubElement(gml_floor_area_type, ET.QName(nsClass.energy, &#39;value&#39;), attrib={&#39;uom&#39;: &#34;m2&#34;}).text \
+        = str(thermal_zone.area)
+
+
+def _set_gml_thermal_zone_lxml(gml_bldg, nsClass, thermal_zone, ET):
+
+    thermal_zone_id = str(&#34;GML_&#34; + str(thermal_zone.internal_id))
+    usage_zone_id = str(&#34;GML_&#34; + str(thermal_zone.use_conditions.internal_id))
+    gml_thermal_zone = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, &#39;thermalZone&#39;))
+    gml_Thermal_Zone = ET.SubElement(gml_thermal_zone, ET.QName(nsClass.energy, &#39;ThermalZone&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): thermal_zone_id})
+    ET.SubElement(gml_Thermal_Zone, ET.QName(nsClass.energy, &#39;contains&#39;),
+                  attrib={ET.QName(nsClass.xlink, &#39;href&#39;): str(&#39;#&#39;+usage_zone_id)})
+    _set_gml_floor_area_lxml(gml_Thermal_Zone, nsClass, thermal_zone, ET)
+    _set_gml_volume_lxml(gml_Thermal_Zone, nsClass, thermal_zone, ET)
+    ET.SubElement(gml_Thermal_Zone, ET.QName(nsClass.energy, &#39;isCooled&#39;)).text = &#34;false&#34;
+    ET.SubElement(gml_Thermal_Zone, ET.QName(nsClass.energy, &#39;isHeated&#39;)).text = &#34;true&#34;
+    gml_volume_geometry = ET.SubElement(gml_Thermal_Zone, ET.QName(nsClass.energy, &#39;volumeGeometry&#39;))
+    # solid = ET.SubElement(gml_volume_geometry, ET.QName(nsClass.gml, &#39;Solid&#39;),
+    #                                  attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(thermal_zone_id + &#34;_solid&#34;)})
+
+    polyIDs, exteriorSurfaces = _set_composite_surface(gml_volume_geometry, nsClass, thermal_zone, ET)
+
+    &#34;&#34;&#34;Set Usage zone for thermal zone&#34;&#34;&#34;
+    _set_usage_zone_lxml(thermal_zone, gml_bldg, usage_zone_id)
+
+    &#34;&#34;&#34;Set boundary Surfaces&#34;&#34;&#34;
+
+    construction_id_windows = None
+    material_ids = []
+
+    for i in range(len(exteriorSurfaces)):
+        if i == 0:
+            surfaceType = &#39;WallSurface&#39;
+            construction_id = None
+
+        elif i == 1:
+            surfaceType = &#39;RoofSurface&#39;
+            construction_id = None
+
+        elif i == 2:
+            surfaceType = &#39;GroundSurface&#39;
+            construction_id = None
+
+
+        for surface in exteriorSurfaces[i]:
+            thermal_openings = []
+
+            for win_count in thermal_zone.windows:
+                if surface.orientation == win_count.orientation and surface.tilt == win_count.tilt:
+                    thermal_openings.append(win_count)
+            construction_id, construction_id_windows = \
+                _set_gml_thermal_boundary_lxml(gml_Thermal_Zone, surface, thermal_openings, nsClass, construction_id,
+                                               construction_id_windows, material_ids, thermal_zone_id)
+
+    return polyIDs
+
+
+def _set_composite_surface(solid, nsClass, thermal_zone, ET):
+
+    exteriorSurfaces = [thermal_zone.outer_walls, thermal_zone.rooftops, thermal_zone.ground_floors]
+    polyIDs = []
+    n = 0
+    UUID = uuid.uuid1()
+    for dictionary in exteriorSurfaces:
+        for key in dictionary:
+            ID = &#34;PolyID&#34; + str(UUID) + &#39;_&#39; + str(n)
+            polyIDs.append(ID)
+            hashtagedID = &#39;#&#39; + ID
+            # ET.SubElement(solid, ET.QName(nsClass.gml, &#39;surfaceMember&#39;),
+            #               attrib={ET.QName(nsClass.xlink, &#39;href&#39;): hashtagedID})
+            n -= - 1
+    return polyIDs, exteriorSurfaces
+
+
+def _set_gml_thermal_boundary_lxml(gml_zone, wall, thermal_openings, nsClass, construction_id,
+                                   construction_id_windows, material_ids, thermal_zone_id):
+    &#34;&#34;&#34;Control function to add a thermal boundary surface to the thermal zone
+
+    The thermal zone instance of citygml is modified and thermal boundary
+    surfaces are added. The thermal boundaries are chosen according to their
+    type (OuterWall, InnerWall, Roof, etc.). For outer walls (including roof)
+    the thermal boundary is returned to add windows (Thermal Openings).
+
+    Parameters
+    ----------
+
+    gml_zone : energy.thermalZones() object
+        A thermalZone object, where energy is a reference to
+        `pyxb.bundles.opengis.citygml.energy`.
+
+    wall : TEASER instance of Wall()
+        Teaser instance of Wall or its inherited classes
+
+    thermal_openings: List of TEASER instances of Window() or Door()
+        Teaser instance of BuildingElement or its inherited classes
+    Returns
+    ----------
+
+    _current_tb : energy.ThermalBoundarySurface()
+        A ThermalBoundarySurface object with semantic information
+        (area, azimuth, inclination etc.)
+
+    &#34;&#34;&#34;
+    _current_tb = None
+    if type(wall).__name__ == &#34;OuterWall&#34;:
+
+        thermal_boundary_type_value = &#34;outerWall&#34;
+
+
+    elif type(wall).__name__ == &#34;Rooftop&#34;:
+        thermal_boundary_type_value = &#34;roof&#34;
+
+
+    elif type(wall).__name__ == &#34;GroundFloor&#34;:
+
+        thermal_boundary_type_value = &#34;groundSlab&#34;
+
+    elif type(wall).__name__ == &#34;InnerWall&#34;:
+        thermal_boundary_type_value = &#34;intermediaryFloor&#34;
+
+
+    elif type(wall).__name__ == &#34;Ceiling&#34; or type(wall).__name__ == &#34;Floor&#34;:
+
+        thermal_boundary_type_value = &#34;interiorWall&#34;
+
+    else:
+        print(&#34;Strange Wall Surface detected!&#34;)
+
+    boundedBy_E = ET.SubElement(gml_zone, ET.QName(nsClass.energy, &#39;boundedBy&#39;))
+    thermal_boundary_E = ET.SubElement(boundedBy_E, ET.QName(nsClass.energy, &#39;ThermalBoundary&#39;),
+                                       attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(&#34;GML_&#34; + str(wall.internal_id))})
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;thermalBoundaryType&#34;)).text = \
+        thermal_boundary_type_value
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;azimuth&#34;), attrib={&#39;uom&#39;: &#34;deg&#34;}).text = \
+        str(wall.orientation)
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;inclination&#34;), attrib={&#39;uom&#39;: &#34;deg&#34;}).text = \
+        str(wall.tilt)
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;area&#34;), attrib={&#39;uom&#39;: &#34;m2&#34;}).text = \
+        str(wall.area)
+    if construction_id is None:
+        construction_id = _set_gml_construction_lxml(wall, material_ids)
+    else:
+        pass
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;construction&#34;), attrib={ET.QName(nsClass.xlink, &#39;href&#39;):
+                                                                                        str(&#34;#&#34; + str(construction_id))})
+
+    if thermal_openings is not None:
+        for thermal_opening in thermal_openings:
+            contains = ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;contains&#34;))
+            thermal_opening_E = ET.SubElement(contains, ET.QName(nsClass.energy, &#34;ThermalOpening&#34;),
+                                              attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(&#34;GML_&#34; + str(thermal_opening.internal_id))})
+            ET.SubElement(thermal_opening_E, ET.QName(nsClass.energy, &#34;area&#34;), attrib={&#39;uom&#39;: &#34;m2&#34;}).text = \
+                str(thermal_opening.area)
+            if construction_id_windows is None:
+                construction_id_windows = _set_gml_construction_lxml(thermal_opening, material_ids)
+            else:
+                pass
+            ET.SubElement(thermal_opening_E, ET.QName(nsClass.energy, &#34;construction&#34;),
+                          attrib={ET.QName(nsClass.xlink, &#39;href&#39;): str(&#34;#&#34; + construction_id_windows)})
+
+    ET.SubElement(thermal_boundary_E, ET.QName(nsClass.energy, &#34;delimits&#34;),
+                  attrib={ET.QName(nsClass.xlink, &#39;href&#39;): str(&#34;#&#34; + str(str(thermal_zone_id)))})
+
+    return construction_id, construction_id_windows
+
+
+def _set_gml_construction_lxml(element, material_ids):
+    construction_id = str(&#34;GML_&#34; + str(uuid.uuid1()))
+    feature_member = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;featureMember&#39;))
+    construction_gml = ET.SubElement(feature_member, ET.QName(nsClass.energy, &#39;Construction&#39;),
+                                     attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(construction_id)})
+    ET.SubElement(construction_gml, ET.QName(nsClass.gml, &#34;description&#34;)).text = \
+        str(type(element).__name__ +&#34;_construction&#34;)
+    ET.SubElement(construction_gml, ET.QName(nsClass.gml, &#34;name&#34;)).text = \
+        str(type(element).__name__ + &#34;_construction&#34;)
+    ET.SubElement(construction_gml, ET.QName(nsClass.energy, &#34;uValue&#34;), attrib={&#39;uom&#39;: &#34;W/K*m2&#34;}).text = \
+        str(element.ua_value / element.area)
+
+
+
+    for layer_count in element.layer:
+        layer_gml = ET.SubElement(construction_gml, ET.QName(nsClass.energy, &#34;layer&#34;))
+        Layer_gml = ET.SubElement(layer_gml, ET.QName(nsClass.energy, &#34;Layer&#34;),
+                                  attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(&#34;GML_&#34; + str(layer_count.internal_id))})
+        layer_comp = ET.SubElement(Layer_gml, ET.QName(nsClass.energy, &#34;layerComponent&#34;))
+        Layer_comp = ET.SubElement(layer_comp, ET.QName(nsClass.energy, &#34;LayerComponent&#34;),
+                                  attrib={ET.QName(nsClass.gml, &#39;id&#39;):
+                                              str(&#34;GML_&#34; + str(layer_count.internal_id) + &#34;_1&#34;)})
+        ET.SubElement(Layer_comp, ET.QName(nsClass.energy, &#34;areaFraction&#34;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = str(1)
+        ET.SubElement(Layer_comp, ET.QName(nsClass.energy, &#34;thickness&#34;), attrib={&#39;uom&#39;: &#34;m&#34;}).text = \
+            str(layer_count.thickness)
+        ET.SubElement(Layer_comp, ET.QName(nsClass.energy, &#39;material&#39;),
+                      attrib={ET.QName(nsClass.xlink, &#39;href&#39;):
+                                  str(&#34;#&#34; + &#34;GML_&#34; + layer_count.material.material_id)})
+
+        if layer_count.material.material_id in material_ids:
+            pass
+        else:
+            material_ids.append(layer_count.material.material_id)
+
+            feature_member_material = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;featureMember&#39;))
+            material_gml = ET.SubElement(feature_member_material, ET.QName(nsClass.energy, &#39;SolidMaterial&#39;),
+                                             attrib={ET.QName(nsClass.gml, &#39;id&#39;):
+                                                         str(&#34;GML_&#34; + layer_count.material.material_id)})
+            ET.SubElement(material_gml, ET.QName(nsClass.gml, &#34;description&#34;)).text = \
+                str(layer_count.material.name)
+            ET.SubElement(material_gml, ET.QName(nsClass.gml, &#34;name&#34;)).text = \
+                str(layer_count.material.name)
+            ET.SubElement(material_gml, ET.QName(nsClass.energy, &#34;conductivity&#34;), attrib={&#39;uom&#39;: &#34;W/K*m&#34;}).text = \
+                str(layer_count.material.thermal_conduc)
+            ET.SubElement(material_gml, ET.QName(nsClass.energy, &#34;density&#34;), attrib={&#39;uom&#39;: &#34;kg/m3&#34;}).text = \
+                str(layer_count.material.density)
+            ET.SubElement(material_gml, ET.QName(nsClass.energy, &#34;specificHeat&#34;), attrib={&#39;uom&#39;: &#34;kJ/K*kg&#34;}).text = \
+                str(layer_count.material.heat_capac)
+
+    return construction_id
+
+
+def _set_usage_zone_lxml(thermal_zone, gml_bldg, usage_zone_id):
+    usage_zone = thermal_zone.use_conditions
+    gml_usage_zone = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, &#39;usageZone&#39;))
+    gml_Usage_Zone = ET.SubElement(gml_usage_zone, ET.QName(nsClass.energy, &#39;UsageZone&#39;),
+                                   attrib={ET.QName(nsClass.gml, &#39;id&#39;): usage_zone_id})
+
+    &#34;&#34;&#34;Heating&#34;&#34;&#34;
+    heating_schedule = ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;heatingSchedule&#39;))
+    _set_schedule(heating_schedule, usage_zone,  usage_zone_id, &#34;heating&#34;)
+
+    &#34;&#34;&#34;type&#34;&#34;&#34;
+    ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;usageZoneType&#39;)).text = str(usage_zone.usage)
+
+    &#34;&#34;&#34;Cooling&#34;&#34;&#34;
+    # TODO: Check together with isCooled if AHU is used and set cooling
+
+    &#34;&#34;&#34;Ventilation&#34;&#34;&#34;
+    # ventilation_schedule = ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;ventilationSchedule&#39;))
+    # _set_schedule(usage_zone, ventilation_schedule, usage_zone_id, &#34;ventilation&#34;)
+
+    &#34;&#34;&#34;Occupiedby&#34;&#34;&#34;
+    occupied_by = ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;occupiedBy&#39;))
+    occupants = ET.SubElement(occupied_by, ET.QName(nsClass.energy, &#39;Occupants&#39;),
+                              attrib={ET.QName(nsClass.gml, &#39;id&#39;): (usage_zone_id + &#34;_Occupants&#34;)})
+    heat_dissipation = ET.SubElement(occupants, ET.QName(nsClass.energy, &#39;heatDissipation&#39;))
+    heat_exchange_type = ET.SubElement(heat_dissipation, ET.QName(nsClass.energy, &#39;HeatExchangeType&#39;))
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;convectiveFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(usage_zone.ratio_conv_rad_persons)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;radiantFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(1 - usage_zone.ratio_conv_rad_persons)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;totalValue&#39;), attrib={&#39;uom&#39;: &#34;W&#34;}).text = \
+        str(usage_zone.fixed_heat_flow_rate_persons)
+    ET.SubElement(occupants, ET.QName(nsClass.energy, &#39;numberOfOccupants&#39;)).text = str(int(usage_zone.persons*thermal_zone.area))
+    occupancy_rate = ET.SubElement(occupants, ET.QName(nsClass.energy, &#39;occupancyRate&#39;))
+    _set_schedule(occupancy_rate, usage_zone, usage_zone_id, &#34;persons&#34;)
+
+    &#34;&#34;&#34;Machines&#34;&#34;&#34;
+    equipped_with = ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;equippedWith&#39;))
+    electrical_app = ET.SubElement(equipped_with, ET.QName(nsClass.energy, &#39;ElectricalAppliances&#39;),
+                              attrib={ET.QName(nsClass.gml, &#39;id&#39;): (usage_zone_id + &#34;_Machines&#34;)})
+
+    opperation_schedule = ET.SubElement(electrical_app, ET.QName(nsClass.energy, &#39;operationSchedule&#39;))
+    _set_schedule(opperation_schedule, usage_zone, usage_zone_id, &#34;machines&#34;)
+
+    heat_dissipation = ET.SubElement(electrical_app, ET.QName(nsClass.energy, &#39;heatDissipation&#39;))
+    heat_exchange_type = ET.SubElement(heat_dissipation, ET.QName(nsClass.energy, &#39;HeatExchangeType&#39;))
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;convectiveFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(usage_zone.ratio_conv_rad_machines)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;radiantFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(1 - usage_zone.ratio_conv_rad_machines)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;totalValue&#39;), attrib={&#39;uom&#39;: &#34;W/m2&#34;}).text = \
+        str(usage_zone.machines)
+
+
+
+    &#34;&#34;&#34;Lighting&#34;&#34;&#34;
+    equipped_with = ET.SubElement(gml_Usage_Zone, ET.QName(nsClass.energy, &#39;equippedWith&#39;))
+    electrical_app = ET.SubElement(equipped_with, ET.QName(nsClass.energy, &#39;LightingFacilities&#39;),
+                              attrib={ET.QName(nsClass.gml, &#39;id&#39;): (usage_zone_id + &#34;_Lighting&#34;)})
+
+    opperation_schedule = ET.SubElement(electrical_app, ET.QName(nsClass.energy, &#39;operationSchedule&#39;))
+    _set_schedule(opperation_schedule, usage_zone, usage_zone_id, &#34;lighting&#34;)
+
+    heat_dissipation = ET.SubElement(electrical_app, ET.QName(nsClass.energy, &#39;heatDissipation&#39;))
+    heat_exchange_type = ET.SubElement(heat_dissipation, ET.QName(nsClass.energy, &#39;HeatExchangeType&#39;))
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;convectiveFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(usage_zone.ratio_conv_rad_lighting)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;radiantFraction&#39;), attrib={&#39;uom&#39;: &#34;scale&#34;}).text = \
+        str(1 - usage_zone.ratio_conv_rad_lighting)
+    ET.SubElement(heat_exchange_type, ET.QName(nsClass.energy, &#39;totalValue&#39;), attrib={&#39;uom&#39;: &#34;W/m2&#34;}).text = \
+        str(usage_zone.lighting_power)
+
+
+    # _set_gml_floor_area_lxml(gml_Usage_Zone, nsClass, thermal_zone, ET)
+
+
+def _set_schedule(schedule_type, usage_zone, usage_zone_id, type_name):
+    daily_pattern = ET.SubElement(schedule_type, ET.QName(nsClass.energy, &#39;DailyPatternSchedule&#39;),
+                                  attrib={ET.QName(nsClass.gml, &#39;id&#39;): str(usage_zone_id + f&#34;_{type_name}_schedule&#34;)})
+    ET.SubElement(daily_pattern, ET.QName(nsClass.gml, &#34;name&#34;)).text = str(type_name)
+    period_of_year = ET.SubElement(daily_pattern, ET.QName(nsClass.energy, &#39;periodOfYear&#39;))
+    Period_of_year = ET.SubElement(period_of_year, ET.QName(nsClass.energy, &#39;PeriodOfYear&#39;))
+    period = ET.SubElement(Period_of_year, ET.QName(nsClass.energy, &#39;period&#39;))
+
+    time_period = ET.SubElement(period, ET.QName(nsClass.gml, &#39;TimePeriod&#39;))
+    ET.SubElement(time_period, ET.QName(nsClass.gml, &#39;beginPosition&#39;)).text = str(&#34;2023-01-01T00:00:00&#34;)
+    ET.SubElement(time_period, ET.QName(nsClass.gml, &#39;endPosition&#39;)).text = str(&#34;2023-12-31T00:00:00&#34;)
+
+    for day_type in [&#34;weekDay&#34;, &#34;weekEnd&#34;]:
+        daily_schedule = ET.SubElement(Period_of_year, ET.QName(nsClass.energy, &#39;dailySchedule&#39;))
+        Daily_schedule = ET.SubElement(daily_schedule, ET.QName(nsClass.energy, &#39;DailySchedule&#39;))
+        ET.SubElement(Daily_schedule, ET.QName(nsClass.energy, &#39;dayType&#39;)).text = str(day_type)
+        schedule = ET.SubElement(Daily_schedule, ET.QName(nsClass.energy, &#39;schedule&#39;))
+        regular_ts = ET.SubElement(schedule, ET.QName(nsClass.energy, &#39;RegularTimeSeries&#39;))
+
+        variable_props = ET.SubElement(regular_ts, ET.QName(nsClass.energy, &#39;variableProperties&#39;))
+        time_value_prop = ET.SubElement(variable_props, ET.QName(nsClass.energy, &#39;TimeValuesProperties&#39;))
+        ET.SubElement(time_value_prop, ET.QName(nsClass.energy, &#39;acquisitionMethod&#39;)).text = str(&#34;estimation&#34;)
+        ET.SubElement(time_value_prop, ET.QName(nsClass.energy, &#39;interpolationType&#39;)).text = \
+            str(&#34;averageInSucceedingInterval&#34;)
+        ET.SubElement(time_value_prop, ET.QName(nsClass.energy, &#39;thematicDescription&#39;)).text = str(&#34;Nominal&#34; + type_name)
+
+        temporal_extant = ET.SubElement(regular_ts, ET.QName(nsClass.energy, &#39;temporalExtent&#39;))
+        time_period = ET.SubElement(temporal_extant, ET.QName(nsClass.gml, &#39;TimePeriod&#39;))
+        ET.SubElement(time_period, ET.QName(nsClass.gml, &#39;beginPosition&#39;)).text = str(&#34;00:00:00&#34;)
+        ET.SubElement(time_period, ET.QName(nsClass.gml, &#39;endPosition&#39;)).text = str(&#34;00:00:23&#34;)
+
+        ET.SubElement(regular_ts, ET.QName(nsClass.energy, &#39;timeInterval&#39;), attrib={&#39;unit&#39;: &#34;hour&#34;}).text = str(1)
+
+        if type_name == &#34;heating&#34; or &#34;type&#34;==&#34;cooling&#34;:
+            uom = &#34;K&#34;
+        if type_name == &#34;ventilation&#34;:
+            uom = &#34;1/h&#34;
+        else:
+            uom = &#34;scale&#34;
+
+        if day_type is &#34;weekDay&#34;:
+
+            ET.SubElement(regular_ts, ET.QName(nsClass.energy, &#39;values&#39;), attrib={&#39;uom&#39;: uom}).text = str(usage_zone.schedules[f&#34;{type_name}_profile&#34;].iloc[0:23].values).strip(&#39;[]&#39;)
+
+        if day_type is &#34;weekEnd&#34;:
+
+            ET.SubElement(regular_ts, ET.QName(nsClass.energy, &#39;values&#39;), attrib={&#39;uom&#39;: uom}).text = str(usage_zone.schedules[f&#34;{type_name}_profile&#34;].iloc[120:143].values).strip(&#39;[]&#39;)
+
+    return
+
+
+def _save_simulation_results(gml_bldg, results):
+
+    demands = energy.demands()
+    demands.EnergyDemand = energy.EnergyDemandType()
+    demands.EnergyDemand.endUse = &#34;spaceHeating&#34;
+    demands.EnergyDemand.energyAmount = energy.AbstractTimeSeriesPropertyType()
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries = energy.RegularTimeSeries()
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.values = results
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.values.uom = &#34;kWh&#34;
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.variableProperties = energy.TimeValuesPropertiesPropertyType()
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.variableProperties\
+        .interpolationType = &#34;averageInSucceedingInterval&#34;
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.temporalExtent = gml.TimePeriodPropertyType()
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.timeInterval = 1
+    demands.EnergyDemand.energyAmount.AbstractTimeSeries.timeInterval.unit = bd.datatypes.anyURI(&#34;hour&#34;)
+    gml_bldg.GenericApplicationPropertyOfCityObject.append(demands)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="teaser.data.output.citygml_output.save_gml_lxml"><code class="name flex">
+<span>def <span class="ident">save_gml_lxml</span></span>(<span>project, path, gml_copy=None, ref_coordinates=None, results=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Based on CityGML Building export from CityBIT</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=None):
+    &#34;&#34;&#34;Based on CityGML Building export from CityBIT&#34;&#34;&#34;
+
+    crs = &#34;urn:adv:crs:ETRS89_UTM32*DE_DHHN2016_NH*GCG2016&#34;
+
+    global nsClass
+    nsClass = cl.CGML2
+
+    # creating new namespacemap
+    newNSmap = {&#39;core&#39;: nsClass.core, &#39;gen&#39;: nsClass.gen, &#39;grp&#39;: nsClass.grp, &#39;app&#39;: nsClass.app, &#39;bldg&#39;: nsClass.bldg,
+                &#39;gml&#39;: nsClass.gml, &#39;xal&#39;: nsClass.xal, &#39;xlink&#39;: nsClass.xlink, &#39;xsi&#39;: nsClass.xsi,
+                &#39;energy&#39;: nsClass.energy}
+    schemaLocation = &#34;http://www.opengis.net/citygml/2.0 http://www.sig3d.org/citygml/2.0/energy/1.0/EnergyADE.xsd&#34;
+
+    # creating new root element
+    global nroot_E
+    nroot_E = ET.Element(ET.QName(nsClass.core, &#39;CityModel&#39;),
+                         attrib={&#34;{&#34; + nsClass.xsi + &#34;}schemaLocation&#34;:schemaLocation}, nsmap=newNSmap)
+
+    # creating name element
+    name_E = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;name&#39;), nsmap={&#39;gml&#39;: nsClass.gml})
+    name_E.text = &#39;created using the e3D TEASERplus&#39;
+
+    &#34;&#34;&#34;set boundary box&#34;&#34;&#34;
+    if ref_coordinates is not None:
+        boundedBy = ET.SubElement(nroot_E, ET.QName(nsClass.gml, &#39;boundedBy&#39;), nsmap={&#39;gml&#39;: nsClass.gml})
+        boundedBy.append(ref_coordinates)
+    else:
+        bldg_center = [0, 0, 0]
+        pass
+
+    &#34;&#34;&#34;create new cityObjectMember here&#34;&#34;&#34;
+    cityObjectMember_E = ET.SubElement(nroot_E, ET.QName(nsClass.core, &#39;cityObjectMember&#39;))
+
+    for i, bldg_count in enumerate(project.buildings):
+        gmlID = &#34;e3D_TEASERplus_&#34; + str(bldg_count.internal_id)
+
+        if gml_copy is None or re.match(r&#34;(\w+)bt_&#34;, bldg_count.name):
+
+            gml_bldg = ET.SubElement(cityObjectMember_E, ET.QName(nsClass.bldg, &#39;Building&#39;),
+                                       attrib={ET.QName(nsClass.gml, &#39;id&#39;): gmlID})
+
+            _set_gml_building_lxml(gml_bldg, nsClass, bldg_count, ET)
+
+            &#34;&#34;&#34;for testing the loop&#34;&#34;&#34;
+            if results is not None:
+                _save_simulation_results(gml_bldg, results=results)
+
+            bldg_center = [i * 80, 0, 0]
+
+            if type(bldg_count).__name__ == &#34;SingleFamilyDwelling&#34;:
+                building_length = (bldg_count.thermal_zones[0].area /
+                                   bldg_count.thermal_zones[0].typical_width)
+                building_width = bldg_count.thermal_zones[0].typical_width
+                building_height = (bldg_count.number_of_floors *
+                                   bldg_count.height_of_floors)
+
+            else:
+                building_width = 0.05 * (bldg_count.net_leased_area /
+                                         bldg_count.number_of_floors)
+                building_length = (bldg_count.net_leased_area /
+                                   bldg_count.number_of_floors) / building_width
+                building_height = (bldg_count.number_of_floors *
+                                   bldg_count.height_of_floors)
+
+            _set_lod_2_lxml(gml_bldg, building_length, building_width, building_height, bldg_center, nsClass, None)
+
+        else:
+            cityObjectMember_E.append(gml_copy[i])
+            tree = ET.ElementTree(nroot_E)
+
+            # writing file
+            print(&#39;writing file temp file&#39;)
+            tree.write(os.path.join(path), pretty_print=True, xml_declaration=True,
+                       encoding=&#39;utf-8&#39;, standalone=&#39;yes&#39;, method=&#34;xml&#34;)
+            with open(path, &#39;r&#39;) as xml_file:
+                parser = ET.XMLParser(remove_blank_text=True)
+                tree = ET.parse(xml_file, parser=parser)
+                nroot_E = tree.getroot()
+                namespace = nroot_E.nsmap
+                gml_bldg = nroot_E.findall(&#39;core:cityObjectMember/bldg:Building&#39;, namespace)[0]
+
+            if results is not None:
+                _save_simulation_results(gml_bldg, results=results)
+
+        for zone_count in bldg_count.thermal_zones:
+            _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
+            PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
+
+            if gml_copy is None:
+                tree = ET.ElementTree(nroot_E)
+
+            &#34;&#34;&#34;writing file&#34;&#34;&#34;
+            print(&#39;writing file&#39;)
+            tree.write(os.path.join(path), pretty_print=True, xml_declaration=True,
+                       encoding=&#39;utf-8&#39;, standalone=&#39;yes&#39;, method=&#34;xml&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.data.output" href="index.html">teaser.data.output</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="teaser.data.output.citygml_output.save_gml_lxml" href="#teaser.data.output.citygml_output.save_gml_lxml">save_gml_lxml</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

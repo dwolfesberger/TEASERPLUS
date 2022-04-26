@@ -1,0 +1,2680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.logic.buildingobjects.buildingphysics.buildingelement API documentation</title>
+<meta name="description" content="This module contains the Base class for all building elements." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.logic.buildingobjects.buildingphysics.buildingelement</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains the Base class for all building elements.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This module contains the Base class for all building elements.&#34;&#34;&#34;
+
+from __future__ import division
+from teaser.logic.buildingobjects.buildingphysics.layer import Layer
+from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+
+import teaser.data.input.buildingelement_input_json as buildingelement_input
+import numpy as np
+import random
+import re
+import uuid
+
+
+class BuildingElement(object):
+    &#34;&#34;&#34;Building element class.
+
+    This is the base class for all building elements. Building elements are
+    all physical elements that may serve as boundaries for a thermal zone or
+    building.
+
+    Parameters
+    ----------
+
+    parent : ThermalZone()
+        The parent class of this object, the ThermalZone the BE belongs to.
+        Allows for better control of hierarchical structures.
+        Default is None.
+
+    Attributes
+    ----------
+
+    internal_id : float
+        Random id for the distinction between different elements.
+    name : str
+        Individual name
+    construction_type : str
+        Type of construction (e.g. &#34;heavy&#34; or &#34;light&#34;). Needed for
+        distinction between different constructions types in the same
+        building age period.
+    year_of_retrofit : int
+        Year of last retrofit
+    year_of_construction : int
+        Year of first construction
+    building_age_group : list
+        Determines the building age period that this building
+        element belongs to [begin, end], e.g. [1984, 1994]
+    area : float [m2]
+        Area of building element
+    tilt : float [degree]
+        Tilt against horizontal
+    orientation : float [degree]
+        Azimuth direction of building element (0 : north, 90: east, 180: south,
+        270: west)
+    inner_convection : float [W/(m2*K)]
+        Constant heat transfer coefficient of convection inner side (facing
+        the zone)
+    inner_radiation : float [W/(m2*K)]
+        Constant heat transfer coefficient of radiation inner side (facing
+        the zone)
+    outer_convection : float [W/(m2*K)]
+        Constant heat transfer coefficient of convection outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    outer_radiation : float [W/(m2*K)]
+        Constant heat transfer coefficient of radiation outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    layer : list
+        List of all layers of a building element (to be filled with Layer
+        objects). Use element.layer = None to delete all layers of the building
+        element
+
+    Calculated Attributes
+
+    r1 : float [K/W]
+        equivalent resistance R1 of the analogous model given in VDI 6007
+    r2 : float [K/W]
+        equivalent resistance R2 of the analogous model given in VDI 6007
+    r3 : float [K/W]
+        equivalent resistance R3 of the analogous model given in VDI 6007
+    c1 : float [J/K]
+        equivalent capacity C1 of the analogous model given in VDI 6007
+    c2 : float [J/K]
+        equivalent capacity C2 of the analogous model given in VDI 6007
+    c1_korr : float [J/K]
+        corrected capacity C1,korr for building elements in the case of
+        asymmetrical thermal load given in VDI 6007
+    u_value : float [W/m2K)
+        U-Value of building element
+    ua_value : float [W/K]
+        UA-Value of building element (Area times U-Value)
+    r_inner_conv : float [K/W]
+        Convective resistance of building element on inner side (facing the
+        zone)
+    r_inner_rad : float [K/W]
+        Radiative resistance of building element on inner side (facing the
+        zone)
+    r_inner_comb : float [K/W]
+        Combined convective and radiative resistance of building element on
+        inner side (facing the zone)
+    r_outer_conv : float [K/W]
+        Convective resistance of building element on outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    r_outer_rad : float [K/W]
+        Radiative resistance of building element on outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    r_outer_comb : float [K/W]
+        Combined convective and radiative resistance of building element on
+        outer side (facing the ambient or adjacent zone). Currently for all
+        InnerWalls and GroundFloors this value is set to 0.0
+    wf_out : float
+        Weightfactor of building element ua_value/ua_value_zone
+    lca_data : En15804LcaData
+        enviromental indicators of the building element. The data referencing
+        one building element
+    additional_lca_data : En15804LcaData
+        additional environmental indicators to the indicators from the materials
+    service_life : int [a]
+        service_life of the building element in years
+    &#34;&#34;&#34;
+
+    def __init__(self, parent=None):
+        &#34;&#34;&#34;Constructor for BuildingElement
+        &#34;&#34;&#34;
+
+        self.parent = parent
+
+        self.internal_id = uuid.uuid1()
+
+        self.name = None
+        self._construction_type = None
+        self._year_of_retrofit = None
+        self._year_of_construction = None
+        self.building_age_group = [None, None]
+
+        self._area = None
+        self._tilt = None
+        self._orientation = None
+        self._inner_convection = None
+        self._inner_radiation = None
+        self._outer_convection = None
+        self._outer_radiation = None
+
+        self._layer = []
+
+        self.r1 = 0.0
+        self.r2 = 0.0
+        self.r3 = 0.0
+        self.c1 = 0.0
+        self.c2 = 0.0
+        self.c1_korr = 0.0
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+        self.wf_out = 0.0
+        
+        self._lca_data = None
+        self._additional_lca_data = None
+        self._service_life = None
+
+    def calc_ua_value(self):
+        &#34;&#34;&#34;U*A value for building element.
+
+        Calculates the U*A value and resistances for radiative and
+        convective heat transfer of a building element.
+        &#34;&#34;&#34;
+
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+        r_conduc = 0.0
+        for count_layer in self.layer:
+            r_conduc += (
+                count_layer.thickness / count_layer.material.thermal_conduc) \
+
+        self.r_conduc = r_conduc * (1 / self.area)
+        self.r_inner_conv = (1 / self.inner_convection) * (1 / self.area)
+        self.r_inner_rad = (1 / self.inner_radiation) * (1 / self.area)
+        self.r_inner_comb = 1 / (1 / self.r_inner_conv + 1 / self.r_inner_rad)
+
+        if self.outer_convection is not None \
+                and self.outer_radiation is not None:
+
+            self.r_outer_conv = (1 / self.outer_convection) * (1 / self.area)
+            self.r_outer_rad = (1 / self.outer_radiation) * (1 / self.area)
+            self.r_outer_comb = 1 / \
+                (1 / self.r_outer_conv + 1 / self.r_outer_rad)
+
+        self.ua_value = (1 / (
+            self.r_inner_comb + self.r_conduc + self.r_outer_comb))
+        self.u_value = self.ua_value / self.area
+
+    def gather_element_properties(self):
+        &#34;&#34;&#34;Helper function for matrix calculation.
+
+        Gathers all material properties of the building element and returns
+        them as a np.array. Needed for the calculation of the matrix in
+        equivalent_res(t_bt) especially for walls.
+
+        Returns
+        ----------
+        number_of_layer : int
+            number of layer (length of layer list)
+        density : np.array
+            Numpy array with length of number of layer, filled with density
+            of each layer
+        thermal_conduc : np.array
+            Numpy array with length of number of layer, filled with
+            thermal_conduc of each layer
+        heat_capac : np.array
+            Numpy array with length of number of layer, filled with heat_capac
+            of each layer
+        thickness : np.array
+            Numpy array with length of number of layer, filled with thickness
+            of each layer
+        &#34;&#34;&#34;
+
+        number_of_layer = len(self.layer)
+        density = np.zeros(number_of_layer)
+        thermal_conduc = np.zeros(number_of_layer)
+        heat_capac = np.zeros(number_of_layer)
+        thickness = np.zeros(number_of_layer)
+
+        for i in range(number_of_layer):
+
+            density[i] = self.layer[i].material.density
+            thermal_conduc[i] = self.layer[i].material.thermal_conduc
+            heat_capac[i] = self.layer[i].material.heat_capac
+            thickness[i] = self.layer[i].thickness
+
+        return number_of_layer, density, thermal_conduc, heat_capac, thickness
+
+    def add_layer(self, layer, position=None):
+        &#34;&#34;&#34;Adds a layer at a certain position
+
+        This function adds a Layer instance to the layer list at a given
+        position
+
+        Parameters
+        ----------
+        layer : instance of Layer
+            Layer instance of TEASER
+        position : int
+            position in the wall starting from 0 (inner side)
+
+        &#34;&#34;&#34;
+        ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+
+        assert isinstance(layer, Layer), ass_error_1
+
+        if position is None:
+            self._layer.append(layer)
+        else:
+            self._layer.insert(position, layer)
+
+    def add_layer_list(self, layer_list):
+        &#34;&#34;&#34;Appends a layer set to the layer list
+
+        The layer list has to be in correct order
+
+        Parameters
+        ----------
+        layer_list : list
+            list of sorted TEASER Layer instances
+        &#34;&#34;&#34;
+        ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+        for lay_count in layer_list:
+
+            assert isinstance(lay_count, Layer), ass_error_1
+
+            self._layer.append(lay_count)
+
+    def load_type_element(
+            self,
+            year,
+            construction,
+            data_class=None):
+        &#34;&#34;&#34;Typical element loader.
+
+        Loads typical building elements according to their construction
+        year and their construction type from a json.
+
+        This function will only work if the parents to Building are set.
+
+        Parameters
+        ----------
+        year : int
+            Year of construction
+
+        construction : str
+            Construction type, code list (&#39;heavy&#39;, &#39;light&#39;)
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        self.layer = None
+        self._inner_convection = None
+        self._inner_radiation = None
+        self._outer_convection = None
+        self._outer_radiation = None
+
+        buildingelement_input.load_type_element(element=self,
+                                                year=year,
+                                                construction=construction,
+                                                data_class=data_class)
+
+    def save_type_element(self, data_class=None):
+        &#34;&#34;&#34;Typical element saver.
+
+        Saves typical building elements according to their construction
+        year and their construction type in the the json file for type building
+        elements. If the Project parent is set, it automatically saves it to
+        the file given in Project.data. Alternatively you can specify a path to
+        a file of TypeBuildingElements. If this file does not exist,
+        a new file is created.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        import teaser.data.output.buildingelement_output as \
+            buildingelement_output
+
+        buildingelement_output.save_type_element(element=self,
+                                                 data_class=data_class)
+
+    def delete_type_element(self, data_class=None):
+        &#34;&#34;&#34;Deletes typical element.
+
+        Deletes typical building elements according to their construction
+        year and their construction type in the the json file for type building
+        elements. If the Project parent is set, it automatically saves it to
+        the file given in Project.data. Alternatively you can specify a path to
+        a file of TypeBuildingElements. If this file does not exist,
+        a new file is created.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        import teaser.data.output.buildingelement_output as \
+            buildingelement_output
+
+        buildingelement_output.delete_type_element(element=self,
+                                                   data_class=data_class)
+
+    def set_calc_default(self):
+        &#34;&#34;&#34;Sets all calculated values of the Building Element to zero
+        &#34;&#34;&#34;
+        self.r1 = 0.0
+        self.r2 = 0.0
+        self.r3 = 0.0
+        self.c1 = 0.0
+        self.c2 = 0.0
+        self.c1_korr = 0.0
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+
+            if value:
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+                if self._name == &#34;None&#34;:
+                    self._name = &#34;BuildinElement&#34; + str(
+                        random.randint(1, 500000))
+        elif value is None:
+            self._value = &#34;BuildinElement&#34; + str(random.randint(1, 500000))
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+    @property
+    def year_of_retrofit(self):
+        return self._year_of_retrofit
+
+    @year_of_retrofit.setter
+    def year_of_retrofit(self, value):
+
+        if isinstance(value, int):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = int(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert year of retrofit to float&#34;)
+
+        if value is not None:
+            if self.year_of_construction is not None:
+                self._year_of_retrofit = value
+            else:
+                raise ValueError(&#34;Specify year of construction first&#34;)
+
+    @property
+    def orientation(self):
+        return self._orientation
+
+    @orientation.setter
+    def orientation(self, value):
+
+        self._orientation = value
+        if type(self).__name__ == &#34;OuterWall&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.area is not None):
+                self.parent.parent.fill_outer_area_dict()
+        elif type(self).__name__ == &#34;Window&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.area is not None):
+                self.parent.parent.fill_window_area_dict()
+
+    @property
+    def layer(self):
+        return self._layer
+
+    @layer.setter
+    def layer(self, value):
+
+        if value is None:
+            self._layer = []
+
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def inner_convection(self):
+        return self._inner_convection
+
+    @inner_convection.setter
+    def inner_convection(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert inner convection to float&#34;)
+
+        if value is not None:
+            self._inner_convection = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def inner_radiation(self):
+        return self._inner_radiation
+
+    @inner_radiation.setter
+    def inner_radiation(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert inner radiation to float&#34;)
+
+        if value is not None:
+            self._inner_radiation = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def outer_convection(self):
+        return self._outer_convection
+
+    @outer_convection.setter
+    def outer_convection(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert outer convection to float&#34;)
+
+        if value is not None:
+            self._outer_convection = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def outer_radiation(self):
+        return self._outer_radiation
+
+    @outer_radiation.setter
+    def outer_radiation(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert outer radiation to float&#34;)
+
+        if value is not None:
+            self._outer_radiation = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def area(self):
+        return self._area
+
+    @area.setter
+    def area(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert element area to float&#34;)
+
+        if value is not None:
+            self._area = value
+        if type(self).__name__ == &#34;OuterWall&#34;\
+                or type(self).__name__ == &#34;Rooftop&#34; \
+                or type(self).__name__ == &#34;GroundFloor&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.orientation is not None):
+                self.parent.parent.fill_outer_area_dict()
+        elif type(self).__name__ == &#34;Window&#34;:
+            if self.parent is not None and self.orientation is not None:
+                self.parent.parent.fill_window_area_dict()
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def tilt(self):
+        return self._tilt
+
+    @tilt.setter
+    def tilt(self, value):
+
+        if isinstance(value, float):
+            self._tilt = value
+        elif value is None:
+            self._tilt = value
+        else:
+            try:
+                value = float(value)
+                self._tilt = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert tilt to float&#34;)
+
+    @property
+    def year_of_construction(self):
+        return self._year_of_construction
+
+    @year_of_construction.setter
+    def year_of_construction(self, value):
+
+        if isinstance(value, float):
+            self._year_of_construction = value
+        elif value is None:
+            self._year_of_construction = value
+        else:
+            try:
+                value = int(value)
+                self._year_of_construction = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert year to int&#34;)
+
+    @property
+    def construction_type(self):
+        return self._construction_type
+
+    @construction_type.setter
+    def construction_type(self, value):
+
+        self._construction_type = value
+
+    @property
+    def lca_data(self):
+        return self._lca_data
+
+    @lca_data.setter
+    def lca_data(self, value):
+        self._lca_data = value
+    
+    @property
+    def additional_lca_data(self):
+        return self._additional_lca_data
+    
+    @additional_lca_data.setter
+    def additional_lca_data(self, value):
+        self._additional_lca_data = value
+        
+    @property
+    def service_life(self):
+        return self._service_life
+    
+    @service_life.setter
+    def service_life(self, value):
+        if value is not None:
+            if not isinstance(value, int):
+                try:
+                    value = int(value)
+                except TypeError:
+                    print(&#34;Service life has to be integer&#34;)
+                      
+                
+        self._service_life = value
+    
+    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+        &#34;&#34;&#34;calculates the LCA-data of the buildingelement and set it to the
+        attribute lca_data
+        
+
+        Parameters
+        ----------
+        use_b4 : bool, optional
+            if true environmental indicators of replaced buildingelements are added
+            to stage B4. Otherwise they are added seperatly to the other stages
+        period_lca_scenario : TYPE, optional
+            period which is taken into account for LCA. The default is None.
+
+        &#34;&#34;&#34;
+        
+        if use_b4 is None:
+            try:
+                use_b4 = self.parent.parent.parent.use_b4
+            except:
+                use_b4 = False
+        
+        if self.layer != []:
+            lca_data = En15804LcaData()
+            lca_data.ref_flow_unit = &#34;pcs&#34;
+            
+            
+            if period_lca_scenario is None:
+                try:
+                    period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+                except:
+                    print(&#34;Please enter a period for the LCA-scenario!&#34;)
+            
+                
+            
+            if self.service_life:
+
+                n_be_repl = int(period_lca_scenario / self.service_life)
+                remaining_period = period_lca_scenario % self.service_life
+                
+                if use_b4:
+                    lca_data = n_be_repl * self.calc_lca_data_no_repl()                  
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)                   
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self.calc_lca_data_no_repl()
+                    
+                else:
+                    lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()                    
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
+            else:
+                if use_b4:
+                    lca_data = self._calc_lca_data_layer_repl(period_lca_scenario)                    
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self._calc_lca_data_no_repl()
+                else:
+                    lca_data = self._calc_lca_data_no_repl()                   
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(period_lca_scenario)
+                
+            self.lca_data = lca_data
+                
+
+
+                
+            
+                
+                
+            
+            
+        
+
+    def _calc_lca_data_no_repl(self):
+        &#34;&#34;&#34;calculates the environmental indicators of the buildingelement 
+        without any replacements
+        
+
+        Returns
+        -------
+        lca_data_be : En15804LcaData
+            environmental indicators of the buildingelement without any
+            replacements
+        &#34;&#34;&#34;
+        
+        lca_data_be = En15804LcaData()
+        lca_data_be.ref_flow_unit = &#34;pcs&#34;
+                
+        for layer in self.layer:
+            
+            lca_data_layer = layer.material.lca_data
+            lca_data_layer = lca_data_layer.convert_ref_unit(
+                                    target_unit = &#34;pcs&#34;,
+                                    area = self.area,
+                                    thickness = layer.thickness,
+                                    density = layer.material.density
+                                    )
+            
+            lca_data_be = lca_data_be + lca_data_layer
+        if self.additional_lca_data is not None:
+            if self.additional_lca_data.ref_flow_unit != &#34;pcs&#34;:
+                self.additional_lca_data = self.additional_lca_data.convert_ref_unit(&#34;pcs&#34;, area=self.area)
+
+            lca_data_be = lca_data_be + self.additional_lca_data
+            
+        return lca_data_be
+        
+    def _calc_lca_data_layer_repl(self, ref_period=80):
+        &#34;&#34;&#34;calculates the LCA-data caused by layer replacement in a specific
+        time period
+        
+
+        Parameters
+        ----------
+        ref_period : int, optional [a]
+            reference time period. The default is 80 years.
+
+        Returns
+        -------
+        lca_data_repl_layers : En15804LcaData
+            environmental indicators from layer replacement
+
+        &#34;&#34;&#34;
+        
+        lca_data_repl_layers = En15804LcaData()
+        lca_data_repl_layers.ref_flow_unit = &#34;pcs&#34;
+        
+        repl_layers_1, repl_interval_1 = self._get_repl_layers(True)
+        repl_layers_2, repl_interval_2 = self._get_repl_layers(False)
+        
+        if repl_interval_1 &lt; ref_period:
+            for layer in repl_layers_1:
+                
+                lca_data_layer = layer.material.lca_data
+                lca_data_layer = lca_data_layer.convert_ref_unit(
+                                        target_unit = &#34;pcs&#34;,
+                                        area = self.area,
+                                        thickness = layer.thickness,
+                                        density = layer.material.density
+                                        )
+                lca_data_repl_layers = lca_data_repl_layers + lca_data_layer
+                
+        if repl_interval_2 &lt; ref_period:
+            for layer in repl_layers_2:
+                
+                lca_data_layer = layer.material.lca_data
+                lca_data_layer = lca_data_layer.convert_ref_unit(
+                                        target_unit = &#34;pcs&#34;,
+                                        area = self.area,
+                                        thickness = layer.thickness,
+                                        density = layer.material.density
+                                        )
+                
+                lca_data_repl_layers = lca_data_repl_layers + lca_data_layer
+                
+        return lca_data_repl_layers
+            
+            
+            
+    def _get_repl_layers(self, side: bool):
+        &#34;&#34;&#34;returns all materials which must be replaced on one side of the
+        buildingelement. Materials which are surrounded by layers with longer
+        service life will not be replaced
+
+        Parameters
+        ----------
+        side : bool
+            is true for the first side of the element and false for the second
+
+        Returns
+        -------
+        repl_layers : list
+            layers to be replaced
+        repl_interval : TYPE
+            longest service life of the replaced layers (= interval in which
+            the layers are replaced)
+
+        &#34;&#34;&#34;
+        
+        repl_layers = []
+        
+        if side:
+            layers = self.layer
+        else:
+            layers = list(reversed(self.layer))
+        
+        if layers[0].material.service_life:
+            repl_interval = layers[0].material.service_life
+            
+            repl_layers.append(layers[0])
+            
+            for layer in layers[1:]:
+                if layer.material.service_life:
+                    if layer.material.service_life &lt;= repl_interval:
+                        repl_layers.append(layer)
+                    else:
+                        break
+                else:
+                    break   
+                
+            return repl_layers, repl_interval
+            
+        else:
+            return [], -1
+        
+        </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement"><code class="flex name class">
+<span>class <span class="ident">BuildingElement</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Building element class.</p>
+<p>This is the base class for all building elements. Building elements are
+all physical elements that may serve as boundaries for a thermal zone or
+building.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>ThermalZone()</code></dt>
+<dd>The parent class of this object, the ThermalZone the BE belongs to.
+Allows for better control of hierarchical structures.
+Default is None.</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>internal_id</code></strong> :&ensp;<code>float</code></dt>
+<dd>Random id for the distinction between different elements.</dd>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Individual name</dd>
+<dt><strong><code>construction_type</code></strong> :&ensp;<code>str</code></dt>
+<dd>Type of construction (e.g. "heavy" or "light"). Needed for
+distinction between different constructions types in the same
+building age period.</dd>
+<dt><strong><code>year_of_retrofit</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of last retrofit</dd>
+<dt><strong><code>year_of_construction</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of first construction</dd>
+<dt><strong><code>building_age_group</code></strong> :&ensp;<code>list</code></dt>
+<dd>Determines the building age period that this building
+element belongs to [begin, end], e.g. [1984, 1994]</dd>
+<dt><strong><code>area</code></strong> :&ensp;<code>float [m2]</code></dt>
+<dd>Area of building element</dd>
+<dt><strong><code>tilt</code></strong> :&ensp;<code>float [degree]</code></dt>
+<dd>Tilt against horizontal</dd>
+<dt><strong><code>orientation</code></strong> :&ensp;<code>float [degree]</code></dt>
+<dd>Azimuth direction of building element (0 : north, 90: east, 180: south,
+270: west)</dd>
+<dt><strong><code>inner_convection</code></strong> :&ensp;<code>float [W/(m2*K)]</code></dt>
+<dd>Constant heat transfer coefficient of convection inner side (facing
+the zone)</dd>
+<dt><strong><code>inner_radiation</code></strong> :&ensp;<code>float [W/(m2*K)]</code></dt>
+<dd>Constant heat transfer coefficient of radiation inner side (facing
+the zone)</dd>
+<dt><strong><code>outer_convection</code></strong> :&ensp;<code>float [W/(m2*K)]</code></dt>
+<dd>Constant heat transfer coefficient of convection outer side (facing
+the ambient or adjacent zone). Currently for all InnerWalls and
+GroundFloors this value is set to 0.0</dd>
+<dt><strong><code>outer_radiation</code></strong> :&ensp;<code>float [W/(m2*K)]</code></dt>
+<dd>Constant heat transfer coefficient of radiation outer side (facing
+the ambient or adjacent zone). Currently for all InnerWalls and
+GroundFloors this value is set to 0.0</dd>
+<dt><strong><code>layer</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of all layers of a building element (to be filled with Layer
+objects). Use element.layer = None to delete all layers of the building
+element</dd>
+</dl>
+<p>Calculated Attributes</p>
+<dl>
+<dt><strong><code>r1</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>equivalent resistance R1 of the analogous model given in VDI 6007</dd>
+<dt><strong><code>r2</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>equivalent resistance R2 of the analogous model given in VDI 6007</dd>
+<dt><strong><code>r3</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>equivalent resistance R3 of the analogous model given in VDI 6007</dd>
+<dt><strong><code>c1</code></strong> :&ensp;<code>float [J/K]</code></dt>
+<dd>equivalent capacity C1 of the analogous model given in VDI 6007</dd>
+<dt><strong><code>c2</code></strong> :&ensp;<code>float [J/K]</code></dt>
+<dd>equivalent capacity C2 of the analogous model given in VDI 6007</dd>
+<dt><strong><code>c1_korr</code></strong> :&ensp;<code>float [J/K]</code></dt>
+<dd>corrected capacity C1,korr for building elements in the case of
+asymmetrical thermal load given in VDI 6007</dd>
+<dt><strong><code>u_value</code></strong> :&ensp;<code>float [W/m2K)</code></dt>
+<dd>U-Value of building element</dd>
+<dt><strong><code>ua_value</code></strong> :&ensp;<code>float [W/K]</code></dt>
+<dd>UA-Value of building element (Area times U-Value)</dd>
+<dt><strong><code>r_inner_conv</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Convective resistance of building element on inner side (facing the
+zone)</dd>
+<dt><strong><code>r_inner_rad</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Radiative resistance of building element on inner side (facing the
+zone)</dd>
+<dt><strong><code>r_inner_comb</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Combined convective and radiative resistance of building element on
+inner side (facing the zone)</dd>
+<dt><strong><code>r_outer_conv</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Convective resistance of building element on outer side (facing
+the ambient or adjacent zone). Currently for all InnerWalls and
+GroundFloors this value is set to 0.0</dd>
+<dt><strong><code>r_outer_rad</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Radiative resistance of building element on outer side (facing
+the ambient or adjacent zone). Currently for all InnerWalls and
+GroundFloors this value is set to 0.0</dd>
+<dt><strong><code>r_outer_comb</code></strong> :&ensp;<code>float [K/W]</code></dt>
+<dd>Combined convective and radiative resistance of building element on
+outer side (facing the ambient or adjacent zone). Currently for all
+InnerWalls and GroundFloors this value is set to 0.0</dd>
+<dt><strong><code>wf_out</code></strong> :&ensp;<code>float</code></dt>
+<dd>Weightfactor of building element ua_value/ua_value_zone</dd>
+<dt><strong><code>lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>enviromental indicators of the building element. The data referencing
+one building element</dd>
+<dt><strong><code>additional_lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>additional environmental indicators to the indicators from the materials</dd>
+<dt><strong><code>service_life</code></strong> :&ensp;<code>int [a]</code></dt>
+<dd>service_life of the building element in years</dd>
+</dl>
+<p>Constructor for BuildingElement</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BuildingElement(object):
+    &#34;&#34;&#34;Building element class.
+
+    This is the base class for all building elements. Building elements are
+    all physical elements that may serve as boundaries for a thermal zone or
+    building.
+
+    Parameters
+    ----------
+
+    parent : ThermalZone()
+        The parent class of this object, the ThermalZone the BE belongs to.
+        Allows for better control of hierarchical structures.
+        Default is None.
+
+    Attributes
+    ----------
+
+    internal_id : float
+        Random id for the distinction between different elements.
+    name : str
+        Individual name
+    construction_type : str
+        Type of construction (e.g. &#34;heavy&#34; or &#34;light&#34;). Needed for
+        distinction between different constructions types in the same
+        building age period.
+    year_of_retrofit : int
+        Year of last retrofit
+    year_of_construction : int
+        Year of first construction
+    building_age_group : list
+        Determines the building age period that this building
+        element belongs to [begin, end], e.g. [1984, 1994]
+    area : float [m2]
+        Area of building element
+    tilt : float [degree]
+        Tilt against horizontal
+    orientation : float [degree]
+        Azimuth direction of building element (0 : north, 90: east, 180: south,
+        270: west)
+    inner_convection : float [W/(m2*K)]
+        Constant heat transfer coefficient of convection inner side (facing
+        the zone)
+    inner_radiation : float [W/(m2*K)]
+        Constant heat transfer coefficient of radiation inner side (facing
+        the zone)
+    outer_convection : float [W/(m2*K)]
+        Constant heat transfer coefficient of convection outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    outer_radiation : float [W/(m2*K)]
+        Constant heat transfer coefficient of radiation outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    layer : list
+        List of all layers of a building element (to be filled with Layer
+        objects). Use element.layer = None to delete all layers of the building
+        element
+
+    Calculated Attributes
+
+    r1 : float [K/W]
+        equivalent resistance R1 of the analogous model given in VDI 6007
+    r2 : float [K/W]
+        equivalent resistance R2 of the analogous model given in VDI 6007
+    r3 : float [K/W]
+        equivalent resistance R3 of the analogous model given in VDI 6007
+    c1 : float [J/K]
+        equivalent capacity C1 of the analogous model given in VDI 6007
+    c2 : float [J/K]
+        equivalent capacity C2 of the analogous model given in VDI 6007
+    c1_korr : float [J/K]
+        corrected capacity C1,korr for building elements in the case of
+        asymmetrical thermal load given in VDI 6007
+    u_value : float [W/m2K)
+        U-Value of building element
+    ua_value : float [W/K]
+        UA-Value of building element (Area times U-Value)
+    r_inner_conv : float [K/W]
+        Convective resistance of building element on inner side (facing the
+        zone)
+    r_inner_rad : float [K/W]
+        Radiative resistance of building element on inner side (facing the
+        zone)
+    r_inner_comb : float [K/W]
+        Combined convective and radiative resistance of building element on
+        inner side (facing the zone)
+    r_outer_conv : float [K/W]
+        Convective resistance of building element on outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    r_outer_rad : float [K/W]
+        Radiative resistance of building element on outer side (facing
+        the ambient or adjacent zone). Currently for all InnerWalls and
+        GroundFloors this value is set to 0.0
+    r_outer_comb : float [K/W]
+        Combined convective and radiative resistance of building element on
+        outer side (facing the ambient or adjacent zone). Currently for all
+        InnerWalls and GroundFloors this value is set to 0.0
+    wf_out : float
+        Weightfactor of building element ua_value/ua_value_zone
+    lca_data : En15804LcaData
+        enviromental indicators of the building element. The data referencing
+        one building element
+    additional_lca_data : En15804LcaData
+        additional environmental indicators to the indicators from the materials
+    service_life : int [a]
+        service_life of the building element in years
+    &#34;&#34;&#34;
+
+    def __init__(self, parent=None):
+        &#34;&#34;&#34;Constructor for BuildingElement
+        &#34;&#34;&#34;
+
+        self.parent = parent
+
+        self.internal_id = uuid.uuid1()
+
+        self.name = None
+        self._construction_type = None
+        self._year_of_retrofit = None
+        self._year_of_construction = None
+        self.building_age_group = [None, None]
+
+        self._area = None
+        self._tilt = None
+        self._orientation = None
+        self._inner_convection = None
+        self._inner_radiation = None
+        self._outer_convection = None
+        self._outer_radiation = None
+
+        self._layer = []
+
+        self.r1 = 0.0
+        self.r2 = 0.0
+        self.r3 = 0.0
+        self.c1 = 0.0
+        self.c2 = 0.0
+        self.c1_korr = 0.0
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+        self.wf_out = 0.0
+        
+        self._lca_data = None
+        self._additional_lca_data = None
+        self._service_life = None
+
+    def calc_ua_value(self):
+        &#34;&#34;&#34;U*A value for building element.
+
+        Calculates the U*A value and resistances for radiative and
+        convective heat transfer of a building element.
+        &#34;&#34;&#34;
+
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+        r_conduc = 0.0
+        for count_layer in self.layer:
+            r_conduc += (
+                count_layer.thickness / count_layer.material.thermal_conduc) \
+
+        self.r_conduc = r_conduc * (1 / self.area)
+        self.r_inner_conv = (1 / self.inner_convection) * (1 / self.area)
+        self.r_inner_rad = (1 / self.inner_radiation) * (1 / self.area)
+        self.r_inner_comb = 1 / (1 / self.r_inner_conv + 1 / self.r_inner_rad)
+
+        if self.outer_convection is not None \
+                and self.outer_radiation is not None:
+
+            self.r_outer_conv = (1 / self.outer_convection) * (1 / self.area)
+            self.r_outer_rad = (1 / self.outer_radiation) * (1 / self.area)
+            self.r_outer_comb = 1 / \
+                (1 / self.r_outer_conv + 1 / self.r_outer_rad)
+
+        self.ua_value = (1 / (
+            self.r_inner_comb + self.r_conduc + self.r_outer_comb))
+        self.u_value = self.ua_value / self.area
+
+    def gather_element_properties(self):
+        &#34;&#34;&#34;Helper function for matrix calculation.
+
+        Gathers all material properties of the building element and returns
+        them as a np.array. Needed for the calculation of the matrix in
+        equivalent_res(t_bt) especially for walls.
+
+        Returns
+        ----------
+        number_of_layer : int
+            number of layer (length of layer list)
+        density : np.array
+            Numpy array with length of number of layer, filled with density
+            of each layer
+        thermal_conduc : np.array
+            Numpy array with length of number of layer, filled with
+            thermal_conduc of each layer
+        heat_capac : np.array
+            Numpy array with length of number of layer, filled with heat_capac
+            of each layer
+        thickness : np.array
+            Numpy array with length of number of layer, filled with thickness
+            of each layer
+        &#34;&#34;&#34;
+
+        number_of_layer = len(self.layer)
+        density = np.zeros(number_of_layer)
+        thermal_conduc = np.zeros(number_of_layer)
+        heat_capac = np.zeros(number_of_layer)
+        thickness = np.zeros(number_of_layer)
+
+        for i in range(number_of_layer):
+
+            density[i] = self.layer[i].material.density
+            thermal_conduc[i] = self.layer[i].material.thermal_conduc
+            heat_capac[i] = self.layer[i].material.heat_capac
+            thickness[i] = self.layer[i].thickness
+
+        return number_of_layer, density, thermal_conduc, heat_capac, thickness
+
+    def add_layer(self, layer, position=None):
+        &#34;&#34;&#34;Adds a layer at a certain position
+
+        This function adds a Layer instance to the layer list at a given
+        position
+
+        Parameters
+        ----------
+        layer : instance of Layer
+            Layer instance of TEASER
+        position : int
+            position in the wall starting from 0 (inner side)
+
+        &#34;&#34;&#34;
+        ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+
+        assert isinstance(layer, Layer), ass_error_1
+
+        if position is None:
+            self._layer.append(layer)
+        else:
+            self._layer.insert(position, layer)
+
+    def add_layer_list(self, layer_list):
+        &#34;&#34;&#34;Appends a layer set to the layer list
+
+        The layer list has to be in correct order
+
+        Parameters
+        ----------
+        layer_list : list
+            list of sorted TEASER Layer instances
+        &#34;&#34;&#34;
+        ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+        for lay_count in layer_list:
+
+            assert isinstance(lay_count, Layer), ass_error_1
+
+            self._layer.append(lay_count)
+
+    def load_type_element(
+            self,
+            year,
+            construction,
+            data_class=None):
+        &#34;&#34;&#34;Typical element loader.
+
+        Loads typical building elements according to their construction
+        year and their construction type from a json.
+
+        This function will only work if the parents to Building are set.
+
+        Parameters
+        ----------
+        year : int
+            Year of construction
+
+        construction : str
+            Construction type, code list (&#39;heavy&#39;, &#39;light&#39;)
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        self.layer = None
+        self._inner_convection = None
+        self._inner_radiation = None
+        self._outer_convection = None
+        self._outer_radiation = None
+
+        buildingelement_input.load_type_element(element=self,
+                                                year=year,
+                                                construction=construction,
+                                                data_class=data_class)
+
+    def save_type_element(self, data_class=None):
+        &#34;&#34;&#34;Typical element saver.
+
+        Saves typical building elements according to their construction
+        year and their construction type in the the json file for type building
+        elements. If the Project parent is set, it automatically saves it to
+        the file given in Project.data. Alternatively you can specify a path to
+        a file of TypeBuildingElements. If this file does not exist,
+        a new file is created.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        import teaser.data.output.buildingelement_output as \
+            buildingelement_output
+
+        buildingelement_output.save_type_element(element=self,
+                                                 data_class=data_class)
+
+    def delete_type_element(self, data_class=None):
+        &#34;&#34;&#34;Deletes typical element.
+
+        Deletes typical building elements according to their construction
+        year and their construction type in the the json file for type building
+        elements. If the Project parent is set, it automatically saves it to
+        the file given in Project.data. Alternatively you can specify a path to
+        a file of TypeBuildingElements. If this file does not exist,
+        a new file is created.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.data (which is data_class in current
+            project)
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        import teaser.data.output.buildingelement_output as \
+            buildingelement_output
+
+        buildingelement_output.delete_type_element(element=self,
+                                                   data_class=data_class)
+
+    def set_calc_default(self):
+        &#34;&#34;&#34;Sets all calculated values of the Building Element to zero
+        &#34;&#34;&#34;
+        self.r1 = 0.0
+        self.r2 = 0.0
+        self.r3 = 0.0
+        self.c1 = 0.0
+        self.c2 = 0.0
+        self.c1_korr = 0.0
+        self.ua_value = 0.0
+        self.r_conduc = 0.0
+        self.r_inner_conv = 0.0
+        self.r_inner_rad = 0.0
+        self.r_inner_comb = 0.0
+        self.r_outer_conv = 0.0
+        self.r_outer_rad = 0.0
+        self.r_outer_comb = 0.0
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+
+            if value:
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+                if self._name == &#34;None&#34;:
+                    self._name = &#34;BuildinElement&#34; + str(
+                        random.randint(1, 500000))
+        elif value is None:
+            self._value = &#34;BuildinElement&#34; + str(random.randint(1, 500000))
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+    @property
+    def year_of_retrofit(self):
+        return self._year_of_retrofit
+
+    @year_of_retrofit.setter
+    def year_of_retrofit(self, value):
+
+        if isinstance(value, int):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = int(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert year of retrofit to float&#34;)
+
+        if value is not None:
+            if self.year_of_construction is not None:
+                self._year_of_retrofit = value
+            else:
+                raise ValueError(&#34;Specify year of construction first&#34;)
+
+    @property
+    def orientation(self):
+        return self._orientation
+
+    @orientation.setter
+    def orientation(self, value):
+
+        self._orientation = value
+        if type(self).__name__ == &#34;OuterWall&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.area is not None):
+                self.parent.parent.fill_outer_area_dict()
+        elif type(self).__name__ == &#34;Window&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.area is not None):
+                self.parent.parent.fill_window_area_dict()
+
+    @property
+    def layer(self):
+        return self._layer
+
+    @layer.setter
+    def layer(self, value):
+
+        if value is None:
+            self._layer = []
+
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def inner_convection(self):
+        return self._inner_convection
+
+    @inner_convection.setter
+    def inner_convection(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert inner convection to float&#34;)
+
+        if value is not None:
+            self._inner_convection = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def inner_radiation(self):
+        return self._inner_radiation
+
+    @inner_radiation.setter
+    def inner_radiation(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert inner radiation to float&#34;)
+
+        if value is not None:
+            self._inner_radiation = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def outer_convection(self):
+        return self._outer_convection
+
+    @outer_convection.setter
+    def outer_convection(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert outer convection to float&#34;)
+
+        if value is not None:
+            self._outer_convection = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def outer_radiation(self):
+        return self._outer_radiation
+
+    @outer_radiation.setter
+    def outer_radiation(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert outer radiation to float&#34;)
+
+        if value is not None:
+            self._outer_radiation = value
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def area(self):
+        return self._area
+
+    @area.setter
+    def area(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert element area to float&#34;)
+
+        if value is not None:
+            self._area = value
+        if type(self).__name__ == &#34;OuterWall&#34;\
+                or type(self).__name__ == &#34;Rooftop&#34; \
+                or type(self).__name__ == &#34;GroundFloor&#34;:
+            if (self.parent is not None and self.parent.parent is not None and
+                    self.orientation is not None):
+                self.parent.parent.fill_outer_area_dict()
+        elif type(self).__name__ == &#34;Window&#34;:
+            if self.parent is not None and self.orientation is not None:
+                self.parent.parent.fill_window_area_dict()
+        if self.inner_convection is not None and\
+                self.inner_radiation is not None and\
+                self.area is not None:
+            self.calc_ua_value()
+
+    @property
+    def tilt(self):
+        return self._tilt
+
+    @tilt.setter
+    def tilt(self, value):
+
+        if isinstance(value, float):
+            self._tilt = value
+        elif value is None:
+            self._tilt = value
+        else:
+            try:
+                value = float(value)
+                self._tilt = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert tilt to float&#34;)
+
+    @property
+    def year_of_construction(self):
+        return self._year_of_construction
+
+    @year_of_construction.setter
+    def year_of_construction(self, value):
+
+        if isinstance(value, float):
+            self._year_of_construction = value
+        elif value is None:
+            self._year_of_construction = value
+        else:
+            try:
+                value = int(value)
+                self._year_of_construction = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert year to int&#34;)
+
+    @property
+    def construction_type(self):
+        return self._construction_type
+
+    @construction_type.setter
+    def construction_type(self, value):
+
+        self._construction_type = value
+
+    @property
+    def lca_data(self):
+        return self._lca_data
+
+    @lca_data.setter
+    def lca_data(self, value):
+        self._lca_data = value
+    
+    @property
+    def additional_lca_data(self):
+        return self._additional_lca_data
+    
+    @additional_lca_data.setter
+    def additional_lca_data(self, value):
+        self._additional_lca_data = value
+        
+    @property
+    def service_life(self):
+        return self._service_life
+    
+    @service_life.setter
+    def service_life(self, value):
+        if value is not None:
+            if not isinstance(value, int):
+                try:
+                    value = int(value)
+                except TypeError:
+                    print(&#34;Service life has to be integer&#34;)
+                      
+                
+        self._service_life = value
+    
+    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+        &#34;&#34;&#34;calculates the LCA-data of the buildingelement and set it to the
+        attribute lca_data
+        
+
+        Parameters
+        ----------
+        use_b4 : bool, optional
+            if true environmental indicators of replaced buildingelements are added
+            to stage B4. Otherwise they are added seperatly to the other stages
+        period_lca_scenario : TYPE, optional
+            period which is taken into account for LCA. The default is None.
+
+        &#34;&#34;&#34;
+        
+        if use_b4 is None:
+            try:
+                use_b4 = self.parent.parent.parent.use_b4
+            except:
+                use_b4 = False
+        
+        if self.layer != []:
+            lca_data = En15804LcaData()
+            lca_data.ref_flow_unit = &#34;pcs&#34;
+            
+            
+            if period_lca_scenario is None:
+                try:
+                    period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+                except:
+                    print(&#34;Please enter a period for the LCA-scenario!&#34;)
+            
+                
+            
+            if self.service_life:
+
+                n_be_repl = int(period_lca_scenario / self.service_life)
+                remaining_period = period_lca_scenario % self.service_life
+                
+                if use_b4:
+                    lca_data = n_be_repl * self.calc_lca_data_no_repl()                  
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)                   
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self.calc_lca_data_no_repl()
+                    
+                else:
+                    lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()                    
+                    lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
+            else:
+                if use_b4:
+                    lca_data = self._calc_lca_data_layer_repl(period_lca_scenario)                    
+                    lca_data = lca_data.sum_to_b4()                    
+                    lca_data = lca_data + self._calc_lca_data_no_repl()
+                else:
+                    lca_data = self._calc_lca_data_no_repl()                   
+                    lca_data = lca_data + self._calc_lca_data_layer_repl(period_lca_scenario)
+                
+            self.lca_data = lca_data
+                
+
+
+                
+            
+                
+                
+            
+            
+        
+
+    def _calc_lca_data_no_repl(self):
+        &#34;&#34;&#34;calculates the environmental indicators of the buildingelement 
+        without any replacements
+        
+
+        Returns
+        -------
+        lca_data_be : En15804LcaData
+            environmental indicators of the buildingelement without any
+            replacements
+        &#34;&#34;&#34;
+        
+        lca_data_be = En15804LcaData()
+        lca_data_be.ref_flow_unit = &#34;pcs&#34;
+                
+        for layer in self.layer:
+            
+            lca_data_layer = layer.material.lca_data
+            lca_data_layer = lca_data_layer.convert_ref_unit(
+                                    target_unit = &#34;pcs&#34;,
+                                    area = self.area,
+                                    thickness = layer.thickness,
+                                    density = layer.material.density
+                                    )
+            
+            lca_data_be = lca_data_be + lca_data_layer
+        if self.additional_lca_data is not None:
+            if self.additional_lca_data.ref_flow_unit != &#34;pcs&#34;:
+                self.additional_lca_data = self.additional_lca_data.convert_ref_unit(&#34;pcs&#34;, area=self.area)
+
+            lca_data_be = lca_data_be + self.additional_lca_data
+            
+        return lca_data_be
+        
+    def _calc_lca_data_layer_repl(self, ref_period=80):
+        &#34;&#34;&#34;calculates the LCA-data caused by layer replacement in a specific
+        time period
+        
+
+        Parameters
+        ----------
+        ref_period : int, optional [a]
+            reference time period. The default is 80 years.
+
+        Returns
+        -------
+        lca_data_repl_layers : En15804LcaData
+            environmental indicators from layer replacement
+
+        &#34;&#34;&#34;
+        
+        lca_data_repl_layers = En15804LcaData()
+        lca_data_repl_layers.ref_flow_unit = &#34;pcs&#34;
+        
+        repl_layers_1, repl_interval_1 = self._get_repl_layers(True)
+        repl_layers_2, repl_interval_2 = self._get_repl_layers(False)
+        
+        if repl_interval_1 &lt; ref_period:
+            for layer in repl_layers_1:
+                
+                lca_data_layer = layer.material.lca_data
+                lca_data_layer = lca_data_layer.convert_ref_unit(
+                                        target_unit = &#34;pcs&#34;,
+                                        area = self.area,
+                                        thickness = layer.thickness,
+                                        density = layer.material.density
+                                        )
+                lca_data_repl_layers = lca_data_repl_layers + lca_data_layer
+                
+        if repl_interval_2 &lt; ref_period:
+            for layer in repl_layers_2:
+                
+                lca_data_layer = layer.material.lca_data
+                lca_data_layer = lca_data_layer.convert_ref_unit(
+                                        target_unit = &#34;pcs&#34;,
+                                        area = self.area,
+                                        thickness = layer.thickness,
+                                        density = layer.material.density
+                                        )
+                
+                lca_data_repl_layers = lca_data_repl_layers + lca_data_layer
+                
+        return lca_data_repl_layers
+            
+            
+            
+    def _get_repl_layers(self, side: bool):
+        &#34;&#34;&#34;returns all materials which must be replaced on one side of the
+        buildingelement. Materials which are surrounded by layers with longer
+        service life will not be replaced
+
+        Parameters
+        ----------
+        side : bool
+            is true for the first side of the element and false for the second
+
+        Returns
+        -------
+        repl_layers : list
+            layers to be replaced
+        repl_interval : TYPE
+            longest service life of the replaced layers (= interval in which
+            the layers are replaced)
+
+        &#34;&#34;&#34;
+        
+        repl_layers = []
+        
+        if side:
+            layers = self.layer
+        else:
+            layers = list(reversed(self.layer))
+        
+        if layers[0].material.service_life:
+            repl_interval = layers[0].material.service_life
+            
+            repl_layers.append(layers[0])
+            
+            for layer in layers[1:]:
+                if layer.material.service_life:
+                    if layer.material.service_life &lt;= repl_interval:
+                        repl_layers.append(layer)
+                    else:
+                        break
+                else:
+                    break   
+                
+            return repl_layers, repl_interval
+            
+        else:
+            return [], -1</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="teaser.logic.buildingobjects.buildingphysics.wall.Wall" href="wall.html#teaser.logic.buildingobjects.buildingphysics.wall.Wall">Wall</a></li>
+<li><a title="teaser.logic.buildingobjects.buildingphysics.window.Window" href="window.html#teaser.logic.buildingobjects.buildingphysics.window.Window">Window</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.additional_lca_data"><code class="name">var <span class="ident">additional_lca_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def additional_lca_data(self):
+    return self._additional_lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.area"><code class="name">var <span class="ident">area</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def area(self):
+    return self._area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.construction_type"><code class="name">var <span class="ident">construction_type</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def construction_type(self):
+    return self._construction_type</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_convection"><code class="name">var <span class="ident">inner_convection</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def inner_convection(self):
+    return self._inner_convection</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_radiation"><code class="name">var <span class="ident">inner_radiation</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def inner_radiation(self):
+    return self._inner_radiation</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.layer"><code class="name">var <span class="ident">layer</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def layer(self):
+    return self._layer</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.lca_data"><code class="name">var <span class="ident">lca_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def lca_data(self):
+    return self._lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    return self._name</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.orientation"><code class="name">var <span class="ident">orientation</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def orientation(self):
+    return self._orientation</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_convection"><code class="name">var <span class="ident">outer_convection</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def outer_convection(self):
+    return self._outer_convection</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_radiation"><code class="name">var <span class="ident">outer_radiation</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def outer_radiation(self):
+    return self._outer_radiation</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.service_life"><code class="name">var <span class="ident">service_life</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def service_life(self):
+    return self._service_life</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.tilt"><code class="name">var <span class="ident">tilt</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def tilt(self):
+    return self._tilt</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_construction"><code class="name">var <span class="ident">year_of_construction</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def year_of_construction(self):
+    return self._year_of_construction</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_retrofit"><code class="name">var <span class="ident">year_of_retrofit</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def year_of_retrofit(self):
+    return self._year_of_retrofit</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer"><code class="name flex">
+<span>def <span class="ident">add_layer</span></span>(<span>self, layer, position=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds a layer at a certain position</p>
+<p>This function adds a Layer instance to the layer list at a given
+position</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>layer</code></strong> :&ensp;<code>instance</code> of <code>Layer</code></dt>
+<dd>Layer instance of TEASER</dd>
+<dt><strong><code>position</code></strong> :&ensp;<code>int</code></dt>
+<dd>position in the wall starting from 0 (inner side)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_layer(self, layer, position=None):
+    &#34;&#34;&#34;Adds a layer at a certain position
+
+    This function adds a Layer instance to the layer list at a given
+    position
+
+    Parameters
+    ----------
+    layer : instance of Layer
+        Layer instance of TEASER
+    position : int
+        position in the wall starting from 0 (inner side)
+
+    &#34;&#34;&#34;
+    ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+
+    assert isinstance(layer, Layer), ass_error_1
+
+    if position is None:
+        self._layer.append(layer)
+    else:
+        self._layer.insert(position, layer)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer_list"><code class="name flex">
+<span>def <span class="ident">add_layer_list</span></span>(<span>self, layer_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Appends a layer set to the layer list</p>
+<p>The layer list has to be in correct order</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>layer_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>list of sorted TEASER Layer instances</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_layer_list(self, layer_list):
+    &#34;&#34;&#34;Appends a layer set to the layer list
+
+    The layer list has to be in correct order
+
+    Parameters
+    ----------
+    layer_list : list
+        list of sorted TEASER Layer instances
+    &#34;&#34;&#34;
+    ass_error_1 = &#34;Layer has to be an instance of Layer()&#34;
+    for lay_count in layer_list:
+
+        assert isinstance(lay_count, Layer), ass_error_1
+
+        self._layer.append(lay_count)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_lca_data"><code class="name flex">
+<span>def <span class="ident">calc_lca_data</span></span>(<span>self, use_b4=None, period_lca_scenario=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>calculates the LCA-data of the buildingelement and set it to the
+attribute lca_data</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>use_b4</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>if true environmental indicators of replaced buildingelements are added
+to stage B4. Otherwise they are added seperatly to the other stages</dd>
+<dt><strong><code>period_lca_scenario</code></strong> :&ensp;<code>TYPE</code>, optional</dt>
+<dd>period which is taken into account for LCA. The default is None.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
+    &#34;&#34;&#34;calculates the LCA-data of the buildingelement and set it to the
+    attribute lca_data
+    
+
+    Parameters
+    ----------
+    use_b4 : bool, optional
+        if true environmental indicators of replaced buildingelements are added
+        to stage B4. Otherwise they are added seperatly to the other stages
+    period_lca_scenario : TYPE, optional
+        period which is taken into account for LCA. The default is None.
+
+    &#34;&#34;&#34;
+    
+    if use_b4 is None:
+        try:
+            use_b4 = self.parent.parent.parent.use_b4
+        except:
+            use_b4 = False
+    
+    if self.layer != []:
+        lca_data = En15804LcaData()
+        lca_data.ref_flow_unit = &#34;pcs&#34;
+        
+        
+        if period_lca_scenario is None:
+            try:
+                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
+            except:
+                print(&#34;Please enter a period for the LCA-scenario!&#34;)
+        
+            
+        
+        if self.service_life:
+
+            n_be_repl = int(period_lca_scenario / self.service_life)
+            remaining_period = period_lca_scenario % self.service_life
+            
+            if use_b4:
+                lca_data = n_be_repl * self.calc_lca_data_no_repl()                  
+                lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)                   
+                lca_data = lca_data.sum_to_b4()                    
+                lca_data = lca_data + self.calc_lca_data_no_repl()
+                
+            else:
+                lca_data = (n_be_repl + 1) * self._calc_lca_data_no_repl()                    
+                lca_data = lca_data + (n_be_repl + 1) * self._calc_lca_data_layer_repl(self.service_life)                    
+                lca_data = lca_data + self._calc_lca_data_layer_repl(remaining_period)
+        else:
+            if use_b4:
+                lca_data = self._calc_lca_data_layer_repl(period_lca_scenario)                    
+                lca_data = lca_data.sum_to_b4()                    
+                lca_data = lca_data + self._calc_lca_data_no_repl()
+            else:
+                lca_data = self._calc_lca_data_no_repl()                   
+                lca_data = lca_data + self._calc_lca_data_layer_repl(period_lca_scenario)
+            
+        self.lca_data = lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_ua_value"><code class="name flex">
+<span>def <span class="ident">calc_ua_value</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>U*A value for building element.</p>
+<p>Calculates the U*A value and resistances for radiative and
+convective heat transfer of a building element.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calc_ua_value(self):
+    &#34;&#34;&#34;U*A value for building element.
+
+    Calculates the U*A value and resistances for radiative and
+    convective heat transfer of a building element.
+    &#34;&#34;&#34;
+
+    self.ua_value = 0.0
+    self.r_conduc = 0.0
+    self.r_inner_conv = 0.0
+    self.r_inner_rad = 0.0
+    self.r_inner_comb = 0.0
+    self.r_outer_conv = 0.0
+    self.r_outer_rad = 0.0
+    self.r_outer_comb = 0.0
+    r_conduc = 0.0
+    for count_layer in self.layer:
+        r_conduc += (
+            count_layer.thickness / count_layer.material.thermal_conduc) \
+
+    self.r_conduc = r_conduc * (1 / self.area)
+    self.r_inner_conv = (1 / self.inner_convection) * (1 / self.area)
+    self.r_inner_rad = (1 / self.inner_radiation) * (1 / self.area)
+    self.r_inner_comb = 1 / (1 / self.r_inner_conv + 1 / self.r_inner_rad)
+
+    if self.outer_convection is not None \
+            and self.outer_radiation is not None:
+
+        self.r_outer_conv = (1 / self.outer_convection) * (1 / self.area)
+        self.r_outer_rad = (1 / self.outer_radiation) * (1 / self.area)
+        self.r_outer_comb = 1 / \
+            (1 / self.r_outer_conv + 1 / self.r_outer_rad)
+
+    self.ua_value = (1 / (
+        self.r_inner_comb + self.r_conduc + self.r_outer_comb))
+    self.u_value = self.ua_value / self.area</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.delete_type_element"><code class="name flex">
+<span>def <span class="ident">delete_type_element</span></span>(<span>self, data_class=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Deletes typical element.</p>
+<p>Deletes typical building elements according to their construction
+year and their construction type in the the json file for type building
+elements. If the Project parent is set, it automatically saves it to
+the file given in Project.data. Alternatively you can specify a path to
+a file of TypeBuildingElements. If this file does not exist,
+a new file is created.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.data (which is data_class in current
+project)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def delete_type_element(self, data_class=None):
+    &#34;&#34;&#34;Deletes typical element.
+
+    Deletes typical building elements according to their construction
+    year and their construction type in the the json file for type building
+    elements. If the Project parent is set, it automatically saves it to
+    the file given in Project.data. Alternatively you can specify a path to
+    a file of TypeBuildingElements. If this file does not exist,
+    a new file is created.
+
+    Parameters
+    ----------
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.data (which is data_class in current
+        project)
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    import teaser.data.output.buildingelement_output as \
+        buildingelement_output
+
+    buildingelement_output.delete_type_element(element=self,
+                                               data_class=data_class)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.gather_element_properties"><code class="name flex">
+<span>def <span class="ident">gather_element_properties</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Helper function for matrix calculation.</p>
+<p>Gathers all material properties of the building element and returns
+them as a np.array. Needed for the calculation of the matrix in
+equivalent_res(t_bt) especially for walls.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>number_of_layer</code></strong> :&ensp;<code>int</code></dt>
+<dd>number of layer (length of layer list)</dd>
+<dt><strong><code>density</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>Numpy array with length of number of layer, filled with density
+of each layer</dd>
+<dt><strong><code>thermal_conduc</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>Numpy array with length of number of layer, filled with
+thermal_conduc of each layer</dd>
+<dt><strong><code>heat_capac</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>Numpy array with length of number of layer, filled with heat_capac
+of each layer</dd>
+<dt><strong><code>thickness</code></strong> :&ensp;<code>np.array</code></dt>
+<dd>Numpy array with length of number of layer, filled with thickness
+of each layer</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def gather_element_properties(self):
+    &#34;&#34;&#34;Helper function for matrix calculation.
+
+    Gathers all material properties of the building element and returns
+    them as a np.array. Needed for the calculation of the matrix in
+    equivalent_res(t_bt) especially for walls.
+
+    Returns
+    ----------
+    number_of_layer : int
+        number of layer (length of layer list)
+    density : np.array
+        Numpy array with length of number of layer, filled with density
+        of each layer
+    thermal_conduc : np.array
+        Numpy array with length of number of layer, filled with
+        thermal_conduc of each layer
+    heat_capac : np.array
+        Numpy array with length of number of layer, filled with heat_capac
+        of each layer
+    thickness : np.array
+        Numpy array with length of number of layer, filled with thickness
+        of each layer
+    &#34;&#34;&#34;
+
+    number_of_layer = len(self.layer)
+    density = np.zeros(number_of_layer)
+    thermal_conduc = np.zeros(number_of_layer)
+    heat_capac = np.zeros(number_of_layer)
+    thickness = np.zeros(number_of_layer)
+
+    for i in range(number_of_layer):
+
+        density[i] = self.layer[i].material.density
+        thermal_conduc[i] = self.layer[i].material.thermal_conduc
+        heat_capac[i] = self.layer[i].material.heat_capac
+        thickness[i] = self.layer[i].thickness
+
+    return number_of_layer, density, thermal_conduc, heat_capac, thickness</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.load_type_element"><code class="name flex">
+<span>def <span class="ident">load_type_element</span></span>(<span>self, year, construction, data_class=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Typical element loader.</p>
+<p>Loads typical building elements according to their construction
+year and their construction type from a json.</p>
+<p>This function will only work if the parents to Building are set.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year of construction</dd>
+<dt><strong><code>construction</code></strong> :&ensp;<code>str</code></dt>
+<dd>Construction type, code list ('heavy', 'light')</dd>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.data (which is data_class in current
+project)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_type_element(
+        self,
+        year,
+        construction,
+        data_class=None):
+    &#34;&#34;&#34;Typical element loader.
+
+    Loads typical building elements according to their construction
+    year and their construction type from a json.
+
+    This function will only work if the parents to Building are set.
+
+    Parameters
+    ----------
+    year : int
+        Year of construction
+
+    construction : str
+        Construction type, code list (&#39;heavy&#39;, &#39;light&#39;)
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.data (which is data_class in current
+        project)
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    self.layer = None
+    self._inner_convection = None
+    self._inner_radiation = None
+    self._outer_convection = None
+    self._outer_radiation = None
+
+    buildingelement_input.load_type_element(element=self,
+                                            year=year,
+                                            construction=construction,
+                                            data_class=data_class)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.save_type_element"><code class="name flex">
+<span>def <span class="ident">save_type_element</span></span>(<span>self, data_class=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Typical element saver.</p>
+<p>Saves typical building elements according to their construction
+year and their construction type in the the json file for type building
+elements. If the Project parent is set, it automatically saves it to
+the file given in Project.data. Alternatively you can specify a path to
+a file of TypeBuildingElements. If this file does not exist,
+a new file is created.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.data (which is data_class in current
+project)</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_type_element(self, data_class=None):
+    &#34;&#34;&#34;Typical element saver.
+
+    Saves typical building elements according to their construction
+    year and their construction type in the the json file for type building
+    elements. If the Project parent is set, it automatically saves it to
+    the file given in Project.data. Alternatively you can specify a path to
+    a file of TypeBuildingElements. If this file does not exist,
+    a new file is created.
+
+    Parameters
+    ----------
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.data (which is data_class in current
+        project)
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    import teaser.data.output.buildingelement_output as \
+        buildingelement_output
+
+    buildingelement_output.save_type_element(element=self,
+                                             data_class=data_class)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.set_calc_default"><code class="name flex">
+<span>def <span class="ident">set_calc_default</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Sets all calculated values of the Building Element to zero</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_calc_default(self):
+    &#34;&#34;&#34;Sets all calculated values of the Building Element to zero
+    &#34;&#34;&#34;
+    self.r1 = 0.0
+    self.r2 = 0.0
+    self.r3 = 0.0
+    self.c1 = 0.0
+    self.c2 = 0.0
+    self.c1_korr = 0.0
+    self.ua_value = 0.0
+    self.r_conduc = 0.0
+    self.r_inner_conv = 0.0
+    self.r_inner_rad = 0.0
+    self.r_inner_comb = 0.0
+    self.r_outer_conv = 0.0
+    self.r_outer_rad = 0.0
+    self.r_outer_comb = 0.0</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics" href="index.html">teaser.logic.buildingobjects.buildingphysics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement">BuildingElement</a></code></h4>
+<ul class="">
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer">add_layer</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer_list" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.add_layer_list">add_layer_list</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.additional_lca_data" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.additional_lca_data">additional_lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.area" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.area">area</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_lca_data" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_lca_data">calc_lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_ua_value" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.calc_ua_value">calc_ua_value</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.construction_type" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.construction_type">construction_type</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.delete_type_element" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.delete_type_element">delete_type_element</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.gather_element_properties" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.gather_element_properties">gather_element_properties</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_convection" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_convection">inner_convection</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_radiation" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.inner_radiation">inner_radiation</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.layer" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.layer">layer</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.lca_data" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.lca_data">lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.load_type_element" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.load_type_element">load_type_element</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.name" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.name">name</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.orientation" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.orientation">orientation</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_convection" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_convection">outer_convection</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_radiation" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.outer_radiation">outer_radiation</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.save_type_element" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.save_type_element">save_type_element</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.service_life" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.service_life">service_life</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.set_calc_default" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.set_calc_default">set_calc_default</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.tilt" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.tilt">tilt</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_construction" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_construction">year_of_construction</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_retrofit" href="#teaser.logic.buildingobjects.buildingphysics.buildingelement.BuildingElement.year_of_retrofit">year_of_retrofit</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

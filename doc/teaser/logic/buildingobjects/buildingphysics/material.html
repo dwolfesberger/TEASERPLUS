@@ -1,0 +1,1193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>teaser.logic.buildingobjects.buildingphysics.material API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>teaser.logic.buildingobjects.buildingphysics.material</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python"># created June 2015
+# by TEASER4 Development Team
+
+
+import re
+import uuid
+import teaser.data.input.material_input_json as material_input
+import teaser.data.output.material_output as material_output
+from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
+
+
+
+class Material(object):
+    &#34;&#34;&#34;Material class
+
+    This class holds information of Material used for building element layer.
+
+
+    Parameters
+    ----------
+    parent : Layer
+        The parent class of this object, the layer the material
+        belongs to. Allows for better control of hierarchical structures. If
+        not None this adds this Material to Layer.material.
+        Default is None
+
+    Attributes
+    ----------
+    name : str
+        Name of material
+    density : float [kg/m3]
+        Density of material
+    thermal_conduc : float [W/(m*K)]
+        Thermal conductivity of material
+    heat_capac : float [kJ/(kg*K)]
+        Specific heat capacity of material
+    solar_absorp : float [-]
+        Coefficient of absorption of solar short wave
+    ir_emissivity : float [-]
+        Coefficient of longwave emissivity of material
+    transmittance : float [-]
+        Coefficient of transmittance of material
+    thickness_default : float [m]
+        Default value for material thickness
+    thickness_list : list
+        List of usual values for material thickness, float [m]
+    material_id : str(uuid)
+        UUID of material, this is used to have similar behaviour like foreign
+        key in SQL data bases for use in TypeBuildingElements and Material json
+    lca_data : En15804LcaData
+        material environmental product declaration indicators according to 
+        EN 15804
+    service_life : int [a]
+        service life of the material
+
+    &#34;&#34;&#34;
+
+    def __init__(self, parent=None):
+        &#34;&#34;&#34;Constructor of Material.
+        &#34;&#34;&#34;
+
+        self.parent = parent
+        self._name = &#34;&#34;
+        self._density = 0.0
+        self._thermal_conduc = 0.0
+        self._heat_capac = 0.0
+        self._solar_absorp = 0.0
+        if parent is not None:
+            if type(self.parent.parent).__name__ != &#34;Window&#34;:
+                self._solar_absorp = 0.7
+        self._ir_emissivity = 0.9
+        self._transmittance = 0.0
+        self._thickness_default = 0.0
+        self._thickness_list = []
+        self._lca_data = None
+        self._service_life = None
+
+        self.material_id = str(uuid.uuid1())
+
+    def load_material_template(self, mat_name, data_class=None):
+        &#34;&#34;&#34;Material loader.
+
+        Loads Material specified in the json.
+
+        Parameters
+        ----------
+
+        mat_name : str
+            Code list for Material
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_input.load_material(material=self,
+                                     mat_name=mat_name,
+                                     data_class=data_class)
+
+    def save_material_template(self, data_class):
+        &#34;&#34;&#34;Material saver.
+
+        Saves Material specified in the json.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_output.save_material(
+            material=self, data_class=data_class)
+
+    def modify_material_template(self, data_class):
+        &#34;&#34;&#34;Material modifier.
+
+        Modify Material specified in the json.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_output.modify_material(material=self, data_class=data_class)
+
+    @property
+    def material_id(self):
+        return self.__material_id
+
+    @material_id.setter
+    def material_id(self, value):
+        self.__material_id = value
+
+    @property
+    def parent(self):
+        return self.__parent
+
+    @parent.setter
+    def parent(self, value):
+
+        if value is not None:
+
+            ass_error_1 = &#34;Parent has to be an instance of a layer&#34;
+
+            assert type(value).__name__ == &#34;Layer&#34;, ass_error_1
+
+            self.__parent = value
+            self.__parent.material = self
+
+        else:
+            self.__parent = None
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+            self._name = regex.sub(&#39;&#39;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+    @property
+    def thermal_conduc(self):
+        return self._thermal_conduc
+
+    @thermal_conduc.setter
+    def thermal_conduc(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert thermal conduction to float&#34;)
+
+        if value is not None:
+            self._thermal_conduc = float(value)
+            if self.parent is not None:
+                if self.parent.parent is not None:
+                    if self.parent.thickness is not None and \
+                            self.parent.parent.inner_convection is \
+                            not None and \
+                            self.parent.parent.inner_radiation is \
+                            not None and \
+                            self.parent.parent.area is not None:
+                        self.parent.parent.calc_ua_value()
+
+    @property
+    def density(self):
+        return self._density
+
+    @density.setter
+    def density(self, value):
+
+        if isinstance(value, float):
+            self._density = value
+        elif value is None:
+            self._density = value
+        else:
+            try:
+                value = float(value)
+                self._density = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert density to float&#34;)
+
+    @property
+    def heat_capac(self):
+        return self._heat_capac
+
+    @heat_capac.setter
+    def heat_capac(self, value):
+
+        if isinstance(value, float):
+            self._heat_capac = value
+        elif value is None:
+            self._heat_capac = value
+        else:
+            try:
+                value = float(value)
+                self._heat_capac = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert heat capacity to float&#34;)
+
+    @property
+    def solar_absorp(self):
+        return self._solar_absorp
+
+    @solar_absorp.setter
+    def solar_absorp(self, value):
+
+        if isinstance(value, float):
+            self._solar_absorp = value
+        elif value is None:
+            self._solar_absorp = 0.7
+        else:
+            try:
+                value = float(value)
+                self._solar_absorp = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert solar absorption to float&#34;)
+
+    @property
+    def ir_emissivity(self):
+        return self._ir_emissivity
+
+    @ir_emissivity.setter
+    def ir_emissivity(self, value):
+
+        if isinstance(value, float):
+            self._ir_emissivity = value
+        elif value is None:
+            self._ir_emissivity = 0.9
+        else:
+            try:
+                value = float(value)
+                self._ir_emissivity = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert emissivity to float&#34;)
+
+    @property
+    def transmittance(self):
+        return self._transmittance
+
+    @transmittance.setter
+    def transmittance(self, value):
+
+        if isinstance(value, float):
+            self._transmittance = value
+        elif value is None:
+            self._transmittance = value
+        else:
+            try:
+                value = float(value)
+                self._transmittance = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert transmittance to float&#34;)
+
+    @property
+    def thickness_default(self):
+        return self._thickness_default
+
+    @thickness_default.setter
+    def thickness_default(self, value):
+
+        if isinstance(value, float):
+            self._thickness_default = value
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert thickness to float&#34;)
+
+    @property
+    def thickness_list(self):
+        return self._thickness_list
+
+    @thickness_list.setter
+    def thickness_list(self, value):
+
+        if value is None:
+            self._thickness_list = []
+
+        # elif type(value) != list:
+        #    raise TypeError(&#34;must be list, not &#34;, type(value))
+
+        else:
+            for i in value:
+                if isinstance(i, float):
+                    pass
+                else:
+                    try:
+                        value = float(value)
+                    except:
+                        raise ValueError(
+                            &#34;Can&#39;t convert entry of thickness_list to float&#34;)
+
+                self._thickness_list = value
+                
+    @property
+    def lca_data(self):
+        return self._lca_data
+    
+    @lca_data.setter
+    def lca_data(self, value):
+        if isinstance(value, En15804LcaData):
+            self._lca_data = value
+        else:
+            print(&#34;lca_data must be an En15804IndicatorValue-Object!&#34;)
+            
+    @property
+    def service_life(self):
+        return self._service_life
+
+    @service_life.setter
+    def service_life(self, value):
+        if value != None:
+            if not isinstance(value, int):
+                try:
+                    value = int(value)
+                except:
+                    raise ValueError(&#34;Service Life has to be integer&#34;)
+                      
+                
+        self._service_life = value</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material"><code class="flex name class">
+<span>class <span class="ident">Material</span></span>
+<span>(</span><span>parent=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Material class</p>
+<p>This class holds information of Material used for building element layer.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>parent</code></strong> :&ensp;<code>Layer</code></dt>
+<dd>The parent class of this object, the layer the material
+belongs to. Allows for better control of hierarchical structures. If
+not None this adds this Material to Layer.material.
+Default is None</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of material</dd>
+<dt><strong><code>density</code></strong> :&ensp;<code>float [kg/m3]</code></dt>
+<dd>Density of material</dd>
+<dt><strong><code>thermal_conduc</code></strong> :&ensp;<code>float [W/(m*K)]</code></dt>
+<dd>Thermal conductivity of material</dd>
+<dt><strong><code>heat_capac</code></strong> :&ensp;<code>float [kJ/(kg*K)]</code></dt>
+<dd>Specific heat capacity of material</dd>
+<dt><strong><code>solar_absorp</code></strong> :&ensp;<code>float [-]</code></dt>
+<dd>Coefficient of absorption of solar short wave</dd>
+<dt><strong><code>ir_emissivity</code></strong> :&ensp;<code>float [-]</code></dt>
+<dd>Coefficient of longwave emissivity of material</dd>
+<dt><strong><code>transmittance</code></strong> :&ensp;<code>float [-]</code></dt>
+<dd>Coefficient of transmittance of material</dd>
+<dt><strong><code>thickness_default</code></strong> :&ensp;<code>float [m]</code></dt>
+<dd>Default value for material thickness</dd>
+<dt><strong><code>thickness_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of usual values for material thickness, float [m]</dd>
+<dt><strong><code>material_id</code></strong> :&ensp;<code>str(uuid)</code></dt>
+<dd>UUID of material, this is used to have similar behaviour like foreign
+key in SQL data bases for use in TypeBuildingElements and Material json</dd>
+<dt><strong><code>lca_data</code></strong> :&ensp;<code>En15804LcaData</code></dt>
+<dd>material environmental product declaration indicators according to
+EN 15804</dd>
+<dt><strong><code>service_life</code></strong> :&ensp;<code>int [a]</code></dt>
+<dd>service life of the material</dd>
+</dl>
+<p>Constructor of Material.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Material(object):
+    &#34;&#34;&#34;Material class
+
+    This class holds information of Material used for building element layer.
+
+
+    Parameters
+    ----------
+    parent : Layer
+        The parent class of this object, the layer the material
+        belongs to. Allows for better control of hierarchical structures. If
+        not None this adds this Material to Layer.material.
+        Default is None
+
+    Attributes
+    ----------
+    name : str
+        Name of material
+    density : float [kg/m3]
+        Density of material
+    thermal_conduc : float [W/(m*K)]
+        Thermal conductivity of material
+    heat_capac : float [kJ/(kg*K)]
+        Specific heat capacity of material
+    solar_absorp : float [-]
+        Coefficient of absorption of solar short wave
+    ir_emissivity : float [-]
+        Coefficient of longwave emissivity of material
+    transmittance : float [-]
+        Coefficient of transmittance of material
+    thickness_default : float [m]
+        Default value for material thickness
+    thickness_list : list
+        List of usual values for material thickness, float [m]
+    material_id : str(uuid)
+        UUID of material, this is used to have similar behaviour like foreign
+        key in SQL data bases for use in TypeBuildingElements and Material json
+    lca_data : En15804LcaData
+        material environmental product declaration indicators according to 
+        EN 15804
+    service_life : int [a]
+        service life of the material
+
+    &#34;&#34;&#34;
+
+    def __init__(self, parent=None):
+        &#34;&#34;&#34;Constructor of Material.
+        &#34;&#34;&#34;
+
+        self.parent = parent
+        self._name = &#34;&#34;
+        self._density = 0.0
+        self._thermal_conduc = 0.0
+        self._heat_capac = 0.0
+        self._solar_absorp = 0.0
+        if parent is not None:
+            if type(self.parent.parent).__name__ != &#34;Window&#34;:
+                self._solar_absorp = 0.7
+        self._ir_emissivity = 0.9
+        self._transmittance = 0.0
+        self._thickness_default = 0.0
+        self._thickness_list = []
+        self._lca_data = None
+        self._service_life = None
+
+        self.material_id = str(uuid.uuid1())
+
+    def load_material_template(self, mat_name, data_class=None):
+        &#34;&#34;&#34;Material loader.
+
+        Loads Material specified in the json.
+
+        Parameters
+        ----------
+
+        mat_name : str
+            Code list for Material
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_input.load_material(material=self,
+                                     mat_name=mat_name,
+                                     data_class=data_class)
+
+    def save_material_template(self, data_class):
+        &#34;&#34;&#34;Material saver.
+
+        Saves Material specified in the json.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_output.save_material(
+            material=self, data_class=data_class)
+
+    def modify_material_template(self, data_class):
+        &#34;&#34;&#34;Material modifier.
+
+        Modify Material specified in the json.
+
+        Parameters
+        ----------
+
+        data_class : DataClass()
+            DataClass containing the bindings for TypeBuildingElement and
+            Material (typically this is the data class stored in prj.data,
+            but the user can individually change that. Default is
+            self.parent.parent.parent.parent.data which is data in project
+
+        &#34;&#34;&#34;
+
+        if data_class is None:
+            data_class = self.parent.parent.parent.parent.data
+        else:
+            data_class = data_class
+
+        material_output.modify_material(material=self, data_class=data_class)
+
+    @property
+    def material_id(self):
+        return self.__material_id
+
+    @material_id.setter
+    def material_id(self, value):
+        self.__material_id = value
+
+    @property
+    def parent(self):
+        return self.__parent
+
+    @parent.setter
+    def parent(self, value):
+
+        if value is not None:
+
+            ass_error_1 = &#34;Parent has to be an instance of a layer&#34;
+
+            assert type(value).__name__ == &#34;Layer&#34;, ass_error_1
+
+            self.__parent = value
+            self.__parent.material = self
+
+        else:
+            self.__parent = None
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, value):
+        if isinstance(value, str):
+            regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+            self._name = regex.sub(&#39;&#39;, value)
+        else:
+            try:
+                value = str(value)
+                regex = re.compile(&#39;[^a-zA-z0-9]&#39;)
+                self._name = regex.sub(&#39;&#39;, value)
+            except ValueError:
+                print(&#34;Can&#39;t convert name to string&#34;)
+
+    @property
+    def thermal_conduc(self):
+        return self._thermal_conduc
+
+    @thermal_conduc.setter
+    def thermal_conduc(self, value):
+
+        if isinstance(value, float):
+            pass
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert thermal conduction to float&#34;)
+
+        if value is not None:
+            self._thermal_conduc = float(value)
+            if self.parent is not None:
+                if self.parent.parent is not None:
+                    if self.parent.thickness is not None and \
+                            self.parent.parent.inner_convection is \
+                            not None and \
+                            self.parent.parent.inner_radiation is \
+                            not None and \
+                            self.parent.parent.area is not None:
+                        self.parent.parent.calc_ua_value()
+
+    @property
+    def density(self):
+        return self._density
+
+    @density.setter
+    def density(self, value):
+
+        if isinstance(value, float):
+            self._density = value
+        elif value is None:
+            self._density = value
+        else:
+            try:
+                value = float(value)
+                self._density = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert density to float&#34;)
+
+    @property
+    def heat_capac(self):
+        return self._heat_capac
+
+    @heat_capac.setter
+    def heat_capac(self, value):
+
+        if isinstance(value, float):
+            self._heat_capac = value
+        elif value is None:
+            self._heat_capac = value
+        else:
+            try:
+                value = float(value)
+                self._heat_capac = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert heat capacity to float&#34;)
+
+    @property
+    def solar_absorp(self):
+        return self._solar_absorp
+
+    @solar_absorp.setter
+    def solar_absorp(self, value):
+
+        if isinstance(value, float):
+            self._solar_absorp = value
+        elif value is None:
+            self._solar_absorp = 0.7
+        else:
+            try:
+                value = float(value)
+                self._solar_absorp = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert solar absorption to float&#34;)
+
+    @property
+    def ir_emissivity(self):
+        return self._ir_emissivity
+
+    @ir_emissivity.setter
+    def ir_emissivity(self, value):
+
+        if isinstance(value, float):
+            self._ir_emissivity = value
+        elif value is None:
+            self._ir_emissivity = 0.9
+        else:
+            try:
+                value = float(value)
+                self._ir_emissivity = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert emissivity to float&#34;)
+
+    @property
+    def transmittance(self):
+        return self._transmittance
+
+    @transmittance.setter
+    def transmittance(self, value):
+
+        if isinstance(value, float):
+            self._transmittance = value
+        elif value is None:
+            self._transmittance = value
+        else:
+            try:
+                value = float(value)
+                self._transmittance = value
+            except:
+                raise ValueError(&#34;Can&#39;t convert transmittance to float&#34;)
+
+    @property
+    def thickness_default(self):
+        return self._thickness_default
+
+    @thickness_default.setter
+    def thickness_default(self, value):
+
+        if isinstance(value, float):
+            self._thickness_default = value
+        elif value is None:
+            pass
+        else:
+            try:
+                value = float(value)
+            except:
+                raise ValueError(&#34;Can&#39;t convert thickness to float&#34;)
+
+    @property
+    def thickness_list(self):
+        return self._thickness_list
+
+    @thickness_list.setter
+    def thickness_list(self, value):
+
+        if value is None:
+            self._thickness_list = []
+
+        # elif type(value) != list:
+        #    raise TypeError(&#34;must be list, not &#34;, type(value))
+
+        else:
+            for i in value:
+                if isinstance(i, float):
+                    pass
+                else:
+                    try:
+                        value = float(value)
+                    except:
+                        raise ValueError(
+                            &#34;Can&#39;t convert entry of thickness_list to float&#34;)
+
+                self._thickness_list = value
+                
+    @property
+    def lca_data(self):
+        return self._lca_data
+    
+    @lca_data.setter
+    def lca_data(self, value):
+        if isinstance(value, En15804LcaData):
+            self._lca_data = value
+        else:
+            print(&#34;lca_data must be an En15804IndicatorValue-Object!&#34;)
+            
+    @property
+    def service_life(self):
+        return self._service_life
+
+    @service_life.setter
+    def service_life(self, value):
+        if value != None:
+            if not isinstance(value, int):
+                try:
+                    value = int(value)
+                except:
+                    raise ValueError(&#34;Service Life has to be integer&#34;)
+                      
+                
+        self._service_life = value</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.density"><code class="name">var <span class="ident">density</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def density(self):
+    return self._density</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.heat_capac"><code class="name">var <span class="ident">heat_capac</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def heat_capac(self):
+    return self._heat_capac</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.ir_emissivity"><code class="name">var <span class="ident">ir_emissivity</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def ir_emissivity(self):
+    return self._ir_emissivity</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.lca_data"><code class="name">var <span class="ident">lca_data</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def lca_data(self):
+    return self._lca_data</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.material_id"><code class="name">var <span class="ident">material_id</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def material_id(self):
+    return self.__material_id</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.name"><code class="name">var <span class="ident">name</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def name(self):
+    return self._name</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.parent"><code class="name">var <span class="ident">parent</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def parent(self):
+    return self.__parent</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.service_life"><code class="name">var <span class="ident">service_life</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def service_life(self):
+    return self._service_life</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.solar_absorp"><code class="name">var <span class="ident">solar_absorp</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def solar_absorp(self):
+    return self._solar_absorp</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.thermal_conduc"><code class="name">var <span class="ident">thermal_conduc</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def thermal_conduc(self):
+    return self._thermal_conduc</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_default"><code class="name">var <span class="ident">thickness_default</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def thickness_default(self):
+    return self._thickness_default</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_list"><code class="name">var <span class="ident">thickness_list</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def thickness_list(self):
+    return self._thickness_list</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.transmittance"><code class="name">var <span class="ident">transmittance</span></code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def transmittance(self):
+    return self._transmittance</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.load_material_template"><code class="name flex">
+<span>def <span class="ident">load_material_template</span></span>(<span>self, mat_name, data_class=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Material loader.</p>
+<p>Loads Material specified in the json.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>mat_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Code list for Material</dd>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.parent.data which is data in project</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_material_template(self, mat_name, data_class=None):
+    &#34;&#34;&#34;Material loader.
+
+    Loads Material specified in the json.
+
+    Parameters
+    ----------
+
+    mat_name : str
+        Code list for Material
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.parent.data which is data in project
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    material_input.load_material(material=self,
+                                 mat_name=mat_name,
+                                 data_class=data_class)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.modify_material_template"><code class="name flex">
+<span>def <span class="ident">modify_material_template</span></span>(<span>self, data_class)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Material modifier.</p>
+<p>Modify Material specified in the json.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.parent.data which is data in project</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def modify_material_template(self, data_class):
+    &#34;&#34;&#34;Material modifier.
+
+    Modify Material specified in the json.
+
+    Parameters
+    ----------
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.parent.data which is data in project
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    material_output.modify_material(material=self, data_class=data_class)</code></pre>
+</details>
+</dd>
+<dt id="teaser.logic.buildingobjects.buildingphysics.material.Material.save_material_template"><code class="name flex">
+<span>def <span class="ident">save_material_template</span></span>(<span>self, data_class)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Material saver.</p>
+<p>Saves Material specified in the json.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data_class</code></strong> :&ensp;<code>DataClass()</code></dt>
+<dd>DataClass containing the bindings for TypeBuildingElement and
+Material (typically this is the data class stored in prj.data,
+but the user can individually change that. Default is
+self.parent.parent.parent.parent.data which is data in project</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_material_template(self, data_class):
+    &#34;&#34;&#34;Material saver.
+
+    Saves Material specified in the json.
+
+    Parameters
+    ----------
+
+    data_class : DataClass()
+        DataClass containing the bindings for TypeBuildingElement and
+        Material (typically this is the data class stored in prj.data,
+        but the user can individually change that. Default is
+        self.parent.parent.parent.parent.data which is data in project
+
+    &#34;&#34;&#34;
+
+    if data_class is None:
+        data_class = self.parent.parent.parent.parent.data
+    else:
+        data_class = data_class
+
+    material_output.save_material(
+        material=self, data_class=data_class)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics" href="index.html">teaser.logic.buildingobjects.buildingphysics</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material" href="#teaser.logic.buildingobjects.buildingphysics.material.Material">Material</a></code></h4>
+<ul class="">
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.density" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.density">density</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.heat_capac" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.heat_capac">heat_capac</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.ir_emissivity" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.ir_emissivity">ir_emissivity</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.lca_data" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.lca_data">lca_data</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.load_material_template" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.load_material_template">load_material_template</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.material_id" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.material_id">material_id</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.modify_material_template" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.modify_material_template">modify_material_template</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.name" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.name">name</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.parent" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.parent">parent</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.save_material_template" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.save_material_template">save_material_template</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.service_life" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.service_life">service_life</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.solar_absorp" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.solar_absorp">solar_absorp</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.thermal_conduc" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.thermal_conduc">thermal_conduc</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_default" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_default">thickness_default</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_list" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.thickness_list">thickness_list</a></code></li>
+<li><code><a title="teaser.logic.buildingobjects.buildingphysics.material.Material.transmittance" href="#teaser.logic.buildingobjects.buildingphysics.material.Material.transmittance">transmittance</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
