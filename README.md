@@ -78,7 +78,7 @@ CityBIT is released by RWTH Aachen University, E3D - Institute of Energy Efficie
 
 ## Acknowledgements
 
-The developers of TEASER+ would like to thank the Institute of Energy Efficient Building and Indoor Climate (EBC), E.ON Energy Research Center, RWTH Aachen University for their effort in developing TEASER and for making it available open-source. 
+The developers of Teco would like to thank the Institute of Energy Efficient Building and Indoor Climate (EBC), E.ON Energy Research Center, RWTH Aachen University for their effort in developing TEASER and for making it available open-source. 
 
 
 
