@@ -1,46 +1,43 @@
 ![E.ON EBC RWTH Aachen University](./pictures/TEASER+_header.png)
 
-# TO BE UPDATED
-
-# TEASER+ - An extension to TEASER tool with input and output functionalities for CityGML and Energy ADE 
+# Teco - An extension to the TEASER+ tool for environmental impacts with input and output functionalities for CityGML and Energy ADE 
 
 <!---[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)-->
 
---- TO BE UPDATED ---
-
-The TEASER+ extension is developed by members of the "Institute of Energy Efficiency and Sustainable Building (e3D), RWTH Aachen University" using Python 3.5+.
-This extension is based on the "Tool for Energy Analysis and Simulation for Efficient Retrofit (TEASER)" and can be used to import and export CiyGML data sets with or without Energy ADE version 1.0.
-The TEASER+ extension aims to help the simulation scientists to facilitate energy performance simulations using CityGML models.
-This GitHub page will be used to further develop the extension. 
+The Teco extension is developed by members of the "Institute of Energy Efficiency and Sustainable Building (e3D), RWTH Aachen University" using Python 3.5+.
+This extension is based on TEASER+ as well as the "Tool for Energy Analysis and Simulation for Efficient Retrofit (TEASER)" and can be used to import and export CityGML data sets with or without Energy ADE version 1.0. 
+The Teco extension aims to help simulation scientists facilitate the determination of environmental impacts (prominently GWP) using basic input and CityGML models.
+This GitHub page will be used to further develop the extension.
 <!---and make it available under the [MIT License](https://gitlab.e3d.rwth-aachen.de/e3d-software-tools/citybit/citybit/-/blob/master/License/LICENSE).-->
 
-If you have any questions regarding TEASER+ feel free to contact us at: [shamovich@e3d.rwth-aachen.de](mailto:shamovich@e3d.rwth-aachen.de) or [cityatb@e3d.rwth-aachen.de](mailto:cityatb@e3d.rwth-aachen.de) 
+If you have any questions regarding Teco feel free to contact us at: [schildt@e3d.rwth-aachen.de](mailto:schildt@e3d.rwth-aachen.de).
 
+If you have any questions regarding TEASER+ feel free to contact us at: [shamovich@e3d.rwth-aachen.de](mailto:shamovich@e3d.rwth-aachen.de) or [cityatb@e3d.rwth-aachen.de](mailto:cityatb@e3d.rwth-aachen.de).
 
 ## Description
 
-Emerging technologies, computational algorithms and simulation environments enable users, facility managers and occupants to achieve a good estimation of the energy demands of their buildings, districts and cities.
-This is a huge step forward towards the realization of the 7th United Nations Sustainable Goal of ensuring an affordable, reliable, sustainable and modern energy for the population of our planet.
-The availability of 3D building models has been increasing in the last few years. As CityGML datasets are now available for some cities and municipalities, energy analysis using CityGML data is advantageous for the UBEM community. Since CityGML data is mainly geometric, an inclusion of the open Energy Application Domain Extension (ADE) facilitates an exchange and disseminination of energy specific data of the considered urban area. Therefore, the TEASER+ extension enhances the existing feature set and abilities of the TEASER tool, and allows integrating 3D city models with energy specific data for urban building performance simulations. 
+Ambitious sustainability and carbon reduction goals in the building sector require the large-scale determination of environmental impacts. Building energy demands in the operational phase are a crucial element to be considered. To fully reflect the building life cycle, emissions from all life phases - construction, operation, dismantling, re-usage - have to be analysed. This goes in accordance with the 11th United Nations Sustainable Goal of making cities and human settlements sustainable. 
+At the same time, this analysis is generally data-intensive. With the increasing availability of 3D building models, particularly CityGML datasets, using such data is advantageous to the UBEM community and the life cycle analysis workflow. Since CityGML data is mainly geometric, Teco offers an enrichment procedure for building materials, utilities and respective environmental indicators based on DIN EN 15804. Thus, the Teco extension enhances the existing feature set and abilities of the TEASER+ tool, and allows the integration of 3D city models for urban-scale, ecological life cycle analyses.
 
 ## Version
 
-The TEASER+ is currently being developed and is based on the TEASER version 0.7.6. 
+Teco is currently being developed and is based on the TEASER version 0.7.6. 
+The current release enables the addition of buildings in the GUI based on relevant input parameters. The next version will comprise the full usability of CityGML data.
 
 <!---## How to use TEASER+-->
 
 
 ### Dependencies
 
-TEASER+ is currently being developed using Python 3.5+ and PySide2. Beside the basic dependencies from the TEASER tool, TEASER+ uses BuildingsPy version 2.0.0 to automate the simulation process. The current developments of TEASER+ use lxml for importing and exporting CityGML datasets with or without the Energy ADE.
+Teco is currently being developed using Python 3.5+ and PySide2. Beside the basic dependencies from the TEASER tool, Teco uses BuildingsPy version 2.1.0 to automate the simulation process. The current developments of Teco use lxml for importing and exporting CityGML datasets with or without the Energy ADE.
 
 ### Installation
 
-The TEASER+ can be used by cloning or downloading the whole TEASER+ package from the GIT Repository. In future, the user can to run the "main.py" for loading the GUI.
+Teco can be used by cloning or downloading the whole Teco package from the GIT Repository. In future, the user can to run the "main.py" for loading the GUI.
 
-### How to contribute to the development of TEASER+
+### How to contribute to the development of Teco
 
-You are invited to contribute to the development of TEASER+. You may report any issues by sending us an email to [shamovich@e3d.rwth-aachen.de](mailto:shamovich@e3d.rwth-aachen.de) or [cityatb@e3d.rwth-aachen.de](mailto:cityatb@e3d.rwth-aachen.de).
+You are invited to contribute to the development of Teco. You may report any issues by sending us an email to [schildt@e3d.rwth-aachen.de](mailto:schildt@e3d.rwth-aachen.de).
 
 ## How to cite TEASER+
 The following articles can be used to cite TEASER+:
