@@ -12,12 +12,6 @@ import lxml.etree as ET
 from datetime import date, datetime
 import uuid
 import teaser.data.output.citygml_classes as cl
-import pyxb
-import pyxb.utils
-import pyxb.namespace
-import pyxb.bundles
-import pyxb.binding as bd
-import pyxb.bundles.common.raw.xlink as xlink
 import pandas as pd
 
 
