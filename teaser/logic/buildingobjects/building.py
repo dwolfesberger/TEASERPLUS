@@ -10,7 +10,6 @@ import re
 import warnings
 from teaser.logic.buildingobjects.calculation.aixlib import AixLib
 from teaser.logic.buildingobjects.calculation.ibpsa import IBPSA
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 from teaser.logic.buildingobjects.buildingsystems.buildingahu import BuildingAHU
 
@@ -116,13 +115,6 @@ class Building(object):
     library_attr : Annex() or AixLib() instance
         Classes with specific functions and attributes for building models in
         IBPSA and AixLib. Python classes can be found in calculation package.
-    lca_data : En15804LcaData
-        enviromental indicator of the building. The data referencing
-        one building
-    additional_lca_data : En15804LcaData
-        additional environmental indicators to the indicators from the thermalzones
-    _estimate_elec_demand : float [MJ]
-        estimate annual electric demand of the building (without heating)
 
     """
 
@@ -173,11 +165,6 @@ class Building(object):
         self._number_of_elements_calc = 2
         self._merge_windows_calc = False
         self._used_library_calc = "AixLib"
-        
-        self._lca_data = None
-        self._additional_lca_data = None
-        
-        self._estimate_elec_demand = None
 
         self.library_attr = None
 
@@ -887,172 +874,3 @@ class Building(object):
             self.library_attr = AixLib(parent=self)
         elif self.used_library_calc == "IBPSA":
             self.library_attr = IBPSA(parent=self)
-            
-    @property
-    def lca_data(self):
-        return self._lca_data
-
-    @lca_data.setter
-    def lca_data(self, value):
-        self._lca_data = value
-    
-    @property
-    def additional_lca_data(self):
-        return self._additional_lca_data
-    
-    @additional_lca_data.setter
-    def additional_lca_data(self, value):
-        self._additional_lca_data = value
-        
-    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
-        """calculates the LCA-data of each thermalzone and set it to the
-        attribute lca_data
-        
-
-        Parameters
-        ----------
-        use_b4 : bool, optional
-            if true environmental indicators of replaced buildingelements are added
-            to stage B4. Otherwise they are added seperatly to the other stages
-        period_lca_scenario : TYPE, optional
-            period which is taken into account for LCA. The default is None.
-
-        """
-        lca_data = En15804LcaData()
-        
-        if use_b4 is None:
-            try:
-                use_b4 = self.parent.parent.parent.use_b4
-            except:
-                use_b4 = False
-        
-        if period_lca_scenario == None:
-            try:
-                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
-            except:
-                print("Please enter a period for the LCA-scenario!")
-        
-        for thermal_zone in self.thermal_zones:
-            
-            try:
-                thermal_zone.calc_lca_data(use_b4, period_lca_scenario)
-                lca_data = lca_data + thermal_zone.lca_data
-            except:
-                print("Error while adding lca-data from thermal zone")
-                
-        if self.additional_lca_data is not None:
-            if self.additional_lca_data.ref_flow_unit == "pcs":
-                scalar = self.additional_lca_data.ref_flow_value
-                lca_data = lca_data + self.additional_lca_data * scalar
-            
-        self.lca_data = lca_data
-        
-    def est_elec_demand(self):
-        """roughly estimates the electricity demand of the building due to it´s
-        size, without electricity used for heating (e.g. for heat pumps)
-        
-        """
-        
-        q_el_ges_a = None
-        d_a = 365 #days in a year
-        q_el_b = 63 #Wh/(m^2 d) DIN 18599-10
-        a_ngf = self.net_leased_area
-        h_B = 8 #hours lighting per day estimate from DIN 18599-10
-        q_el_B = 20 * a_ngf*d_a * h_B * 0.001 #estimate from DIN 18599-4
-        q_el_wp = 0
-        
-        q_el_ges_a = d_a * q_el_b * a_ngf * 0.001 + q_el_B + q_el_wp
-        
-        q_el_ges_a = q_el_ges_a * 3.6 #conversion kWh -> MJ       
-        
-        self._estimate_elec_demand = q_el_ges_a
-    
-    def add_lca_data_elec(self, lca_data):
-        """Calculates the electric enviromental indicators 
-
-        Parameters
-        ----------
-        lca_data : En15804LcaData
-            energy carrier LCA Dataset.
-
-        """
-        
-        if self._estimate_elec_demand is None:
-            self.est_elec_demand()
-        
-        if lca_data.ref_flow_unit != "MJ":
-            try:
-                lca_data = lca_data.convert_ref_unit("MJ")
-            except:
-                print("Unit of the reference flow has to be MJ!")
-        
-        lca_data = lca_data * self._estimate_elec_demand
-        self.lca_data = self.lca_data + lca_data
-        
-    
-    def add_lca_data_heating(self, efficiency, annual_heat_load, lca_data):
-        """Calculates the heating enviromental indicators 
-
-        Parameters
-        ----------
-        efficiency : float
-            overall efficiency of the building.
-        annual_heat_load : float [MJ]
-            heat load of the building over a year.
-        lca_data : En15804LcaData
-            energy carrier LCA Dataset.
-
-        """
-        
-        if lca_data.ref_flow_unit != "MJ":
-            try:
-                lca_data = lca_data.convert_ref_unit("MJ")
-            except:
-                print("Unit of the reference flow has to be MJ!")
-                            
-        
-        lca_data = lca_data * efficiency * annual_heat_load
-        lca_data.unit = "pcs"
-                
-        self.lca_data = self.lca_data + lca_data
-        
-    def print_be_information(self):
-        """prints area and gwp of all buildingelements from the building.
-
-        """
-        outer_walls = {"area": 0, "gwp": None }
-        doors = {"area": 0, "gwp": None }
-        rooftops = {"area": 0, "gwp": None }
-        ground_floors = {"area": 0, "gwp": None }
-        windows = {"area": 0, "gwp": None }
-        inner_walls = {"area": 0, "gwp": None }
-        floors = {"area": 0, "gwp": None }
-        ceilings = {"area": 0, "gwp": None }
-        
-        for tz in self.thermal_zones:
-            for ow in tz.outer_walls:
-                outer_walls["area"] = outer_walls["area"] + ow.area
-            for do in tz.doors:
-                doors["area"] = doors["area"] + ow.area
-            for rt in tz.rooftops:
-                rooftops["area"] = rooftops["area"] + rt.area
-            for gf in tz.ground_floors:
-                ground_floors["area"] = ground_floors["area"] + gf.area
-            for wn in tz.windows:
-                windows["area"] = windows["areas"] + wn.area
-            for iw in tz.inner_walls:
-                inner_walls["area"] = inner_walls["area"] + iw.area
-            for fl in tz.floors:
-                floors["area"] = floors["area"] + fl.area
-            for ce in tz.ceilings:
-                ceilings["area"] = ceilings["area"] + ce.area
-                
-                
-        print("outer walls area: {}".format(outer_walls["areas"]))
-        print("doors area: {}".format(doors["areas"]))
-        print("rooftops area: {}".format(rooftops["areas"]))
-        print("ground_floors area: {}".format(ground_floors["areas"]))
-        print("windows area: {}".format(windows["areas"]))
-        print("inner_walls area: {}".format(inner_walls["areas"]))
-        print("floors area: {}".format(floors["areas"]))
-        print("ceilings area: {}".format(ceilings["areas"]))
