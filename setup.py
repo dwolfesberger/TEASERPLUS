@@ -1,13 +1,14 @@
 from setuptools import setup
 
 setup(
-    name="teaser",
-    version="0.7.6",
-    description="Tool for Energy Analysis and Simulation for " "Efficient Retrofit ",
-    url="https://github.com/RWTH-EBC/TEASER",
+    name="teaserplus",
+    version="0.2.0",
+    description="Tool for Energy Analysis and Simulation for " "Efficient Retrofit " "plus CityGML and EnergyADE",
+    url="https://github.com/RWTH-E3D/TEASERPLUS",
     author="RWTH Aachen University, E.ON Energy Research Center, "
-    "Institute of Energy Efficient Buildings and Indoor Climate",
-    author_email="ebc-teaser@eonerc.rwth-aachen.de",
+    "Institute of Energy Efficient Buildings and Indoor Climate, "
+           "E3D,Institute of Energy Efficiency and Sustainable Building",
+    author_email="ebc-teaser@eonerc.rwth-aachen.de , shamovich@e3d.rwth-aachen.de , cityatb@e3d.rwth-aachen.de",
     license="MIT",
     packages=[
         "teaser",
@@ -81,5 +82,5 @@ setup(
         "Topic :: Scientific/Engineering",
         "Topic :: Utilities",
     ],
-    install_requires=["mako", "pytest", "pandas", "numpy"],
+    install_requires=["mako", "pytest", "pandas", "numpy", "lxml", "buildingspy"],
 )
