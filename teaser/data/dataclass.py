@@ -137,4 +137,4 @@ class DataClass(object):
                 with open(self.path_mat, "w") as f:
                     self.material_bind = collections.OrderedDict()
                     self.material_bind["version"] = "0.7"
-    a
+
