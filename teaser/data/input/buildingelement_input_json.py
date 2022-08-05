@@ -83,8 +83,6 @@ def _set_basic_data(element, element_in):
         element.inner_convection = element_in["inner_convection"]
         element.outer_radiation = element_in["outer_radiation"]
         element.outer_convection = element_in["outer_convection"]
-        element.lca_data = element_in["lca_data"]
-        element.service_life = element_in["service_life"]
 
     elif type(element).__name__ == "Window":
 

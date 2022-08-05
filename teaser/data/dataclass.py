@@ -76,19 +76,8 @@ class DataClass(object):
         )
         self.conditions_bind = None
         self.path_uc = utils.get_full_path("data/input/inputdata/UseConditions.json")
-        
-        self.lca_data_bind = None
-        self.path_lcad = utils.get_full_path("data/input/inputdata/LcaData.json")
-        
-        self.lca_data_fallback_bind = None
-        self.path_lcad_fallback = utils.get_full_path("data/input/inputdata/LcaDataFallback.json")
-
         self.load_uc_binding()
         self.load_mat_binding()
-        self.load_lcad_binding()
-        self.load_lcad_fallback_binding()
-        
-        
 
     def load_tb_binding(self):
         """Load TypeBuildingElement json into binding classes."""
