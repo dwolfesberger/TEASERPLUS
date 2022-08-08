@@ -76,19 +76,8 @@ class DataClass(object):
         )
         self.conditions_bind = None
         self.path_uc = utils.get_full_path("data/input/inputdata/UseConditions.json")
-        
-        self.lca_data_bind = None
-        self.path_lcad = utils.get_full_path("data/input/inputdata/LcaData.json")
-        
-        self.lca_data_fallback_bind = None
-        self.path_lcad_fallback = utils.get_full_path("data/input/inputdata/LcaDataFallback.json")
-
         self.load_uc_binding()
         self.load_mat_binding()
-        self.load_lcad_binding()
-        self.load_lcad_fallback_binding()
-        
-        
 
     def load_tb_binding(self):
         """Load TypeBuildingElement json into binding classes."""
@@ -137,35 +126,4 @@ class DataClass(object):
                 with open(self.path_mat, "w") as f:
                     self.material_bind = collections.OrderedDict()
                     self.material_bind["version"] = "0.7"
-    
-    def load_lcad_binding(self):
-        """Load LCAData json into binding classes."""
-        if self.path_lcad.endswith("json"):
-            if os.path.isfile(self.path_lcad):
-                try:
-                    with open(self.path_lcad, "r+") as f:
-                        self.lca_data_bind = json.load(
-                            f, object_pairs_hook=collections.OrderedDict
-                        )
-                except json.decoder.JSONDecodeError:
-                    print("Your LCA-Data file seems to be broken.")
-            else:
-                with open(self.path_lcad, "w") as f:
-                    self.lca_data_bind = collections.OrderedDict()
-                    self.lca_data_bind["version"] = "0.7"
-                    
-    def load_lcad_fallback_binding(self):
-        """Load LCAData-Fallback json into binding classes."""
-        if self.path_lcad_fallback.endswith("json"):
-            if os.path.isfile(self.path_lcad_fallback):
-                try:
-                    with open(self.path_lcad_fallback, "r+") as f:
-                        self.lca_data_fallback_bind = json.load(
-                            f, object_pairs_hook=collections.OrderedDict
-                        )
-                except json.decoder.JSONDecodeError:
-                    print("Your LCA-Data-Fallback file seems to be broken.")
-            else:
-                with open(self.path_lcad_fallback, "w") as f:
-                    self.lca_data_fallback_bind = collections.OrderedDict()
-                    self.lca_data_fallback_bind["version"] = "0.7"
+

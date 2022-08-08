@@ -93,11 +93,6 @@ class Project(object):
         Path to reference results in BuildingsPy format. If not None, the results
         will be copied into the model output directories so that the exported
         models can be regression tested against these results with BuildingsPy.
-    period_lca_scenario : int [a]
-        period which is taken into account for LCA
-    use_b4 : bool
-        if true environmental indicators of replaced buildingelements are added
-        to stage B4. Otherwise they are added seperatly to the other stages
     
     """
 
@@ -131,9 +126,6 @@ class Project(object):
             self.data = None
 
         self.dir_reference_results = None
-        
-        self._period_lca_scenario = 80
-        self._use_b4 = False
 
     @staticmethod
     def instantiate_data_class():
@@ -1354,32 +1346,3 @@ internal_gains_mode: int [1, 2, 3]
         if self._name[0].isdigit():
             self._name = "P" + self._name
 
-    @property
-    def use_b4(self):
-        return self._use_b4 
-    
-    @use_b4.setter 
-    def use_b4(self, value):
-        if isinstance(value, bool):
-            self._use_b4 = value
-        else:
-            try:
-                value = bool(value)
-                self._use_b4 = value
-            except ValueError:
-                print("Can´t convert value to boolean")
-                
-    @property
-    def period_lca_scenario(self):
-        return self._period_lca_scenario
-    
-    @period_lca_scenario.setter
-    def period_lca_scenario(self, value):
-        if isinstance(value, int):
-            self._period_lca_scenario = value
-        else:
-            try:
-                value = int(value)
-                self._period_lca_scenario = value
-            except ValueError:
-                print("Can´t convert value to integer")
