@@ -58,6 +58,7 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
         root = tree.getroot()
         namespace = root.nsmap
         buildings_in_file = root.findall('core:cityObjectMember/bldg:Building', namespace)
+        boundary_box = root.find("gml:boundedBy/gml:Envelope", namespace)
 
     chosen_gmls = []
 
@@ -89,7 +90,7 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
                     in bldg_addresses:
 
                 chosen_gmls.append(building_lxml)
-    return chosen_gmls, namespace
+    return chosen_gmls, namespace, boundary_box
 
 
 def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
@@ -113,7 +114,9 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
     :param yoc_list: List[]
             List of year of construction for chosen gml buildings
     :return: gml_copy_list
+    :return: boundary_box
     """
+
     if chosen_gmls is None:
         with open(path, 'r') as xml_file:
             tree = ET.parse(xml_file)
@@ -122,7 +125,7 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
             buildings = root.findall('core:cityObjectMember/bldg:Building', namespace)
             boundary_box = root.find("gml:boundedBy/gml:Envelope", namespace)
     else:
-        buildings, namespace = chosen_gmls
+        buildings, namespace, boundary_box = chosen_gmls
 
     gml_copy_list = []
     """Start Loop through selected Buildings in GML file, assign Archetype by Function and create TEASER building"""

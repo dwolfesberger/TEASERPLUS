@@ -49,11 +49,14 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
                                        prj.name + "\\results\\" + buildings.name)
                 r = Reader(results, "dymola")
                 (time1, heatload) = r.values('multizone.PHeater[1]')
+                buildings.simulated_heat_load = heatload
+
                 if matchObj.group(1) in df_results.columns:
                     hl = pd.Series(heatload)
                     df_results[matchObj.group(1)] = df_results[matchObj.group(1)].add(hl)
                 else:
                     df_results[matchObj.group(1)] = heatload
+
             except:
                 print(f'failed simulation for building {buildings.name}')
         else:
@@ -67,6 +70,8 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
                 (time2, insidetemperature) = r.values('multizone.TAir[1]')
                 (time3, outsidetemperature) = r.values('weaDat.weaBus.TDryBul')
 
+                """Write into the building class instance"""
+                buildings.simulated_heat_load = heatload
                 """Write in a DataFrame, Each buiding gets a column for the heatload"""
                 df_results[f'{buildings.name}'] = heatload
 
@@ -105,9 +110,6 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
     df_results['post processing time'] = post_processing_time
 
     df_results.to_csv(result_path)
-
-    if save_in_gml:
-        prj.save_citygml(path="../teaserplus_e3d/gmlfiles/ADE out", results=heatload)
 
 
 def simulateCase(s):

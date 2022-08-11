@@ -115,6 +115,10 @@ class Building(object):
     library_attr : Annex() or AixLib() instance
         Classes with specific functions and attributes for building models in
         IBPSA and AixLib. Python classes can be found in calculation package.
+     simulated_heat_load : np.array
+        heat load simulated for this building. Value is used to calculated the
+        enviromental indicators for heating
+
 
     """
 
@@ -167,6 +171,7 @@ class Building(object):
         self._used_library_calc = "AixLib"
 
         self.library_attr = None
+        self.simulated_heat_load = None
 
     def set_height_gml(self):
         """Calculates the height of a building from CityGML data
@@ -874,3 +879,12 @@ class Building(object):
             self.library_attr = AixLib(parent=self)
         elif self.used_library_calc == "IBPSA":
             self.library_attr = IBPSA(parent=self)
+
+    @property
+    def simulated_heat_load(self):
+        return self._simulated_heat_load
+
+    @simulated_heat_load.setter
+    def simulated_heat_load(self, value):
+        self._simulated_heat_load = value
+
