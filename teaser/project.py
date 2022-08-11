@@ -1026,7 +1026,7 @@ internal_gains_mode: int [1, 2, 3]
 
         tjson_in.load_teaser_json(path, self)
 
-    def save_citygml(self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, results=None):
+    def save_citygml(self, file_name=None, path=None, gml_copy=None, ref_coordinates=None, with_results=False):
         """Saves the project to a CityGML file
 
         calls the function save_gml in data.CityGML we make use of CityGML core
@@ -1054,7 +1054,8 @@ internal_gains_mode: int [1, 2, 3]
             new_path = os.path.join(path, name + ".gml")
             utilities.create_path(utilities.get_full_path(path))
 
-        citygml_out.save_gml_lxml(self, new_path, ref_coordinates=ref_coordinates, gml_copy=gml_copy, results=results)
+        citygml_out.save_gml_lxml(self, new_path, ref_coordinates=ref_coordinates,
+                                  gml_copy=gml_copy, with_results=with_results)
 
     def load_citygml(self, method="tabula_de", path=None, energyade=False,
                      gml_bldg_ids=None, gml_bldg_names=None, gml_bldg_addresses=None):

@@ -15,7 +15,7 @@ import teaser.data.output.citygml_classes as cl
 import pandas as pd
 
 
-def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=None):
+def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, with_results=None):
     """Based on CityGML Building export from CityBIT"""
 
     crs = "urn:adv:crs:ETRS89_UTM32*DE_DHHN2016_NH*GCG2016"
@@ -60,8 +60,11 @@ def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=No
             _set_gml_building_lxml(gml_bldg, nsClass, bldg_count, ET)
 
             """for testing the loop"""
-            if results is not None:
-                _save_simulation_results(gml_bldg, results=results)
+            if with_results is True:
+                if bldg_count.simulated_heat_load is not None:
+                    _save_simulation_results(gml_bldg, results=bldg_count.simulated_heat_load)
+                else:
+                    print("Heating load is not yet simulated!")
 
             bldg_center = [i * 80, 0, 0]
 
@@ -97,8 +100,8 @@ def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=No
                 namespace = nroot_E.nsmap
                 gml_bldg = nroot_E.findall('core:cityObjectMember/bldg:Building', namespace)[0]
 
-            if results is not None:
-                _save_simulation_results(gml_bldg, results=results)
+            if with_results is True:
+                _save_simulation_results(gml_bldg)
 
         for zone_count in bldg_count.thermal_zones:
             _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
@@ -795,7 +798,7 @@ def _save_simulation_results(gml_bldg, results):
     ET.SubElement(time_period, ET.QName(nsClass.gml, 'beginPosition')).text = str("2022-01-01T00:00:00")
     ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("2022-12-31T00:00:23")
     ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(1)
-    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "kWh"}).text = str(results)
+    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "kWh"}).text = ' '.join(map(str, results))
     ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'endUse')).text = str("space heating")
 
     gml_bldg.insert(3, demands) # insert the demands right after name and description
