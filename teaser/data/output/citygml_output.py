@@ -776,9 +776,10 @@ def _set_schedule(schedule_type, usage_zone, usage_zone_id, type_name):
 
 
 def _save_simulation_results(gml_bldg, results):
+
     demands = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, 'demands'))
-    EnergyDemand = ET.SubElement(demands, ET.QName(nsClass.energy, 'energyAmount'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
-    energyAmount = ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'demands'))
+    EnergyDemand = ET.SubElement(demands, ET.QName(nsClass.energy, 'EnergyDemand'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
+    energyAmount = ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'energyAmount'))
     regular_ts = ET.SubElement(energyAmount, ET.QName(nsClass.energy, 'RegularTimeSeries'))
     variable_props = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'variableProperties'))
     time_value_prop = ET.SubElement(variable_props, ET.QName(nsClass.energy, 'TimeValuesProperties'))
@@ -792,5 +793,6 @@ def _save_simulation_results(gml_bldg, results):
     ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("00:00:23")
     ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(1)
     ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "kWh"}).text = str(results)
+    gml_bldg.insert(2, demands) # insert the demands right after name and description
     return
 
