@@ -100,12 +100,12 @@ def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=No
             if results is not None:
                 _save_simulation_results(gml_bldg, results=results)
 
-            for zone_count in bldg_count.thermal_zones:
-                _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
-                PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
+        for zone_count in bldg_count.thermal_zones:
+            _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
+            PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
 
-                if gml_copy is None:
-                    tree = ET.ElementTree(nroot_E)
+            if gml_copy is None:
+                tree = ET.ElementTree(nroot_E)
 
             """writing file"""
             print('writing file')
@@ -777,20 +777,20 @@ def _set_schedule(schedule_type, usage_zone, usage_zone_id, type_name):
 
 def _save_simulation_results(gml_bldg, results):
     demands = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, 'demands'))
-    EnergyAmount = ET.SubElement(demands, ET.QName(nsClass.energy, 'energyAmount'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
-    regular_ts = ET.SubElement(EnergyAmount, ET.QName(nsClass.energy, 'RegularTimeSeries'))
+    EnergyDemand = ET.SubElement(demands, ET.QName(nsClass.energy, 'energyAmount'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
+    energyAmount = ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'demands'))
+    regular_ts = ET.SubElement(energyAmount, ET.QName(nsClass.energy, 'RegularTimeSeries'))
     variable_props = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'variableProperties'))
     time_value_prop = ET.SubElement(variable_props, ET.QName(nsClass.energy, 'TimeValuesProperties'))
-    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'acquisitionMethod')).text = str("estimation")
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'acquisitionMethod')).text = str("simulation")
     ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'interpolationType')).text = \
         str("averageInSucceedingInterval")
-    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'thematicDescription')).text = str("Nominal" + "heating load")
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'thematicDescription')).text = str("heating load")
     temporal_extant = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'temporalExtent'))
     time_period = ET.SubElement(temporal_extant, ET.QName(nsClass.gml, 'TimePeriod'))
     ET.SubElement(time_period, ET.QName(nsClass.gml, 'beginPosition')).text = str("00:00:00")
     ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("00:00:23")
-    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(8760)
-    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "hour"}).text = str(8760)
-    # TODO: set solution results
+    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(1)
+    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "kWh"}).text = str(results)
     return
 

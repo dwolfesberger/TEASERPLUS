@@ -1096,7 +1096,7 @@ internal_gains_mode: int [1, 2, 3]
 
         """
         gml_copy = None
-        gml_copy
+        boundary_box = None
         if energyade is True:
             energyade_in.load_ade_lxml(path, self)
         elif gml_bldg_names is not None:
