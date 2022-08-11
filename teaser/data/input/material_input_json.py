@@ -1,6 +1,5 @@
 """This module contains function to load material classes."""
 
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 def load_material(material, mat_name, data_class):
     """Material loader with name as identification.
@@ -38,10 +37,6 @@ def load_material(material, mat_name, data_class):
                 material.solar_absorp = mat["solar_absorp"]
                 material.thickness_default = mat["thickness_default"]
                 material.thickness_list = mat["thickness_list"]
-                material.service_life = mat["service_life"]
-                lca_data = En15804LcaData(material)
-                lca_data.load_lca_data_template(mat["lca_id"], data_class)
-                material.lca_data = lca_data
 
 
 def load_material_id(material, mat_id, data_class):
@@ -77,7 +72,4 @@ def load_material_id(material, mat_id, data_class):
                 material.solar_absorp = mat["solar_absorp"]
                 material.thickness_default = mat["thickness_default"]
                 material.thickness_list = mat["thickness_list"]
-                material.service_life = mat["service_life"]
-                lca_data = En15804LcaData(material)
-                lca_data.load_lca_data_template(mat["lca_id"], data_class)
-                material.lca_data = lca_data
+

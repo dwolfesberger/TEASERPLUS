@@ -12,7 +12,6 @@ from teaser.logic.buildingobjects.calculation.one_element import OneElement
 from teaser.logic.buildingobjects.calculation.two_element import TwoElement
 from teaser.logic.buildingobjects.calculation.three_element import ThreeElement
 from teaser.logic.buildingobjects.calculation.four_element import FourElement
-from teaser.logic.buildingobjects.buildingphysics.en15804lcadata import En15804LcaData
 
 
 class ThermalZone(object):
@@ -107,8 +106,6 @@ class ThermalZone(object):
         self.density_air = 1.25
         self.heat_capac_air = 1002
         self.t_ground = 286.15
-        
-        self._lca_data = None
 
     def calc_zone_parameters(
             self,
@@ -687,69 +684,3 @@ class ThermalZone(object):
                 self._t_outside = value
             except:
                 raise ValueError("Can't convert temperature to float")
-                
-    @property
-    def lca_data(self):
-        return self._lca_data
-
-    @lca_data.setter
-    def lca_data(self, value):
-        self._lca_data = value
-        
-    def get_buildingelements(self):
-        """returns a list of all buildingelements of the thermalzone
-        
-
-        Returns
-        -------
-        building_elements : list
-
-        """
-        building_elements = []
-        
-        building_elements.extend(self.outer_walls)
-        building_elements.extend(self.ground_floors)
-        building_elements.extend(self.rooftops)
-        building_elements.extend(self.inner_walls)
-        building_elements.extend(self.floors)
-        building_elements.extend(self.windows)
-        
-        return building_elements
-
-    def calc_lca_data(self, use_b4 = None, period_lca_scenario = None):
-        """sums up every LCA-data from building elements oft he thermalzone
-        
-
-        Parameters
-        ----------
-        use_b4 : bool, optional
-            if true alls replaced materials and building elements are added to
-            stage B4. The default is None.
-        period_lca_scenario : int [a], optional
-            period which is taken into account for LCA. The default is None.
-
-        """
-        lca_data = En15804LcaData()
-        
-        if use_b4 is None:
-            try:
-                use_b4 = self.parent.parent.parent.use_b4
-            except:
-                use_b4 = False
-        
-        if period_lca_scenario == None:
-            try:
-                period_lca_scenario = self.parent.parent.parent.period_lca_scenario
-            except:
-                print("Please enter a period for the LCA-scenario!")
-                
-        building_elements = self.get_buildingelements()
-        
-        for building_element in building_elements:
-            try:
-                building_element.calc_lca_data(use_b4, period_lca_scenario)
-                lca_data = lca_data + building_element.lca_data
-            except:
-                print("Error while adding {}".format(type(building_element).__name__))
-            
-        self.lca_data = lca_data
