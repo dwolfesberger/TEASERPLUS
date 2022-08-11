@@ -778,7 +778,8 @@ def _set_schedule(schedule_type, usage_zone, usage_zone_id, type_name):
 def _save_simulation_results(gml_bldg, results):
 
     demands = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, 'demands'))
-    EnergyDemand = ET.SubElement(demands, ET.QName(nsClass.energy, 'EnergyDemand'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
+    EnergyDemand = ET.SubElement(demands, ET.QName(nsClass.energy, 'EnergyDemand'),
+                                 attrib={ET.QName(nsClass.gml, 'id'): str("GML" + f"_{uuid.uuid1()}")})
     energyAmount = ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'energyAmount'))
     regular_ts = ET.SubElement(energyAmount, ET.QName(nsClass.energy, 'RegularTimeSeries'))
     variable_props = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'variableProperties'))
@@ -786,13 +787,17 @@ def _save_simulation_results(gml_bldg, results):
     ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'acquisitionMethod')).text = str("simulation")
     ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'interpolationType')).text = \
         str("averageInSucceedingInterval")
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'source')).text = \
+        str("ROM-AixLib model simulated with Dymola")
     ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'thematicDescription')).text = str("heating load")
     temporal_extant = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'temporalExtent'))
     time_period = ET.SubElement(temporal_extant, ET.QName(nsClass.gml, 'TimePeriod'))
-    ET.SubElement(time_period, ET.QName(nsClass.gml, 'beginPosition')).text = str("00:00:00")
-    ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("00:00:23")
+    ET.SubElement(time_period, ET.QName(nsClass.gml, 'beginPosition')).text = str("2022-01-01T00:00:00")
+    ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("2022-12-31T00:00:23")
     ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(1)
     ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "kWh"}).text = str(results)
-    gml_bldg.insert(2, demands) # insert the demands right after name and description
+    ET.SubElement(EnergyDemand, ET.QName(nsClass.energy, 'endUse')).text = str("space heating")
+
+    gml_bldg.insert(3, demands) # insert the demands right after name and description
     return
 
