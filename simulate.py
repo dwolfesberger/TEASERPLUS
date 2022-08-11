@@ -76,39 +76,39 @@ def simulate(path, prj, loading_time, result_path, visualization=False, save_in_
             except:
                 print(f'failed simulation for building {buildings.name}')
 
-    if visualization:
-        """BuildingsPy: plot Results"""
-        fig = plt.figure(figsize=(12.8, 7.2), frameon=False, dpi=150)
-        ax = fig.add_subplot(211)
-        ax.plot(time1 / 3600, heatload / 1000, 'b', label=f'{buildings.name}', linewidth=1)
-        ax.set_xlabel('Time [h]')
-        ax.set_ylabel('Heat load [kW]')
-        ax.xaxis.get_major_ticks(1440)
-        ax.set_xlim(0, 8760)
-        ax.legend()
+    # if visualization:
+    # """BuildingsPy: plot Results"""
+    # fig = plt.figure(figsize=(12.8, 7.2), frameon=False, dpi=150)
+    # ax = fig.add_subplot(211)
+    # ax.plot(time1 / 3600, heatload / 1000, 'b', label=f'{buildings.name}', linewidth=1)
+    # ax.set_xlabel('Time [h]')
+    # ax.set_ylabel('Heat load [kW]')
+    # ax.xaxis.get_major_ticks(1440)
+    # ax.set_xlim(0, 8760)
+    # ax.legend()
+    #
+    # ax = fig.add_subplot(212)
+    # ax.plot(time3 / 3600, outsidetemperature - 273.15, 'b', label='Outside Temperature', linewidth=1)
+    # ax.plot(time2 / 3600, insidetemperature - 273.15, 'r', label='Inside Temperature', linewidth=1)
+    # ax.set_xlabel('Time [h]')
+    # ax.set_ylabel('temperature [$^\circ$C]')
+    # ax.xaxis.get_major_ticks(1440)
+    # ax.set_xlim(0, 8760)
+    # ax.legend()
+    # plt.show()
 
-        ax = fig.add_subplot(212)
-        ax.plot(time3 / 3600, outsidetemperature - 273.15, 'b', label='Outside Temperature', linewidth=1)
-        ax.plot(time2 / 3600, insidetemperature - 273.15, 'r', label='Inside Temperature', linewidth=1)
-        ax.set_xlabel('Time [h]')
-        ax.set_ylabel('temperature [$^\circ$C]')
-        ax.xaxis.get_major_ticks(1440)
-        ax.set_xlim(0, 8760)
-        ax.legend()
-        plt.show()
+        '''calculating the simulation time'''
+        end_post_processing = timer()
+        post_processing_time = (end_post_processing-start_post_processing)
+        df_results['loading time'] = loading_time
+        df_results['simulation time'] = simulation_time
+        df_results['post processing time'] = post_processing_time
 
-    '''calculating the simulation time'''
-    end_post_processing = timer()
-    post_processing_time = (end_post_processing-start_post_processing)
-    df_results['loading time'] = loading_time
-    df_results['simulation time'] = simulation_time
-    df_results['post processing time'] = post_processing_time
-
-    df_results.to_csv(result_path)
+        df_results.to_csv(result_path)
 
     if save_in_gml:
         prj.save_citygml(path="../teaserplus_e3d/gmlfiles/ADE out", results=heatload)
-
+    return heatload
 
 def simulateCase(s):
     """
