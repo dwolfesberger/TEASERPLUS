@@ -100,12 +100,12 @@ def save_gml_lxml(project, path, gml_copy=None, ref_coordinates=None, results=No
             if results is not None:
                 _save_simulation_results(gml_bldg, results=results)
 
-        for zone_count in bldg_count.thermal_zones:
-            _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
-            PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
+            for zone_count in bldg_count.thermal_zones:
+                _set_gml_volume_lxml(gml_bldg, nsClass, zone_count, ET)
+                PolyIDs = _set_gml_thermal_zone_lxml(gml_bldg, nsClass, zone_count, ET)
 
-            if gml_copy is None:
-                tree = ET.ElementTree(nroot_E)
+                if gml_copy is None:
+                    tree = ET.ElementTree(nroot_E)
 
             """writing file"""
             print('writing file')
@@ -154,6 +154,8 @@ def _set_gml_building_lxml(gml_bldg, nsClass, teaser_building, ET):
 
 
 def _set_reference_boundary(gml_out, lower_coords, upper_coords):
+    #TODO: rewrite for lxml
+
     """Adds a reference coordinate system with `Envelope`'s corners
 
     The gml file includes a reference coordinate system defined in the
@@ -187,23 +189,23 @@ def _set_reference_boundary(gml_out, lower_coords, upper_coords):
     assert len(lower_coords) == 3, 'lower_coords must contain 3 elements'
     assert len(upper_coords) == 3, 'lower_coords must contain 3 elements'
 
-    reference_bound = gml.boundedBy()
-
-    reference_envelope = gml.Envelope()
-    reference_envelope.srsDimension = 3
-    reference_envelope.srsName = 'urn:adv:crs:ETRS89_UTM32'
-
-    lower_corner = gml.DirectPositionType(lower_coords)
-    lower_corner.srsDimension = 3
-    reference_envelope.lowerCorner = lower_corner
-    upper_corner = gml.DirectPositionType(upper_coords)
-    upper_corner.srsDimension = 3
-    reference_envelope.upperCorner = upper_corner
-
-    reference_bound.Envelope = reference_envelope
-    gml_out.boundedBy = reference_bound
-
-    return gml_out
+    # reference_bound = gml.boundedBy()
+    #
+    # reference_envelope = gml.Envelope()
+    # reference_envelope.srsDimension = 3
+    # reference_envelope.srsName = 'urn:adv:crs:ETRS89_UTM32'
+    #
+    # lower_corner = gml.DirectPositionType(lower_coords)
+    # lower_corner.srsDimension = 3
+    # reference_envelope.lowerCorner = lower_corner
+    # upper_corner = gml.DirectPositionType(upper_coords)
+    # upper_corner.srsDimension = 3
+    # reference_envelope.upperCorner = upper_corner
+    #
+    # reference_bound.Envelope = reference_envelope
+    # gml_out.boundedBy = reference_bound
+    #
+    # return gml_out
 
 
 def _set_lod_2_lxml(gml_bldg, length, width, height, bldg_center, nsClass, PolyIDs):
@@ -571,6 +573,29 @@ def _set_gml_thermal_boundary_lxml(gml_zone, wall, thermal_openings, nsClass, co
     return construction_id, construction_id_windows
 
 
+# def _set_gml_window_construction(element, nsClass, win_uvalue, win_trans, win_glazing):
+#     construction_id = str("GML_" + str(uuid.uuid1()))
+#     feature_member = ET.SubElement(nroot_E, ET.QName(nsClass['gml'], 'featureMember'))
+#     construction_gml = ET.SubElement(feature_member, ET.QName(nsClass['energy'], 'Construction'),
+#                                      attrib={ET.QName(nsClass['gml'], 'id'): str(construction_id)})
+#     ET.SubElement(construction_gml, ET.QName(nsClass['gml'], "description")).text = \
+#         str(element + "_construction")
+#     ET.SubElement(construction_gml, ET.QName(nsClass['gml'], "name")).text = \
+#         str(element + "_construction")
+#     ET.SubElement(construction_gml, ET.QName(nsClass['energy'], "uValue"), attrib={'uom': "W/K*m2"}).text = \
+#         str(win_uvalue)
+#     opticalProperties = ET.SubElement(construction_gml, ET.QName(nsClass['energy'], "opticalProperties"))
+#     OpticalProperties = ET.SubElement(opticalProperties, ET.QName(nsClass['energy'], "OpticalProperties"))
+#     transmittance = ET.SubElement(OpticalProperties, ET.QName(nsClass['energy'], "transmittance"))
+#     Transmittance = ET.SubElement(transmittance, ET.QName(nsClass['energy'], "Transmittence"))
+#     ET.SubElement(Transmittance, ET.QName(nsClass['energy'], "fraction"), attrib={'uom': "scale"}).text = \
+#         str(win_trans)
+#     ET.SubElement(Transmittance, ET.QName(nsClass['energy'], "wavelengthRange")).text = \
+#         str("solar")
+#     ET.SubElement(OpticalProperties, ET.QName(nsClass['energy'], "glazingRatio"), attrib={'uom': "scale"}).text = \
+#         str(win_glazing)
+#     return construction_id
+
 def _set_gml_construction_lxml(element, material_ids):
     construction_id = str("GML_" + str(uuid.uuid1()))
     feature_member = ET.SubElement(nroot_E, ET.QName(nsClass.gml, 'featureMember'))
@@ -751,18 +776,21 @@ def _set_schedule(schedule_type, usage_zone, usage_zone_id, type_name):
 
 
 def _save_simulation_results(gml_bldg, results):
+    demands = ET.SubElement(gml_bldg, ET.QName(nsClass.energy, 'demands'))
+    EnergyAmount = ET.SubElement(demands, ET.QName(nsClass.energy, 'energyAmount'), attrib={ET.QName(nsClass.gml, 'id'): str("test" + f"_results")})
+    regular_ts = ET.SubElement(EnergyAmount, ET.QName(nsClass.energy, 'RegularTimeSeries'))
+    variable_props = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'variableProperties'))
+    time_value_prop = ET.SubElement(variable_props, ET.QName(nsClass.energy, 'TimeValuesProperties'))
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'acquisitionMethod')).text = str("estimation")
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'interpolationType')).text = \
+        str("averageInSucceedingInterval")
+    ET.SubElement(time_value_prop, ET.QName(nsClass.energy, 'thematicDescription')).text = str("Nominal" + "heating load")
+    temporal_extant = ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'temporalExtent'))
+    time_period = ET.SubElement(temporal_extant, ET.QName(nsClass.gml, 'TimePeriod'))
+    ET.SubElement(time_period, ET.QName(nsClass.gml, 'beginPosition')).text = str("00:00:00")
+    ET.SubElement(time_period, ET.QName(nsClass.gml, 'endPosition')).text = str("00:00:23")
+    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'timeInterval'), attrib={'unit': "hour"}).text = str(8760)
+    ET.SubElement(regular_ts, ET.QName(nsClass.energy, 'values'), attrib={'unit': "hour"}).text = str(8760)
+    # TODO: set solution results
+    return
 
-    demands = energy.demands()
-    demands.EnergyDemand = energy.EnergyDemandType()
-    demands.EnergyDemand.endUse = "spaceHeating"
-    demands.EnergyDemand.energyAmount = energy.AbstractTimeSeriesPropertyType()
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries = energy.RegularTimeSeries()
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.values = results
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.values.uom = "kWh"
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.variableProperties = energy.TimeValuesPropertiesPropertyType()
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.variableProperties\
-        .interpolationType = "averageInSucceedingInterval"
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.temporalExtent = gml.TimePeriodPropertyType()
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.timeInterval = 1
-    demands.EnergyDemand.energyAmount.AbstractTimeSeries.timeInterval.unit = bd.datatypes.anyURI("hour")
-    gml_bldg.GenericApplicationPropertyOfCityObject.append(demands)

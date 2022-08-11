@@ -48,6 +48,7 @@ import teaser.data.output.citygml_output as citygml_out
 import teaser.data.input.citygml_input as citygml_in
 import teaser.data.input.energyade_input as energyade_in
 
+
 class Project(object):
     """Top class for TEASER projects it serves as an API
 
@@ -1095,19 +1096,21 @@ internal_gains_mode: int [1, 2, 3]
 
         """
         gml_copy = None
+        gml_copy
         if energyade is True:
             energyade_in.load_ade_lxml(path, self)
         elif gml_bldg_names is not None:
             chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_names=gml_bldg_names)
-            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
         elif gml_bldg_ids is not None:
             chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_ids=gml_bldg_ids)
-            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
         elif gml_bldg_addresses is not None:
             chosen_gmls=citygml_in.choose_gml_lxml(path, bldg_addresses=gml_bldg_addresses)
-            citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
+            gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=chosen_gmls)
         else:
             gml_copy, boundary_box = citygml_in.load_gml_lxml(path, self, method=method, chosen_gmls=None)
+
         return gml_copy, boundary_box
 
     def export_aixlib(
