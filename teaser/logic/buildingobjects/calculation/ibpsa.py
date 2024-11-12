@@ -36,7 +36,7 @@ class IBPSA(object):
         self.parent = parent
         self.file_internal_gains = "InternalGains_" + self.parent.name + ".mat"
         self.version = {
-            "AixLib": "1.0.0",
+            "AixLib": "1.3.2",
             "Buildings": "7.0.0",
             "BuildingSystems": "2.0.0-beta2",
             "IDEAS": "2.1.0",
@@ -60,8 +60,8 @@ class IBPSA(object):
         3 Column : profile_persons, convective
         4 Column : profile_machines, convective
 
-        Note
-        ----------
+        Notes
+        -----
         When time line is created, we need to add a 0 to first element of
         all boundaries. This is due to to expected format in Modelica.
 
@@ -84,7 +84,7 @@ class IBPSA(object):
         path = os.path.join(path, self.file_internal_gains)
 
         export = pd.DataFrame(
-            index=pd.date_range("2019-01-01 00:00:00", periods=8760, freq="H")
+            index=pd.date_range("2019-01-01 00:00:00", periods=8760, freq="h")
             .to_series()
             .dt.strftime("%m-%d %H:%M:%S")
         )

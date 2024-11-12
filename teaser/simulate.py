@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from buildingspy.simulate.Simulator import Simulator
+from buildingspy.simulate.Dymola import Simulator
 from buildingspy.io.outputfile import Reader
 import matplotlib.pyplot as plt
 from multiprocessing import Pool

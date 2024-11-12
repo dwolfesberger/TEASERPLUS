@@ -57,7 +57,7 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
         tree = ET.parse(xml_file)
         root = tree.getroot()
         namespace = root.nsmap
-        buildings_in_file = root.findall('core:cityObjectMember/bldg:Building', namespace)
+        buildings_in_file = root.findall('cityObjectMember/bldg:Building', namespace)
         boundary_box = root.find("gml:boundedBy/gml:Envelope", namespace)
 
     chosen_gmls = []
@@ -72,8 +72,8 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
     if bldg_names is not None:
 
         for building_lxml in buildings_in_file:
-            if building_lxml.find('core:externalReference/core:externalObject/core:name', namespace) is not None and \
-            building_lxml.find('core:externalReference/core:externalObject/core:name', namespace).text in bldg_names:
+            if building_lxml.find('externalReference/externalObject/name', namespace) is not None and \
+            building_lxml.find('externalReference/externalObject/name', namespace).text in bldg_names:
                 chosen_gmls.append(building_lxml)
 
             if building_lxml.find('gml:name', namespace) is not None and \
@@ -83,9 +83,9 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
     if bldg_addresses is not None:
         for building_lxml in buildings_in_file:
             if building_lxml.find('bldg:address', namespace) is not None and \
-                    (building_lxml.find('bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country'
+                    (building_lxml.find('bldg:address/Address/xalAddress/xal:AddressDetails/xal:Country'
                                         '/xal:Locality/xal:Thoroughfare/xal:ThoroughfareName', namespace).text,
-                     building_lxml.find('bldg:address/core:Address/core:xalAddress/xal:AddressDetails/xal:Country'
+                     building_lxml.find('bldg:address/Address/xalAddress/xal:AddressDetails/xal:Country'
                                         '/xal:Locality/xal:Thoroughfare/xal:ThoroughfareNumber', namespace).text) \
                     in bldg_addresses:
 
@@ -93,7 +93,7 @@ def choose_gml_lxml(path, bldg_ids=None, bldg_names=None, bldg_addresses=None):
     return chosen_gmls, namespace, boundary_box
 
 
-def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
+def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None, calc_sep=True):
     """
     This function loads buildings from a CityGML file, checks for a name, BuildingParts and
     start GML surface extraction and consequent building genaration.
@@ -113,6 +113,10 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
             List of chosen CityObject(Buildings)
     :param yoc_list: List[]
             List of year of construction for chosen gml buildings
+    :param calc_sep: Boolean
+        Decision variable for buildingPart handling, if False BuildingParts are
+        calculated as separate Buildings inheriting only function and yoc. If True,
+        BuildingsParts are merged together with calculation on the mean measured Height
     :return: gml_copy_list
     :return: boundary_box
     """
@@ -122,21 +126,20 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
             tree = ET.parse(xml_file)
             root = tree.getroot()
             namespace = root.nsmap
-            buildings = root.findall('core:cityObjectMember/bldg:Building', namespace)
+            buildings = root.findall('cityObjectMember/bldg:Building', namespace)
             boundary_box = root.find("gml:boundedBy/gml:Envelope", namespace)
     else:
         buildings, namespace, boundary_box = chosen_gmls
 
     gml_copy_list = []
     """Start Loop through selected Buildings in GML file, assign Archetype by Function and create TEASER building"""
-
     for i, building_lxml in enumerate(buildings):
         gml_copy_list.append(copy.copy(building_lxml))
 
 
         """find building name, if not there, use building id"""
-        if building_lxml.find('core:externalReference/core:externalObject/core:name', namespace) is not None:
-            bldg_name = building_lxml.find('core:externalReference/core:externalObject/core:name', namespace).text
+        if building_lxml.find('externalReference/externalObject/name', namespace) is not None:
+            bldg_name = building_lxml.find('externalReference/externalObject/name', namespace).text
         else:
             try:
                 bldg_name = building_lxml.find('gml:name', namespace).text
@@ -146,7 +149,7 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
         """Check for BuildingParts"""
         if building_lxml.find('./bldg:consistsOfBuildingPart', namespace) is not None:
             load_gml_buildingparts_lxml(prj=prj, gml_bldg=building_lxml, namespace=namespace,
-                                        bldg_name=bldg_name, method=method)
+                                        bldg_name=bldg_name, method=method, calc_sep=calc_sep)
             continue
 
         """Assign Archetype"""
@@ -168,14 +171,16 @@ def load_gml_lxml(path, prj, method, chosen_gmls=None, yoc_list=None):
         """Calculates net_floor_area and number of toreys in Building with default storey height"""
         try:
             bldg.set_gml_attributes()
-        except (UserWarning, AttributeError):
-            print(f"{bldg.name} bldg.set_gml_attributes() did not work")
+            print(f"{bldg.name} bldg.set_gml_attributes() did work")
+        except Exception as e:
+            print(f"{bldg.name} bldg.set_gml_attributes() did not work: {type(e).__name__} - {str(e)}")
             pass
         """Sets Building Elements"""
         try:
             bldg.generate_from_gml()
-        except (UserWarning, AttributeError):
-            print(f"{bldg.name} bldg.generate_from_gml() did not work")
+            print(f"{bldg.name} bldg.generate_from_gml() did work")
+        except Exception as e:
+            print(f"{bldg.name} bldg.generate_from_gml() did not work: {type(e).__name__} - {str(e)}")
             pass
 
     return gml_copy_list, boundary_box
@@ -226,13 +231,15 @@ def load_gml_buildingparts_lxml(prj, gml_bldg, namespace, bldg_name, method, yoc
 
             try:
                 bldg.set_gml_attributes()
-            except (UserWarning, AttributeError):
-                print(f"{bldg.name} bldg.set_gml_attributes() did not work")
+                print(f"{bldg.name} bldg.set_gml_attributes() did work")
+            except Exception as e:
+                print(f"{bldg.name} bldg.set_gml_attributes() did not work: {type(e).__name__} - {str(e)}")
                 pass
             try:
                 bldg.generate_from_gml()
-            except (UserWarning, AttributeError):
-                print(f"{bldg.name} bldg.generate_from_gml() did not work")
+                print(f"{bldg.name} bldg.set_gml_attributes() did work")
+            except Exception as e:
+                print(f"{bldg.name} bldg.generate_from_gml() did not work: {type(e).__name__} - {str(e)}")
                 pass
 
         """BuildingParts are merged"""
@@ -259,13 +266,15 @@ def load_gml_buildingparts_lxml(prj, gml_bldg, namespace, bldg_name, method, yoc
 
         try:
             bldg.set_gml_attributes(merge_building_part=True)
-        except (UserWarning, AttributeError):
-            print(f"{bldg.name} bldg.set_gml_attributes() did not work")
+            print(f"{bldg.name} bldg.set_gml_attributes() did work")
+        except Exception as e:
+            print(f"{bldg.name} bldg.set_gml_attributes() did not work: {type(e).__name__} - {str(e)}")
             pass
         try:
             bldg.generate_from_gml()
-        except (UserWarning, AttributeError):
-            print(f"{bldg.name} bldg.generate_from_gml() did not work")
+            print(f"{bldg.name} bldg.set_gml_attributes() did work")
+        except Exception as e:
+            print(f"{bldg.name} bldg.generate_from_gml() did not work: {type(e).__name__} - {str(e)}")
             pass
 
 
@@ -289,9 +298,8 @@ def assign_archetype(prj, building_lxml, namespace, bldg_name, method):
     :return: bldg - TEASER Building
             An Instant of a TEASER Building in the Project with Name
     """
-
-    if building_lxml.find('bldg:function', namespace) is not None:
-        bldg_function = building_lxml.find('bldg:function', namespace).text
+    if building_lxml.find('.//bldg:function', namespace) is not None:
+        bldg_function = building_lxml.find('.//bldg:function', namespace).text
 
         if bldg_function in alkis_sfh_codes:  # Single Family Buildings
             if method == "tabula_de":
@@ -380,6 +388,12 @@ def get_gml_surfaces(bldg, city_object, namespace):
 
     if not lod == 0:
         for bound_surf in boundary_surfaces:
+            
+            # get surface tyüe 
+            surface_type = None
+            for child in bound_surf:
+                surface_type = child.tag.split('}')[-1]
+
             for surf_member in bound_surf.iter():
 
                 # if surf_member.tag == "{http://www.opengis.net/gml}name":
@@ -393,7 +407,7 @@ def get_gml_surfaces(bldg, city_object, namespace):
                                 a_list = surf_pos.text.split()
                                 map_object = map(float, a_list)
                                 coord_list = list(map_object)
-                                help = SurfaceGML(coord_list)
+                                help = SurfaceGML(coord_list, surface_type)
                                 if help.surface_area > 1:
                                     bldg.gml_surfaces.append(help)
 
@@ -406,7 +420,7 @@ def get_gml_surfaces(bldg, city_object, namespace):
                                     map_object = map(float, a_list)
                                     coord_list = list(map_object)
                                     position_list_help.extend(coord_list)
-                                help = SurfaceGML(position_list_help)
+                                help = SurfaceGML(position_list_help, surface_type)
                                 if help.surface_area > 1:
                                     bldg.gml_surfaces.append(help)
     if lod == 3 or lod == 4:

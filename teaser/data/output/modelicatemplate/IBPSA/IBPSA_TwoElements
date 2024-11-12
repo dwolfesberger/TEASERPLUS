@@ -2,6 +2,9 @@
 within ${zone.parent.parent.name}.${zone.parent.name}.${zone.parent.name}_Models;
 model ${zone.parent.name}_${zone.name}
   "This is the simulation model of ${zone.name} within building ${zone.parent.name} with traceable ID ${zone.parent.building_id}"
+  
+  parameter Modelica.Units.SI.HeatFlowRate Q_heat_nominal = ${zone.model_attr.heat_load}
+    "Nominal heat flow rate of building heating calculatet by TEASER";
 
   ${library}.BoundaryConditions.WeatherData.ReaderTMY3 weaDat(
     calTSky=${library}.BoundaryConditions.Types.SkyTemperatureCalculation.HorizontalRadiation,
@@ -13,12 +16,10 @@ model ${zone.parent.name}_${zone.name}
   ${library}.BoundaryConditions.SolarIrradiation.DiffusePerez HDifTil[${min_orientations(zone.model_attr.n_outer)}](    each outSkyCon=true,
     each outGroCon=true,
     til=${get_list(deg_to_rad(zone.model_attr.tilt_facade))},
-    each lat = ${deg_to_rad(zone.parent.latitude)},
     azi = ${get_list(azmiut_conv(zone.model_attr.orientation_facade))})
     "Calculates diffuse solar radiation on titled surface for all directions"
     annotation (Placement(transformation(extent={{-68,20},{-48,40}})));
   ${library}.BoundaryConditions.SolarIrradiation.DirectTiltedSurface HDirTil[${min_orientations(zone.model_attr.n_outer)}](    til=${get_list(deg_to_rad(zone.model_attr.tilt_facade))},
-    each lat =  ${deg_to_rad(zone.parent.latitude)},
     azi=${get_list(azmiut_conv(zone.model_attr.orientation_facade))})
     "Calculates direct solar radiation on titled surface for all directions"
     annotation (Placement(transformation(extent={{-68,52},{-48,72}})));

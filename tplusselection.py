@@ -75,7 +75,7 @@ def get_lods(filename):
     # look at CITYBIT you dumb idiot
 
     # getting all buildings in file
-    buildings_in_file = root.findall('core:cityObjectMember/bldg:Building', nss)
+    buildings_in_file = root.findall('cityObjectMember/bldg:Building', nss)
 
     # iterating all buildings
     for building_E in buildings_in_file:
